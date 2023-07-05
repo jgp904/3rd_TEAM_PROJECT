@@ -1,4 +1,4 @@
-namespace _3rd_TEAM_PROJECT
+namespace _3rd_TEAM_PROJECT_Desk
 {
     internal static class Program
     {
