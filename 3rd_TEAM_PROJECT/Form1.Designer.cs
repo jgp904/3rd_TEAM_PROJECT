@@ -30,19 +30,19 @@
         {
             menuStrip1 = new MenuStrip();
             구매ToolStripMenuItem = new ToolStripMenuItem();
-            생산부서ToolStripMenuItem = new ToolStripMenuItem();
-            시스템ToolStripMenuItem = new ToolStripMenuItem();
             재고현황ToolStripMenuItem = new ToolStripMenuItem();
             입고현황ToolStripMenuItem = new ToolStripMenuItem();
+            입고내역ToolStripMenuItem = new ToolStripMenuItem();
+            입고조회ToolStripMenuItem = new ToolStripMenuItem();
             출고현황ToolStripMenuItem = new ToolStripMenuItem();
+            분출내역ToolStripMenuItem = new ToolStripMenuItem();
+            분출조회ToolStripMenuItem = new ToolStripMenuItem();
+            생산부서ToolStripMenuItem = new ToolStripMenuItem();
             생산현황ToolStripMenuItem = new ToolStripMenuItem();
             입출고현황ToolStripMenuItem = new ToolStripMenuItem();
             입고현황ToolStripMenuItem1 = new ToolStripMenuItem();
             출고현황ToolStripMenuItem1 = new ToolStripMenuItem();
-            입고내역ToolStripMenuItem = new ToolStripMenuItem();
-            입고조회ToolStripMenuItem = new ToolStripMenuItem();
-            분출내역ToolStripMenuItem = new ToolStripMenuItem();
-            분출조회ToolStripMenuItem = new ToolStripMenuItem();
+            시스템ToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,21 +59,8 @@
             // 
             구매ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 재고현황ToolStripMenuItem, 입고현황ToolStripMenuItem, 출고현황ToolStripMenuItem });
             구매ToolStripMenuItem.Name = "구매ToolStripMenuItem";
-            구매ToolStripMenuItem.Size = new Size(67, 20);
-            구매ToolStripMenuItem.Text = "구매부서";
-            // 
-            // 생산부서ToolStripMenuItem
-            // 
-            생산부서ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 생산현황ToolStripMenuItem, 입출고현황ToolStripMenuItem });
-            생산부서ToolStripMenuItem.Name = "생산부서ToolStripMenuItem";
-            생산부서ToolStripMenuItem.Size = new Size(67, 20);
-            생산부서ToolStripMenuItem.Text = "생산부서";
-            // 
-            // 시스템ToolStripMenuItem
-            // 
-            시스템ToolStripMenuItem.Name = "시스템ToolStripMenuItem";
-            시스템ToolStripMenuItem.Size = new Size(67, 20);
-            시스템ToolStripMenuItem.Text = "로그아웃";
+            구매ToolStripMenuItem.Size = new Size(55, 20);
+            구매ToolStripMenuItem.Text = "구매부";
             // 
             // 재고현황ToolStripMenuItem
             // 
@@ -88,38 +75,6 @@
             입고현황ToolStripMenuItem.Size = new Size(180, 22);
             입고현황ToolStripMenuItem.Text = "입고";
             // 
-            // 출고현황ToolStripMenuItem
-            // 
-            출고현황ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 분출내역ToolStripMenuItem, 분출조회ToolStripMenuItem });
-            출고현황ToolStripMenuItem.Name = "출고현황ToolStripMenuItem";
-            출고현황ToolStripMenuItem.Size = new Size(180, 22);
-            출고현황ToolStripMenuItem.Text = "분출";
-            // 
-            // 생산현황ToolStripMenuItem
-            // 
-            생산현황ToolStripMenuItem.Name = "생산현황ToolStripMenuItem";
-            생산현황ToolStripMenuItem.Size = new Size(180, 22);
-            생산현황ToolStripMenuItem.Text = "생산현황";
-            // 
-            // 입출고현황ToolStripMenuItem
-            // 
-            입출고현황ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 입고현황ToolStripMenuItem1, 출고현황ToolStripMenuItem1 });
-            입출고현황ToolStripMenuItem.Name = "입출고현황ToolStripMenuItem";
-            입출고현황ToolStripMenuItem.Size = new Size(180, 22);
-            입출고현황ToolStripMenuItem.Text = "입출고";
-            // 
-            // 입고현황ToolStripMenuItem1
-            // 
-            입고현황ToolStripMenuItem1.Name = "입고현황ToolStripMenuItem1";
-            입고현황ToolStripMenuItem1.Size = new Size(180, 22);
-            입고현황ToolStripMenuItem1.Text = "입고현황";
-            // 
-            // 출고현황ToolStripMenuItem1
-            // 
-            출고현황ToolStripMenuItem1.Name = "출고현황ToolStripMenuItem1";
-            출고현황ToolStripMenuItem1.Size = new Size(180, 22);
-            출고현황ToolStripMenuItem1.Text = "출고현황";
-            // 
             // 입고내역ToolStripMenuItem
             // 
             입고내역ToolStripMenuItem.Name = "입고내역ToolStripMenuItem";
@@ -132,6 +87,13 @@
             입고조회ToolStripMenuItem.Size = new Size(180, 22);
             입고조회ToolStripMenuItem.Text = "입고 조회";
             // 
+            // 출고현황ToolStripMenuItem
+            // 
+            출고현황ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 분출내역ToolStripMenuItem, 분출조회ToolStripMenuItem });
+            출고현황ToolStripMenuItem.Name = "출고현황ToolStripMenuItem";
+            출고현황ToolStripMenuItem.Size = new Size(180, 22);
+            출고현황ToolStripMenuItem.Text = "분출";
+            // 
             // 분출내역ToolStripMenuItem
             // 
             분출내역ToolStripMenuItem.Name = "분출내역ToolStripMenuItem";
@@ -143,6 +105,44 @@
             분출조회ToolStripMenuItem.Name = "분출조회ToolStripMenuItem";
             분출조회ToolStripMenuItem.Size = new Size(180, 22);
             분출조회ToolStripMenuItem.Text = "분출 조회";
+            // 
+            // 생산부서ToolStripMenuItem
+            // 
+            생산부서ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 생산현황ToolStripMenuItem, 입출고현황ToolStripMenuItem });
+            생산부서ToolStripMenuItem.Name = "생산부서ToolStripMenuItem";
+            생산부서ToolStripMenuItem.Size = new Size(55, 20);
+            생산부서ToolStripMenuItem.Text = "생산부";
+            // 
+            // 생산현황ToolStripMenuItem
+            // 
+            생산현황ToolStripMenuItem.Name = "생산현황ToolStripMenuItem";
+            생산현황ToolStripMenuItem.Size = new Size(180, 22);
+            생산현황ToolStripMenuItem.Text = "생산 내역 조회";
+            // 
+            // 입출고현황ToolStripMenuItem
+            // 
+            입출고현황ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 입고현황ToolStripMenuItem1, 출고현황ToolStripMenuItem1 });
+            입출고현황ToolStripMenuItem.Name = "입출고현황ToolStripMenuItem";
+            입출고현황ToolStripMenuItem.Size = new Size(180, 22);
+            입출고현황ToolStripMenuItem.Text = "입출고";
+            // 
+            // 입고현황ToolStripMenuItem1
+            // 
+            입고현황ToolStripMenuItem1.Name = "입고현황ToolStripMenuItem1";
+            입고현황ToolStripMenuItem1.Size = new Size(122, 22);
+            입고현황ToolStripMenuItem1.Text = "입고현황";
+            // 
+            // 출고현황ToolStripMenuItem1
+            // 
+            출고현황ToolStripMenuItem1.Name = "출고현황ToolStripMenuItem1";
+            출고현황ToolStripMenuItem1.Size = new Size(122, 22);
+            출고현황ToolStripMenuItem1.Text = "출고현황";
+            // 
+            // 시스템ToolStripMenuItem
+            // 
+            시스템ToolStripMenuItem.Name = "시스템ToolStripMenuItem";
+            시스템ToolStripMenuItem.Size = new Size(67, 20);
+            시스템ToolStripMenuItem.Text = "로그아웃";
             // 
             // Form1
             // 
