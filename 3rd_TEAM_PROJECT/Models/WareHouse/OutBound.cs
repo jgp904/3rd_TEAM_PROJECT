@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _3rd_TEAM_PROJECT.Models.Process;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace _3rd_TEAM_PROJECT.Models
 		public string Contact { get; set; }
 
 		public WareHouse? WareHouse { get; set; }
-		//Todo 공정 추가//
+		public MProcess? MProcess { get; set; }
+		
 	}
 }
