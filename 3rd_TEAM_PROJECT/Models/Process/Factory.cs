@@ -16,7 +16,7 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 
         public string Constructor { get; set; }
         public DateTime RegDate { get; set; }
-        public string Modifier { get; set; }
+        public string? Modifier { get; set; }
         public DateTime? ModDate { get; set; }
 
     }

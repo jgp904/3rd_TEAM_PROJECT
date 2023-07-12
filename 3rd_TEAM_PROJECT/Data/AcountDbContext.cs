@@ -1,4 +1,5 @@
 ﻿using _3rd_TEAM_PROJECT.Models;
+using _3rd_TEAM_PROJECT.Models.Process;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,12 @@ namespace _3rd_TEAM_PROJECT.Data
 		}
 		public DbSet<Acount> Acounts { get; set; }
 		public DbSet<Department> Departments { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Acount>()
+				.HasIndex(j => j.UserId)
+				.IsUnique();
+		}
 	}
 }

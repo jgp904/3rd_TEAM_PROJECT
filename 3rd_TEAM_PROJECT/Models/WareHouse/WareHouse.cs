@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Models
 {
+	[Table("T1_WareHouse")]
 	public class WareHouse
 	{
         public int Id { get; set; } // PK

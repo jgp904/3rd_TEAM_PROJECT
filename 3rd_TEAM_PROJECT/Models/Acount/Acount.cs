@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Models
 {
-    [Table("T1_Amount")]
+    [Table("T1_Acount")]
 	public class Acount
 	{
         public int Id { get; set; } //PK
@@ -19,6 +19,6 @@ namespace _3rd_TEAM_PROJECT.Models
         public int Authority { get; set; } = 1; // 관리 권한
         public string PassWord { get; set; } //비밀번호
         public DateTime RegDate { get; set; }// 입사일
-        public Department Department { get; set; }
+        public Department Department { get; set; }//FK
     }
 }

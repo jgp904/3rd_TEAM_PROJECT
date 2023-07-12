@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class Acount : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -25,13 +25,13 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "T1_Amount",
+                name: "T1_Acount",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-					UserId = table.Column<string>(type: "nvarchar(450)", maxLength: 100, nullable: false),
-					Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Position = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Authority = table.Column<int>(type: "int", nullable: false),
                     PassWord = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -40,10 +40,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_T1_Amount", x => x.Id);
-					table.UniqueConstraint("AK_T1_Amount_UserId", x => x.UserId);
-					table.ForeignKey(
-                        name: "FK_T1_Amount_T1_Department_DepartmentId",
+                    table.PrimaryKey("PK_T1_Acount", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_T1_Acount_T1_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "T1_Department",
                         principalColumn: "Id",
@@ -51,16 +50,22 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_T1_Amount_DepartmentId",
-                table: "T1_Amount",
+                name: "IX_T1_Acount_DepartmentId",
+                table: "T1_Acount",
                 column: "DepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_T1_Acount_UserId",
+                table: "T1_Acount",
+                column: "UserId",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "T1_Amount");
+                name: "T1_Acount");
 
             migrationBuilder.DropTable(
                 name: "T1_Department");

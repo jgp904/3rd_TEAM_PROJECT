@@ -1,12 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Models.Process
 {
-    internal class Item
+	[Table("T1_Item")]
+	public class Item
     {
-    }
+        public int Id { get; set; } // PK
+        public string Code { get; set; }
+        public string Type { get; set; }
+
+		public string Constructor { get; set; }
+		public DateTime RegDate { get; set; }
+		public string? Modifier { get; set; }
+		public DateTime? ModDate { get; set; }
+
+		
+	}
 }

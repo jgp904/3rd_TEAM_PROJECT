@@ -12,8 +12,8 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AcountDbContext))]
-    [Migration("20230707072510_Init")]
-    partial class Init
+    [Migration("20230712043627_Acount")]
+    partial class Acount
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,13 +56,16 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("T1_Amount");
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("T1_Acount");
                 });
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Department", b =>
