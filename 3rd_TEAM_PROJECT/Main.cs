@@ -68,10 +68,10 @@ namespace _3rd_TEAM_PROJECT
         {
             //계정의 가려지는 탭을 결정한다
             //DepartmentCode에 따라 구분한다
-            if (SessionManager.Instance.LoggedInAcount.Department.DepartmentCode != "1")
-            {
-                //TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
-            }
+            //if (SessionManager.Instance.LoggedInAcount.Department.DepartmentCode != "1")
+            //{
+            //    //TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
+            //}
         }
 
 
