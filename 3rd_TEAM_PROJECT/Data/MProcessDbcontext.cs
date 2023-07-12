@@ -1,5 +1,6 @@
 ﻿using _3rd_TEAM_PROJECT.Models;
 using _3rd_TEAM_PROJECT.Models.Process;
+using _3rd_TEAM_PROJECT.Models.WareHouse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
