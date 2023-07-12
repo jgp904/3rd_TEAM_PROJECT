@@ -336,8 +336,6 @@
             textBox85 = new TextBox();
             label86 = new Label();
             dataGridView11 = new DataGridView();
-            menuStrip1 = new MenuStrip();
-            로그아웃ToolStripMenuItem = new ToolStripMenuItem();
             lothis_id = new DataGridViewTextBoxColumn();
             lothis_num = new DataGridViewTextBoxColumn();
             lothis_regdate = new DataGridViewTextBoxColumn();
@@ -346,6 +344,8 @@
             lothis_procname = new DataGridViewTextBoxColumn();
             lothis_amount = new DataGridViewTextBoxColumn();
             lothis_itemnum = new DataGridViewTextBoxColumn();
+            menuStrip1 = new MenuStrip();
+            LogoutMenu = new ToolStripMenuItem();
             TabMenu.SuspendLayout();
             Purches_warehouse.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -3096,22 +3096,6 @@
             dataGridView11.Size = new Size(853, 616);
             dataGridView11.TabIndex = 27;
             // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { 로그아웃ToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1177, 24);
-            menuStrip1.TabIndex = 5;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // 로그아웃ToolStripMenuItem
-            // 
-            로그아웃ToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
-            로그아웃ToolStripMenuItem.Name = "로그아웃ToolStripMenuItem";
-            로그아웃ToolStripMenuItem.Size = new Size(67, 20);
-            로그아웃ToolStripMenuItem.Text = "로그아웃";
-            // 
             // lothis_id
             // 
             lothis_id.HeaderText = "LOT 순서";
@@ -3160,6 +3144,23 @@
             lothis_itemnum.Name = "lothis_itemnum";
             lothis_itemnum.ReadOnly = true;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { LogoutMenu });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1177, 24);
+            menuStrip1.TabIndex = 5;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // LogoutMenu
+            // 
+            LogoutMenu.Alignment = ToolStripItemAlignment.Right;
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(67, 20);
+            LogoutMenu.Text = "로그아웃";
+            LogoutMenu.Click += LogoutMenu_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3173,6 +3174,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
             FormClosing += Main_FormClosing;
+            Load += Main_Load;
             TabMenu.ResumeLayout(false);
             Purches_warehouse.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
@@ -3250,7 +3252,7 @@
         private TabPage Product_lotend;
         private TabPage Product_lothis;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem 로그아웃ToolStripMenuItem;
+        private ToolStripMenuItem LogoutMenu;
         private DataGridView dataGridView1;
         private TextBox txInboundAmount;
         private TextBox txInboundCode;

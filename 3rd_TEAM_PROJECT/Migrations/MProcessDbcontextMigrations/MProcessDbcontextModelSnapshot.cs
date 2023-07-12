@@ -283,17 +283,23 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+<<<<<<< HEAD
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
+=======
+>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4
                     b.Property<string>("Contact")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
                     b.Property<string>("Product")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+=======
+>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("datetime2");
 
@@ -319,9 +325,12 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+<<<<<<< HEAD
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
+=======
+>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4
                     b.Property<string>("Contact")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -329,10 +338,13 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.Property<int?>("MProcessId")
                         .HasColumnType("int");
 
+<<<<<<< HEAD
                     b.Property<string>("Product")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+=======
+>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("datetime2");
 

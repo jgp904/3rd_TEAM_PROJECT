@@ -1,13 +1,17 @@
-﻿namespace _3rd_TEAM_PROJECT
+﻿using _3rd_TEAM_PROJECT.Models.Acount;
+using _3rd_TEAM_PROJECT_Desk;
+
+namespace _3rd_TEAM_PROJECT
 {
     public partial class Main : Form
     {
+        //로그인한 계정을 구별
+        public Acount LoggedInAcount { get; set; }
+        public Login LoginForm { get; set; }
+
         public Main()
         {
             InitializeComponent();
-
-            //MainForm을 닫으면 LoginForm도 종료
-            this.FormClosed += (s, e) => Application.Exit();
         }
 
         private void TabMenu_DrawItem(object sender, DrawItemEventArgs e)
@@ -55,9 +59,36 @@
             //화면 닫을 때 확인메시지 출력
             DialogResult result = MessageBox.Show("프로그램을 종료하시겠습니까?", "Exit", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
+            {
                 e.Cancel = true;
-            else
-                Application.Exit();
+            }
         }
+        //계정에 따라 보여지는 탭을 구별한다
+        private void Main_Load(object sender, EventArgs e)
+        {
+            //계정의 가려지는 탭을 결정한다
+            //DepartmentCode에 따라 구분한다
+
+            //계정 사용 원할 경우 아래 주석을 해제하고, Programs.cs파일의 주석을 해제하면된다.
+            //if (SessionManager.Instance.LoggedInAcount.Department.DepartmentCode != "1")
+            //{
+            //    //TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
+            //}
+        }
+
+
+        //로그아웃 메뉴 클릭 시
+        private void LogoutMenu_Click(object sender, EventArgs e)
+        {
+            // 로그아웃 처리
+            SessionManager.Instance.Logout();
+
+            // 현재 메인 폼을 숨깁니다.
+            this.Hide();
+
+            // 저장된 로그인 폼 인스턴스를 다시 표시합니다.
+            SessionManager.Instance.LoginForm.Show();
+        }
+
     }
 }
