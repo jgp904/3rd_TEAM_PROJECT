@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Models.Process
 {
+    [Table("T1_MProcess")]
+    public class MProcess
 	[Table("T1_MProcess")]
 	public class MProcess
 	{
