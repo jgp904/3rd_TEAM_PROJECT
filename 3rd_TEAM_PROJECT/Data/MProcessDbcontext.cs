@@ -55,6 +55,9 @@ namespace _3rd_TEAM_PROJECT.Data
 			modelBuilder.Entity<MProcess>()
 				.HasIndex(j => j.Code)
 				.IsUnique();
+			modelBuilder.Entity<WareHouse>()
+				.HasIndex(j => j.Product)
+				.IsUnique();
 
 		}
 	}

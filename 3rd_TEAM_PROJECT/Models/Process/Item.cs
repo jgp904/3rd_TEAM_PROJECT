@@ -12,7 +12,14 @@ namespace _3rd_TEAM_PROJECT.Models.Process
     {
         public int Id { get; set; } // PK
         public string Code { get; set; }
+		public string Name { get; set; } // vnaaud
         public string Type { get; set; }
+		/*
+		 * 품번타입
+		 * 제품
+		 * 반제품
+		 * 원재료
+		 */
 
 		public string Constructor { get; set; }
 		public DateTime RegDate { get; set; }

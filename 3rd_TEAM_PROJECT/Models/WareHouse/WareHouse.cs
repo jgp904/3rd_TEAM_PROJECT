@@ -11,7 +11,7 @@ namespace _3rd_TEAM_PROJECT.Models.WareHouse
 	public class WareHouse
 	{
         public int Id { get; set; } // PK
-        public string Product { get; set; }
+        public string Product { get; set; }//UQ
         public string Item { get; set; }
         public int Amount { get; set; }
     }

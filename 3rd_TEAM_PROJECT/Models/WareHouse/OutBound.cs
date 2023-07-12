@@ -12,6 +12,8 @@ namespace _3rd_TEAM_PROJECT.Models.WareHouse
 	public class OutBound
 	{
 		public long Id { get; set; }
+		public string Product { get; set; }
+		public int Amount { get; set; }
 		public string Contact { get; set; }
 		public DateTime RegDate { get; set; }
 
