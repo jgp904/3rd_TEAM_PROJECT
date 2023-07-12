@@ -21,6 +21,6 @@ namespace _3rd_TEAM_PROJECT.Models.Acount
         public string PassWord { get; set; } //비밀번호
 
         public DateTime RegDate { get; set; }// 입사일
-        public Department Department { get; set; }//FK
+        public Department? Department { get; set; }//FK
     }
 }

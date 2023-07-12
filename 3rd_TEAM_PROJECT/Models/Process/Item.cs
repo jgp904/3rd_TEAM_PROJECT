@@ -16,9 +16,10 @@ namespace _3rd_TEAM_PROJECT.Models.Process
         public string Type { get; set; }
 		/*
 		 * 품번타입
-		 * 제품
-		 * 반제품
-		 * 원재료
+		 * 제품 : FERT
+		 * 반제품 : HALB
+		 * 원재료 : ROH
+		 * 부품 : PART
 		 */
 
 		public string Constructor { get; set; }

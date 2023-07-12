@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     /// <inheritdoc />
-    public partial class acount : Migration
+    public partial class Acount : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,11 +32,12 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DepartmentCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Position = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Authority = table.Column<int>(type: "int", nullable: false),
                     PassWord = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DepartmentId = table.Column<int>(type: "int", nullable: false)
+                    DepartmentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -45,8 +46,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         name: "FK_T1_Acount_T1_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "T1_Department",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

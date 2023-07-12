@@ -12,13 +12,8 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712072216_MProcess.Designer.cs
-    [Migration("20230712072216_MProcess")]
+    [Migration("20230712152332_MProcess")]
     partial class MProcess
-========
-    [Migration("20230712053942_mprocess")]
-    partial class mprocess
->>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712053942_mprocess.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +33,11 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Action")
+                    b.Property<string>("ActionCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ActionTime")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Amount")
@@ -55,7 +54,11 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.Property<int>("HisNum")
                         .HasColumnType("int");
 
-                    b.Property<int>("ItemId")
+                    b.Property<string>("ItemCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ItemId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ModDate")
@@ -68,7 +71,7 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProcessId")
+                    b.Property<int?>("ProcessId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("RegDate")
@@ -193,6 +196,10 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.Property<string>("Modifier")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("datetime2");
 
@@ -216,7 +223,7 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CreateLotId")
+                    b.Property<int?>("CreateLotId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ModDate")
@@ -251,7 +258,14 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FactoriesId")
+                    b.Property<string>("EquipCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EquipmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FactoriesId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ModDate")
@@ -278,6 +292,8 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.HasIndex("Code")
                         .IsUnique();
 
+                    b.HasIndex("EquipmentId");
+
                     b.HasIndex("FactoriesId");
 
                     b.ToTable("T1_MProcess");
@@ -291,23 +307,17 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712072216_MProcess.Designer.cs
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-========
->>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712053942_mprocess.Designer.cs
                     b.Property<string>("Contact")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712072216_MProcess.Designer.cs
                     b.Property<string>("Product")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-========
->>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712053942_mprocess.Designer.cs
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("datetime2");
 
@@ -333,12 +343,9 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712072216_MProcess.Designer.cs
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-========
->>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712053942_mprocess.Designer.cs
                     b.Property<string>("Contact")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -346,13 +353,10 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.Property<int?>("MProcessId")
                         .HasColumnType("int");
 
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712072216_MProcess.Designer.cs
                     b.Property<string>("Product")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-========
->>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230712053942_mprocess.Designer.cs
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("datetime2");
 
@@ -399,15 +403,11 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                 {
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Item", "Item")
                         .WithMany()
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ItemId");
 
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.MProcess", "Process")
                         .WithMany()
-                        .HasForeignKey("ProcessId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProcessId");
 
                     b.Navigation("Item");
 
@@ -418,20 +418,22 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                 {
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.CreateLot", "CreateLot")
                         .WithMany()
-                        .HasForeignKey("CreateLotId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreateLotId");
 
                     b.Navigation("CreateLot");
                 });
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.MProcess", b =>
                 {
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Equipment", "Equipment")
+                        .WithMany()
+                        .HasForeignKey("EquipmentId");
+
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Factory", "Factories")
                         .WithMany()
-                        .HasForeignKey("FactoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FactoriesId");
+
+                    b.Navigation("Equipment");
 
                     b.Navigation("Factories");
                 });

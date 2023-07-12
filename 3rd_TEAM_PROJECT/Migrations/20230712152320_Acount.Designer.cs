@@ -12,13 +12,8 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AcountDbContext))]
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/20230712072207_Acount.Designer.cs
-    [Migration("20230712072207_Acount")]
+    [Migration("20230712152320_Acount")]
     partial class Acount
-========
-    [Migration("20230712053906_acount")]
-    partial class acount
->>>>>>>> 608049a24006a3c5c03d322cfb2d63b6f372cae4:3rd_TEAM_PROJECT/Migrations/20230712053906_acount.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +36,11 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.Property<int>("Authority")
                         .HasColumnType("int");
 
-                    b.Property<int>("DepartmentId")
+                    b.Property<string>("DepartmentCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -94,9 +93,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 {
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Acount.Department", "Department")
                         .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentId");
 
                     b.Navigation("Department");
                 });

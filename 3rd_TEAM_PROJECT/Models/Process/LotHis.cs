@@ -14,6 +14,6 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 
 		public DateTime? ModDate { get; set; }
 		public string? Modifier { get; set; }
-        public CreateLot CreateLot { get; set; }
+        public CreateLot? CreateLot { get; set; }
 	}
 }

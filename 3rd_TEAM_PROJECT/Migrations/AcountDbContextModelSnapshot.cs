@@ -33,7 +33,11 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.Property<int>("Authority")
                         .HasColumnType("int");
 
-                    b.Property<int>("DepartmentId")
+                    b.Property<string>("DepartmentCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -86,9 +90,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 {
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Acount.Department", "Department")
                         .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentId");
 
                     b.Navigation("Department");
                 });

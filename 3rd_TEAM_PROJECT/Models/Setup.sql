@@ -42,6 +42,8 @@ VALUES
 ,((SELECT Product FROM T1_WareHouse WHERE Product = 'Corei5'),20,'다나와', GETDATE(), '김건우')
 ,((SELECT Product FROM T1_WareHouse WHERE Product = 'Corei3'),20,'다나와', GETDATE(), '김건우')
 --Process 추가후 다시---
+
+
 delete from T1_OutBound;
 INSERT INTO [LTDB].[dbo].[T1_OutBound] (Product,Amount,Contact,RegDate)
 VALUES
@@ -72,4 +74,26 @@ values
 delete from T1_Item;
 insert into [LTDB].[dbo].[T1_Item] (Code,Name,Type,Constructor,RegDate)
 Values
-('C_001','')
+('C_001','컴퓨터corei3','FERT','김건우',GETDATE())
+,('C_002','컴퓨터corei5','FERT','김건우',GETDATE())
+,('C_003','컴퓨터corei7','FERT','김건우',GETDATE())
+,('C_004','컴퓨터corei9','FERT','김건우',GETDATE())
+
+--Process--
+delete from t1_MProcess;
+insert into [LTDB].[dbo].[T1_MProcess] (Code,Name,Coment,EquipCode,StockUnit1,StockUnit2,Constructor,RegDate)
+Values
+('P_Test01','테스트1','','Equip01','EA','','김건우',GETDATE())
+,('P_Test02','테스트2','','Equip01','EA','','김건우',GETDATE())
+,('P_Test03','테스트3','','Equip01','EA','','김건우',GETDATE())
+,('P_Test04','테스트4','','Equip01','EA','','김건우',GETDATE())
+
+
+--Create Lot--
+delete from T1_CreateLot;
+insert into [LTDB].[dbo].[T1_CreateLot] (Code,Amount,ActionTime,HisNum,ActionCode,ProcessCode,ItemCode,Constructor,RegDate)
+Values
+('L_Test01','50',GETDATE(),1,'Create','P_Test01','C_001','김건우',GETDATE())
+,('L_Test02','50',GETDATE(),1,'Create','P_Test02','C_002','김건우',GETDATE())
+,('L_Test03','50',GETDATE(),1,'Create','P_Test03','C_003','김건우',GETDATE())
+,('L_Test04','50',GETDATE(),1,'Create','P_Test04','C_004','김건우',GETDATE())
