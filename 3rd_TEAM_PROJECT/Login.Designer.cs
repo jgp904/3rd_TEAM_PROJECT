@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtId = new TextBox();
+            txtPw = new TextBox();
             btnLogin = new Button();
             btnExit = new Button();
+            picPassIcon = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picPassIcon).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -45,25 +47,26 @@
             label1.TabIndex = 0;
             label1.Text = "로그인";
             // 
-            // textBox1
+            // txtId
             // 
-            textBox1.Location = new Point(28, 133);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "아이디를 입력하세요";
-            textBox1.Size = new Size(202, 23);
-            textBox1.TabIndex = 1;
+            txtId.Location = new Point(28, 133);
+            txtId.Name = "txtId";
+            txtId.PlaceholderText = "아이디를 입력하세요";
+            txtId.Size = new Size(202, 23);
+            txtId.TabIndex = 1;
             // 
-            // textBox2
+            // txtPw
             // 
-            textBox2.Location = new Point(28, 176);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "비밀번호를 입력하세요";
-            textBox2.Size = new Size(202, 23);
-            textBox2.TabIndex = 2;
+            txtPw.Location = new Point(28, 176);
+            txtPw.Name = "txtPw";
+            txtPw.PlaceholderText = "비밀번호를 입력하세요";
+            txtPw.Size = new Size(202, 23);
+            txtPw.TabIndex = 2;
+            txtPw.KeyPress += txtPw_KeyPress;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(28, 217);
+            btnLogin.Location = new Point(28, 236);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(86, 35);
             btnLogin.TabIndex = 3;
@@ -73,26 +76,42 @@
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(144, 217);
+            btnExit.Location = new Point(144, 236);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(86, 35);
             btnExit.TabIndex = 4;
             btnExit.Text = "종료";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
+            // 
+            // picPassIcon
+            // 
+            picPassIcon.Image = _3rd_TEAM_PROJECT.Properties.Resources.PasswardChar_On;
+            picPassIcon.Location = new Point(236, 170);
+            picPassIcon.Name = "picPassIcon";
+            picPassIcon.Size = new Size(33, 35);
+            picPassIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            picPassIcon.TabIndex = 5;
+            picPassIcon.TabStop = false;
+            picPassIcon.MouseLeave += picPassIcon_MouseLeave;
+            picPassIcon.MouseMove += picPassIcon_MouseMove;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(267, 279);
+            BackColor = Color.White;
+            ClientSize = new Size(281, 305);
+            Controls.Add(picPassIcon);
             Controls.Add(btnExit);
             Controls.Add(btnLogin);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtPw);
+            Controls.Add(txtId);
             Controls.Add(label1);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)picPassIcon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -100,9 +119,10 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtId;
+        private TextBox txtPw;
         private Button btnLogin;
         private Button btnExit;
+        private PictureBox picPassIcon;
     }
 }

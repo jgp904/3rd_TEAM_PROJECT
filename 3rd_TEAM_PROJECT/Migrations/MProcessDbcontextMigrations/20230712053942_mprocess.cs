@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 {
     /// <inheritdoc />
-    public partial class MProcess : Migration
+    public partial class mprocess : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -91,28 +91,21 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Coment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StockUnit1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StockUnit2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    EquipmentId = table.Column<int>(type: "int", nullable: false),
-                    FactoryId = table.Column<int>(type: "int", nullable: false)
+                    FactoriesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T1_MProcess", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_T1_MProcess_T1_Equipment_EquipmentId",
-                        column: x => x.EquipmentId,
-                        principalTable: "T1_Equipment",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_T1_MProcess_T1_Factory_FactoryId",
-                        column: x => x.FactoryId,
+                        name: "FK_T1_MProcess_T1_Factory_FactoriesId",
+                        column: x => x.FactoriesId,
                         principalTable: "T1_Factory",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -272,14 +265,9 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_T1_MProcess_EquipmentId",
+                name: "IX_T1_MProcess_FactoriesId",
                 table: "T1_MProcess",
-                column: "EquipmentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_T1_MProcess_FactoryId",
-                table: "T1_MProcess",
-                column: "FactoryId");
+                column: "FactoriesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_T1_OutBound_MProcessId",
@@ -295,6 +283,9 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "T1_Equipment");
+
             migrationBuilder.DropTable(
                 name: "T1_InBound");
 
@@ -315,9 +306,6 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
             migrationBuilder.DropTable(
                 name: "T1_MProcess");
-
-            migrationBuilder.DropTable(
-                name: "T1_Equipment");
 
             migrationBuilder.DropTable(
                 name: "T1_Factory");

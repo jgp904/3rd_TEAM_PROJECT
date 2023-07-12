@@ -22,65 +22,6 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.InBound", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Contact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RegDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Vendor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("WareHouseId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("WareHouseId");
-
-                    b.ToTable("T1_InBound");
-                });
-
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.OutBound", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Contact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MProcessId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RegDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("WareHouseId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MProcessId");
-
-                    b.HasIndex("WareHouseId");
-
-                    b.ToTable("T1_OutBound");
-                });
-
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.CreateLot", b =>
                 {
                     b.Property<int>("Id")
@@ -295,17 +236,14 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Comment")
+                    b.Property<string>("Coment")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Constructor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EquipmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FactoryId")
+                    b.Property<int>("FactoriesId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ModDate")
@@ -332,14 +270,71 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.HasIndex("EquipmentId");
-
-                    b.HasIndex("FactoryId");
+                    b.HasIndex("FactoriesId");
 
                     b.ToTable("T1_MProcess");
                 });
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.WareHouse", b =>
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.WareHouse.InBound", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Contact")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Vendor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("WareHouseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WareHouseId");
+
+                    b.ToTable("T1_InBound");
+                });
+
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.WareHouse.OutBound", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Contact")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MProcessId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("WareHouseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MProcessId");
+
+                    b.HasIndex("WareHouseId");
+
+                    b.ToTable("T1_OutBound");
+                });
+
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.WareHouse.WareHouse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -361,30 +356,6 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.HasKey("Id");
 
                     b.ToTable("T1_WareHouse");
-                });
-
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.InBound", b =>
-                {
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.WareHouse", "WareHouse")
-                        .WithMany()
-                        .HasForeignKey("WareHouseId");
-
-                    b.Navigation("WareHouse");
-                });
-
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.OutBound", b =>
-                {
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.MProcess", "MProcess")
-                        .WithMany()
-                        .HasForeignKey("MProcessId");
-
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.WareHouse", "WareHouse")
-                        .WithMany()
-                        .HasForeignKey("WareHouseId");
-
-                    b.Navigation("MProcess");
-
-                    b.Navigation("WareHouse");
                 });
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.CreateLot", b =>
@@ -419,21 +390,37 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.MProcess", b =>
                 {
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Equipment", "Equipment")
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Factory", "Factories")
                         .WithMany()
-                        .HasForeignKey("EquipmentId")
+                        .HasForeignKey("FactoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Factory", "Factory")
+                    b.Navigation("Factories");
+                });
+
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.WareHouse.InBound", b =>
+                {
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.WareHouse.WareHouse", "WareHouse")
                         .WithMany()
-                        .HasForeignKey("FactoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("WareHouseId");
 
-                    b.Navigation("Equipment");
+                    b.Navigation("WareHouse");
+                });
 
-                    b.Navigation("Factory");
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.WareHouse.OutBound", b =>
+                {
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.MProcess", "MProcess")
+                        .WithMany()
+                        .HasForeignKey("MProcessId");
+
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.WareHouse.WareHouse", "WareHouse")
+                        .WithMany()
+                        .HasForeignKey("WareHouseId");
+
+                    b.Navigation("MProcess");
+
+                    b.Navigation("WareHouse");
                 });
 #pragma warning restore 612, 618
         }

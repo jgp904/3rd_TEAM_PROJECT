@@ -12,8 +12,8 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AcountDbContext))]
-    [Migration("20230712043627_Acount")]
-    partial class Acount
+    [Migration("20230712053906_acount")]
+    partial class acount
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount", b =>
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount.Acount", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.ToTable("T1_Acount");
                 });
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Department", b =>
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount.Department", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,9 +85,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.ToTable("T1_Department");
                 });
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount", b =>
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount.Acount", b =>
                 {
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.Department", "Department")
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Acount.Department", "Department")
                         .WithMany()
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
