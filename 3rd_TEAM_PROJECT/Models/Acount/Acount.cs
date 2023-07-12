@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Models
+namespace _3rd_TEAM_PROJECT.Models.Acount
 {
     [Table("T1_Acount")]
 	public class Acount

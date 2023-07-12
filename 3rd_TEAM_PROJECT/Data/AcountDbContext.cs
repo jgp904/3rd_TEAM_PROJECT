@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Data
 {
-	internal class AcountDbContext : DbContext
+    internal class AcountDbContext : DbContext
 	{
 		/*로그인 : user0706 / 1234
 		DB : LTDB*/

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Models
+namespace _3rd_TEAM_PROJECT.Models.WareHouse
 {
 	[Table("T1_WareHouse")]
 	public class WareHouse
