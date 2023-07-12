@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Models.Process
 {
+<<<<<<< HEAD
 	[Table("T1_MProcess")]
 	public class MProcess
 	{
@@ -27,4 +27,9 @@ namespace _3rd_TEAM_PROJECT.Models.Process
         //공장
         public Factory  Factories { get; set; }
     }
+=======
+	internal class Process
+	{
+	}
+>>>>>>> parent of 1ed34d0 (데이터베이스 구축)
 }

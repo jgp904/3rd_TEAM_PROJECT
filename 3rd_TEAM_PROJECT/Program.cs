@@ -1,3 +1,5 @@
+using _3rd_TEAM_PROJECT;
+
 namespace _3rd_TEAM_PROJECT_Desk
 {
     internal static class Program
@@ -11,7 +13,10 @@ namespace _3rd_TEAM_PROJECT_Desk
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Login());
+            Application.Run(new Main());
         }
     }
 }
