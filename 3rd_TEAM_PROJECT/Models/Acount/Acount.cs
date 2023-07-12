@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Models
+namespace _3rd_TEAM_PROJECT.Models.Acount
 {
     [Table("T1_Amount")]
-	public class Acount
-	{
+    public class Acount
+    {
         public int Id { get; set; } //PK
-        //ToDo UQ 설정		
-		public string UserId { get; set; } // 사용자 아이디 UQ
+                                    //ToDo UQ 설정		
+        public string UserId { get; set; } // 사용자 아이디 UQ
         public string Name { get; set; } // 사용자 이름
         public string Position { get; set; } // 직급
         public int Authority { get; set; } = 1; // 관리 권한

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Models
+namespace _3rd_TEAM_PROJECT.Models.WareHouse
 {
-	public class WareHouse
-	{
+    public class WareHouse
+    {
         public int Id { get; set; } // PK
         public string Product { get; set; }
         public string Item { get; set; }
