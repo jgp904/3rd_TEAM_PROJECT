@@ -63,13 +63,14 @@ namespace _3rd_TEAM_PROJECT
                 e.Cancel = true;
             }
         }
-
+        //계정에 따라 보여지는 탭을 구별한다
         private void Main_Load(object sender, EventArgs e)
         {
-            //LoggedInAcount를 사용하여 구별된 계정에 따라 보여지는 탭을 구별한다
+            //계정의 가려지는 탭을 결정한다
+            //DepartmentCode에 따라 구분한다
             if (SessionManager.Instance.LoggedInAcount.Department.DepartmentCode != "1")
             {
-                TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
+                //TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
             }
         }
 
