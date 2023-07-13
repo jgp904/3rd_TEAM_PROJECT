@@ -15,8 +15,8 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 
         public InboundRepository(AcountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.acountDb = Program.acountdb;
-            this.mprocessDb = Program.mprocessdb;
+            this.acountDb = acountDbContext;
+            this.mprocessDb = mProcessDbcontext;
         }
 
 

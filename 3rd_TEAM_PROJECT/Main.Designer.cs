@@ -165,22 +165,30 @@
 			label39 = new Label();
 			textBox40 = new TextBox();
 			Product_fac = new TabPage();
+			label97 = new Label();
+			label98 = new Label();
+			pictureBox4 = new PictureBox();
+			textBox91 = new TextBox();
 			groupBox6 = new GroupBox();
+			btnCFactory = new Button();
+			btnUFactory = new Button();
+			btnDFactory = new Button();
 			label42 = new Label();
 			textBox43 = new TextBox();
-			textBox21 = new TextBox();
+			txtfacCode = new TextBox();
 			label22 = new Label();
 			label23 = new Label();
-			textBox22 = new TextBox();
-			textBox23 = new TextBox();
+			txtfacRegdate = new TextBox();
+			txtfacName = new TextBox();
 			label24 = new Label();
 			label25 = new Label();
-			textBox24 = new TextBox();
-			dataGridView6 = new DataGridView();
+			txtfacConst = new TextBox();
+			dgvFactory = new DataGridView();
 			fac_code = new DataGridViewTextBoxColumn();
 			fac_name = new DataGridViewTextBoxColumn();
 			fac_const = new DataGridViewTextBoxColumn();
 			fac_regdate = new DataGridViewTextBoxColumn();
+			fac_modifier = new DataGridViewTextBoxColumn();
 			fac_update = new DataGridViewTextBoxColumn();
 			Product_proc = new TabPage();
 			label96 = new Label();
@@ -351,13 +359,6 @@
 			lothis_itemnum = new DataGridViewTextBoxColumn();
 			menuStrip1 = new MenuStrip();
 			LogoutMenu = new ToolStripMenuItem();
-			label97 = new Label();
-			label98 = new Label();
-			pictureBox4 = new PictureBox();
-			textBox91 = new TextBox();
-			btnDFactory = new Button();
-			btnUFactory = new Button();
-			btnCFactory = new Button();
 			TabMenu.SuspendLayout();
 			Purches_warehouse.SuspendLayout();
 			groupBox1.SuspendLayout();
@@ -375,8 +376,9 @@
 			((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
 			groupBox5.SuspendLayout();
 			Product_fac.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
 			groupBox6.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dgvFactory).BeginInit();
 			Product_proc.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
 			groupBox7.SuspendLayout();
@@ -398,7 +400,6 @@
 			groupBox11.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridView11).BeginInit();
 			menuStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
 			SuspendLayout();
 			// 
 			// label1
@@ -438,6 +439,7 @@
 			TabMenu.SizeMode = TabSizeMode.Fixed;
 			TabMenu.TabIndex = 4;
 			TabMenu.DrawItem += TabMenu_DrawItem;
+			TabMenu.Selected += TabMenu_Selected;
 			// 
 			// Purches_warehouse
 			// 
@@ -1592,13 +1594,54 @@
 			Product_fac.Controls.Add(pictureBox4);
 			Product_fac.Controls.Add(textBox91);
 			Product_fac.Controls.Add(groupBox6);
-			Product_fac.Controls.Add(dataGridView6);
+			Product_fac.Controls.Add(dgvFactory);
 			Product_fac.Location = new Point(104, 4);
 			Product_fac.Name = "Product_fac";
 			Product_fac.Size = new Size(1069, 649);
 			Product_fac.TabIndex = 5;
 			Product_fac.Text = "공장 목록";
 			Product_fac.UseVisualStyleBackColor = true;
+			// 
+			// label97
+			// 
+			label97.AutoSize = true;
+			label97.BackColor = Color.LightSteelBlue;
+			label97.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
+			label97.Location = new Point(3, 3);
+			label97.Name = "label97";
+			label97.Padding = new Padding(5);
+			label97.Size = new Size(47, 24);
+			label97.TabIndex = 36;
+			label97.Text = "검색";
+			// 
+			// label98
+			// 
+			label98.AutoSize = true;
+			label98.BackColor = Color.LightSteelBlue;
+			label98.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
+			label98.Location = new Point(776, 3);
+			label98.Name = "label98";
+			label98.Padding = new Padding(5);
+			label98.Size = new Size(77, 24);
+			label98.TabIndex = 35;
+			label98.Text = "조건검색";
+			// 
+			// pictureBox4
+			// 
+			pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+			pictureBox4.Location = new Point(751, 3);
+			pictureBox4.Name = "pictureBox4";
+			pictureBox4.Size = new Size(21, 23);
+			pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox4.TabIndex = 34;
+			pictureBox4.TabStop = false;
+			// 
+			// textBox91
+			// 
+			textBox91.Location = new Point(56, 3);
+			textBox91.Name = "textBox91";
+			textBox91.Size = new Size(690, 23);
+			textBox91.TabIndex = 33;
 			// 
 			// groupBox6
 			// 
@@ -1607,14 +1650,14 @@
 			groupBox6.Controls.Add(btnDFactory);
 			groupBox6.Controls.Add(label42);
 			groupBox6.Controls.Add(textBox43);
-			groupBox6.Controls.Add(textBox21);
+			groupBox6.Controls.Add(txtfacCode);
 			groupBox6.Controls.Add(label22);
 			groupBox6.Controls.Add(label23);
-			groupBox6.Controls.Add(textBox22);
-			groupBox6.Controls.Add(textBox23);
+			groupBox6.Controls.Add(txtfacRegdate);
+			groupBox6.Controls.Add(txtfacName);
 			groupBox6.Controls.Add(label24);
 			groupBox6.Controls.Add(label25);
-			groupBox6.Controls.Add(textBox24);
+			groupBox6.Controls.Add(txtfacConst);
 			groupBox6.Dock = DockStyle.Right;
 			groupBox6.Location = new Point(862, 0);
 			groupBox6.Name = "groupBox6";
@@ -1622,6 +1665,34 @@
 			groupBox6.TabIndex = 18;
 			groupBox6.TabStop = false;
 			groupBox6.Text = "공장 목록";
+			// 
+			// btnCFactory
+			// 
+			btnCFactory.Location = new Point(6, 562);
+			btnCFactory.Name = "btnCFactory";
+			btnCFactory.Size = new Size(198, 23);
+			btnCFactory.TabIndex = 39;
+			btnCFactory.Text = "생성";
+			btnCFactory.UseVisualStyleBackColor = true;
+			btnCFactory.Click += btnCFactory_Click;
+			// 
+			// btnUFactory
+			// 
+			btnUFactory.Location = new Point(6, 591);
+			btnUFactory.Name = "btnUFactory";
+			btnUFactory.Size = new Size(198, 23);
+			btnUFactory.TabIndex = 38;
+			btnUFactory.Text = "수정";
+			btnUFactory.UseVisualStyleBackColor = true;
+			// 
+			// btnDFactory
+			// 
+			btnDFactory.Location = new Point(6, 620);
+			btnDFactory.Name = "btnDFactory";
+			btnDFactory.Size = new Size(198, 23);
+			btnDFactory.TabIndex = 37;
+			btnDFactory.Text = "삭제";
+			btnDFactory.UseVisualStyleBackColor = true;
 			// 
 			// label42
 			// 
@@ -1639,12 +1710,12 @@
 			textBox43.Size = new Size(100, 23);
 			textBox43.TabIndex = 5;
 			// 
-			// textBox21
+			// txtfacCode
 			// 
-			textBox21.Location = new Point(94, 31);
-			textBox21.Name = "textBox21";
-			textBox21.Size = new Size(100, 23);
-			textBox21.TabIndex = 1;
+			txtfacCode.Location = new Point(94, 31);
+			txtfacCode.Name = "txtfacCode";
+			txtfacCode.Size = new Size(100, 23);
+			txtfacCode.TabIndex = 1;
 			// 
 			// label22
 			// 
@@ -1664,19 +1735,19 @@
 			label23.TabIndex = 8;
 			label23.Text = "생성 일자 :";
 			// 
-			// textBox22
+			// txtfacRegdate
 			// 
-			textBox22.Location = new Point(94, 118);
-			textBox22.Name = "textBox22";
-			textBox22.Size = new Size(100, 23);
-			textBox22.TabIndex = 4;
+			txtfacRegdate.Location = new Point(94, 118);
+			txtfacRegdate.Name = "txtfacRegdate";
+			txtfacRegdate.Size = new Size(100, 23);
+			txtfacRegdate.TabIndex = 4;
 			// 
-			// textBox23
+			// txtfacName
 			// 
-			textBox23.Location = new Point(94, 60);
-			textBox23.Name = "textBox23";
-			textBox23.Size = new Size(100, 23);
-			textBox23.TabIndex = 2;
+			txtfacName.Location = new Point(94, 60);
+			txtfacName.Name = "txtfacName";
+			txtfacName.Size = new Size(100, 23);
+			txtfacName.TabIndex = 2;
 			// 
 			// label24
 			// 
@@ -1696,23 +1767,23 @@
 			label25.TabIndex = 7;
 			label25.Text = "생성자 :";
 			// 
-			// textBox24
+			// txtfacConst
 			// 
-			textBox24.Location = new Point(94, 89);
-			textBox24.Name = "textBox24";
-			textBox24.Size = new Size(100, 23);
-			textBox24.TabIndex = 3;
+			txtfacConst.Location = new Point(94, 89);
+			txtfacConst.Name = "txtfacConst";
+			txtfacConst.Size = new Size(100, 23);
+			txtfacConst.TabIndex = 3;
 			// 
-			// dataGridView6
+			// dgvFactory
 			// 
-			dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView6.Columns.AddRange(new DataGridViewColumn[] { fac_code, fac_name, fac_const, fac_regdate, fac_update });
-			dataGridView6.Location = new Point(0, 29);
-			dataGridView6.Name = "dataGridView6";
-			dataGridView6.RowHeadersVisible = false;
-			dataGridView6.RowTemplate.Height = 25;
-			dataGridView6.Size = new Size(853, 618);
-			dataGridView6.TabIndex = 17;
+			dgvFactory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgvFactory.Columns.AddRange(new DataGridViewColumn[] { fac_code, fac_name, fac_const, fac_regdate, fac_modifier, fac_update });
+			dgvFactory.Location = new Point(0, 29);
+			dgvFactory.Name = "dgvFactory";
+			dgvFactory.RowHeadersVisible = false;
+			dgvFactory.RowTemplate.Height = 25;
+			dgvFactory.Size = new Size(853, 618);
+			dgvFactory.TabIndex = 17;
 			// 
 			// fac_code
 			// 
@@ -1740,6 +1811,11 @@
 			fac_regdate.Name = "fac_regdate";
 			fac_regdate.ReadOnly = true;
 			fac_regdate.Width = 120;
+			// 
+			// fac_modifier
+			// 
+			fac_modifier.HeaderText = "수정자";
+			fac_modifier.Name = "fac_modifier";
 			// 
 			// fac_update
 			// 
@@ -3227,75 +3303,6 @@
 			LogoutMenu.Text = "로그아웃";
 			LogoutMenu.Click += LogoutMenu_Click;
 			// 
-			// label97
-			// 
-			label97.AutoSize = true;
-			label97.BackColor = Color.LightSteelBlue;
-			label97.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
-			label97.Location = new Point(3, 2);
-			label97.Name = "label97";
-			label97.Padding = new Padding(5);
-			label97.Size = new Size(47, 24);
-			label97.TabIndex = 36;
-			label97.Text = "검색";
-			// 
-			// label98
-			// 
-			label98.AutoSize = true;
-			label98.BackColor = Color.LightSteelBlue;
-			label98.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
-			label98.Location = new Point(779, 2);
-			label98.Name = "label98";
-			label98.Padding = new Padding(5);
-			label98.Size = new Size(77, 24);
-			label98.TabIndex = 35;
-			label98.Text = "조건검색";
-			// 
-			// pictureBox4
-			// 
-			pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-			pictureBox4.Location = new Point(752, 3);
-			pictureBox4.Name = "pictureBox4";
-			pictureBox4.Size = new Size(21, 23);
-			pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox4.TabIndex = 34;
-			pictureBox4.TabStop = false;
-			// 
-			// textBox91
-			// 
-			textBox91.Location = new Point(56, 3);
-			textBox91.Name = "textBox91";
-			textBox91.Size = new Size(690, 23);
-			textBox91.TabIndex = 33;
-			// 
-			// btnDFactory
-			// 
-			btnDFactory.Location = new Point(6, 620);
-			btnDFactory.Name = "btnDFactory";
-			btnDFactory.Size = new Size(198, 23);
-			btnDFactory.TabIndex = 37;
-			btnDFactory.Text = "삭제";
-			btnDFactory.UseVisualStyleBackColor = true;
-			// 
-			// btnUFactory
-			// 
-			btnUFactory.Location = new Point(6, 591);
-			btnUFactory.Name = "btnUFactory";
-			btnUFactory.Size = new Size(198, 23);
-			btnUFactory.TabIndex = 38;
-			btnUFactory.Text = "수정";
-			btnUFactory.UseVisualStyleBackColor = true;
-			// 
-			// btnCFactory
-			// 
-			btnCFactory.Location = new Point(6, 562);
-			btnCFactory.Name = "btnCFactory";
-			btnCFactory.Size = new Size(198, 23);
-			btnCFactory.TabIndex = 39;
-			btnCFactory.Text = "생성";
-			btnCFactory.UseVisualStyleBackColor = true;
-			btnCFactory.Click += button7_Click;
-			// 
 			// Main
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3335,9 +3342,10 @@
 			groupBox5.PerformLayout();
 			Product_fac.ResumeLayout(false);
 			Product_fac.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
 			groupBox6.ResumeLayout(false);
 			groupBox6.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView6).EndInit();
+			((System.ComponentModel.ISupportInitialize)dgvFactory).EndInit();
 			Product_proc.ResumeLayout(false);
 			Product_proc.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -3369,7 +3377,6 @@
 			((System.ComponentModel.ISupportInitialize)dataGridView11).EndInit();
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -3436,15 +3443,15 @@
 		private TextBox textBox17;
 		private Label label18;
 		private GroupBox groupBox6;
-		private TextBox textBox21;
+		private TextBox txtfacCode;
 		private Label label22;
 		private Label label23;
-		private TextBox textBox22;
-		private TextBox textBox23;
+		private TextBox txtfacRegdate;
+		private TextBox txtfacName;
 		private Label label24;
 		private Label label25;
-		private TextBox textBox24;
-		private DataGridView dataGridView6;
+		private TextBox txtfacConst;
+		private DataGridView dgvFactory;
 		private GroupBox groupBox7;
 		private DataGridView dataGridView7;
 		private ComboBox InSearchCategory;
@@ -3481,11 +3488,6 @@
 		private DataGridViewTextBoxColumn outsearch_amount;
 		private DataGridViewTextBoxColumn outsearch_contact;
 		private DataGridViewTextBoxColumn outsearch_regdate;
-		private DataGridViewTextBoxColumn fac_code;
-		private DataGridViewTextBoxColumn fac_name;
-		private DataGridViewTextBoxColumn fac_const;
-		private DataGridViewTextBoxColumn fac_regdate;
-		private DataGridViewTextBoxColumn fac_update;
 		private DataGridViewTextBoxColumn proc_factorycode;
 		private DataGridViewTextBoxColumn proc_equip;
 		private DataGridViewTextBoxColumn proc_name;
@@ -3704,5 +3706,11 @@
 		private Button btnCFactory;
 		private Button btnUFactory;
 		private Button btnDFactory;
+		private DataGridViewTextBoxColumn fac_code;
+		private DataGridViewTextBoxColumn fac_name;
+		private DataGridViewTextBoxColumn fac_const;
+		private DataGridViewTextBoxColumn fac_regdate;
+		private DataGridViewTextBoxColumn fac_modifier;
+		private DataGridViewTextBoxColumn fac_update;
 	}
 }
