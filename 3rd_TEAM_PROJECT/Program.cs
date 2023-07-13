@@ -1,4 +1,6 @@
 using _3rd_TEAM_PROJECT;
+using _3rd_TEAM_PROJECT.Data;
+using _3rd_TEAM_PROJECT.Repositorys;
 
 namespace _3rd_TEAM_PROJECT_Desk
 {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace _3rd_TEAM_PROJECT.Models.Process
 {
 	[Table("T1_LotHis")]
-	internal class LotHis
+	public class LotHis
     {
         public int Id { get; set; }//PK
 

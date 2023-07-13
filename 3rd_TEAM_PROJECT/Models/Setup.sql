@@ -97,3 +97,5 @@ Values
 ,('L_Test02','50',GETDATE(),1,'Create','P_Test02','C_002','김건우',GETDATE())
 ,('L_Test03','50',GETDATE(),1,'Create','P_Test03','C_003','김건우',GETDATE())
 ,('L_Test04','50',GETDATE(),1,'Create','P_Test04','C_004','김건우',GETDATE())
+
+SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'

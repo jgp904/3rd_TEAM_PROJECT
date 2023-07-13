@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230712152332_MProcess")]
+    [Migration("20230713001039_MProcess")]
     partial class MProcess
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.8")
+                .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

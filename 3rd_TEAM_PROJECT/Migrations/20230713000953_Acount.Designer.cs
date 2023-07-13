@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AcountDbContext))]
-    [Migration("20230712152320_Acount")]
+    [Migration("20230713000953_Acount")]
     partial class Acount
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.8")
+                .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

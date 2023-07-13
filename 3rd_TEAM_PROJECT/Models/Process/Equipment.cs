@@ -12,9 +12,9 @@ namespace _3rd_TEAM_PROJECT.Models.Process
     public class Equipment
 	{
 		public int Id { get; set; }//PK
-		public string Code { get; set; }
-		public string Name { get; set; }
-		public string? Comment { get; set; }
+		public string Code { get; set; } //설비코드
+		public string Name { get; set; } //설비명
+		public string? Comment { get; set; } //설명
 		public string Status { get; set; }
 		/* 설비상태
 		Ready : 생산준비상태

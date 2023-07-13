@@ -11,6 +11,7 @@ namespace _3rd_TEAM_PROJECT.Models.Acount
     public class Department
     {
         public int Id { get; set; }
-        public string DepartmentCode { get; set; }
+        public string Name { get; set; } //부서명
+        public string DepartmentCode { get; set; } //부서코드
     }
 }

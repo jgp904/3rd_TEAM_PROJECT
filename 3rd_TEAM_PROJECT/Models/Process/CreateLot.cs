@@ -20,13 +20,13 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 		public string ItemCode { get; set; } // 품번
 		
 
-		public string Constructor { get; set; }
-		public DateTime RegDate { get; set; }
-		public string? Modifier { get; set; }
-		public DateTime? ModDate { get; set; }
+		public string Constructor { get; set; } //생성자
+		public DateTime RegDate { get; set; } //생성일자
+		public string? Modifier { get; set; } //수정자
+		public DateTime? ModDate { get; set; } //수정일자
 
-		public Item? Item { get; set; } // FK
-		public MProcess? Process { get; set; }// FK
+		public Item? Item { get; set; } // FK 품번
+		public MProcess? Process { get; set; }// FK 공정
 
 	}
 }
