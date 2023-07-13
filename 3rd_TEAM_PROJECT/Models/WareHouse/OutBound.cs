@@ -24,6 +24,4 @@ namespace _3rd_TEAM_PROJECT.Models.WareHouse
         public MProcess? MProcess { get; set; } // 공정 Id
        
     }
-
-
 }

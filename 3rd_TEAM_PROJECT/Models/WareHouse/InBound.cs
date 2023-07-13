@@ -19,6 +19,6 @@ namespace _3rd_TEAM_PROJECT.Models.WareHouse
 		public DateTime RegDate { get; set; }   //입고날짜
         public string Contact { get; set; } //담당자
 
-        public WareHouse? WareHouse { get; set; }   //
+        public WareHouse? WareHouse { get; set; }   //FK
     }
 }

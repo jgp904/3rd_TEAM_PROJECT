@@ -17,7 +17,7 @@ values
 SELECT * FROM T1_Acount;
 --WareHouse--
 delete from T1_WareHouse;
-
+SELECT * FROM T1_WareHouse;
 insert into [LTDB].[dbo].[T1_WareHouse] (Product,Item,Amount)
 values
 ('RTX1060','GraphicCard',100)
@@ -42,8 +42,8 @@ VALUES
 ,((SELECT Product FROM T1_WareHouse WHERE Product = 'Corei5'),20,'다나와', GETDATE(), '김건우')
 ,((SELECT Product FROM T1_WareHouse WHERE Product = 'Corei3'),20,'다나와', GETDATE(), '김건우')
 --Process 추가후 다시---
-
-
+SELECT * FROM T1_InBound;
+SELECT * FROM T1_OutBound;
 delete from T1_OutBound;
 INSERT INTO [LTDB].[dbo].[T1_OutBound] (Product,Amount,Contact,RegDate)
 VALUES
@@ -58,9 +58,9 @@ insert into [LTDB].[dbo].[T1_Factory] (Code,Name,Constructor,RegDate)
 values
 ('F_COM_001','컴퓨터공장','김건우',GETDATE())
 ,('F_COM_0012','컴퓨터공장2','김건우',GETDATE())
-
+SELECT * FROM T1_Factory;
 --Equiment--
-
+SELECT * FROM T1_Equipment;
 delete from T1_Equipment;
 insert into [LTDB].[dbo].[T1_Equipment] (Code,Name,Comment,Status,Event,Constructor,RegDate)
 values

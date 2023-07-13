@@ -8,27 +8,27 @@ namespace _3rd_TEAM_PROJECT_Desk
     {
         public static AcountDbContext acountdb;
         public static MProcessDbcontext mprocessdb;
-        
-        public static IFactoryRepository factoryRepository;
+        public static IFactoryRepository? factoryRepository;
+        public static IWarehouseRepository warehouseRepository;
+        public static IInboundRepository? inboundRepository;
+        public static IOutboundRepository outboundRepository;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            using AcountDbContext acountDbContext = new();
-            using MProcessDbcontext mprocessDbContext = new();
-            acountdb = acountDbContext;
-            mprocessdb = mprocessDbContext;
+            using AcountDbContext acountDbContext = new AcountDbContext();
+            using MProcessDbcontext mprocessDbContext = new MProcessDbcontext();
+			acountdb = acountDbContext;
+			mprocessdb = mprocessDbContext;
 
-            factoryRepository = new FactoryRepository();//공장
-      
+			factoryRepository = new FactoryRepository();//공장
 
-        
-            // 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달
-            
-            
-
+			// 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달
+			warehouseRepository = new WarehouseRepository(acountDbContext, mprocessDbContext);
+            inboundRepository = new InboundRepository(acountDbContext, mprocessDbContext);
+            outboundRepository = new OutboundRepository(acountDbContext, mprocessDbContext);
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
