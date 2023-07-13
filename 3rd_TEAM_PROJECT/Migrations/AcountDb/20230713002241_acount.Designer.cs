@@ -9,18 +9,18 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations
+namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
 {
     [DbContext(typeof(AcountDbContext))]
-    [Migration("20230712152320_Acount")]
-    partial class Acount
+    [Migration("20230713002241_acount")]
+    partial class acount
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.8")
+                .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

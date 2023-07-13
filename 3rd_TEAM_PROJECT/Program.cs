@@ -1,15 +1,27 @@
 using _3rd_TEAM_PROJECT;
+using _3rd_TEAM_PROJECT.Data;
+using _3rd_TEAM_PROJECT.Repositorys;
 
 namespace _3rd_TEAM_PROJECT_Desk
 {
     internal static class Program
     {
+        public static AcountDbContext acountdb;
+        public static MProcessDbcontext mprocessdb;
+        public static IInboundRepository inboundRepository;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            using AcountDbContext acountDbContext = new AcountDbContext();
+            using MProcessDbcontext mprocessDbContext = new MProcessDbcontext();
+            
+            // 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달
+            IInboundRepository inboundRepository = new InboundRepository(acountDbContext, mprocessDbContext);
+
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

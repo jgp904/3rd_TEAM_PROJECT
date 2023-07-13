@@ -8,7 +8,7 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations
+namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
 {
     [DbContext(typeof(AcountDbContext))]
     partial class AcountDbContextModelSnapshot : ModelSnapshot
@@ -17,7 +17,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.8")
+                .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

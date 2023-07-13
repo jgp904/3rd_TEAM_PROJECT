@@ -32,31 +32,18 @@
             TabMenu = new TabControl();
             Purches_warehouse = new TabPage();
             groupBox1 = new GroupBox();
-            label93 = new Label();
-            textBox3 = new TextBox();
-            label92 = new Label();
-            textBox2 = new TextBox();
-            label91 = new Label();
-            textBox1 = new TextBox();
             btnWare_Del = new Button();
             btnWare_Mod = new Button();
             btnWare_Add = new Button();
-            txInboundId = new TextBox();
+            txtInboundId = new TextBox();
             label2 = new Label();
             label5 = new Label();
-            txInboundAmount = new TextBox();
-            txInboundProduct = new TextBox();
+            txtInboundAmount = new TextBox();
+            txtInboundProduct = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            txInboundCode = new TextBox();
-            dataGridView1 = new DataGridView();
-            inbound_id = new DataGridViewTextBoxColumn();
-            inbound_name = new DataGridViewTextBoxColumn();
-            inbound_cat = new DataGridViewTextBoxColumn();
-            inbound_count = new DataGridViewTextBoxColumn();
-            inbound_vendor = new DataGridViewTextBoxColumn();
-            inbound_regdate = new DataGridViewTextBoxColumn();
-            inbound_contact = new DataGridViewTextBoxColumn();
+            txtInboundCode = new TextBox();
+            dgvInbound = new DataGridView();
             Purches_inhis = new TabPage();
             groupBox2 = new GroupBox();
             textBox33 = new TextBox();
@@ -76,7 +63,7 @@
             label8 = new Label();
             label9 = new Label();
             textBox8 = new TextBox();
-            dataGridView2 = new DataGridView();
+            dgvIn = new DataGridView();
             in_id = new DataGridViewTextBoxColumn();
             in_product = new DataGridViewTextBoxColumn();
             in_code = new DataGridViewTextBoxColumn();
@@ -87,7 +74,7 @@
             Purches_insrch = new TabPage();
             InSearchCategory = new ComboBox();
             textBox29 = new TextBox();
-            dataGridView4 = new DataGridView();
+            dgvInSearch = new DataGridView();
             insearch_id = new DataGridViewTextBoxColumn();
             insearch_product = new DataGridViewTextBoxColumn();
             insearch_code = new DataGridViewTextBoxColumn();
@@ -129,7 +116,7 @@
             label12 = new Label();
             label13 = new Label();
             textBox12 = new TextBox();
-            dataGridView3 = new DataGridView();
+            dgvOut = new DataGridView();
             out_id = new DataGridViewTextBoxColumn();
             out_product = new DataGridViewTextBoxColumn();
             out_code = new DataGridViewTextBoxColumn();
@@ -140,7 +127,7 @@
             Purches_outsrch = new TabPage();
             comboBox1 = new ComboBox();
             textBox30 = new TextBox();
-            dataGridView5 = new DataGridView();
+            dgvOutSearch = new DataGridView();
             outsearch_id = new DataGridViewTextBoxColumn();
             outsearch_product = new DataGridViewTextBoxColumn();
             outsearch_code = new DataGridViewTextBoxColumn();
@@ -175,7 +162,7 @@
             label24 = new Label();
             label25 = new Label();
             textBox24 = new TextBox();
-            dataGridView6 = new DataGridView();
+            dgvFactory = new DataGridView();
             fac_code = new DataGridViewTextBoxColumn();
             fac_name = new DataGridViewTextBoxColumn();
             fac_const = new DataGridViewTextBoxColumn();
@@ -201,7 +188,7 @@
             label29 = new Label();
             label43 = new Label();
             textBox44 = new TextBox();
-            dataGridView7 = new DataGridView();
+            dgvProcess = new DataGridView();
             proc_factorycode = new DataGridViewTextBoxColumn();
             proc_equip = new DataGridViewTextBoxColumn();
             proc_name = new DataGridViewTextBoxColumn();
@@ -346,28 +333,32 @@
             lothis_itemnum = new DataGridViewTextBoxColumn();
             menuStrip1 = new MenuStrip();
             LogoutMenu = new ToolStripMenuItem();
+            inbound_id = new DataGridViewTextBoxColumn();
+            inbound_name = new DataGridViewTextBoxColumn();
+            inbound_cat = new DataGridViewTextBoxColumn();
+            inbound_count = new DataGridViewTextBoxColumn();
             TabMenu.SuspendLayout();
             Purches_warehouse.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvInbound).BeginInit();
             Purches_inhis.SuspendLayout();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvIn).BeginInit();
             Purches_insrch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvInSearch).BeginInit();
             groupBox4.SuspendLayout();
             Purches_outhis.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOut).BeginInit();
             Purches_outsrch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOutSearch).BeginInit();
             groupBox5.SuspendLayout();
             Product_fac.SuspendLayout();
             groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFactory).BeginInit();
             Product_proc.SuspendLayout();
             groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProcess).BeginInit();
             Product_num.SuspendLayout();
             groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView8).BeginInit();
@@ -428,7 +419,7 @@
             // Purches_warehouse
             // 
             Purches_warehouse.Controls.Add(groupBox1);
-            Purches_warehouse.Controls.Add(dataGridView1);
+            Purches_warehouse.Controls.Add(dgvInbound);
             Purches_warehouse.Location = new Point(104, 4);
             Purches_warehouse.Name = "Purches_warehouse";
             Purches_warehouse.Padding = new Padding(3);
@@ -439,23 +430,17 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label93);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(label92);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label91);
-            groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(btnWare_Del);
             groupBox1.Controls.Add(btnWare_Mod);
             groupBox1.Controls.Add(btnWare_Add);
-            groupBox1.Controls.Add(txInboundId);
+            groupBox1.Controls.Add(txtInboundId);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(txInboundAmount);
-            groupBox1.Controls.Add(txInboundProduct);
+            groupBox1.Controls.Add(txtInboundAmount);
+            groupBox1.Controls.Add(txtInboundProduct);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txInboundCode);
+            groupBox1.Controls.Add(txtInboundCode);
             groupBox1.Dock = DockStyle.Right;
             groupBox1.Location = new Point(859, 3);
             groupBox1.Name = "groupBox1";
@@ -463,54 +448,6 @@
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             groupBox1.Text = "재고";
-            // 
-            // label93
-            // 
-            label93.AutoSize = true;
-            label93.Location = new Point(22, 208);
-            label93.Name = "label93";
-            label93.Size = new Size(50, 15);
-            label93.TabIndex = 14;
-            label93.Text = "담당자 :";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(78, 205);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 13;
-            // 
-            // label92
-            // 
-            label92.AutoSize = true;
-            label92.Location = new Point(22, 179);
-            label92.Name = "label92";
-            label92.Size = new Size(50, 15);
-            label92.TabIndex = 12;
-            label92.Text = "입고일 :";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(78, 176);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 11;
-            // 
-            // label91
-            // 
-            label91.AutoSize = true;
-            label91.Location = new Point(22, 150);
-            label91.Name = "label91";
-            label91.Size = new Size(50, 15);
-            label91.TabIndex = 10;
-            label91.Text = "거래처 :";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(78, 147);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 9;
             // 
             // btnWare_Del
             // 
@@ -539,12 +476,12 @@
             btnWare_Add.Text = "목록 추가";
             btnWare_Add.UseVisualStyleBackColor = true;
             // 
-            // txInboundId
+            // txtInboundId
             // 
-            txInboundId.Location = new Point(78, 31);
-            txInboundId.Name = "txInboundId";
-            txInboundId.Size = new Size(100, 23);
-            txInboundId.TabIndex = 1;
+            txtInboundId.Location = new Point(78, 31);
+            txtInboundId.Name = "txtInboundId";
+            txtInboundId.Size = new Size(100, 23);
+            txtInboundId.TabIndex = 1;
             // 
             // label2
             // 
@@ -564,19 +501,19 @@
             label5.TabIndex = 8;
             label5.Text = "수량 :";
             // 
-            // txInboundAmount
+            // txtInboundAmount
             // 
-            txInboundAmount.Location = new Point(78, 118);
-            txInboundAmount.Name = "txInboundAmount";
-            txInboundAmount.Size = new Size(100, 23);
-            txInboundAmount.TabIndex = 4;
+            txtInboundAmount.Location = new Point(78, 118);
+            txtInboundAmount.Name = "txtInboundAmount";
+            txtInboundAmount.Size = new Size(100, 23);
+            txtInboundAmount.TabIndex = 4;
             // 
-            // txInboundProduct
+            // txtInboundProduct
             // 
-            txInboundProduct.Location = new Point(78, 60);
-            txInboundProduct.Name = "txInboundProduct";
-            txInboundProduct.Size = new Size(100, 23);
-            txInboundProduct.TabIndex = 2;
+            txtInboundProduct.Location = new Point(78, 60);
+            txtInboundProduct.Name = "txtInboundProduct";
+            txtInboundProduct.Size = new Size(100, 23);
+            txtInboundProduct.TabIndex = 2;
             // 
             // label3
             // 
@@ -596,68 +533,28 @@
             label4.TabIndex = 7;
             label4.Text = "품목 :";
             // 
-            // txInboundCode
+            // txtInboundCode
             // 
-            txInboundCode.Location = new Point(78, 89);
-            txInboundCode.Name = "txInboundCode";
-            txInboundCode.Size = new Size(100, 23);
-            txInboundCode.TabIndex = 3;
+            txtInboundCode.Location = new Point(78, 89);
+            txtInboundCode.Name = "txtInboundCode";
+            txtInboundCode.Size = new Size(100, 23);
+            txtInboundCode.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgvInbound
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { inbound_id, inbound_name, inbound_cat, inbound_count, inbound_vendor, inbound_regdate, inbound_contact });
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(853, 646);
-            dataGridView1.TabIndex = 0;
-            // 
-            // inbound_id
-            // 
-            inbound_id.HeaderText = "ID";
-            inbound_id.Name = "inbound_id";
-            inbound_id.ReadOnly = true;
-            inbound_id.Width = 80;
-            // 
-            // inbound_name
-            // 
-            inbound_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            inbound_name.HeaderText = "품명";
-            inbound_name.Name = "inbound_name";
-            // 
-            // inbound_cat
-            // 
-            inbound_cat.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            inbound_cat.HeaderText = "품목";
-            inbound_cat.Name = "inbound_cat";
-            // 
-            // inbound_count
-            // 
-            inbound_count.HeaderText = "수량";
-            inbound_count.Name = "inbound_count";
-            inbound_count.Width = 80;
-            // 
-            // inbound_vendor
-            // 
-            inbound_vendor.HeaderText = "거래처";
-            inbound_vendor.Name = "inbound_vendor";
-            // 
-            // inbound_regdate
-            // 
-            inbound_regdate.HeaderText = "입고일";
-            inbound_regdate.Name = "inbound_regdate";
-            // 
-            // inbound_contact
-            // 
-            inbound_contact.HeaderText = "담당자";
-            inbound_contact.Name = "inbound_contact";
+            dgvInbound.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInbound.Columns.AddRange(new DataGridViewColumn[] { inbound_id, inbound_name, inbound_cat, inbound_count });
+            dgvInbound.Location = new Point(0, 0);
+            dgvInbound.Name = "dgvInbound";
+            dgvInbound.RowHeadersVisible = false;
+            dgvInbound.RowTemplate.Height = 25;
+            dgvInbound.Size = new Size(853, 646);
+            dgvInbound.TabIndex = 0;
             // 
             // Purches_inhis
             // 
             Purches_inhis.Controls.Add(groupBox2);
-            Purches_inhis.Controls.Add(dataGridView2);
+            Purches_inhis.Controls.Add(dgvIn);
             Purches_inhis.Location = new Point(104, 4);
             Purches_inhis.Name = "Purches_inhis";
             Purches_inhis.Padding = new Padding(3);
@@ -832,16 +729,16 @@
             textBox8.Size = new Size(100, 23);
             textBox8.TabIndex = 3;
             // 
-            // dataGridView2
+            // dgvIn
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { in_id, in_product, in_code, in_name, in_amount, in_contact, in_regdate });
-            dataGridView2.Location = new Point(0, 0);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersVisible = false;
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(853, 646);
-            dataGridView2.TabIndex = 11;
+            dgvIn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvIn.Columns.AddRange(new DataGridViewColumn[] { in_id, in_product, in_code, in_name, in_amount, in_contact, in_regdate });
+            dgvIn.Location = new Point(0, 0);
+            dgvIn.Name = "dgvIn";
+            dgvIn.RowHeadersVisible = false;
+            dgvIn.RowTemplate.Height = 25;
+            dgvIn.Size = new Size(853, 646);
+            dgvIn.TabIndex = 11;
             // 
             // in_id
             // 
@@ -894,7 +791,7 @@
             // 
             Purches_insrch.Controls.Add(InSearchCategory);
             Purches_insrch.Controls.Add(textBox29);
-            Purches_insrch.Controls.Add(dataGridView4);
+            Purches_insrch.Controls.Add(dgvInSearch);
             Purches_insrch.Controls.Add(groupBox4);
             Purches_insrch.Location = new Point(104, 4);
             Purches_insrch.Name = "Purches_insrch";
@@ -919,16 +816,16 @@
             textBox29.Size = new Size(723, 23);
             textBox29.TabIndex = 2;
             // 
-            // dataGridView4
+            // dgvInSearch
             // 
-            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Columns.AddRange(new DataGridViewColumn[] { insearch_id, insearch_product, insearch_code, insearch_name, insearch_amount, insearch_contact, insearch_regdate });
-            dataGridView4.Location = new Point(0, 31);
-            dataGridView4.Name = "dataGridView4";
-            dataGridView4.RowHeadersVisible = false;
-            dataGridView4.RowTemplate.Height = 25;
-            dataGridView4.Size = new Size(853, 615);
-            dataGridView4.TabIndex = 17;
+            dgvInSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInSearch.Columns.AddRange(new DataGridViewColumn[] { insearch_id, insearch_product, insearch_code, insearch_name, insearch_amount, insearch_contact, insearch_regdate });
+            dgvInSearch.Location = new Point(0, 31);
+            dgvInSearch.Name = "dgvInSearch";
+            dgvInSearch.RowHeadersVisible = false;
+            dgvInSearch.RowTemplate.Height = 25;
+            dgvInSearch.Size = new Size(853, 615);
+            dgvInSearch.TabIndex = 17;
             // 
             // insearch_id
             // 
@@ -1116,7 +1013,7 @@
             // Purches_outhis
             // 
             Purches_outhis.Controls.Add(groupBox3);
-            Purches_outhis.Controls.Add(dataGridView3);
+            Purches_outhis.Controls.Add(dgvOut);
             Purches_outhis.Location = new Point(104, 4);
             Purches_outhis.Name = "Purches_outhis";
             Purches_outhis.Size = new Size(1069, 649);
@@ -1290,16 +1187,16 @@
             textBox12.Size = new Size(100, 23);
             textBox12.TabIndex = 3;
             // 
-            // dataGridView3
+            // dgvOut
             // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Columns.AddRange(new DataGridViewColumn[] { out_id, out_product, out_code, out_name, out_amount, out_contact, out_regdate });
-            dataGridView3.Location = new Point(0, 1);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersVisible = false;
-            dataGridView3.RowTemplate.Height = 25;
-            dataGridView3.Size = new Size(853, 646);
-            dataGridView3.TabIndex = 13;
+            dgvOut.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOut.Columns.AddRange(new DataGridViewColumn[] { out_id, out_product, out_code, out_name, out_amount, out_contact, out_regdate });
+            dgvOut.Location = new Point(0, 1);
+            dgvOut.Name = "dgvOut";
+            dgvOut.RowHeadersVisible = false;
+            dgvOut.RowTemplate.Height = 25;
+            dgvOut.Size = new Size(853, 646);
+            dgvOut.TabIndex = 13;
             // 
             // out_id
             // 
@@ -1352,7 +1249,7 @@
             // 
             Purches_outsrch.Controls.Add(comboBox1);
             Purches_outsrch.Controls.Add(textBox30);
-            Purches_outsrch.Controls.Add(dataGridView5);
+            Purches_outsrch.Controls.Add(dgvOutSearch);
             Purches_outsrch.Controls.Add(groupBox5);
             Purches_outsrch.Location = new Point(104, 4);
             Purches_outsrch.Name = "Purches_outsrch";
@@ -1377,16 +1274,16 @@
             textBox30.Size = new Size(723, 23);
             textBox30.TabIndex = 2;
             // 
-            // dataGridView5
+            // dgvOutSearch
             // 
-            dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView5.Columns.AddRange(new DataGridViewColumn[] { outsearch_id, outsearch_product, outsearch_code, outsearch_name, outsearch_amount, outsearch_contact, outsearch_regdate });
-            dataGridView5.Location = new Point(0, 31);
-            dataGridView5.Name = "dataGridView5";
-            dataGridView5.RowHeadersVisible = false;
-            dataGridView5.RowTemplate.Height = 25;
-            dataGridView5.Size = new Size(853, 615);
-            dataGridView5.TabIndex = 20;
+            dgvOutSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOutSearch.Columns.AddRange(new DataGridViewColumn[] { outsearch_id, outsearch_product, outsearch_code, outsearch_name, outsearch_amount, outsearch_contact, outsearch_regdate });
+            dgvOutSearch.Location = new Point(0, 31);
+            dgvOutSearch.Name = "dgvOutSearch";
+            dgvOutSearch.RowHeadersVisible = false;
+            dgvOutSearch.RowTemplate.Height = 25;
+            dgvOutSearch.Size = new Size(853, 615);
+            dgvOutSearch.TabIndex = 20;
             // 
             // outsearch_id
             // 
@@ -1574,7 +1471,7 @@
             // Product_fac
             // 
             Product_fac.Controls.Add(groupBox6);
-            Product_fac.Controls.Add(dataGridView6);
+            Product_fac.Controls.Add(dgvFactory);
             Product_fac.Location = new Point(104, 4);
             Product_fac.Name = "Product_fac";
             Product_fac.Size = new Size(1069, 649);
@@ -1682,16 +1579,16 @@
             textBox24.Size = new Size(100, 23);
             textBox24.TabIndex = 3;
             // 
-            // dataGridView6
+            // dgvFactory
             // 
-            dataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView6.Columns.AddRange(new DataGridViewColumn[] { fac_code, fac_name, fac_const, fac_regdate, fac_update });
-            dataGridView6.Location = new Point(0, 1);
-            dataGridView6.Name = "dataGridView6";
-            dataGridView6.RowHeadersVisible = false;
-            dataGridView6.RowTemplate.Height = 25;
-            dataGridView6.Size = new Size(853, 646);
-            dataGridView6.TabIndex = 17;
+            dgvFactory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFactory.Columns.AddRange(new DataGridViewColumn[] { fac_code, fac_name, fac_const, fac_regdate, fac_update });
+            dgvFactory.Location = new Point(0, 1);
+            dgvFactory.Name = "dgvFactory";
+            dgvFactory.RowHeadersVisible = false;
+            dgvFactory.RowTemplate.Height = 25;
+            dgvFactory.Size = new Size(853, 646);
+            dgvFactory.TabIndex = 17;
             // 
             // fac_code
             // 
@@ -1730,7 +1627,7 @@
             // Product_proc
             // 
             Product_proc.Controls.Add(groupBox7);
-            Product_proc.Controls.Add(dataGridView7);
+            Product_proc.Controls.Add(dgvProcess);
             Product_proc.Location = new Point(104, 4);
             Product_proc.Name = "Product_proc";
             Product_proc.Size = new Size(1069, 649);
@@ -1910,16 +1807,16 @@
             textBox44.Size = new Size(100, 23);
             textBox44.TabIndex = 3;
             // 
-            // dataGridView7
+            // dgvProcess
             // 
-            dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView7.Columns.AddRange(new DataGridViewColumn[] { proc_factorycode, proc_equip, proc_name, proc_comment, proc_unit1, proc_unit2, proc_const, proc_regdate, proc_update });
-            dataGridView7.Location = new Point(0, 1);
-            dataGridView7.Name = "dataGridView7";
-            dataGridView7.RowHeadersVisible = false;
-            dataGridView7.RowTemplate.Height = 25;
-            dataGridView7.Size = new Size(853, 646);
-            dataGridView7.TabIndex = 19;
+            dgvProcess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProcess.Columns.AddRange(new DataGridViewColumn[] { proc_factorycode, proc_equip, proc_name, proc_comment, proc_unit1, proc_unit2, proc_const, proc_regdate, proc_update });
+            dgvProcess.Location = new Point(0, 1);
+            dgvProcess.Name = "dgvProcess";
+            dgvProcess.RowHeadersVisible = false;
+            dgvProcess.RowTemplate.Height = 25;
+            dgvProcess.Size = new Size(853, 646);
+            dgvProcess.TabIndex = 19;
             // 
             // proc_factorycode
             // 
@@ -3161,6 +3058,31 @@
             LogoutMenu.Text = "로그아웃";
             LogoutMenu.Click += LogoutMenu_Click;
             // 
+            // inbound_id
+            // 
+            inbound_id.HeaderText = "ID";
+            inbound_id.Name = "inbound_id";
+            inbound_id.ReadOnly = true;
+            inbound_id.Width = 120;
+            // 
+            // inbound_name
+            // 
+            inbound_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            inbound_name.HeaderText = "품명";
+            inbound_name.Name = "inbound_name";
+            // 
+            // inbound_cat
+            // 
+            inbound_cat.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            inbound_cat.HeaderText = "품목";
+            inbound_cat.Name = "inbound_cat";
+            // 
+            // inbound_count
+            // 
+            inbound_count.HeaderText = "수량";
+            inbound_count.Name = "inbound_count";
+            inbound_count.Width = 120;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3179,33 +3101,33 @@
             Purches_warehouse.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvInbound).EndInit();
             Purches_inhis.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvIn).EndInit();
             Purches_insrch.ResumeLayout(false);
             Purches_insrch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvInSearch).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             Purches_outhis.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOut).EndInit();
             Purches_outsrch.ResumeLayout(false);
             Purches_outsrch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOutSearch).EndInit();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             Product_fac.ResumeLayout(false);
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFactory).EndInit();
             Product_proc.ResumeLayout(false);
             groupBox7.ResumeLayout(false);
             groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProcess).EndInit();
             Product_num.ResumeLayout(false);
             groupBox8.ResumeLayout(false);
             groupBox8.PerformLayout();
@@ -3253,11 +3175,11 @@
         private TabPage Product_lothis;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem LogoutMenu;
-        private DataGridView dataGridView1;
-        private TextBox txInboundAmount;
-        private TextBox txInboundCode;
-        private TextBox txInboundProduct;
-        private TextBox txInboundId;
+        private DataGridView dgvInbound;
+        private TextBox txtInboundAmount;
+        private TextBox txtInboundCode;
+        private TextBox txtInboundProduct;
+        private TextBox txtInboundId;
         private Label label5;
         private Label label4;
         private Label label3;
@@ -3272,7 +3194,7 @@
         private Label label8;
         private Label label9;
         private TextBox textBox8;
-        private DataGridView dataGridView2;
+        private DataGridView dgvIn;
         private GroupBox groupBox3;
         private TextBox textBox9;
         private Label label10;
@@ -3282,7 +3204,7 @@
         private Label label12;
         private Label label13;
         private TextBox textBox12;
-        private DataGridView dataGridView3;
+        private DataGridView dgvOut;
         private GroupBox groupBox4;
         private Button btnWare_Del;
         private Button btnWare_Mod;
@@ -3305,12 +3227,12 @@
         private Label label24;
         private Label label25;
         private TextBox textBox24;
-        private DataGridView dataGridView6;
+        private DataGridView dgvFactory;
         private GroupBox groupBox7;
-        private DataGridView dataGridView7;
+        private DataGridView dgvProcess;
         private ComboBox InSearchCategory;
         private TextBox textBox29;
-        private DataGridView dataGridView4;
+        private DataGridView dgvInSearch;
         private DataGridViewTextBoxColumn insearch_id;
         private DataGridViewTextBoxColumn insearch_product;
         private DataGridViewTextBoxColumn insearch_code;
@@ -3320,7 +3242,7 @@
         private DataGridViewTextBoxColumn insearch_regdate;
         private ComboBox comboBox1;
         private TextBox textBox30;
-        private DataGridView dataGridView5;
+        private DataGridView dgvOutSearch;
         private DataGridViewTextBoxColumn in_id;
         private DataGridViewTextBoxColumn in_product;
         private DataGridViewTextBoxColumn in_code;
@@ -3529,19 +3451,6 @@
         private TextBox textBox85;
         private Label label86;
         private DataGridView dataGridView11;
-        private Label label91;
-        private TextBox textBox1;
-        private DataGridViewTextBoxColumn inbound_id;
-        private DataGridViewTextBoxColumn inbound_name;
-        private DataGridViewTextBoxColumn inbound_cat;
-        private DataGridViewTextBoxColumn inbound_count;
-        private DataGridViewTextBoxColumn inbound_vendor;
-        private DataGridViewTextBoxColumn inbound_regdate;
-        private DataGridViewTextBoxColumn inbound_contact;
-        private Label label93;
-        private TextBox textBox3;
-        private Label label92;
-        private TextBox textBox2;
         private TextBox textBox4;
         private Label label94;
         private Button button4;
@@ -3554,5 +3463,9 @@
         private DataGridViewTextBoxColumn lothis_procname;
         private DataGridViewTextBoxColumn lothis_amount;
         private DataGridViewTextBoxColumn lothis_itemnum;
+        private DataGridViewTextBoxColumn inbound_id;
+        private DataGridViewTextBoxColumn inbound_name;
+        private DataGridViewTextBoxColumn inbound_cat;
+        private DataGridViewTextBoxColumn inbound_count;
     }
 }
