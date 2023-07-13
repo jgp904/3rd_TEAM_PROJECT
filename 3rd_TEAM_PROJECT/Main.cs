@@ -1,18 +1,23 @@
 ﻿using _3rd_TEAM_PROJECT.Models.Acount;
+using _3rd_TEAM_PROJECT.Models.Process;
+using _3rd_TEAM_PROJECT.Repositorys;
 using _3rd_TEAM_PROJECT_Desk;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace _3rd_TEAM_PROJECT
 {
-    public partial class Main : Form
-    {
-        //로그인한 계정을 구별
-        public Acount LoggedInAcount { get; set; }
-        public Login LoginForm { get; set; }
+	public partial class Main : Form
+	{
+		private IFactoryRepository factoryRepository;
+		//로그인한 계정을 구별
+		public Acount LoggedInAcount { get; set; }
+		public Login LoginForm { get; set; }
 
-        public Main()
-        {
-            InitializeComponent();
-        }
+		public Main()
+		{
+			InitializeComponent();
+			factoryRepository = Program.factoryRepository;
+		}
 
         private void TabMenu_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -69,35 +74,99 @@ namespace _3rd_TEAM_PROJECT
             //계정의 가려지는 탭을 결정한다
             //DepartmentCode에 따라 구분한다
 
-            //계정 사용 원할 경우 아래 주석을 해제하고, Programs.cs파일의 주석을 해제하면된다.
-            //if (SessionManager.Instance.LoggedInAcount.Department.DepartmentCode != "1")
-            //{
-            //    //TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
-            //}
-        }
+			//계정 사용 원할 경우 아래 주석을 해제하고, Programs.cs파일의 주석을 해제하면된다.
+			//if (SessionManager.Instance.LoggedInAcount.Department.DepartmentCode != "1")
+			//{
+			//    //TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
+			//}
+		}
+		//------------------------TabControll Selected-------------------------------//
+		private void TabMenu_Selected(object sender, TabControlEventArgs e)
+		{
+			switch (e.TabPageIndex)
+			{
+				case 0:
 
+					break;
+				case 1:
 
-        //로그아웃 메뉴 클릭 시
-        private void LogoutMenu_Click(object sender, EventArgs e)
-        {
-            // 로그아웃 처리
-            SessionManager.Instance.Logout();
+					break;
+				case 2:
+
+					break;
+				case 3:
+
+					break;
+				case 4:
+
+					break;
+				case 5:
+					LoadFactory();
+					break;
+				case 6:
+
+					break;
+
+			}
+		}
+		//---------------------------공장목록-----------------------------------------//
+		private async void LoadFactory()
+		{
+			var items = await factoryRepository.GetAllAsync();
+			//DataGridView Clear
+			dgvFactory.Rows.Clear();
+			dgvFactory.Refresh();
+			int i = 0;
+			foreach (var item in items)
+			{
+				dgvFactory.Rows.Add();
+				dgvFactory.Rows[i].Cells["fac_code"].Value = item.Code;
+				dgvFactory.Rows[i].Cells["fac_name"].Value = item.Name;
+				dgvFactory.Rows[i].Cells["fac_const"].Value = item.Constructor;
+				dgvFactory.Rows[i].Cells["fac_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+				dgvFactory.Rows[i].Cells["fac_modifier"].Value = item.Modifier;
+				dgvFactory.Rows[i].Cells["fac_update"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+
+				i++;
+			}
+
+		}
+		//--공장 생성 버튼
+		private void btnCFactory_Click(object sender, EventArgs e)
+		{
+			Factory? factory;
+			
+			string code = txtfacCode.Text.Trim();
+			string name = txtfacName.Text.Trim();
+			string constructor = txtfacConst.Text.Trim();
+
+			if (code.Length == 0)
+			{
+				MessageBox.Show("공장코드를 입력하세요");
+				return;
+			}
+			else if(name.Length == 0)
+			
+		}
+
+		//로그아웃 메뉴 클릭 시
+		private void LogoutMenu_Click(object sender, EventArgs e)
+		{
+			// 로그아웃 처리
+			SessionManager.Instance.Logout();
 
             // 현재 메인 폼을 숨깁니다.
             this.Hide();
 
-            // 저장된 로그인 폼 인스턴스를 다시 표시합니다.
-            SessionManager.Instance.LoginForm.Show();
-        }
-
-        private void label95_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
+			// 저장된 로그인 폼 인스턴스를 다시 표시합니다.
+			SessionManager.Instance.LoginForm.Show();
+		}
+		//-------------------------------------------------------------------------------------------------//
+		private void label95_Click(object sender, EventArgs e)
+		{
 
         }
-    }
+
+		
+	}
 }

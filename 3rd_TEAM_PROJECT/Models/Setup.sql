@@ -1,10 +1,10 @@
 ﻿delete from T1_Department;
-SELECT * FROM T1_Department;
-insert into [LTDB].[dbo].[T1_Department] (DepartmentCode)
+
+insert into [LTDB].[dbo].[T1_Department] (DepartmentCode,Name)
 values
-('001')
-,('002')
-,('003');
+('001','경영팀')
+,('002','구매팀')
+,('003','생산팀');
 --Acount--
 delete from T1_Acount;
 
@@ -100,3 +100,4 @@ Values
 
 SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'
 
+select * from T1_Factory;
