@@ -8,20 +8,15 @@ using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Repositorys
 {
-    public class InboundRepository : IInboundRepository
+    public class WarehouseRepository : IWarehouseRepository
     {
         private readonly AcountDbContext acountDb;
         private readonly MProcessDbcontext mprocessDb;
 
-        public InboundRepository(AcountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
+        public WarehouseRepository(AcountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.acountDb = Program.acountdb;
-            this.mprocessDb = Program.mprocessdb;
+            this.acountDb = acountDbContext;
+            this.mprocessDb = mProcessDbcontext;
         }
-
-
-
-
-
     }
 }

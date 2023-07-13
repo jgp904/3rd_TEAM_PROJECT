@@ -33,16 +33,16 @@
             Purches_warehouse = new TabPage();
             groupBox1 = new GroupBox();
             btnWare_Del = new Button();
-            btnWare_Mod = new Button();
+            btnWare_Update = new Button();
             btnWare_Add = new Button();
-            txtInboundId = new TextBox();
+            txtWarehouseId = new TextBox();
             label2 = new Label();
             label5 = new Label();
-            txtInboundAmount = new TextBox();
-            txtInboundProduct = new TextBox();
+            txtWarehouseAmount = new TextBox();
+            txtWarehouseProduct = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            txtInboundCode = new TextBox();
+            txtWarehouseCode = new TextBox();
             dgvInbound = new DataGridView();
             Purches_inhis = new TabPage();
             groupBox2 = new GroupBox();
@@ -333,10 +333,10 @@
             lothis_itemnum = new DataGridViewTextBoxColumn();
             menuStrip1 = new MenuStrip();
             LogoutMenu = new ToolStripMenuItem();
-            inbound_id = new DataGridViewTextBoxColumn();
-            inbound_name = new DataGridViewTextBoxColumn();
-            inbound_cat = new DataGridViewTextBoxColumn();
-            inbound_count = new DataGridViewTextBoxColumn();
+            warehouse_id = new DataGridViewTextBoxColumn();
+            warehouse_name = new DataGridViewTextBoxColumn();
+            warehouse_cat = new DataGridViewTextBoxColumn();
+            warehouse_count = new DataGridViewTextBoxColumn();
             TabMenu.SuspendLayout();
             Purches_warehouse.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -431,16 +431,16 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(btnWare_Del);
-            groupBox1.Controls.Add(btnWare_Mod);
+            groupBox1.Controls.Add(btnWare_Update);
             groupBox1.Controls.Add(btnWare_Add);
-            groupBox1.Controls.Add(txtInboundId);
+            groupBox1.Controls.Add(txtWarehouseId);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(txtInboundAmount);
-            groupBox1.Controls.Add(txtInboundProduct);
+            groupBox1.Controls.Add(txtWarehouseAmount);
+            groupBox1.Controls.Add(txtWarehouseProduct);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txtInboundCode);
+            groupBox1.Controls.Add(txtWarehouseCode);
             groupBox1.Dock = DockStyle.Right;
             groupBox1.Location = new Point(859, 3);
             groupBox1.Name = "groupBox1";
@@ -458,14 +458,14 @@
             btnWare_Del.Text = "삭제";
             btnWare_Del.UseVisualStyleBackColor = true;
             // 
-            // btnWare_Mod
+            // btnWare_Update
             // 
-            btnWare_Mod.Location = new Point(47, 547);
-            btnWare_Mod.Name = "btnWare_Mod";
-            btnWare_Mod.Size = new Size(119, 42);
-            btnWare_Mod.TabIndex = 6;
-            btnWare_Mod.Text = "수정";
-            btnWare_Mod.UseVisualStyleBackColor = true;
+            btnWare_Update.Location = new Point(47, 547);
+            btnWare_Update.Name = "btnWare_Update";
+            btnWare_Update.Size = new Size(119, 42);
+            btnWare_Update.TabIndex = 6;
+            btnWare_Update.Text = "수정";
+            btnWare_Update.UseVisualStyleBackColor = true;
             // 
             // btnWare_Add
             // 
@@ -476,12 +476,12 @@
             btnWare_Add.Text = "목록 추가";
             btnWare_Add.UseVisualStyleBackColor = true;
             // 
-            // txtInboundId
+            // txtWarehouseId
             // 
-            txtInboundId.Location = new Point(78, 31);
-            txtInboundId.Name = "txtInboundId";
-            txtInboundId.Size = new Size(100, 23);
-            txtInboundId.TabIndex = 1;
+            txtWarehouseId.Location = new Point(78, 31);
+            txtWarehouseId.Name = "txtWarehouseId";
+            txtWarehouseId.Size = new Size(100, 23);
+            txtWarehouseId.TabIndex = 1;
             // 
             // label2
             // 
@@ -501,19 +501,19 @@
             label5.TabIndex = 8;
             label5.Text = "수량 :";
             // 
-            // txtInboundAmount
+            // txtWarehouseAmount
             // 
-            txtInboundAmount.Location = new Point(78, 118);
-            txtInboundAmount.Name = "txtInboundAmount";
-            txtInboundAmount.Size = new Size(100, 23);
-            txtInboundAmount.TabIndex = 4;
+            txtWarehouseAmount.Location = new Point(78, 118);
+            txtWarehouseAmount.Name = "txtWarehouseAmount";
+            txtWarehouseAmount.Size = new Size(100, 23);
+            txtWarehouseAmount.TabIndex = 4;
             // 
-            // txtInboundProduct
+            // txtWarehouseProduct
             // 
-            txtInboundProduct.Location = new Point(78, 60);
-            txtInboundProduct.Name = "txtInboundProduct";
-            txtInboundProduct.Size = new Size(100, 23);
-            txtInboundProduct.TabIndex = 2;
+            txtWarehouseProduct.Location = new Point(78, 60);
+            txtWarehouseProduct.Name = "txtWarehouseProduct";
+            txtWarehouseProduct.Size = new Size(100, 23);
+            txtWarehouseProduct.TabIndex = 2;
             // 
             // label3
             // 
@@ -533,17 +533,17 @@
             label4.TabIndex = 7;
             label4.Text = "품목 :";
             // 
-            // txtInboundCode
+            // txtWarehouseCode
             // 
-            txtInboundCode.Location = new Point(78, 89);
-            txtInboundCode.Name = "txtInboundCode";
-            txtInboundCode.Size = new Size(100, 23);
-            txtInboundCode.TabIndex = 3;
+            txtWarehouseCode.Location = new Point(78, 89);
+            txtWarehouseCode.Name = "txtWarehouseCode";
+            txtWarehouseCode.Size = new Size(100, 23);
+            txtWarehouseCode.TabIndex = 3;
             // 
             // dgvInbound
             // 
             dgvInbound.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvInbound.Columns.AddRange(new DataGridViewColumn[] { inbound_id, inbound_name, inbound_cat, inbound_count });
+            dgvInbound.Columns.AddRange(new DataGridViewColumn[] { warehouse_id, warehouse_name, warehouse_cat, warehouse_count });
             dgvInbound.Location = new Point(0, 0);
             dgvInbound.Name = "dgvInbound";
             dgvInbound.RowHeadersVisible = false;
@@ -3058,30 +3058,30 @@
             LogoutMenu.Text = "로그아웃";
             LogoutMenu.Click += LogoutMenu_Click;
             // 
-            // inbound_id
+            // warehouse_id
             // 
-            inbound_id.HeaderText = "ID";
-            inbound_id.Name = "inbound_id";
-            inbound_id.ReadOnly = true;
-            inbound_id.Width = 120;
+            warehouse_id.HeaderText = "ID";
+            warehouse_id.Name = "warehouse_id";
+            warehouse_id.ReadOnly = true;
+            warehouse_id.Width = 120;
             // 
-            // inbound_name
+            // warehouse_name
             // 
-            inbound_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            inbound_name.HeaderText = "품명";
-            inbound_name.Name = "inbound_name";
+            warehouse_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            warehouse_name.HeaderText = "품명";
+            warehouse_name.Name = "warehouse_name";
             // 
-            // inbound_cat
+            // warehouse_cat
             // 
-            inbound_cat.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            inbound_cat.HeaderText = "품목";
-            inbound_cat.Name = "inbound_cat";
+            warehouse_cat.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            warehouse_cat.HeaderText = "품목";
+            warehouse_cat.Name = "warehouse_cat";
             // 
-            // inbound_count
+            // warehouse_count
             // 
-            inbound_count.HeaderText = "수량";
-            inbound_count.Name = "inbound_count";
-            inbound_count.Width = 120;
+            warehouse_count.HeaderText = "수량";
+            warehouse_count.Name = "warehouse_count";
+            warehouse_count.Width = 120;
             // 
             // Main
             // 
@@ -3176,10 +3176,10 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem LogoutMenu;
         private DataGridView dgvInbound;
-        private TextBox txtInboundAmount;
-        private TextBox txtInboundCode;
-        private TextBox txtInboundProduct;
-        private TextBox txtInboundId;
+        private TextBox txtWarehouseAmount;
+        private TextBox txtWarehouseCode;
+        private TextBox txtWarehouseProduct;
+        private TextBox txtWarehouseId;
         private Label label5;
         private Label label4;
         private Label label3;
@@ -3207,7 +3207,7 @@
         private DataGridView dgvOut;
         private GroupBox groupBox4;
         private Button btnWare_Del;
-        private Button btnWare_Mod;
+        private Button btnWare_Update;
         private Button btnWare_Add;
         private Button btnIn_Del;
         private Button btnIn_Mod;
@@ -3463,9 +3463,9 @@
         private DataGridViewTextBoxColumn lothis_procname;
         private DataGridViewTextBoxColumn lothis_amount;
         private DataGridViewTextBoxColumn lothis_itemnum;
-        private DataGridViewTextBoxColumn inbound_id;
-        private DataGridViewTextBoxColumn inbound_name;
-        private DataGridViewTextBoxColumn inbound_cat;
-        private DataGridViewTextBoxColumn inbound_count;
+        private DataGridViewTextBoxColumn warehouse_id;
+        private DataGridViewTextBoxColumn warehouse_name;
+        private DataGridViewTextBoxColumn warehouse_cat;
+        private DataGridViewTextBoxColumn warehouse_count;
     }
 }

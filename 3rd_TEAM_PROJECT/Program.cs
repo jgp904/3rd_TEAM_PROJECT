@@ -8,7 +8,7 @@ namespace _3rd_TEAM_PROJECT_Desk
     {
         public static AcountDbContext acountdb;
         public static MProcessDbcontext mprocessdb;
-        public static IInboundRepository inboundRepository;
+        public static IWarehouseRepository inboundRepository;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -19,7 +19,7 @@ namespace _3rd_TEAM_PROJECT_Desk
             using MProcessDbcontext mprocessDbContext = new MProcessDbcontext();
             
             // 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달
-            IInboundRepository inboundRepository = new InboundRepository(acountDbContext, mprocessDbContext);
+            IWarehouseRepository inboundRepository = new WarehouseRepository(acountDbContext, mprocessDbContext);
 
 
             // To customize application configuration such as set high DPI settings or default font,
