@@ -120,6 +120,7 @@ namespace _3rd_TEAM_PROJECT
 			foreach (var item in items)
 			{
 				dgvFactory.Rows.Add();
+				dgvFactory.Rows[i].Cells["fac_id"].Value = item.Id;
 				dgvFactory.Rows[i].Cells["fac_code"].Value = item.Code;
 				dgvFactory.Rows[i].Cells["fac_name"].Value = item.Name;
 				dgvFactory.Rows[i].Cells["fac_const"].Value = item.Constructor;
@@ -132,21 +133,84 @@ namespace _3rd_TEAM_PROJECT
 
 		}
 		//--공장 생성 버튼
-		private void btnCFactory_Click(object sender, EventArgs e)
+		private async void btnCFactory_Click(object sender, EventArgs e)
 		{
 			Factory? factory;
-			
+			var items = await factoryRepository.GetAllAsync();
+
 			string code = txtfacCode.Text.Trim();
 			string name = txtfacName.Text.Trim();
 			string constructor = txtfacConst.Text.Trim();
 
+			foreach (var item in items)
+			{
+				if (item.Code == code)
+				{
+					MessageBox.Show("이미 존재한 공장 코드입니다.");
+					return;
+				}
+			}
+
 			if (code.Length == 0)
 			{
-				MessageBox.Show("공장코드를 입력하세요");
+				MessageBox.Show("공장코드를 입력하세요.");
 				return;
 			}
-			else if(name.Length == 0)
-			
+			else if (name.Length == 0)
+			{
+				MessageBox.Show("공장이름을 입력하세요.");
+				return;
+			}
+			else if (constructor.Length == 0)
+			{
+				MessageBox.Show("생성자를 입력하세요.");
+				return;
+			}
+			else
+			{
+				factory = new()
+				{
+					Code = code,
+					Name = name,
+					Constructor = constructor,
+					RegDate = DateTime.Now
+				};
+				factory = await factoryRepository.AddAsync(factory);
+				MessageBox.Show("생성완료");
+				LoadFactory();
+				return;
+			}
+
+		}
+		//---공장 삭제--
+		private async void dgvFactory_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+		{
+		}
+		private async void dgvFactory_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+		{
+			if (dgvFactory.Rows[e.Row.Index].Cells["fac_id"].Value == null) return;
+			int id = (int)dgvFactory.Rows[e.Row.Index].Cells["fac_id"].Value;
+			await factoryRepository.DeleteAsync(id);
+		}
+		private async void btnDFactory_Click(object sender, EventArgs e)
+		{
+			if (dgvFactory.SelectedCells.Count > 0)
+			{
+				int rowIndex = dgvFactory.SelectedCells[0].RowIndex;
+				DataGridViewRow selectedRow = dgvFactory.Rows[rowIndex];
+				if (selectedRow.Cells["fac_id"].Value == null) return;
+
+				DialogResult result = MessageBox.Show($"선택된 공장({selectedRow.Cells["fac_code"].Value})을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+				if (result == DialogResult.Yes)
+				{
+					int id = (int)selectedRow.Cells["fac_id"].Value;
+					await factoryRepository.DeleteAsync(id);
+					MessageBox.Show("삭제완료.");
+					LoadFactory();
+				}
+				else return;
+			}
 		}
 
 		//로그아웃 메뉴 클릭 시

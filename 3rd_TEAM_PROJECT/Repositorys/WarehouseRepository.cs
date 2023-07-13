@@ -1,4 +1,5 @@
 ﻿using _3rd_TEAM_PROJECT.Data;
+using _3rd_TEAM_PROJECT.Models.WareHouse;
 using _3rd_TEAM_PROJECT_Desk;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,25 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             this.acountDb = acountDbContext;
             this.mprocessDb = mProcessDbcontext;
         }
-    }
+
+		public Task<WareHouse> AddAsync(WareHouse wareHouse)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<WareHouse?> DeleteAsync(long id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<IEnumerable<WareHouse>> GetAllAsync()
+		{
+			throw new NotImplementedException();
+		}
+
+		public Task<WareHouse?> UpdateAsync(WareHouse wareHouse)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

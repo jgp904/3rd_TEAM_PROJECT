@@ -12,6 +12,6 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 		Task<IEnumerable<Factory>> GetAllAsync();
 		Task<Factory> AddAsync(Factory factory);
 		Task<Factory?> UpdateAsync(Factory factory);
-		Task<Factory?> DeleteAsync(Factory factory);
+		Task<Factory?> DeleteAsync(int factory);
 	}
 }

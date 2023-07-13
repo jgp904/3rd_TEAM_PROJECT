@@ -184,6 +184,7 @@
 			label25 = new Label();
 			txtfacConst = new TextBox();
 			dgvFactory = new DataGridView();
+			fac_id = new DataGridViewTextBoxColumn();
 			fac_code = new DataGridViewTextBoxColumn();
 			fac_name = new DataGridViewTextBoxColumn();
 			fac_const = new DataGridViewTextBoxColumn();
@@ -1693,6 +1694,7 @@
 			btnDFactory.TabIndex = 37;
 			btnDFactory.Text = "삭제";
 			btnDFactory.UseVisualStyleBackColor = true;
+			btnDFactory.Click += btnDFactory_Click;
 			// 
 			// label42
 			// 
@@ -1777,13 +1779,21 @@
 			// dgvFactory
 			// 
 			dgvFactory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgvFactory.Columns.AddRange(new DataGridViewColumn[] { fac_code, fac_name, fac_const, fac_regdate, fac_modifier, fac_update });
+			dgvFactory.Columns.AddRange(new DataGridViewColumn[] { fac_id, fac_code, fac_name, fac_const, fac_regdate, fac_modifier, fac_update });
 			dgvFactory.Location = new Point(0, 29);
 			dgvFactory.Name = "dgvFactory";
 			dgvFactory.RowHeadersVisible = false;
 			dgvFactory.RowTemplate.Height = 25;
 			dgvFactory.Size = new Size(853, 618);
 			dgvFactory.TabIndex = 17;
+			dgvFactory.UserDeletedRow += dgvFactory_UserDeletedRow;
+			dgvFactory.UserDeletingRow += dgvFactory_UserDeletingRow;
+			// 
+			// fac_id
+			// 
+			fac_id.HeaderText = "Id";
+			fac_id.Name = "fac_id";
+			fac_id.Width = 60;
 			// 
 			// fac_code
 			// 
@@ -3706,6 +3716,7 @@
 		private Button btnCFactory;
 		private Button btnUFactory;
 		private Button btnDFactory;
+		private DataGridViewTextBoxColumn fac_id;
 		private DataGridViewTextBoxColumn fac_code;
 		private DataGridViewTextBoxColumn fac_name;
 		private DataGridViewTextBoxColumn fac_const;

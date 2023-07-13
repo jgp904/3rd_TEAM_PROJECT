@@ -30,9 +30,14 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 			return factory;
 		}
 
-		public Task<Factory?> DeleteAsync(Factory factory)
+		public async Task<Factory?> DeleteAsync(int factory)
 		{
-			throw new NotImplementedException();
+			var existingFatory = await mprocessdb.Factories.FindAsync(factory);
+			if (existingFatory == null)return null;
+
+			mprocessdb.Factories.Remove(existingFatory);
+			await mprocessdb.SaveChangesAsync();
+			return existingFatory;
 		}
 
 		public async Task<IEnumerable<Factory>> GetAllAsync()

@@ -8,7 +8,7 @@ namespace _3rd_TEAM_PROJECT_Desk
     {
         public static AcountDbContext acountdb;
         public static MProcessDbcontext mprocessdb;
-        public static IInboundRepository inboundRepository;
+        
         public static IFactoryRepository factoryRepository;
         /// <summary>
         ///  The main entry point for the application.
@@ -26,7 +26,7 @@ namespace _3rd_TEAM_PROJECT_Desk
 
         
             // 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달
-            IInboundRepository inboundRepository = new InboundRepository(acountDbContext, mprocessDbContext);
+            
             
 
 
