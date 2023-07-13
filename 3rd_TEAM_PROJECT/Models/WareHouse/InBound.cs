@@ -16,11 +16,11 @@ namespace _3rd_TEAM_PROJECT.Models.WareHouse
         public int Amount { get; set; }     //수량
         public string Vendor { get; set; }  //거래처
 
+        public string Item { get; set; }    //품목
 
-
-		public DateTime RegDate { get; set; }   //입고날짜
+        public DateTime RegDate { get; set; }   //입고날짜
         public string Contact { get; set; } //담당자
 
-        public WareHouse? WareHouse { get; set; }   //
+        public WareHouse? WareHouse { get; set; }   //FK
     }
 }

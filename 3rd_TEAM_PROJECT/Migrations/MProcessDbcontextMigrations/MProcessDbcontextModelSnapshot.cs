@@ -3,25 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations
+namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/20230713001039_MProcess.Designer.cs
-    [Migration("20230713001039_MProcess")]
-    partial class MProcess
-========
-    [Migration("20230713002232_mprocess")]
-    partial class mprocess
->>>>>>>> ca65270ca3209877b462c4b0ecc1581adcf00703:3rd_TEAM_PROJECT/Migrations/20230713002232_mprocess.Designer.cs
+    partial class MProcessDbcontextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

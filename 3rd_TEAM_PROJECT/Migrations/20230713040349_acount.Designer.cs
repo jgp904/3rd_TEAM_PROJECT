@@ -9,16 +9,11 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AcountDbContext))]
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/20230713000953_Acount.Designer.cs
-    [Migration("20230713000953_Acount")]
-    partial class Acount
-========
-    [Migration("20230713002241_acount")]
+    [Migration("20230713040349_acount")]
     partial class acount
->>>>>>>> ca65270ca3209877b462c4b0ecc1581adcf00703:3rd_TEAM_PROJECT/Migrations/AcountDb/20230713002241_acount.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,6 +81,10 @@ namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("DepartmentCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

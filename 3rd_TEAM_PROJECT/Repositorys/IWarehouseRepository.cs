@@ -20,5 +20,6 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 
         //재고 추가
         Task<WareHouse> AddAsync(WareHouse wareHouse);
+
     }
 }
