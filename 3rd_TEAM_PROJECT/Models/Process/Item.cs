@@ -11,8 +11,8 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 	public class Item
     {
         public int Id { get; set; } // PK
-        public string Code { get; set; }
-		public string Name { get; set; } // vnaaud
+        public string Code { get; set; } //품번
+		public string Name { get; set; } // 품명
         public string Type { get; set; }
 		/*
 		 * 품번타입

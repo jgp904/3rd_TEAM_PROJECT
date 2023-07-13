@@ -11,10 +11,10 @@ namespace _3rd_TEAM_PROJECT.Models.Process
     public class Factory
 	{
 		public int Id { get; set; }
-		public string Code { get; set; }
-		public string Name { get; set; }
+		public string Code { get; set; } //공장코드
+		public string Name { get; set; } //공장이름
 
-        public string Constructor { get; set; }
+        public string Constructor { get; set; } //
         public DateTime RegDate { get; set; }
         public string? Modifier { get; set; }
         public DateTime? ModDate { get; set; }
