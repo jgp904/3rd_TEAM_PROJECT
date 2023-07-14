@@ -1,6 +1,7 @@
 using _3rd_TEAM_PROJECT;
 using _3rd_TEAM_PROJECT.Data;
 using _3rd_TEAM_PROJECT.Repositorys;
+using _3rd_TEAM_PROJECT.Repositorys.InterFace;
 
 namespace _3rd_TEAM_PROJECT_Desk
 {
@@ -12,6 +13,7 @@ namespace _3rd_TEAM_PROJECT_Desk
         public static IWarehouseRepository warehouseRepository;
         public static IInboundRepository? inboundRepository;
         public static IOutboundRepository outboundRepository;
+        public static IEquipmentRepository equipmentRepository;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -24,6 +26,8 @@ namespace _3rd_TEAM_PROJECT_Desk
 			mprocessdb = mprocessDbContext;
 
 			factoryRepository = new FactoryRepository();//공장
+            equipmentRepository = new EquipmentRepository();//설비
+
 
 			// 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달
 			warehouseRepository = new WarehouseRepository(acountDbContext, mprocessDbContext);

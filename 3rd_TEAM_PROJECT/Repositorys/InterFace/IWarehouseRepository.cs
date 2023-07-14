@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Repositorys
+namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
 {
     public interface IWarehouseRepository
     {

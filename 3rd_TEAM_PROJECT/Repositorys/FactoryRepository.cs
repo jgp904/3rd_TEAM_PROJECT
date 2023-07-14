@@ -1,5 +1,6 @@
 ﻿using _3rd_TEAM_PROJECT.Data;
 using _3rd_TEAM_PROJECT.Models.Process;
+using _3rd_TEAM_PROJECT.Repositorys.InterFace;
 using _3rd_TEAM_PROJECT_Desk;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,11 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace _3rd_TEAM_PROJECT.Repositorys
 {
 
-	public class FactoryRepository : IFactoryRepository
+    public class FactoryRepository : IFactoryRepository
 	{
 		private readonly AcountDbContext acountdb;
 		private readonly MProcessDbcontext mprocessdb;
@@ -29,7 +31,6 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 			await mprocessdb.SaveChangesAsync();
 			return factory;
 		}
-
 		public async Task<Factory?> DeleteAsync(int factory)
 		{
 			var existingFatory = await mprocessdb.Factories.FindAsync(factory);
@@ -39,16 +40,54 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 			await mprocessdb.SaveChangesAsync();
 			return existingFatory;
 		}
-
 		public async Task<IEnumerable<Factory>> GetAllAsync()
 		{
 			var items = await mprocessdb.Factories.ToListAsync();
 			return items.OrderBy(x=>x.Id).ToList();
 		}
-
-		public Task<Factory?> UpdateAsync(Factory factory)
+		public async Task<Factory?> UpdateAsync(Factory factory)
 		{
-			throw new NotImplementedException();
+			var existingFactory = await mprocessdb.Factories.FindAsync(factory.Id);
+			if (existingFactory == null)return null;
+
+			existingFactory.Code = factory.Code;
+			existingFactory.Name = factory.Name;
+			existingFactory.Modifier = factory.Modifier;
+			existingFactory.ModDate = factory.ModDate;
+
+			await mprocessdb.SaveChangesAsync();
+			return existingFactory;
+		}
+		public async Task<IEnumerable<Factory>> CodeAsync(string search)
+		{
+			return await mprocessdb.Factories
+			.Where(x =>(x.Code != null && x.Code.Contains(search)))
+			.OrderBy(x => x.Id)
+			.ToListAsync();
+		}
+
+		public async Task<IEnumerable<Factory>> NameAsync(string search)
+		{
+			return await mprocessdb.Factories
+			.Where(x => (x.Name != null && x.Name.Contains(search)))
+			.OrderBy(x => x.Id)
+			.ToListAsync();
+		}
+
+		public async Task<IEnumerable<Factory>> ConstAsync(string search)
+		{
+			return await mprocessdb.Factories
+			.Where(x => (x.Constructor != null && x.Constructor.Contains(search)))
+			.OrderBy(x => x.Id)
+			.ToListAsync();
+		}
+
+		public async Task<IEnumerable<Factory>> ModiAsync(string search)
+		{
+			return await mprocessdb.Factories
+			.Where(x => (x.Modifier != null && x.Modifier.Contains(search)))
+			.OrderBy(x => x.Id)
+			.ToListAsync();
 		}
 	}
 }
