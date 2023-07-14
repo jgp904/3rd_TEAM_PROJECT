@@ -165,16 +165,20 @@
 			label39 = new Label();
 			textBox40 = new TextBox();
 			Product_fac = new TabPage();
+			cbbFilter = new ComboBox();
 			label97 = new Label();
-			label98 = new Label();
 			pictureBox4 = new PictureBox();
-			textBox91 = new TextBox();
+			txtfacSearch = new TextBox();
 			groupBox6 = new GroupBox();
+			lbfacId = new Label();
+			label100 = new Label();
+			label99 = new Label();
+			txtfacModiDate = new TextBox();
 			btnCFactory = new Button();
 			btnUFactory = new Button();
 			btnDFactory = new Button();
 			label42 = new Label();
-			textBox43 = new TextBox();
+			txtfacModifier = new TextBox();
 			txtfacCode = new TextBox();
 			label22 = new Label();
 			label23 = new Label();
@@ -247,35 +251,45 @@
 			itemnum_update = new DataGridViewTextBoxColumn();
 			itemnum_factorycode = new DataGridViewTextBoxColumn();
 			Product_equip = new TabPage();
+			comboBox2 = new ComboBox();
+			label98 = new Label();
+			pictureBox5 = new PictureBox();
+			textBox21 = new TextBox();
 			groupBox9 = new GroupBox();
+			label102 = new Label();
+			txtequipModdate = new TextBox();
+			cbbequipEvent = new ComboBox();
+			cbbequipStatus = new ComboBox();
+			lbequiId = new Label();
+			btnCequip = new Button();
+			button6 = new Button();
+			button7 = new Button();
 			label62 = new Label();
-			textBox63 = new TextBox();
 			label61 = new Label();
-			textBox62 = new TextBox();
 			label60 = new Label();
-			textBox61 = new TextBox();
+			txtequiComment = new TextBox();
 			label48 = new Label();
-			textBox49 = new TextBox();
+			txtequipName = new TextBox();
 			label49 = new Label();
-			textBox50 = new TextBox();
-			textBox51 = new TextBox();
+			txtequipModi = new TextBox();
 			label50 = new Label();
 			label57 = new Label();
-			textBox58 = new TextBox();
-			textBox59 = new TextBox();
+			txtequipRegdate = new TextBox();
+			txtequiCode = new TextBox();
 			label58 = new Label();
 			label59 = new Label();
-			textBox60 = new TextBox();
-			dataGridView9 = new DataGridView();
-			equip_factorycode = new DataGridViewTextBoxColumn();
-			dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+			txtequipConst = new TextBox();
+			dgvEquip = new DataGridView();
+			equip_id = new DataGridViewTextBoxColumn();
+			equip_code = new DataGridViewTextBoxColumn();
 			equip_name = new DataGridViewTextBoxColumn();
 			equip_comment = new DataGridViewTextBoxColumn();
 			equip_status = new DataGridViewTextBoxColumn();
 			equip_event = new DataGridViewTextBoxColumn();
-			dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-			dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-			dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+			equip_const = new DataGridViewTextBoxColumn();
+			equip_regdate = new DataGridViewTextBoxColumn();
+			equip_modi = new DataGridViewTextBoxColumn();
+			equip_moddate = new DataGridViewTextBoxColumn();
 			Product_lotlist = new TabPage();
 			groupBox10 = new GroupBox();
 			label65 = new Label();
@@ -388,8 +402,9 @@
 			groupBox8.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridView8).BeginInit();
 			Product_equip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
 			groupBox9.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView9).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dgvEquip).BeginInit();
 			Product_lotlist.SuspendLayout();
 			groupBox10.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridView10).BeginInit();
@@ -1590,10 +1605,10 @@
 			// 
 			// Product_fac
 			// 
+			Product_fac.Controls.Add(cbbFilter);
 			Product_fac.Controls.Add(label97);
-			Product_fac.Controls.Add(label98);
 			Product_fac.Controls.Add(pictureBox4);
-			Product_fac.Controls.Add(textBox91);
+			Product_fac.Controls.Add(txtfacSearch);
 			Product_fac.Controls.Add(groupBox6);
 			Product_fac.Controls.Add(dgvFactory);
 			Product_fac.Location = new Point(104, 4);
@@ -1602,6 +1617,16 @@
 			Product_fac.TabIndex = 5;
 			Product_fac.Text = "공장 목록";
 			Product_fac.UseVisualStyleBackColor = true;
+			// 
+			// cbbFilter
+			// 
+			cbbFilter.FormattingEnabled = true;
+			cbbFilter.Items.AddRange(new object[] { "공장명", "생성자", "수정자" });
+			cbbFilter.Location = new Point(732, 4);
+			cbbFilter.Name = "cbbFilter";
+			cbbFilter.Size = new Size(121, 23);
+			cbbFilter.TabIndex = 37;
+			cbbFilter.Text = "공장코드";
 			// 
 			// label97
 			// 
@@ -1615,42 +1640,36 @@
 			label97.TabIndex = 36;
 			label97.Text = "검색";
 			// 
-			// label98
-			// 
-			label98.AutoSize = true;
-			label98.BackColor = Color.LightSteelBlue;
-			label98.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
-			label98.Location = new Point(776, 3);
-			label98.Name = "label98";
-			label98.Padding = new Padding(5);
-			label98.Size = new Size(77, 24);
-			label98.TabIndex = 35;
-			label98.Text = "조건검색";
-			// 
 			// pictureBox4
 			// 
 			pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-			pictureBox4.Location = new Point(751, 3);
+			pictureBox4.Location = new Point(705, 4);
 			pictureBox4.Name = "pictureBox4";
 			pictureBox4.Size = new Size(21, 23);
 			pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
 			pictureBox4.TabIndex = 34;
 			pictureBox4.TabStop = false;
+			pictureBox4.Click += pictureBox4_Click;
 			// 
-			// textBox91
+			// txtfacSearch
 			// 
-			textBox91.Location = new Point(56, 3);
-			textBox91.Name = "textBox91";
-			textBox91.Size = new Size(690, 23);
-			textBox91.TabIndex = 33;
+			txtfacSearch.Location = new Point(56, 3);
+			txtfacSearch.Name = "txtfacSearch";
+			txtfacSearch.Size = new Size(643, 23);
+			txtfacSearch.TabIndex = 33;
+			txtfacSearch.KeyPress += txtfacSearch_KeyPress;
 			// 
 			// groupBox6
 			// 
+			groupBox6.Controls.Add(lbfacId);
+			groupBox6.Controls.Add(label100);
+			groupBox6.Controls.Add(label99);
+			groupBox6.Controls.Add(txtfacModiDate);
 			groupBox6.Controls.Add(btnCFactory);
 			groupBox6.Controls.Add(btnUFactory);
 			groupBox6.Controls.Add(btnDFactory);
 			groupBox6.Controls.Add(label42);
-			groupBox6.Controls.Add(textBox43);
+			groupBox6.Controls.Add(txtfacModifier);
 			groupBox6.Controls.Add(txtfacCode);
 			groupBox6.Controls.Add(label22);
 			groupBox6.Controls.Add(label23);
@@ -1666,6 +1685,39 @@
 			groupBox6.TabIndex = 18;
 			groupBox6.TabStop = false;
 			groupBox6.Text = "공장 목록";
+			// 
+			// lbfacId
+			// 
+			lbfacId.AutoSize = true;
+			lbfacId.Location = new Point(94, 25);
+			lbfacId.Name = "lbfacId";
+			lbfacId.Size = new Size(0, 15);
+			lbfacId.TabIndex = 44;
+			// 
+			// label100
+			// 
+			label100.AutoSize = true;
+			label100.Location = new Point(22, 25);
+			label100.Name = "label100";
+			label100.Size = new Size(28, 15);
+			label100.TabIndex = 43;
+			label100.Text = "Id  :";
+			// 
+			// label99
+			// 
+			label99.AutoSize = true;
+			label99.Location = new Point(22, 199);
+			label99.Name = "label99";
+			label99.Size = new Size(66, 15);
+			label99.TabIndex = 41;
+			label99.Text = "수정 일자 :";
+			// 
+			// txtfacModiDate
+			// 
+			txtfacModiDate.Location = new Point(94, 196);
+			txtfacModiDate.Name = "txtfacModiDate";
+			txtfacModiDate.Size = new Size(100, 23);
+			txtfacModiDate.TabIndex = 40;
 			// 
 			// btnCFactory
 			// 
@@ -1685,6 +1737,7 @@
 			btnUFactory.TabIndex = 38;
 			btnUFactory.Text = "수정";
 			btnUFactory.UseVisualStyleBackColor = true;
+			btnUFactory.Click += btnUFactory_Click;
 			// 
 			// btnDFactory
 			// 
@@ -1699,22 +1752,22 @@
 			// label42
 			// 
 			label42.AutoSize = true;
-			label42.Location = new Point(22, 150);
+			label42.Location = new Point(22, 170);
 			label42.Name = "label42";
-			label42.Size = new Size(66, 15);
+			label42.Size = new Size(50, 15);
 			label42.TabIndex = 10;
-			label42.Text = "수정 일자 :";
+			label42.Text = "수정자 :";
 			// 
-			// textBox43
+			// txtfacModifier
 			// 
-			textBox43.Location = new Point(94, 147);
-			textBox43.Name = "textBox43";
-			textBox43.Size = new Size(100, 23);
-			textBox43.TabIndex = 5;
+			txtfacModifier.Location = new Point(94, 167);
+			txtfacModifier.Name = "txtfacModifier";
+			txtfacModifier.Size = new Size(100, 23);
+			txtfacModifier.TabIndex = 5;
 			// 
 			// txtfacCode
 			// 
-			txtfacCode.Location = new Point(94, 31);
+			txtfacCode.Location = new Point(94, 51);
 			txtfacCode.Name = "txtfacCode";
 			txtfacCode.Size = new Size(100, 23);
 			txtfacCode.TabIndex = 1;
@@ -1722,7 +1775,7 @@
 			// label22
 			// 
 			label22.AutoSize = true;
-			label22.Location = new Point(22, 34);
+			label22.Location = new Point(22, 54);
 			label22.Name = "label22";
 			label22.Size = new Size(66, 15);
 			label22.TabIndex = 5;
@@ -1731,7 +1784,7 @@
 			// label23
 			// 
 			label23.AutoSize = true;
-			label23.Location = new Point(22, 121);
+			label23.Location = new Point(22, 141);
 			label23.Name = "label23";
 			label23.Size = new Size(66, 15);
 			label23.TabIndex = 8;
@@ -1739,14 +1792,14 @@
 			// 
 			// txtfacRegdate
 			// 
-			txtfacRegdate.Location = new Point(94, 118);
+			txtfacRegdate.Location = new Point(94, 138);
 			txtfacRegdate.Name = "txtfacRegdate";
 			txtfacRegdate.Size = new Size(100, 23);
 			txtfacRegdate.TabIndex = 4;
 			// 
 			// txtfacName
 			// 
-			txtfacName.Location = new Point(94, 60);
+			txtfacName.Location = new Point(94, 80);
 			txtfacName.Name = "txtfacName";
 			txtfacName.Size = new Size(100, 23);
 			txtfacName.TabIndex = 2;
@@ -1754,7 +1807,7 @@
 			// label24
 			// 
 			label24.AutoSize = true;
-			label24.Location = new Point(22, 63);
+			label24.Location = new Point(22, 83);
 			label24.Name = "label24";
 			label24.Size = new Size(50, 15);
 			label24.TabIndex = 6;
@@ -1763,7 +1816,7 @@
 			// label25
 			// 
 			label25.AutoSize = true;
-			label25.Location = new Point(22, 92);
+			label25.Location = new Point(22, 112);
 			label25.Name = "label25";
 			label25.Size = new Size(50, 15);
 			label25.TabIndex = 7;
@@ -1771,7 +1824,7 @@
 			// 
 			// txtfacConst
 			// 
-			txtfacConst.Location = new Point(94, 89);
+			txtfacConst.Location = new Point(94, 109);
 			txtfacConst.Name = "txtfacConst";
 			txtfacConst.Size = new Size(100, 23);
 			txtfacConst.TabIndex = 3;
@@ -1786,8 +1839,7 @@
 			dgvFactory.RowTemplate.Height = 25;
 			dgvFactory.Size = new Size(853, 618);
 			dgvFactory.TabIndex = 17;
-			dgvFactory.UserDeletedRow += dgvFactory_UserDeletedRow;
-			dgvFactory.UserDeletingRow += dgvFactory_UserDeletingRow;
+			dgvFactory.CellClick += dgvFactory_CellClick;
 			// 
 			// fac_id
 			// 
@@ -2310,35 +2362,83 @@
 			// 
 			// Product_equip
 			// 
+			Product_equip.BackColor = Color.Transparent;
+			Product_equip.Controls.Add(comboBox2);
+			Product_equip.Controls.Add(label98);
+			Product_equip.Controls.Add(pictureBox5);
+			Product_equip.Controls.Add(textBox21);
 			Product_equip.Controls.Add(groupBox9);
-			Product_equip.Controls.Add(dataGridView9);
+			Product_equip.Controls.Add(dgvEquip);
 			Product_equip.Location = new Point(104, 4);
 			Product_equip.Name = "Product_equip";
 			Product_equip.Size = new Size(1069, 649);
 			Product_equip.TabIndex = 8;
 			Product_equip.Text = "설비 목록";
-			Product_equip.UseVisualStyleBackColor = true;
+			// 
+			// comboBox2
+			// 
+			comboBox2.FormattingEnabled = true;
+			comboBox2.Items.AddRange(new object[] { "공장명", "생성자", "수정자" });
+			comboBox2.Location = new Point(732, 6);
+			comboBox2.Name = "comboBox2";
+			comboBox2.Size = new Size(121, 23);
+			comboBox2.TabIndex = 38;
+			comboBox2.Text = "공장코드";
+			// 
+			// label98
+			// 
+			label98.AutoSize = true;
+			label98.BackColor = Color.LightSteelBlue;
+			label98.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
+			label98.Location = new Point(3, 6);
+			label98.Name = "label98";
+			label98.Padding = new Padding(5);
+			label98.Size = new Size(47, 24);
+			label98.TabIndex = 36;
+			label98.Text = "검색";
+			// 
+			// pictureBox5
+			// 
+			pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+			pictureBox5.Location = new Point(705, 6);
+			pictureBox5.Name = "pictureBox5";
+			pictureBox5.Size = new Size(21, 23);
+			pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox5.TabIndex = 34;
+			pictureBox5.TabStop = false;
+			// 
+			// textBox21
+			// 
+			textBox21.Location = new Point(56, 6);
+			textBox21.Name = "textBox21";
+			textBox21.Size = new Size(643, 23);
+			textBox21.TabIndex = 33;
 			// 
 			// groupBox9
 			// 
+			groupBox9.Controls.Add(label102);
+			groupBox9.Controls.Add(txtequipModdate);
+			groupBox9.Controls.Add(cbbequipEvent);
+			groupBox9.Controls.Add(cbbequipStatus);
+			groupBox9.Controls.Add(lbequiId);
+			groupBox9.Controls.Add(btnCequip);
+			groupBox9.Controls.Add(button6);
+			groupBox9.Controls.Add(button7);
 			groupBox9.Controls.Add(label62);
-			groupBox9.Controls.Add(textBox63);
 			groupBox9.Controls.Add(label61);
-			groupBox9.Controls.Add(textBox62);
 			groupBox9.Controls.Add(label60);
-			groupBox9.Controls.Add(textBox61);
+			groupBox9.Controls.Add(txtequiComment);
 			groupBox9.Controls.Add(label48);
-			groupBox9.Controls.Add(textBox49);
+			groupBox9.Controls.Add(txtequipName);
 			groupBox9.Controls.Add(label49);
-			groupBox9.Controls.Add(textBox50);
-			groupBox9.Controls.Add(textBox51);
+			groupBox9.Controls.Add(txtequipModi);
 			groupBox9.Controls.Add(label50);
 			groupBox9.Controls.Add(label57);
-			groupBox9.Controls.Add(textBox58);
-			groupBox9.Controls.Add(textBox59);
+			groupBox9.Controls.Add(txtequipRegdate);
+			groupBox9.Controls.Add(txtequiCode);
 			groupBox9.Controls.Add(label58);
 			groupBox9.Controls.Add(label59);
-			groupBox9.Controls.Add(textBox60);
+			groupBox9.Controls.Add(txtequipConst);
 			groupBox9.Dock = DockStyle.Right;
 			groupBox9.Location = new Point(862, 0);
 			groupBox9.Name = "groupBox9";
@@ -2347,37 +2447,95 @@
 			groupBox9.TabStop = false;
 			groupBox9.Text = "설비 목록";
 			// 
+			// label102
+			// 
+			label102.AutoSize = true;
+			label102.Location = new Point(17, 348);
+			label102.Name = "label102";
+			label102.Size = new Size(66, 15);
+			label102.TabIndex = 47;
+			label102.Text = "수정 일자 :";
+			// 
+			// txtequipModdate
+			// 
+			txtequipModdate.Location = new Point(99, 345);
+			txtequipModdate.Name = "txtequipModdate";
+			txtequipModdate.Size = new Size(100, 23);
+			txtequipModdate.TabIndex = 46;
+			// 
+			// cbbequipEvent
+			// 
+			cbbequipEvent.FormattingEnabled = true;
+			cbbequipEvent.Items.AddRange(new object[] { "BreakeDown", "Maintanunce", "Emergency" });
+			cbbequipEvent.Location = new Point(99, 228);
+			cbbequipEvent.Name = "cbbequipEvent";
+			cbbequipEvent.Size = new Size(100, 23);
+			cbbequipEvent.TabIndex = 45;
+			cbbequipEvent.Text = "NON";
+			// 
+			// cbbequipStatus
+			// 
+			cbbequipStatus.FormattingEnabled = true;
+			cbbequipStatus.Items.AddRange(new object[] { "Stop", "Process" });
+			cbbequipStatus.Location = new Point(99, 199);
+			cbbequipStatus.Name = "cbbequipStatus";
+			cbbequipStatus.Size = new Size(100, 23);
+			cbbequipStatus.TabIndex = 44;
+			cbbequipStatus.Text = "Ready";
+			// 
+			// lbequiId
+			// 
+			lbequiId.AutoSize = true;
+			lbequiId.Location = new Point(99, 35);
+			lbequiId.Name = "lbequiId";
+			lbequiId.Size = new Size(0, 15);
+			lbequiId.TabIndex = 43;
+			// 
+			// btnCequip
+			// 
+			btnCequip.Location = new Point(6, 557);
+			btnCequip.Name = "btnCequip";
+			btnCequip.Size = new Size(198, 23);
+			btnCequip.TabIndex = 42;
+			btnCequip.Text = "생성";
+			btnCequip.UseVisualStyleBackColor = true;
+			btnCequip.Click += btnCequip_Click;
+			// 
+			// button6
+			// 
+			button6.Location = new Point(6, 586);
+			button6.Name = "button6";
+			button6.Size = new Size(198, 23);
+			button6.TabIndex = 41;
+			button6.Text = "수정";
+			button6.UseVisualStyleBackColor = true;
+			// 
+			// button7
+			// 
+			button7.Location = new Point(6, 615);
+			button7.Name = "button7";
+			button7.Size = new Size(198, 23);
+			button7.TabIndex = 40;
+			button7.Text = "삭제";
+			button7.UseVisualStyleBackColor = true;
+			// 
 			// label62
 			// 
 			label62.AutoSize = true;
-			label62.Location = new Point(17, 180);
+			label62.Location = new Point(17, 231);
 			label62.Name = "label62";
 			label62.Size = new Size(50, 15);
 			label62.TabIndex = 28;
 			label62.Text = "이벤트 :";
 			// 
-			// textBox63
-			// 
-			textBox63.Location = new Point(99, 177);
-			textBox63.Name = "textBox63";
-			textBox63.Size = new Size(100, 23);
-			textBox63.TabIndex = 6;
-			// 
 			// label61
 			// 
 			label61.AutoSize = true;
-			label61.Location = new Point(17, 151);
+			label61.Location = new Point(17, 202);
 			label61.Name = "label61";
 			label61.Size = new Size(66, 15);
 			label61.TabIndex = 26;
 			label61.Text = "설비 상태 :";
-			// 
-			// textBox62
-			// 
-			textBox62.Location = new Point(99, 148);
-			textBox62.Name = "textBox62";
-			textBox62.Size = new Size(100, 23);
-			textBox62.TabIndex = 5;
 			// 
 			// label60
 			// 
@@ -2388,12 +2546,13 @@
 			label60.TabIndex = 24;
 			label60.Text = "설비 설명 :";
 			// 
-			// textBox61
+			// txtequiComment
 			// 
-			textBox61.Location = new Point(99, 119);
-			textBox61.Name = "textBox61";
-			textBox61.Size = new Size(100, 23);
-			textBox61.TabIndex = 4;
+			txtequiComment.Location = new Point(99, 119);
+			txtequiComment.Multiline = true;
+			txtequiComment.Name = "txtequiComment";
+			txtequiComment.Size = new Size(100, 74);
+			txtequiComment.TabIndex = 4;
 			// 
 			// label48
 			// 
@@ -2404,67 +2563,60 @@
 			label48.TabIndex = 22;
 			label48.Text = "설비명 :";
 			// 
-			// textBox49
+			// txtequipName
 			// 
-			textBox49.Location = new Point(99, 90);
-			textBox49.Name = "textBox49";
-			textBox49.Size = new Size(100, 23);
-			textBox49.TabIndex = 3;
+			txtequipName.Location = new Point(99, 90);
+			txtequipName.Name = "txtequipName";
+			txtequipName.Size = new Size(100, 23);
+			txtequipName.TabIndex = 3;
 			// 
 			// label49
 			// 
 			label49.AutoSize = true;
-			label49.Location = new Point(17, 267);
+			label49.Location = new Point(17, 318);
 			label49.Name = "label49";
-			label49.Size = new Size(66, 15);
+			label49.Size = new Size(50, 15);
 			label49.TabIndex = 20;
-			label49.Text = "수정 일자 :";
+			label49.Text = "수정자 :";
 			// 
-			// textBox50
+			// txtequipModi
 			// 
-			textBox50.Location = new Point(99, 264);
-			textBox50.Name = "textBox50";
-			textBox50.Size = new Size(100, 23);
-			textBox50.TabIndex = 9;
-			// 
-			// textBox51
-			// 
-			textBox51.Location = new Point(99, 32);
-			textBox51.Name = "textBox51";
-			textBox51.Size = new Size(100, 23);
-			textBox51.TabIndex = 1;
+			txtequipModi.Location = new Point(99, 315);
+			txtequipModi.Name = "txtequipModi";
+			txtequipModi.Size = new Size(100, 23);
+			txtequipModi.TabIndex = 9;
 			// 
 			// label50
 			// 
 			label50.AutoSize = true;
 			label50.Location = new Point(17, 35);
 			label50.Name = "label50";
-			label50.Size = new Size(66, 15);
+			label50.Size = new Size(24, 15);
 			label50.TabIndex = 15;
-			label50.Text = "공장 코드 :";
+			label50.Text = "Id :";
 			// 
 			// label57
 			// 
 			label57.AutoSize = true;
-			label57.Location = new Point(17, 238);
+			label57.Location = new Point(17, 289);
 			label57.Name = "label57";
 			label57.Size = new Size(66, 15);
 			label57.TabIndex = 18;
 			label57.Text = "생성 일자 :";
 			// 
-			// textBox58
+			// txtequipRegdate
 			// 
-			textBox58.Location = new Point(99, 235);
-			textBox58.Name = "textBox58";
-			textBox58.Size = new Size(100, 23);
-			textBox58.TabIndex = 8;
+			txtequipRegdate.Location = new Point(99, 286);
+			txtequipRegdate.Name = "txtequipRegdate";
+			txtequipRegdate.Size = new Size(100, 23);
+			txtequipRegdate.TabIndex = 8;
 			// 
-			// textBox59
+			// txtequiCode
 			// 
-			textBox59.Location = new Point(99, 61);
-			textBox59.Name = "textBox59";
-			textBox59.Size = new Size(100, 23);
-			textBox59.TabIndex = 2;
+			txtequiCode.Location = new Point(99, 61);
+			txtequiCode.Name = "txtequiCode";
+			txtequiCode.Size = new Size(100, 23);
+			txtequiCode.TabIndex = 2;
 			// 
 			// label58
 			// 
@@ -2478,41 +2630,40 @@
 			// label59
 			// 
 			label59.AutoSize = true;
-			label59.Location = new Point(17, 209);
+			label59.Location = new Point(17, 260);
 			label59.Name = "label59";
 			label59.Size = new Size(50, 15);
 			label59.TabIndex = 17;
 			label59.Text = "생성자 :";
 			// 
-			// textBox60
+			// txtequipConst
 			// 
-			textBox60.Location = new Point(99, 206);
-			textBox60.Name = "textBox60";
-			textBox60.Size = new Size(100, 23);
-			textBox60.TabIndex = 7;
+			txtequipConst.Location = new Point(99, 257);
+			txtequipConst.Name = "txtequipConst";
+			txtequipConst.Size = new Size(100, 23);
+			txtequipConst.TabIndex = 7;
 			// 
-			// dataGridView9
+			// dgvEquip
 			// 
-			dataGridView9.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView9.Columns.AddRange(new DataGridViewColumn[] { equip_factorycode, dataGridViewTextBoxColumn2, equip_name, equip_comment, equip_status, equip_event, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-			dataGridView9.Location = new Point(0, 1);
-			dataGridView9.Name = "dataGridView9";
-			dataGridView9.RowHeadersVisible = false;
-			dataGridView9.RowTemplate.Height = 25;
-			dataGridView9.Size = new Size(853, 646);
-			dataGridView9.TabIndex = 23;
+			dgvEquip.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dgvEquip.Columns.AddRange(new DataGridViewColumn[] { equip_id, equip_code, equip_name, equip_comment, equip_status, equip_event, equip_const, equip_regdate, equip_modi, equip_moddate });
+			dgvEquip.Location = new Point(0, 35);
+			dgvEquip.Name = "dgvEquip";
+			dgvEquip.RowHeadersVisible = false;
+			dgvEquip.RowTemplate.Height = 25;
+			dgvEquip.Size = new Size(853, 612);
+			dgvEquip.TabIndex = 23;
 			// 
-			// equip_factorycode
+			// equip_id
 			// 
-			equip_factorycode.HeaderText = "공장 코드";
-			equip_factorycode.Name = "equip_factorycode";
-			equip_factorycode.ReadOnly = true;
+			equip_id.HeaderText = "Id";
+			equip_id.Name = "equip_id";
 			// 
-			// dataGridViewTextBoxColumn2
+			// equip_code
 			// 
-			dataGridViewTextBoxColumn2.HeaderText = "설비";
-			dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			dataGridViewTextBoxColumn2.ReadOnly = true;
+			equip_code.HeaderText = "설비";
+			equip_code.Name = "equip_code";
+			equip_code.ReadOnly = true;
 			// 
 			// equip_name
 			// 
@@ -2535,23 +2686,28 @@
 			equip_event.HeaderText = "이벤트";
 			equip_event.Name = "equip_event";
 			// 
-			// dataGridViewTextBoxColumn3
+			// equip_const
 			// 
-			dataGridViewTextBoxColumn3.HeaderText = "생성자";
-			dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			dataGridViewTextBoxColumn3.ReadOnly = true;
+			equip_const.HeaderText = "생성자";
+			equip_const.Name = "equip_const";
+			equip_const.ReadOnly = true;
 			// 
-			// dataGridViewTextBoxColumn4
+			// equip_regdate
 			// 
-			dataGridViewTextBoxColumn4.HeaderText = "생성 일자";
-			dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			dataGridViewTextBoxColumn4.ReadOnly = true;
+			equip_regdate.HeaderText = "생성 일자";
+			equip_regdate.Name = "equip_regdate";
+			equip_regdate.ReadOnly = true;
 			// 
-			// dataGridViewTextBoxColumn5
+			// equip_modi
 			// 
-			dataGridViewTextBoxColumn5.HeaderText = "수정 일자";
-			dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			dataGridViewTextBoxColumn5.ReadOnly = true;
+			equip_modi.HeaderText = "수정자";
+			equip_modi.Name = "equip_modi";
+			equip_modi.ReadOnly = true;
+			// 
+			// equip_moddate
+			// 
+			equip_moddate.HeaderText = "수정일자";
+			equip_moddate.Name = "equip_moddate";
 			// 
 			// Product_lotlist
 			// 
@@ -3366,9 +3522,11 @@
 			groupBox8.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridView8).EndInit();
 			Product_equip.ResumeLayout(false);
+			Product_equip.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
 			groupBox9.ResumeLayout(false);
 			groupBox9.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView9).EndInit();
+			((System.ComponentModel.ISupportInitialize)dgvEquip).EndInit();
 			Product_lotlist.ResumeLayout(false);
 			groupBox10.ResumeLayout(false);
 			groupBox10.PerformLayout();
@@ -3545,7 +3703,7 @@
 		private Label label39;
 		private TextBox textBox40;
 		private Label label42;
-		private TextBox textBox43;
+		private TextBox txtfacModifier;
 		private Label label26;
 		private TextBox textBox25;
 		private TextBox textBox26;
@@ -3586,33 +3744,21 @@
 		private DataGridViewTextBoxColumn itemnum_factorycode;
 		private GroupBox groupBox9;
 		private Label label62;
-		private TextBox textBox63;
 		private Label label61;
-		private TextBox textBox62;
 		private Label label60;
-		private TextBox textBox61;
+		private TextBox txtequiComment;
 		private Label label48;
-		private TextBox textBox49;
+		private TextBox txtequipName;
 		private Label label49;
-		private TextBox textBox50;
-		private TextBox textBox51;
+		private TextBox txtequipModi;
 		private Label label50;
 		private Label label57;
-		private TextBox textBox58;
-		private TextBox textBox59;
+		private TextBox txtequipRegdate;
+		private TextBox txtequiCode;
 		private Label label58;
 		private Label label59;
-		private TextBox textBox60;
-		private DataGridView dataGridView9;
-		private DataGridViewTextBoxColumn equip_factorycode;
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private DataGridViewTextBoxColumn equip_name;
-		private DataGridViewTextBoxColumn equip_comment;
-		private DataGridViewTextBoxColumn equip_status;
-		private DataGridViewTextBoxColumn equip_event;
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+		private TextBox txtequipConst;
+		private DataGridView dgvEquip;
 		private GroupBox groupBox10;
 		private Label label65;
 		private TextBox textBox66;
@@ -3709,9 +3855,8 @@
 		private Label label95;
 		private Label label96;
 		private Label label97;
-		private Label label98;
 		private PictureBox pictureBox4;
-		private TextBox textBox91;
+		private TextBox txtfacSearch;
 		private Button btnCFactory;
 		private Button btnUFactory;
 		private Button btnDFactory;
@@ -3722,5 +3867,32 @@
 		private DataGridViewTextBoxColumn fac_regdate;
 		private DataGridViewTextBoxColumn fac_modifier;
 		private DataGridViewTextBoxColumn fac_update;
+		private Label label99;
+		private TextBox txtfacModiDate;
+		private Label lbfacId;
+		private Label label100;
+		private ComboBox cbbFilter;
+		private ComboBox comboBox2;
+		private Label label98;
+		private PictureBox pictureBox5;
+		private TextBox textBox21;
+		private Button btnCequip;
+		private Button button6;
+		private Button button7;
+		private ComboBox cbbequipStatus;
+		private Label lbequiId;
+		private Label label102;
+		private TextBox txtequipModdate;
+		private ComboBox cbbequipEvent;
+		private DataGridViewTextBoxColumn equip_id;
+		private DataGridViewTextBoxColumn equip_code;
+		private DataGridViewTextBoxColumn equip_name;
+		private DataGridViewTextBoxColumn equip_comment;
+		private DataGridViewTextBoxColumn equip_status;
+		private DataGridViewTextBoxColumn equip_event;
+		private DataGridViewTextBoxColumn equip_const;
+		private DataGridViewTextBoxColumn equip_regdate;
+		private DataGridViewTextBoxColumn equip_modi;
+		private DataGridViewTextBoxColumn equip_moddate;
 	}
 }

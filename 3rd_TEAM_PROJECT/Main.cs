@@ -1,6 +1,6 @@
 ﻿using _3rd_TEAM_PROJECT.Models.Acount;
 using _3rd_TEAM_PROJECT.Models.Process;
-using _3rd_TEAM_PROJECT.Repositorys;
+using _3rd_TEAM_PROJECT.Repositorys.InterFace;
 using _3rd_TEAM_PROJECT_Desk;
 using Microsoft.EntityFrameworkCore.Internal;
 
@@ -9,14 +9,18 @@ namespace _3rd_TEAM_PROJECT
 	public partial class Main : Form
 	{
 		private IFactoryRepository factoryRepository;
+		private IEquipmentRepository equipmentRepository;
 		//로그인한 계정을 구별
 		public Acount LoggedInAcount { get; set; }
 		public Login LoginForm { get; set; }
+		//----------Login정보 받기-----------------//
+		public string userName = "이욕학"; // SessionManger에서 Acount정보 받기
 
 		public Main()
 		{
 			InitializeComponent();
 			factoryRepository = Program.factoryRepository;
+			equipmentRepository = Program.equipmentRepository;
 		}
 
 		private void TabMenu_DrawItem(object sender, DrawItemEventArgs e)
@@ -112,17 +116,100 @@ namespace _3rd_TEAM_PROJECT
 				case 4:
 
 					break;
-				case 5:
+				case 5://Factory
 					LoadFactory();
 					break;
 				case 6:
 					break;
+				case 7:
+					break;
+				case 8:// 설비
+					LoadEquip();
+					break;
+				case 9:
+					break;
 
 			}
 		}
+		//--------------------설비목록---------------------------------------------//
+		private async void LoadEquip()
+		{
+			txtequipConst.Text = userName;
+			var equip = await equipmentRepository.GetAllAsync();
+
+			dgvEquip.Rows.Clear();
+			dgvEquip.Refresh();
+
+			int i = 0;
+			foreach (var item in equip)
+			{
+				dgvEquip.Rows.Add();
+				dgvEquip.Rows[i].Cells["equip_id"].Value = item.Id;
+				dgvEquip.Rows[i].Cells["equip_code"].Value = item.Code;
+				dgvEquip.Rows[i].Cells["equip_name"].Value = item.Name;
+				dgvEquip.Rows[i].Cells["equip_comment"].Value = item.Comment;
+				dgvEquip.Rows[i].Cells["equip_status"].Value = item.Status;
+				dgvEquip.Rows[i].Cells["equip_event"].Value = item.Event;
+				dgvEquip.Rows[i].Cells["equip_const"].Value = item.Constructor;
+				dgvEquip.Rows[i].Cells["equip_regdate"].Value = item.RegDate;
+				dgvEquip.Rows[i].Cells["equip_modi"].Value = item.Modifier;
+				dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate;
+				i++;
+			}
+
+		}
+		//----설비생성--//
+		private async void btnCequip_Click(object sender, EventArgs e)
+		{
+			Equipment? equipment;
+			var equips = await equipmentRepository.GetAllAsync();
+			string code = txtequiCode.Text.Trim();
+			string name = txtequipName.Text.Trim();
+
+			foreach (var item in equips)
+			{
+				if (item.Code == code)
+				{
+					MessageBox.Show("이미존재한 설비입니다.");
+					return;
+				}
+				
+			}
+			if (code.Length == 0)
+			{
+				MessageBox.Show("설비코드를 입력하세요.");
+				return;
+			}
+			else if (name.Length == 0)
+			{
+				MessageBox.Show("설비이름을 입력하세요.");
+				return;
+			}
+			else
+			{
+				equipment = new()
+				{
+					Code = code,
+					Name = name,
+					Comment = txtequiComment.Text.Trim(),
+					Status = cbbequipStatus.Text.Trim(),
+					Event = cbbequipEvent.Text.Trim(),
+					Constructor = userName,
+					RegDate = DateTime.Now,
+				};
+				equipment = await equipmentRepository.AddAsync(equipment);
+				MessageBox.Show("생성완료");
+				LoadEquip();
+				return;
+			}
+		}
+
 		//---------------------------공장목록-----------------------------------------//
+
 		private async void LoadFactory()
 		{
+			txtfacConst.Text = userName;
+
 			var items = await factoryRepository.GetAllAsync();
 			//DataGridView Clear
 			dgvFactory.Rows.Clear();
@@ -143,7 +230,7 @@ namespace _3rd_TEAM_PROJECT
 			}
 
 		}
-		//--공장 생성 버튼
+		//--공장 생성 버튼--//
 		private async void btnCFactory_Click(object sender, EventArgs e)
 		{
 			Factory? factory;
@@ -151,7 +238,7 @@ namespace _3rd_TEAM_PROJECT
 
 			string code = txtfacCode.Text.Trim();
 			string name = txtfacName.Text.Trim();
-			string constructor = txtfacConst.Text.Trim();
+
 
 			foreach (var item in items)
 			{
@@ -172,18 +259,13 @@ namespace _3rd_TEAM_PROJECT
 				MessageBox.Show("공장이름을 입력하세요.");
 				return;
 			}
-			else if (constructor.Length == 0)
-			{
-				MessageBox.Show("생성자를 입력하세요.");
-				return;
-			}
 			else
 			{
 				factory = new()
 				{
 					Code = code,
 					Name = name,
-					Constructor = constructor,
+					Constructor = userName,
 					RegDate = DateTime.Now
 				};
 				factory = await factoryRepository.AddAsync(factory);
@@ -194,15 +276,8 @@ namespace _3rd_TEAM_PROJECT
 
 		}
 		//---공장 삭제--
-		private async void dgvFactory_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
-		{
-		}
-		private async void dgvFactory_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-		{
-			if (dgvFactory.Rows[e.Row.Index].Cells["fac_id"].Value == null) return;
-			int id = (int)dgvFactory.Rows[e.Row.Index].Cells["fac_id"].Value;
-			await factoryRepository.DeleteAsync(id);
-		}
+
+
 		private async void btnDFactory_Click(object sender, EventArgs e)
 		{
 			if (dgvFactory.SelectedCells.Count > 0)
@@ -223,9 +298,125 @@ namespace _3rd_TEAM_PROJECT
 				else return;
 			}
 		}
+		//--선택한 셀 오를쪽 상세정보에 뜰수있게
+		private void dgvFactory_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Ensure a valid cell is clicked
+			{
+				DataGridView dgv = (DataGridView)sender;
+				DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
+
+				if (selectedRow.Cells.Count > 1)
+				{
+					lbfacId.Text = selectedRow.Cells["fac_id"].Value.ToString();
+					txtfacCode.Text = selectedRow.Cells["fac_code"].Value.ToString();
+					txtfacName.Text = selectedRow.Cells["fac_name"].Value.ToString();
+					txtfacConst.Text = selectedRow.Cells["fac_const"].Value.ToString();
+					txtfacRegdate.Text = selectedRow.Cells["fac_regdate"].Value.ToString();
+					if (selectedRow.Cells["fac_modifier"].Value != null) txtfacModifier.Text = selectedRow.Cells["fac_modifier"].Value.ToString();
+					else txtfacModifier.Text = "";
+					if (selectedRow.Cells["fac_update"].Value != null) txtfacModiDate.Text = selectedRow.Cells["fac_update"].Value.ToString();
+					else txtfacModiDate.Text = "";
+				}
+			}
+		}
+
+		//------수정-------------//
+		private async void btnUFactory_Click(object sender, EventArgs e)
+		{
+			Factory? factory;
+
+			string code = txtfacCode.Text.Trim();
+			string name = txtfacName.Text.Trim();
+
+			if (code.Length == 0)
+			{
+				MessageBox.Show("공장코드를 입력하세요.");
+				return;
+			}
+			else if (name.Length == 0)
+			{
+				MessageBox.Show("공장이름을 입력하세요.");
+				return;
+			}
+			else
+			{
+				factory = new()
+				{
+					Id = int.Parse(lbfacId.Text.Trim()),
+					Code = code,
+					Name = name,
+					Modifier = userName,
+					ModDate = DateTime.Now
+				};
+				factory = await factoryRepository.UpdateAsync(factory);
+				MessageBox.Show("수정완료");
+				LoadFactory();
+				return;
+			}
+
+		}
+		//---------공장검색---------//
+		private async void pictureBox4_Click(object sender, EventArgs e)
+		{
+			var items = await factoryRepository.GetAllAsync();
+			string search = txtfacSearch.Text.Trim();
+			if (cbbFilter.Text.Trim() == "공장코드") items = await factoryRepository.CodeAsync(search);
+			else if (cbbFilter.Text.Trim() == "공장명") items = await factoryRepository.NameAsync(search);
+			else if (cbbFilter.Text.Trim() == "생성자") items = await factoryRepository.ConstAsync(search);
+			else if (cbbFilter.Text.Trim() == "수정자") items = await factoryRepository.ModiAsync(search);
+
+			dgvFactory.Rows.Clear();
+			dgvFactory.Refresh();
+			int i = 0;
+			foreach (var item in items)
+			{
+				dgvFactory.Rows.Add();
+				dgvFactory.Rows[i].Cells["fac_id"].Value = item.Id;
+				dgvFactory.Rows[i].Cells["fac_code"].Value = item.Code;
+				dgvFactory.Rows[i].Cells["fac_name"].Value = item.Name;
+				dgvFactory.Rows[i].Cells["fac_const"].Value = item.Constructor;
+				dgvFactory.Rows[i].Cells["fac_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+				dgvFactory.Rows[i].Cells["fac_modifier"].Value = item.Modifier;
+				dgvFactory.Rows[i].Cells["fac_update"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+
+				i++;
+			}
+		}
+
+		//------엔터 공장검색---///
+		private async void txtfacSearch_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				var items = await factoryRepository.GetAllAsync();
+				string search = txtfacSearch.Text.Trim();
+				if (cbbFilter.Text.Trim() == "공장코드") items = await factoryRepository.CodeAsync(search);
+				else if (cbbFilter.Text.Trim() == "공장명") items = await factoryRepository.NameAsync(search);
+				else if (cbbFilter.Text.Trim() == "생성자") items = await factoryRepository.ConstAsync(search);
+				else if (cbbFilter.Text.Trim() == "수정자") items = await factoryRepository.ModiAsync(search);
+
+				dgvFactory.Rows.Clear();
+				dgvFactory.Refresh();
+				int i = 0;
+				foreach (var item in items)
+				{
+					dgvFactory.Rows.Add();
+					dgvFactory.Rows[i].Cells["fac_id"].Value = item.Id;
+					dgvFactory.Rows[i].Cells["fac_code"].Value = item.Code;
+					dgvFactory.Rows[i].Cells["fac_name"].Value = item.Name;
+					dgvFactory.Rows[i].Cells["fac_const"].Value = item.Constructor;
+					dgvFactory.Rows[i].Cells["fac_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+					dgvFactory.Rows[i].Cells["fac_modifier"].Value = item.Modifier;
+					dgvFactory.Rows[i].Cells["fac_update"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+
+					i++;
+				}
+
+			}
+		}
 
 
 
-		
 	}
 }
