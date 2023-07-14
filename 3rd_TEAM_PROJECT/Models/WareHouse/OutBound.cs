@@ -12,12 +12,12 @@ namespace _3rd_TEAM_PROJECT.Models.WareHouse
 	public class OutBound
 	{
 		public long Id { get; set; }
-		public string Product { get; set; } // 품번
-		public string Item { get; set; } // 품목
-		public int Amount { get; set; } // 수량
+		public string Product { get; set; }	// 품번
+		public string Item { get; set; }	// 품목
+		public int Amount { get; set; }		// 수량
 		public string MProcessCode { get; set; }//공정 코드
-		public string Contact { get; set; }
-		public DateTime RegDate { get; set; }
+		public string Contact { get; set; }	//담당자
+		public DateTime RegDate { get; set; }	//생성일자
 
 
         public WareHouse? WareHouse { get; set; }// 창고 Id

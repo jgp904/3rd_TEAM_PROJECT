@@ -37,8 +37,8 @@ namespace _3rd_TEAM_PROJECT_Desk
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            Application.Run(new Main());
-            //Application.Run(new Login());
+            //Application.Run(new Main());
+            Application.Run(new Login());
         }
     }
 }
