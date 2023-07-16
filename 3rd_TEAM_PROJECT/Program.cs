@@ -42,7 +42,7 @@ namespace _3rd_TEAM_PROJECT_Desk
 
 
             //Application.Run(new Main());
-            Application.Run(new Login());
+            Application.Run(new ProcessForm());
         }
     }
 }

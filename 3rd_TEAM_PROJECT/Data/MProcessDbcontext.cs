@@ -32,7 +32,7 @@ namespace _3rd_TEAM_PROJECT.Data
 		public DbSet<Factory> Factories { get; set; }
 		public DbSet<Item> Items { get; set; }
 		public DbSet<LotHis> LotHis { get; set; }
-		public DbSet<MProcess> MProcesses { get; set; }
+		public DbSet<Models.Process.MProcess> MProcesses { get; set; }
 
 
 		public DbSet<InBound> InBounds { get; set; }
@@ -53,7 +53,7 @@ namespace _3rd_TEAM_PROJECT.Data
 			modelBuilder.Entity<Item>()
 				.HasIndex(j => j.Code)
 				.IsUnique();
-			modelBuilder.Entity<MProcess>()
+			modelBuilder.Entity<Models.Process.MProcess>()
 				.HasIndex(j => j.Code)
 				.IsUnique();
 			modelBuilder.Entity<WareHouse>()

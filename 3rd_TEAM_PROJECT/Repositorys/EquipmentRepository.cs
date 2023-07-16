@@ -31,10 +31,15 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 			return equip;
 		}
 
-		public Task<Equipment?> DeleteAsync(Equipment factory)
+		public async Task<Equipment?> DeleteAsync(int equip)
 		{
-			throw new NotImplementedException();
-		}
+            var existingEquip = await mprocessdb.Equipments.FindAsync(equip);
+            if (existingEquip == null) return null;
+
+            mprocessdb.Equipments.Remove(existingEquip);
+            await mprocessdb.SaveChangesAsync();
+            return existingEquip;
+        }
 
 		public async Task<IEnumerable<Equipment>> GetAllAsync()
 		{
@@ -42,9 +47,22 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 			return equip.OrderBy(x=>x.Id).ToList();
 		}
 
-		public Task<Equipment?> UpdateAsync(Equipment factory)
+		public async Task<Equipment?> UpdateAsync(Equipment equip)
 		{
-			throw new NotImplementedException();
-		}
+            var existingEquip = await mprocessdb.Equipments.FindAsync(equip.Id);
+            if (existingEquip == null) return null;
+
+            existingEquip.Code = equip.Code;
+            existingEquip.Name = equip.Name;
+			existingEquip.Comment= equip.Comment;
+			existingEquip.Status= equip.Status;
+			existingEquip.Event= equip.Event;
+
+            existingEquip.Modifier = equip.Modifier;
+            existingEquip.ModDate = equip.ModDate;
+
+            await mprocessdb.SaveChangesAsync();
+            return existingEquip;
+        }
 	}
 }

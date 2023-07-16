@@ -21,7 +21,7 @@ namespace _3rd_TEAM_PROJECT.Models.WareHouse
 
 
         public WareHouse? WareHouse { get; set; }// 창고 Id
-        public MProcess? MProcess { get; set; } // 공정 Id
+        public Process.MProcess? MProcess { get; set; } // 공정 Id
        
     }
 }
