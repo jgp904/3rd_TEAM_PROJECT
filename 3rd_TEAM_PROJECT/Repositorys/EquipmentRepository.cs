@@ -30,8 +30,14 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 			await mprocessdb.SaveChangesAsync();
 			return equip;
 		}
+        public async Task<Equipment> AddEquipHisAsync(Equipment equip)
+        {
+            await mprocessdb.Equipments.AddAsync(equip);
+            await mprocessdb.SaveChangesAsync();
+            return equip;
+        }
 
-		public async Task<Equipment?> DeleteAsync(int equip)
+        public async Task<Equipment?> DeleteAsync(int equip)
 		{
             var existingEquip = await mprocessdb.Equipments.FindAsync(equip);
             if (existingEquip == null) return null;
@@ -112,5 +118,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 .OrderBy(x => x.Id)
                 .ToListAsync();
         }
+
+        
     }
 }

@@ -11,6 +11,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
 	{
 		Task<IEnumerable<Equipment>> GetAllAsync();
 		Task<Equipment> AddAsync(Equipment factory);
+		
 		Task<Equipment?> UpdateAsync(Equipment factory);
 		Task<Equipment?> DeleteAsync(int factory);
 

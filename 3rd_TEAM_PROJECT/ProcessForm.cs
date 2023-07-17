@@ -34,6 +34,7 @@ namespace _3rd_TEAM_PROJECT
             LoadFactory();
         }
         //TabControl 디자인 설정
+
         private void tabProcess_DrawItem(object sender, DrawItemEventArgs e)
         {
             #region Tab 설정
@@ -53,7 +54,7 @@ namespace _3rd_TEAM_PROJECT
             {
                 // 선택된 탭의 텍스트는 검정색이고 배경은 회색입니다.
                 textBrush = new SolidBrush(Color.Black);
-                bgBrush = new SolidBrush(Color.Gray);
+                bgBrush = new SolidBrush(Color.LightGray);
             }
             else
             {
@@ -84,11 +85,14 @@ namespace _3rd_TEAM_PROJECT
                     LoadEquip();//설비설정
                     break;
                 case 2:
-                    LoadProcess();
+                    LoadEquipHis();//설비 이력조회
                     break;
 
             }
         }
+
+        
+
         // -----------------------------------------------------------------공장-----------------------------------------------------------------------------------------------------//
         #region 공장설정
         //공장목록
@@ -534,6 +538,13 @@ namespace _3rd_TEAM_PROJECT
                 }
 
             }
+        }
+
+
+        //------설비이력조회-------//
+        private void LoadEquipHis()
+        {
+            throw new NotImplementedException();
         }
         #endregion
         //------------------------------------------------------------------공정------------------------------------------------------------------------------------------------------//

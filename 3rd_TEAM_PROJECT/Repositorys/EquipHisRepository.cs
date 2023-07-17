@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Models.Process
+namespace _3rd_TEAM_PROJECT.Repositorys
 {
-    public class EquipHis : Equipment
+    internal interface EquipHisRepository
     {
-        Equipment? Equipment { get; set; }
     }
 }
