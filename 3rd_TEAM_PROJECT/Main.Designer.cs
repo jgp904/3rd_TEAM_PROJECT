@@ -28,1325 +28,1292 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.TabMenu = new System.Windows.Forms.TabControl();
-            this.Purches_warehouse = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtWareId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtWareAmount = new System.Windows.Forms.TextBox();
-            this.txtWareProduct = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtWareItem = new System.Windows.Forms.TextBox();
-            this.dgvWarehouse = new System.Windows.Forms.DataGridView();
-            this.warehouse_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouse_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouse_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouse_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Purches_inhis = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtInboundRegdate = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.txtInboundContact = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.txtInboundAmount = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.btnInbound_Update = new System.Windows.Forms.Button();
-            this.btnInbound_Add = new System.Windows.Forms.Button();
-            this.txtInboundId = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtInboundVendor = new System.Windows.Forms.TextBox();
-            this.txtInboundProduct = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtInboundItem = new System.Windows.Forms.TextBox();
-            this.dgvInbound = new System.Windows.Forms.DataGridView();
-            this.inbound_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inbound_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inbound_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inbound_vendor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inbound_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inbound_contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inbound_regdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Purches_insrch = new System.Windows.Forms.TabPage();
-            this.InSearchCategory = new System.Windows.Forms.ComboBox();
-            this.txtInboundSearch = new System.Windows.Forms.TextBox();
-            this.dgvInboundSearch = new System.Windows.Forms.DataGridView();
-            this.insearch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insearch_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insearch_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insearch_vendor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insearch_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insearch_contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insearch_regdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtInSearchRegdate = new System.Windows.Forms.TextBox();
-            this.txtInSearchId = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtInSearchItem = new System.Windows.Forms.TextBox();
-            this.txtInSearchContact = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.txtInSearchAmount = new System.Windows.Forms.TextBox();
-            this.txtInSearchProduct = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtInSearchVendor = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Purches_outhis = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtOutboundRegdate = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.txtOutboundContact = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.txtOutboundProcess = new System.Windows.Forms.TextBox();
-            this.txtOutboundId = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtOutboundAmount = new System.Windows.Forms.TextBox();
-            this.txtOutboundProduct = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtOutboundItem = new System.Windows.Forms.TextBox();
-            this.dgvOutBound = new System.Windows.Forms.DataGridView();
-            this.outbound_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outbound_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outbound_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outbound_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outbound_process = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outbound_contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outbound_regdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Purches_outsrch = new System.Windows.Forms.TabPage();
-            this.txtOutboundSearch = new System.Windows.Forms.TextBox();
-            this.dgvOutboundSearch = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtOutboundSearchRegdate = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtOutboundSearchContact = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtOutboundSearchProcess = new System.Windows.Forms.TextBox();
-            this.txtOutboundSearchId = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.txtOutboundSearchAmount = new System.Windows.Forms.TextBox();
-            this.txtOutboundSearchProduct = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.txtOutboundSearchItem = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.outsearch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outsearch_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outsearch_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outsearch_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outsearch_amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outsearch_contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outsearch_regdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.LogoutMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.TabMenu.SuspendLayout();
-            this.Purches_warehouse.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWarehouse)).BeginInit();
-            this.Purches_inhis.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInbound)).BeginInit();
-            this.Purches_insrch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInboundSearch)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.Purches_outhis.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOutBound)).BeginInit();
-            this.Purches_outsrch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOutboundSearch)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new Label();
+            TabMenu = new TabControl();
+            Purches_warehouse = new TabPage();
+            groupBox1 = new GroupBox();
+            txtWareId = new TextBox();
+            label2 = new Label();
+            label5 = new Label();
+            txtWareAmount = new TextBox();
+            txtWareProduct = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
+            txtWareItem = new TextBox();
+            dgvWarehouse = new DataGridView();
+            warehouse_id = new DataGridViewTextBoxColumn();
+            warehouse_product = new DataGridViewTextBoxColumn();
+            warehouse_item = new DataGridViewTextBoxColumn();
+            warehouse_amount = new DataGridViewTextBoxColumn();
+            Purches_inhis = new TabPage();
+            groupBox2 = new GroupBox();
+            txtInboundRegdate = new TextBox();
+            label32 = new Label();
+            txtInboundContact = new TextBox();
+            label31 = new Label();
+            txtInboundAmount = new TextBox();
+            label30 = new Label();
+            btnInbound_Update = new Button();
+            btnInbound_Add = new Button();
+            txtInboundId = new TextBox();
+            label6 = new Label();
+            label7 = new Label();
+            txtInboundVendor = new TextBox();
+            txtInboundProduct = new TextBox();
+            label8 = new Label();
+            label9 = new Label();
+            txtInboundItem = new TextBox();
+            dgvInbound = new DataGridView();
+            inbound_id = new DataGridViewTextBoxColumn();
+            inbound_product = new DataGridViewTextBoxColumn();
+            inbound_item = new DataGridViewTextBoxColumn();
+            inbound_vendor = new DataGridViewTextBoxColumn();
+            inbound_amount = new DataGridViewTextBoxColumn();
+            inbound_contact = new DataGridViewTextBoxColumn();
+            inbound_regdate = new DataGridViewTextBoxColumn();
+            Purches_insrch = new TabPage();
+            InSearchCategory = new ComboBox();
+            txtInboundSearch = new TextBox();
+            dgvInboundSearch = new DataGridView();
+            insearch_id = new DataGridViewTextBoxColumn();
+            insearch_product = new DataGridViewTextBoxColumn();
+            insearch_item = new DataGridViewTextBoxColumn();
+            insearch_vendor = new DataGridViewTextBoxColumn();
+            insearch_amount = new DataGridViewTextBoxColumn();
+            insearch_contact = new DataGridViewTextBoxColumn();
+            insearch_regdate = new DataGridViewTextBoxColumn();
+            groupBox4 = new GroupBox();
+            txtInSearchRegdate = new TextBox();
+            txtInSearchId = new TextBox();
+            label14 = new Label();
+            txtInSearchItem = new TextBox();
+            txtInSearchContact = new TextBox();
+            label35 = new Label();
+            label15 = new Label();
+            label34 = new Label();
+            txtInSearchAmount = new TextBox();
+            txtInSearchProduct = new TextBox();
+            label16 = new Label();
+            txtInSearchVendor = new TextBox();
+            label33 = new Label();
+            label17 = new Label();
+            Purches_outhis = new TabPage();
+            groupBox3 = new GroupBox();
+            label38 = new Label();
+            txtOutboundRegdate = new TextBox();
+            label37 = new Label();
+            txtOutboundContact = new TextBox();
+            label36 = new Label();
+            txtOutboundProcess = new TextBox();
+            txtOutboundId = new TextBox();
+            label10 = new Label();
+            label11 = new Label();
+            txtOutboundAmount = new TextBox();
+            txtOutboundProduct = new TextBox();
+            label12 = new Label();
+            label13 = new Label();
+            txtOutboundItem = new TextBox();
+            dgvOutBound = new DataGridView();
+            outbound_id = new DataGridViewTextBoxColumn();
+            outbound_product = new DataGridViewTextBoxColumn();
+            outbound_item = new DataGridViewTextBoxColumn();
+            outbound_amount = new DataGridViewTextBoxColumn();
+            outbound_process = new DataGridViewTextBoxColumn();
+            outbound_contact = new DataGridViewTextBoxColumn();
+            outbound_regdate = new DataGridViewTextBoxColumn();
+            Purches_outsrch = new TabPage();
+            txtOutboundSearch = new TextBox();
+            dgvOutboundSearch = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            groupBox5 = new GroupBox();
+            label18 = new Label();
+            txtOutboundSearchRegdate = new TextBox();
+            label19 = new Label();
+            txtOutboundSearchContact = new TextBox();
+            label20 = new Label();
+            txtOutboundSearchProcess = new TextBox();
+            txtOutboundSearchId = new TextBox();
+            label21 = new Label();
+            label39 = new Label();
+            txtOutboundSearchAmount = new TextBox();
+            txtOutboundSearchProduct = new TextBox();
+            label40 = new Label();
+            label41 = new Label();
+            txtOutboundSearchItem = new TextBox();
+            comboBox1 = new ComboBox();
+            outsearch_id = new DataGridViewTextBoxColumn();
+            outsearch_product = new DataGridViewTextBoxColumn();
+            outsearch_code = new DataGridViewTextBoxColumn();
+            outsearch_name = new DataGridViewTextBoxColumn();
+            outsearch_amount = new DataGridViewTextBoxColumn();
+            outsearch_contact = new DataGridViewTextBoxColumn();
+            outsearch_regdate = new DataGridViewTextBoxColumn();
+            menuStrip1 = new MenuStrip();
+            LogoutMenu = new ToolStripMenuItem();
+            TabMenu.SuspendLayout();
+            Purches_warehouse.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvWarehouse).BeginInit();
+            Purches_inhis.SuspendLayout();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvInbound).BeginInit();
+            Purches_insrch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvInboundSearch).BeginInit();
+            groupBox4.SuspendLayout();
+            Purches_outhis.SuspendLayout();
+            groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvOutBound).BeginInit();
+            Purches_outsrch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvOutboundSearch).BeginInit();
+            groupBox5.SuspendLayout();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(0, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Session_ID";
+            label1.AutoSize = true;
+            label1.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(0, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(87, 21);
+            label1.TabIndex = 3;
+            label1.Text = "Session_ID";
             // 
             // TabMenu
             // 
-            this.TabMenu.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.TabMenu.Controls.Add(this.Purches_warehouse);
-            this.TabMenu.Controls.Add(this.Purches_inhis);
-            this.TabMenu.Controls.Add(this.Purches_insrch);
-            this.TabMenu.Controls.Add(this.Purches_outhis);
-            this.TabMenu.Controls.Add(this.Purches_outsrch);
-            this.TabMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.TabMenu.ItemSize = new System.Drawing.Size(25, 100);
-            this.TabMenu.Location = new System.Drawing.Point(0, 24);
-            this.TabMenu.Multiline = true;
-            this.TabMenu.Name = "TabMenu";
-            this.TabMenu.SelectedIndex = 0;
-            this.TabMenu.Size = new System.Drawing.Size(1177, 657);
-            this.TabMenu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.TabMenu.TabIndex = 4;
+            TabMenu.Alignment = TabAlignment.Left;
+            TabMenu.Controls.Add(Purches_warehouse);
+            TabMenu.Controls.Add(Purches_inhis);
+            TabMenu.Controls.Add(Purches_insrch);
+            TabMenu.Controls.Add(Purches_outhis);
+            TabMenu.Controls.Add(Purches_outsrch);
+            TabMenu.Dock = DockStyle.Fill;
+            TabMenu.DrawMode = TabDrawMode.OwnerDrawFixed;
+            TabMenu.ItemSize = new Size(25, 100);
+            TabMenu.Location = new Point(0, 24);
+            TabMenu.Multiline = true;
+            TabMenu.Name = "TabMenu";
+            TabMenu.SelectedIndex = 0;
+            TabMenu.Size = new Size(1177, 657);
+            TabMenu.SizeMode = TabSizeMode.Fixed;
+            TabMenu.TabIndex = 4;
+            TabMenu.DrawItem += TabMenu_DrawItem;
             // 
             // Purches_warehouse
             // 
-            this.Purches_warehouse.Controls.Add(this.groupBox1);
-            this.Purches_warehouse.Controls.Add(this.dgvWarehouse);
-            this.Purches_warehouse.Location = new System.Drawing.Point(104, 4);
-            this.Purches_warehouse.Name = "Purches_warehouse";
-            this.Purches_warehouse.Padding = new System.Windows.Forms.Padding(3);
-            this.Purches_warehouse.Size = new System.Drawing.Size(1069, 649);
-            this.Purches_warehouse.TabIndex = 0;
-            this.Purches_warehouse.Text = "재고";
-            this.Purches_warehouse.UseVisualStyleBackColor = true;
+            Purches_warehouse.Controls.Add(groupBox1);
+            Purches_warehouse.Controls.Add(dgvWarehouse);
+            Purches_warehouse.Location = new Point(104, 4);
+            Purches_warehouse.Name = "Purches_warehouse";
+            Purches_warehouse.Padding = new Padding(3);
+            Purches_warehouse.Size = new Size(1069, 649);
+            Purches_warehouse.TabIndex = 0;
+            Purches_warehouse.Text = "재고";
+            Purches_warehouse.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtWareId);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtWareAmount);
-            this.groupBox1.Controls.Add(this.txtWareProduct);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtWareItem);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(859, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 643);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "재고";
+            groupBox1.Controls.Add(txtWareId);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(txtWareAmount);
+            groupBox1.Controls.Add(txtWareProduct);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(txtWareItem);
+            groupBox1.Dock = DockStyle.Right;
+            groupBox1.Location = new Point(859, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(207, 643);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "재고";
             // 
             // txtWareId
             // 
-            this.txtWareId.Location = new System.Drawing.Point(78, 31);
-            this.txtWareId.Name = "txtWareId";
-            this.txtWareId.Size = new System.Drawing.Size(100, 23);
-            this.txtWareId.TabIndex = 1;
+            txtWareId.Location = new Point(78, 31);
+            txtWareId.Name = "txtWareId";
+            txtWareId.Size = new Size(100, 23);
+            txtWareId.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "ID :";
+            label2.AutoSize = true;
+            label2.Location = new Point(22, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(26, 15);
+            label2.TabIndex = 5;
+            label2.Text = "ID :";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "수량 :";
+            label5.AutoSize = true;
+            label5.Location = new Point(22, 121);
+            label5.Name = "label5";
+            label5.Size = new Size(38, 15);
+            label5.TabIndex = 8;
+            label5.Text = "수량 :";
             // 
             // txtWareAmount
             // 
-            this.txtWareAmount.Location = new System.Drawing.Point(78, 118);
-            this.txtWareAmount.Name = "txtWareAmount";
-            this.txtWareAmount.Size = new System.Drawing.Size(100, 23);
-            this.txtWareAmount.TabIndex = 4;
+            txtWareAmount.Location = new Point(78, 118);
+            txtWareAmount.Name = "txtWareAmount";
+            txtWareAmount.Size = new Size(100, 23);
+            txtWareAmount.TabIndex = 4;
             // 
             // txtWareProduct
             // 
-            this.txtWareProduct.Location = new System.Drawing.Point(78, 60);
-            this.txtWareProduct.Name = "txtWareProduct";
-            this.txtWareProduct.Size = new System.Drawing.Size(100, 23);
-            this.txtWareProduct.TabIndex = 2;
+            txtWareProduct.Location = new Point(78, 60);
+            txtWareProduct.Name = "txtWareProduct";
+            txtWareProduct.Size = new Size(100, 23);
+            txtWareProduct.TabIndex = 2;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "품명 :";
+            label3.AutoSize = true;
+            label3.Location = new Point(22, 63);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 6;
+            label3.Text = "품명 :";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "품목 :";
+            label4.AutoSize = true;
+            label4.Location = new Point(22, 92);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 15);
+            label4.TabIndex = 7;
+            label4.Text = "품목 :";
             // 
             // txtWareItem
             // 
-            this.txtWareItem.Location = new System.Drawing.Point(78, 89);
-            this.txtWareItem.Name = "txtWareItem";
-            this.txtWareItem.Size = new System.Drawing.Size(100, 23);
-            this.txtWareItem.TabIndex = 3;
+            txtWareItem.Location = new Point(78, 89);
+            txtWareItem.Name = "txtWareItem";
+            txtWareItem.Size = new Size(100, 23);
+            txtWareItem.TabIndex = 3;
             // 
             // dgvWarehouse
             // 
-            this.dgvWarehouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWarehouse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.warehouse_id,
-            this.warehouse_product,
-            this.warehouse_item,
-            this.warehouse_amount});
-            this.dgvWarehouse.Location = new System.Drawing.Point(0, 0);
-            this.dgvWarehouse.Name = "dgvWarehouse";
-            this.dgvWarehouse.RowHeadersVisible = false;
-            this.dgvWarehouse.RowTemplate.Height = 25;
-            this.dgvWarehouse.Size = new System.Drawing.Size(853, 646);
-            this.dgvWarehouse.TabIndex = 0;
+            dgvWarehouse.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvWarehouse.Columns.AddRange(new DataGridViewColumn[] { warehouse_id, warehouse_product, warehouse_item, warehouse_amount });
+            dgvWarehouse.Location = new Point(0, 0);
+            dgvWarehouse.Name = "dgvWarehouse";
+            dgvWarehouse.RowHeadersVisible = false;
+            dgvWarehouse.RowTemplate.Height = 25;
+            dgvWarehouse.Size = new Size(853, 646);
+            dgvWarehouse.TabIndex = 0;
             // 
             // warehouse_id
             // 
-            this.warehouse_id.HeaderText = "ID";
-            this.warehouse_id.Name = "warehouse_id";
-            this.warehouse_id.ReadOnly = true;
-            this.warehouse_id.Width = 120;
+            warehouse_id.HeaderText = "ID";
+            warehouse_id.Name = "warehouse_id";
+            warehouse_id.ReadOnly = true;
+            warehouse_id.Width = 120;
             // 
             // warehouse_product
             // 
-            this.warehouse_product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.warehouse_product.HeaderText = "품명";
-            this.warehouse_product.Name = "warehouse_product";
+            warehouse_product.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            warehouse_product.HeaderText = "품명";
+            warehouse_product.Name = "warehouse_product";
             // 
             // warehouse_item
             // 
-            this.warehouse_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.warehouse_item.HeaderText = "품목";
-            this.warehouse_item.Name = "warehouse_item";
+            warehouse_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            warehouse_item.HeaderText = "품목";
+            warehouse_item.Name = "warehouse_item";
             // 
             // warehouse_amount
             // 
-            this.warehouse_amount.HeaderText = "수량";
-            this.warehouse_amount.Name = "warehouse_amount";
-            this.warehouse_amount.Width = 120;
+            warehouse_amount.HeaderText = "수량";
+            warehouse_amount.Name = "warehouse_amount";
+            warehouse_amount.Width = 120;
             // 
             // Purches_inhis
             // 
-            this.Purches_inhis.Controls.Add(this.groupBox2);
-            this.Purches_inhis.Controls.Add(this.dgvInbound);
-            this.Purches_inhis.Location = new System.Drawing.Point(104, 4);
-            this.Purches_inhis.Name = "Purches_inhis";
-            this.Purches_inhis.Padding = new System.Windows.Forms.Padding(3);
-            this.Purches_inhis.Size = new System.Drawing.Size(1069, 649);
-            this.Purches_inhis.TabIndex = 1;
-            this.Purches_inhis.Text = "입고 목록";
-            this.Purches_inhis.UseVisualStyleBackColor = true;
+            Purches_inhis.Controls.Add(groupBox2);
+            Purches_inhis.Controls.Add(dgvInbound);
+            Purches_inhis.Location = new Point(104, 4);
+            Purches_inhis.Name = "Purches_inhis";
+            Purches_inhis.Padding = new Padding(3);
+            Purches_inhis.Size = new Size(1069, 649);
+            Purches_inhis.TabIndex = 1;
+            Purches_inhis.Text = "입고 목록";
+            Purches_inhis.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtInboundRegdate);
-            this.groupBox2.Controls.Add(this.label32);
-            this.groupBox2.Controls.Add(this.txtInboundContact);
-            this.groupBox2.Controls.Add(this.label31);
-            this.groupBox2.Controls.Add(this.txtInboundAmount);
-            this.groupBox2.Controls.Add(this.label30);
-            this.groupBox2.Controls.Add(this.btnInbound_Update);
-            this.groupBox2.Controls.Add(this.btnInbound_Add);
-            this.groupBox2.Controls.Add(this.txtInboundId);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtInboundVendor);
-            this.groupBox2.Controls.Add(this.txtInboundProduct);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtInboundItem);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox2.Location = new System.Drawing.Point(859, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(207, 643);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "입고 목록";
+            groupBox2.Controls.Add(txtInboundRegdate);
+            groupBox2.Controls.Add(label32);
+            groupBox2.Controls.Add(txtInboundContact);
+            groupBox2.Controls.Add(label31);
+            groupBox2.Controls.Add(txtInboundAmount);
+            groupBox2.Controls.Add(label30);
+            groupBox2.Controls.Add(btnInbound_Update);
+            groupBox2.Controls.Add(btnInbound_Add);
+            groupBox2.Controls.Add(txtInboundId);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(txtInboundVendor);
+            groupBox2.Controls.Add(txtInboundProduct);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(label9);
+            groupBox2.Controls.Add(txtInboundItem);
+            groupBox2.Dock = DockStyle.Right;
+            groupBox2.Location = new Point(859, 3);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(207, 643);
+            groupBox2.TabIndex = 12;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "입고 목록";
             // 
             // txtInboundRegdate
             // 
-            this.txtInboundRegdate.Location = new System.Drawing.Point(78, 205);
-            this.txtInboundRegdate.Name = "txtInboundRegdate";
-            this.txtInboundRegdate.Size = new System.Drawing.Size(100, 23);
-            this.txtInboundRegdate.TabIndex = 7;
+            txtInboundRegdate.Location = new Point(78, 205);
+            txtInboundRegdate.Name = "txtInboundRegdate";
+            txtInboundRegdate.Size = new Size(100, 23);
+            txtInboundRegdate.TabIndex = 7;
             // 
             // label32
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(22, 208);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(50, 15);
-            this.label32.TabIndex = 17;
-            this.label32.Text = "입고일 :";
+            label32.AutoSize = true;
+            label32.Location = new Point(22, 208);
+            label32.Name = "label32";
+            label32.Size = new Size(50, 15);
+            label32.TabIndex = 17;
+            label32.Text = "입고일 :";
             // 
             // txtInboundContact
             // 
-            this.txtInboundContact.Location = new System.Drawing.Point(78, 176);
-            this.txtInboundContact.Name = "txtInboundContact";
-            this.txtInboundContact.Size = new System.Drawing.Size(100, 23);
-            this.txtInboundContact.TabIndex = 6;
+            txtInboundContact.Location = new Point(78, 176);
+            txtInboundContact.Name = "txtInboundContact";
+            txtInboundContact.Size = new Size(100, 23);
+            txtInboundContact.TabIndex = 6;
             // 
             // label31
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(22, 179);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(50, 15);
-            this.label31.TabIndex = 15;
-            this.label31.Text = "담당자 :";
+            label31.AutoSize = true;
+            label31.Location = new Point(22, 179);
+            label31.Name = "label31";
+            label31.Size = new Size(50, 15);
+            label31.TabIndex = 15;
+            label31.Text = "담당자 :";
             // 
             // txtInboundAmount
             // 
-            this.txtInboundAmount.Location = new System.Drawing.Point(78, 147);
-            this.txtInboundAmount.Name = "txtInboundAmount";
-            this.txtInboundAmount.Size = new System.Drawing.Size(100, 23);
-            this.txtInboundAmount.TabIndex = 5;
+            txtInboundAmount.Location = new Point(78, 147);
+            txtInboundAmount.Name = "txtInboundAmount";
+            txtInboundAmount.Size = new Size(100, 23);
+            txtInboundAmount.TabIndex = 5;
             // 
             // label30
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(22, 150);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(38, 15);
-            this.label30.TabIndex = 13;
-            this.label30.Text = "수량 :";
+            label30.AutoSize = true;
+            label30.Location = new Point(22, 150);
+            label30.Name = "label30";
+            label30.Size = new Size(38, 15);
+            label30.TabIndex = 13;
+            label30.Text = "수량 :";
             // 
             // btnInbound_Update
             // 
-            this.btnInbound_Update.Location = new System.Drawing.Point(47, 547);
-            this.btnInbound_Update.Name = "btnInbound_Update";
-            this.btnInbound_Update.Size = new System.Drawing.Size(119, 42);
-            this.btnInbound_Update.TabIndex = 9;
-            this.btnInbound_Update.Text = "내역 수정";
-            this.btnInbound_Update.UseVisualStyleBackColor = true;
+            btnInbound_Update.Location = new Point(47, 547);
+            btnInbound_Update.Name = "btnInbound_Update";
+            btnInbound_Update.Size = new Size(119, 42);
+            btnInbound_Update.TabIndex = 9;
+            btnInbound_Update.Text = "내역 수정";
+            btnInbound_Update.UseVisualStyleBackColor = true;
             // 
             // btnInbound_Add
             // 
-            this.btnInbound_Add.Location = new System.Drawing.Point(47, 595);
-            this.btnInbound_Add.Name = "btnInbound_Add";
-            this.btnInbound_Add.Size = new System.Drawing.Size(119, 42);
-            this.btnInbound_Add.TabIndex = 10;
-            this.btnInbound_Add.Text = "입고 실행";
-            this.btnInbound_Add.UseVisualStyleBackColor = true;
+            btnInbound_Add.Location = new Point(47, 595);
+            btnInbound_Add.Name = "btnInbound_Add";
+            btnInbound_Add.Size = new Size(119, 42);
+            btnInbound_Add.TabIndex = 10;
+            btnInbound_Add.Text = "입고 실행";
+            btnInbound_Add.UseVisualStyleBackColor = true;
             // 
             // txtInboundId
             // 
-            this.txtInboundId.Location = new System.Drawing.Point(78, 31);
-            this.txtInboundId.Name = "txtInboundId";
-            this.txtInboundId.Size = new System.Drawing.Size(100, 23);
-            this.txtInboundId.TabIndex = 1;
+            txtInboundId.Location = new Point(78, 31);
+            txtInboundId.Name = "txtInboundId";
+            txtInboundId.Size = new Size(100, 23);
+            txtInboundId.TabIndex = 1;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 15);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "ID :";
+            label6.AutoSize = true;
+            label6.Location = new Point(22, 34);
+            label6.Name = "label6";
+            label6.Size = new Size(26, 15);
+            label6.TabIndex = 5;
+            label6.Text = "ID :";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 121);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 15);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "거래처 :";
+            label7.AutoSize = true;
+            label7.Location = new Point(22, 121);
+            label7.Name = "label7";
+            label7.Size = new Size(50, 15);
+            label7.TabIndex = 8;
+            label7.Text = "거래처 :";
             // 
             // txtInboundVendor
             // 
-            this.txtInboundVendor.Location = new System.Drawing.Point(78, 118);
-            this.txtInboundVendor.Name = "txtInboundVendor";
-            this.txtInboundVendor.Size = new System.Drawing.Size(100, 23);
-            this.txtInboundVendor.TabIndex = 4;
+            txtInboundVendor.Location = new Point(78, 118);
+            txtInboundVendor.Name = "txtInboundVendor";
+            txtInboundVendor.Size = new Size(100, 23);
+            txtInboundVendor.TabIndex = 4;
             // 
             // txtInboundProduct
             // 
-            this.txtInboundProduct.Location = new System.Drawing.Point(78, 60);
-            this.txtInboundProduct.Name = "txtInboundProduct";
-            this.txtInboundProduct.Size = new System.Drawing.Size(100, 23);
-            this.txtInboundProduct.TabIndex = 2;
+            txtInboundProduct.Location = new Point(78, 60);
+            txtInboundProduct.Name = "txtInboundProduct";
+            txtInboundProduct.Size = new Size(100, 23);
+            txtInboundProduct.TabIndex = 2;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 63);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 15);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "품명 :";
+            label8.AutoSize = true;
+            label8.Location = new Point(22, 63);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 6;
+            label8.Text = "품명 :";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 92);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 15);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "품목 :";
+            label9.AutoSize = true;
+            label9.Location = new Point(22, 92);
+            label9.Name = "label9";
+            label9.Size = new Size(38, 15);
+            label9.TabIndex = 7;
+            label9.Text = "품목 :";
             // 
             // txtInboundItem
             // 
-            this.txtInboundItem.Location = new System.Drawing.Point(78, 92);
-            this.txtInboundItem.Name = "txtInboundItem";
-            this.txtInboundItem.Size = new System.Drawing.Size(100, 23);
-            this.txtInboundItem.TabIndex = 3;
+            txtInboundItem.Location = new Point(78, 92);
+            txtInboundItem.Name = "txtInboundItem";
+            txtInboundItem.Size = new Size(100, 23);
+            txtInboundItem.TabIndex = 3;
             // 
             // dgvInbound
             // 
-            this.dgvInbound.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInbound.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.inbound_id,
-            this.inbound_product,
-            this.inbound_item,
-            this.inbound_vendor,
-            this.inbound_amount,
-            this.inbound_contact,
-            this.inbound_regdate});
-            this.dgvInbound.Location = new System.Drawing.Point(0, 0);
-            this.dgvInbound.Name = "dgvInbound";
-            this.dgvInbound.RowHeadersVisible = false;
-            this.dgvInbound.RowTemplate.Height = 25;
-            this.dgvInbound.Size = new System.Drawing.Size(853, 646);
-            this.dgvInbound.TabIndex = 11;
+            dgvInbound.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInbound.Columns.AddRange(new DataGridViewColumn[] { inbound_id, inbound_product, inbound_item, inbound_vendor, inbound_amount, inbound_contact, inbound_regdate });
+            dgvInbound.Location = new Point(0, 0);
+            dgvInbound.Name = "dgvInbound";
+            dgvInbound.RowHeadersVisible = false;
+            dgvInbound.RowTemplate.Height = 25;
+            dgvInbound.Size = new Size(853, 646);
+            dgvInbound.TabIndex = 11;
             // 
             // inbound_id
             // 
-            this.inbound_id.HeaderText = "id";
-            this.inbound_id.Name = "inbound_id";
-            this.inbound_id.ReadOnly = true;
-            this.inbound_id.Width = 80;
+            inbound_id.HeaderText = "id";
+            inbound_id.Name = "inbound_id";
+            inbound_id.ReadOnly = true;
+            inbound_id.Width = 80;
             // 
             // inbound_product
             // 
-            this.inbound_product.HeaderText = "품명";
-            this.inbound_product.Name = "inbound_product";
-            this.inbound_product.ReadOnly = true;
-            this.inbound_product.Width = 120;
+            inbound_product.HeaderText = "품명";
+            inbound_product.Name = "inbound_product";
+            inbound_product.ReadOnly = true;
+            inbound_product.Width = 120;
             // 
             // inbound_item
             // 
-            this.inbound_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.inbound_item.HeaderText = "품목";
-            this.inbound_item.Name = "inbound_item";
-            this.inbound_item.ReadOnly = true;
+            inbound_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            inbound_item.HeaderText = "품목";
+            inbound_item.Name = "inbound_item";
+            inbound_item.ReadOnly = true;
             // 
             // inbound_vendor
             // 
-            this.inbound_vendor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.inbound_vendor.HeaderText = "거래처";
-            this.inbound_vendor.Name = "inbound_vendor";
-            this.inbound_vendor.ReadOnly = true;
+            inbound_vendor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            inbound_vendor.HeaderText = "거래처";
+            inbound_vendor.Name = "inbound_vendor";
+            inbound_vendor.ReadOnly = true;
             // 
             // inbound_amount
             // 
-            this.inbound_amount.HeaderText = "수량";
-            this.inbound_amount.Name = "inbound_amount";
-            this.inbound_amount.ReadOnly = true;
-            this.inbound_amount.Width = 80;
+            inbound_amount.HeaderText = "수량";
+            inbound_amount.Name = "inbound_amount";
+            inbound_amount.ReadOnly = true;
+            inbound_amount.Width = 80;
             // 
             // inbound_contact
             // 
-            this.inbound_contact.HeaderText = "담당자";
-            this.inbound_contact.Name = "inbound_contact";
-            this.inbound_contact.ReadOnly = true;
+            inbound_contact.HeaderText = "담당자";
+            inbound_contact.Name = "inbound_contact";
+            inbound_contact.ReadOnly = true;
             // 
             // inbound_regdate
             // 
-            this.inbound_regdate.HeaderText = "입고일";
-            this.inbound_regdate.Name = "inbound_regdate";
-            this.inbound_regdate.ReadOnly = true;
+            inbound_regdate.HeaderText = "입고일";
+            inbound_regdate.Name = "inbound_regdate";
+            inbound_regdate.ReadOnly = true;
             // 
             // Purches_insrch
             // 
-            this.Purches_insrch.Controls.Add(this.InSearchCategory);
-            this.Purches_insrch.Controls.Add(this.txtInboundSearch);
-            this.Purches_insrch.Controls.Add(this.dgvInboundSearch);
-            this.Purches_insrch.Controls.Add(this.groupBox4);
-            this.Purches_insrch.Location = new System.Drawing.Point(104, 4);
-            this.Purches_insrch.Name = "Purches_insrch";
-            this.Purches_insrch.Size = new System.Drawing.Size(1069, 649);
-            this.Purches_insrch.TabIndex = 2;
-            this.Purches_insrch.Text = "입고 조회";
-            this.Purches_insrch.UseVisualStyleBackColor = true;
+            Purches_insrch.Controls.Add(InSearchCategory);
+            Purches_insrch.Controls.Add(txtInboundSearch);
+            Purches_insrch.Controls.Add(dgvInboundSearch);
+            Purches_insrch.Controls.Add(groupBox4);
+            Purches_insrch.Location = new Point(104, 4);
+            Purches_insrch.Name = "Purches_insrch";
+            Purches_insrch.Size = new Size(1069, 649);
+            Purches_insrch.TabIndex = 2;
+            Purches_insrch.Text = "입고 조회";
+            Purches_insrch.UseVisualStyleBackColor = true;
             // 
             // InSearchCategory
             // 
-            this.InSearchCategory.FormattingEnabled = true;
-            this.InSearchCategory.Location = new System.Drawing.Point(3, 3);
-            this.InSearchCategory.Name = "InSearchCategory";
-            this.InSearchCategory.Size = new System.Drawing.Size(121, 23);
-            this.InSearchCategory.TabIndex = 1;
+            InSearchCategory.FormattingEnabled = true;
+            InSearchCategory.Location = new Point(3, 3);
+            InSearchCategory.Name = "InSearchCategory";
+            InSearchCategory.Size = new Size(121, 23);
+            InSearchCategory.TabIndex = 1;
             // 
             // txtInboundSearch
             // 
-            this.txtInboundSearch.Location = new System.Drawing.Point(130, 3);
-            this.txtInboundSearch.Name = "txtInboundSearch";
-            this.txtInboundSearch.PlaceholderText = "품명을 검색하세요";
-            this.txtInboundSearch.Size = new System.Drawing.Size(723, 23);
-            this.txtInboundSearch.TabIndex = 2;
+            txtInboundSearch.Location = new Point(130, 3);
+            txtInboundSearch.Name = "txtInboundSearch";
+            txtInboundSearch.PlaceholderText = "품명을 검색하세요";
+            txtInboundSearch.Size = new Size(723, 23);
+            txtInboundSearch.TabIndex = 2;
             // 
             // dgvInboundSearch
             // 
-            this.dgvInboundSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInboundSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.insearch_id,
-            this.insearch_product,
-            this.insearch_item,
-            this.insearch_vendor,
-            this.insearch_amount,
-            this.insearch_contact,
-            this.insearch_regdate});
-            this.dgvInboundSearch.Location = new System.Drawing.Point(0, 31);
-            this.dgvInboundSearch.Name = "dgvInboundSearch";
-            this.dgvInboundSearch.RowHeadersVisible = false;
-            this.dgvInboundSearch.RowTemplate.Height = 25;
-            this.dgvInboundSearch.Size = new System.Drawing.Size(853, 615);
-            this.dgvInboundSearch.TabIndex = 17;
+            dgvInboundSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInboundSearch.Columns.AddRange(new DataGridViewColumn[] { insearch_id, insearch_product, insearch_item, insearch_vendor, insearch_amount, insearch_contact, insearch_regdate });
+            dgvInboundSearch.Location = new Point(0, 31);
+            dgvInboundSearch.Name = "dgvInboundSearch";
+            dgvInboundSearch.RowHeadersVisible = false;
+            dgvInboundSearch.RowTemplate.Height = 25;
+            dgvInboundSearch.Size = new Size(853, 615);
+            dgvInboundSearch.TabIndex = 17;
             // 
             // insearch_id
             // 
-            this.insearch_id.HeaderText = "id";
-            this.insearch_id.Name = "insearch_id";
-            this.insearch_id.ReadOnly = true;
-            this.insearch_id.Width = 80;
+            insearch_id.HeaderText = "id";
+            insearch_id.Name = "insearch_id";
+            insearch_id.ReadOnly = true;
+            insearch_id.Width = 80;
             // 
             // insearch_product
             // 
-            this.insearch_product.HeaderText = "품명";
-            this.insearch_product.Name = "insearch_product";
-            this.insearch_product.ReadOnly = true;
-            this.insearch_product.Width = 120;
+            insearch_product.HeaderText = "품명";
+            insearch_product.Name = "insearch_product";
+            insearch_product.ReadOnly = true;
+            insearch_product.Width = 120;
             // 
             // insearch_item
             // 
-            this.insearch_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.insearch_item.HeaderText = "품목";
-            this.insearch_item.Name = "insearch_item";
-            this.insearch_item.ReadOnly = true;
+            insearch_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            insearch_item.HeaderText = "품목";
+            insearch_item.Name = "insearch_item";
+            insearch_item.ReadOnly = true;
             // 
             // insearch_vendor
             // 
-            this.insearch_vendor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.insearch_vendor.HeaderText = "거래처";
-            this.insearch_vendor.Name = "insearch_vendor";
-            this.insearch_vendor.ReadOnly = true;
+            insearch_vendor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            insearch_vendor.HeaderText = "거래처";
+            insearch_vendor.Name = "insearch_vendor";
+            insearch_vendor.ReadOnly = true;
             // 
             // insearch_amount
             // 
-            this.insearch_amount.HeaderText = "수량";
-            this.insearch_amount.Name = "insearch_amount";
-            this.insearch_amount.ReadOnly = true;
-            this.insearch_amount.Width = 80;
+            insearch_amount.HeaderText = "수량";
+            insearch_amount.Name = "insearch_amount";
+            insearch_amount.ReadOnly = true;
+            insearch_amount.Width = 80;
             // 
             // insearch_contact
             // 
-            this.insearch_contact.HeaderText = "담당자";
-            this.insearch_contact.Name = "insearch_contact";
-            this.insearch_contact.ReadOnly = true;
+            insearch_contact.HeaderText = "담당자";
+            insearch_contact.Name = "insearch_contact";
+            insearch_contact.ReadOnly = true;
             // 
             // insearch_regdate
             // 
-            this.insearch_regdate.HeaderText = "입고일";
-            this.insearch_regdate.Name = "insearch_regdate";
-            this.insearch_regdate.ReadOnly = true;
+            insearch_regdate.HeaderText = "입고일";
+            insearch_regdate.Name = "insearch_regdate";
+            insearch_regdate.ReadOnly = true;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtInSearchRegdate);
-            this.groupBox4.Controls.Add(this.txtInSearchId);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.txtInSearchItem);
-            this.groupBox4.Controls.Add(this.txtInSearchContact);
-            this.groupBox4.Controls.Add(this.label35);
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.label34);
-            this.groupBox4.Controls.Add(this.txtInSearchAmount);
-            this.groupBox4.Controls.Add(this.txtInSearchProduct);
-            this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.txtInSearchVendor);
-            this.groupBox4.Controls.Add(this.label33);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox4.Location = new System.Drawing.Point(862, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(207, 649);
-            this.groupBox4.TabIndex = 16;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "입고 조회";
+            groupBox4.Controls.Add(txtInSearchRegdate);
+            groupBox4.Controls.Add(txtInSearchId);
+            groupBox4.Controls.Add(label14);
+            groupBox4.Controls.Add(txtInSearchItem);
+            groupBox4.Controls.Add(txtInSearchContact);
+            groupBox4.Controls.Add(label35);
+            groupBox4.Controls.Add(label15);
+            groupBox4.Controls.Add(label34);
+            groupBox4.Controls.Add(txtInSearchAmount);
+            groupBox4.Controls.Add(txtInSearchProduct);
+            groupBox4.Controls.Add(label16);
+            groupBox4.Controls.Add(txtInSearchVendor);
+            groupBox4.Controls.Add(label33);
+            groupBox4.Controls.Add(label17);
+            groupBox4.Dock = DockStyle.Right;
+            groupBox4.Location = new Point(862, 0);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(207, 649);
+            groupBox4.TabIndex = 16;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "입고 조회";
             // 
             // txtInSearchRegdate
             // 
-            this.txtInSearchRegdate.Location = new System.Drawing.Point(75, 209);
-            this.txtInSearchRegdate.Name = "txtInSearchRegdate";
-            this.txtInSearchRegdate.Size = new System.Drawing.Size(100, 23);
-            this.txtInSearchRegdate.TabIndex = 9;
+            txtInSearchRegdate.Location = new Point(75, 209);
+            txtInSearchRegdate.Name = "txtInSearchRegdate";
+            txtInSearchRegdate.Size = new Size(100, 23);
+            txtInSearchRegdate.TabIndex = 9;
             // 
             // txtInSearchId
             // 
-            this.txtInSearchId.Location = new System.Drawing.Point(75, 35);
-            this.txtInSearchId.Name = "txtInSearchId";
-            this.txtInSearchId.Size = new System.Drawing.Size(100, 23);
-            this.txtInSearchId.TabIndex = 3;
+            txtInSearchId.Location = new Point(75, 35);
+            txtInSearchId.Name = "txtInSearchId";
+            txtInSearchId.Size = new Size(100, 23);
+            txtInSearchId.TabIndex = 3;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(19, 212);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 15);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "입고일 :";
+            label14.AutoSize = true;
+            label14.Location = new Point(19, 212);
+            label14.Name = "label14";
+            label14.Size = new Size(50, 15);
+            label14.TabIndex = 31;
+            label14.Text = "입고일 :";
             // 
             // txtInSearchItem
             // 
-            this.txtInSearchItem.Location = new System.Drawing.Point(75, 96);
-            this.txtInSearchItem.Name = "txtInSearchItem";
-            this.txtInSearchItem.Size = new System.Drawing.Size(100, 23);
-            this.txtInSearchItem.TabIndex = 5;
+            txtInSearchItem.Location = new Point(75, 96);
+            txtInSearchItem.Name = "txtInSearchItem";
+            txtInSearchItem.Size = new Size(100, 23);
+            txtInSearchItem.TabIndex = 5;
             // 
             // txtInSearchContact
             // 
-            this.txtInSearchContact.Location = new System.Drawing.Point(75, 180);
-            this.txtInSearchContact.Name = "txtInSearchContact";
-            this.txtInSearchContact.Size = new System.Drawing.Size(100, 23);
-            this.txtInSearchContact.TabIndex = 8;
+            txtInSearchContact.Location = new Point(75, 180);
+            txtInSearchContact.Name = "txtInSearchContact";
+            txtInSearchContact.Size = new Size(100, 23);
+            txtInSearchContact.TabIndex = 8;
             // 
             // label35
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(19, 96);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(38, 15);
-            this.label35.TabIndex = 24;
-            this.label35.Text = "품목 :";
+            label35.AutoSize = true;
+            label35.Location = new Point(19, 96);
+            label35.Name = "label35";
+            label35.Size = new Size(38, 15);
+            label35.TabIndex = 24;
+            label35.Text = "품목 :";
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(19, 183);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 15);
-            this.label15.TabIndex = 29;
-            this.label15.Text = "담당자 :";
+            label15.AutoSize = true;
+            label15.Location = new Point(19, 183);
+            label15.Name = "label15";
+            label15.Size = new Size(50, 15);
+            label15.TabIndex = 29;
+            label15.Text = "담당자 :";
             // 
             // label34
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(19, 67);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(38, 15);
-            this.label34.TabIndex = 23;
-            this.label34.Text = "품명 :";
+            label34.AutoSize = true;
+            label34.Location = new Point(19, 67);
+            label34.Name = "label34";
+            label34.Size = new Size(38, 15);
+            label34.TabIndex = 23;
+            label34.Text = "품명 :";
             // 
             // txtInSearchAmount
             // 
-            this.txtInSearchAmount.Location = new System.Drawing.Point(75, 151);
-            this.txtInSearchAmount.Name = "txtInSearchAmount";
-            this.txtInSearchAmount.Size = new System.Drawing.Size(100, 23);
-            this.txtInSearchAmount.TabIndex = 7;
+            txtInSearchAmount.Location = new Point(75, 151);
+            txtInSearchAmount.Name = "txtInSearchAmount";
+            txtInSearchAmount.Size = new Size(100, 23);
+            txtInSearchAmount.TabIndex = 7;
             // 
             // txtInSearchProduct
             // 
-            this.txtInSearchProduct.Location = new System.Drawing.Point(75, 64);
-            this.txtInSearchProduct.Name = "txtInSearchProduct";
-            this.txtInSearchProduct.Size = new System.Drawing.Size(100, 23);
-            this.txtInSearchProduct.TabIndex = 4;
+            txtInSearchProduct.Location = new Point(75, 64);
+            txtInSearchProduct.Name = "txtInSearchProduct";
+            txtInSearchProduct.Size = new Size(100, 23);
+            txtInSearchProduct.TabIndex = 4;
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(19, 154);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(38, 15);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "수량 :";
+            label16.AutoSize = true;
+            label16.Location = new Point(19, 154);
+            label16.Name = "label16";
+            label16.Size = new Size(38, 15);
+            label16.TabIndex = 27;
+            label16.Text = "수량 :";
             // 
             // txtInSearchVendor
             // 
-            this.txtInSearchVendor.Location = new System.Drawing.Point(75, 122);
-            this.txtInSearchVendor.Name = "txtInSearchVendor";
-            this.txtInSearchVendor.Size = new System.Drawing.Size(100, 23);
-            this.txtInSearchVendor.TabIndex = 6;
+            txtInSearchVendor.Location = new Point(75, 122);
+            txtInSearchVendor.Name = "txtInSearchVendor";
+            txtInSearchVendor.Size = new Size(100, 23);
+            txtInSearchVendor.TabIndex = 6;
             // 
             // label33
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(19, 125);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(50, 15);
-            this.label33.TabIndex = 25;
-            this.label33.Text = "거래처 :";
+            label33.AutoSize = true;
+            label33.Location = new Point(19, 125);
+            label33.Name = "label33";
+            label33.Size = new Size(50, 15);
+            label33.TabIndex = 25;
+            label33.Text = "거래처 :";
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(19, 38);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(26, 15);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "ID :";
+            label17.AutoSize = true;
+            label17.Location = new Point(19, 38);
+            label17.Name = "label17";
+            label17.Size = new Size(26, 15);
+            label17.TabIndex = 22;
+            label17.Text = "ID :";
             // 
             // Purches_outhis
             // 
-            this.Purches_outhis.Controls.Add(this.groupBox3);
-            this.Purches_outhis.Controls.Add(this.dgvOutBound);
-            this.Purches_outhis.Location = new System.Drawing.Point(104, 4);
-            this.Purches_outhis.Name = "Purches_outhis";
-            this.Purches_outhis.Size = new System.Drawing.Size(1069, 649);
-            this.Purches_outhis.TabIndex = 3;
-            this.Purches_outhis.Text = "출고 목록";
-            this.Purches_outhis.UseVisualStyleBackColor = true;
+            Purches_outhis.Controls.Add(groupBox3);
+            Purches_outhis.Controls.Add(dgvOutBound);
+            Purches_outhis.Location = new Point(104, 4);
+            Purches_outhis.Name = "Purches_outhis";
+            Purches_outhis.Size = new Size(1069, 649);
+            Purches_outhis.TabIndex = 3;
+            Purches_outhis.Text = "출고 목록";
+            Purches_outhis.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label38);
-            this.groupBox3.Controls.Add(this.txtOutboundRegdate);
-            this.groupBox3.Controls.Add(this.label37);
-            this.groupBox3.Controls.Add(this.txtOutboundContact);
-            this.groupBox3.Controls.Add(this.label36);
-            this.groupBox3.Controls.Add(this.txtOutboundProcess);
-            this.groupBox3.Controls.Add(this.txtOutboundId);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.txtOutboundAmount);
-            this.groupBox3.Controls.Add(this.txtOutboundProduct);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.txtOutboundItem);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox3.Location = new System.Drawing.Point(862, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(207, 649);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "출고 목록";
+            groupBox3.Controls.Add(label38);
+            groupBox3.Controls.Add(txtOutboundRegdate);
+            groupBox3.Controls.Add(label37);
+            groupBox3.Controls.Add(txtOutboundContact);
+            groupBox3.Controls.Add(label36);
+            groupBox3.Controls.Add(txtOutboundProcess);
+            groupBox3.Controls.Add(txtOutboundId);
+            groupBox3.Controls.Add(label10);
+            groupBox3.Controls.Add(label11);
+            groupBox3.Controls.Add(txtOutboundAmount);
+            groupBox3.Controls.Add(txtOutboundProduct);
+            groupBox3.Controls.Add(label12);
+            groupBox3.Controls.Add(label13);
+            groupBox3.Controls.Add(txtOutboundItem);
+            groupBox3.Dock = DockStyle.Right;
+            groupBox3.Location = new Point(862, 0);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(207, 649);
+            groupBox3.TabIndex = 14;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "출고 목록";
             // 
             // label38
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(22, 208);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(50, 15);
-            this.label38.TabIndex = 23;
-            this.label38.Text = "출고일 :";
+            label38.AutoSize = true;
+            label38.Location = new Point(22, 208);
+            label38.Name = "label38";
+            label38.Size = new Size(50, 15);
+            label38.TabIndex = 23;
+            label38.Text = "출고일 :";
             // 
             // txtOutboundRegdate
             // 
-            this.txtOutboundRegdate.Location = new System.Drawing.Point(80, 205);
-            this.txtOutboundRegdate.Name = "txtOutboundRegdate";
-            this.txtOutboundRegdate.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundRegdate.TabIndex = 7;
+            txtOutboundRegdate.Location = new Point(80, 205);
+            txtOutboundRegdate.Name = "txtOutboundRegdate";
+            txtOutboundRegdate.Size = new Size(100, 23);
+            txtOutboundRegdate.TabIndex = 7;
             // 
             // label37
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(22, 179);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(50, 15);
-            this.label37.TabIndex = 21;
-            this.label37.Text = "담당자 :";
+            label37.AutoSize = true;
+            label37.Location = new Point(22, 179);
+            label37.Name = "label37";
+            label37.Size = new Size(50, 15);
+            label37.TabIndex = 21;
+            label37.Text = "담당자 :";
             // 
             // txtOutboundContact
             // 
-            this.txtOutboundContact.Location = new System.Drawing.Point(80, 176);
-            this.txtOutboundContact.Name = "txtOutboundContact";
-            this.txtOutboundContact.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundContact.TabIndex = 6;
+            txtOutboundContact.Location = new Point(80, 176);
+            txtOutboundContact.Name = "txtOutboundContact";
+            txtOutboundContact.Size = new Size(100, 23);
+            txtOutboundContact.TabIndex = 6;
             // 
             // label36
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(22, 153);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(38, 15);
-            this.label36.TabIndex = 19;
-            this.label36.Text = "공정 :";
+            label36.AutoSize = true;
+            label36.Location = new Point(22, 153);
+            label36.Name = "label36";
+            label36.Size = new Size(38, 15);
+            label36.TabIndex = 19;
+            label36.Text = "공정 :";
             // 
             // txtOutboundProcess
             // 
-            this.txtOutboundProcess.Location = new System.Drawing.Point(80, 150);
-            this.txtOutboundProcess.Name = "txtOutboundProcess";
-            this.txtOutboundProcess.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundProcess.TabIndex = 4;
+            txtOutboundProcess.Location = new Point(80, 150);
+            txtOutboundProcess.Name = "txtOutboundProcess";
+            txtOutboundProcess.Size = new Size(100, 23);
+            txtOutboundProcess.TabIndex = 4;
             // 
             // txtOutboundId
             // 
-            this.txtOutboundId.Location = new System.Drawing.Point(80, 34);
-            this.txtOutboundId.Name = "txtOutboundId";
-            this.txtOutboundId.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundId.TabIndex = 1;
+            txtOutboundId.Location = new Point(80, 34);
+            txtOutboundId.Name = "txtOutboundId";
+            txtOutboundId.Size = new Size(100, 23);
+            txtOutboundId.TabIndex = 1;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(22, 34);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(26, 15);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "ID :";
+            label10.AutoSize = true;
+            label10.Location = new Point(22, 34);
+            label10.Name = "label10";
+            label10.Size = new Size(26, 15);
+            label10.TabIndex = 5;
+            label10.Text = "ID :";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(22, 124);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 15);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "수량 :";
+            label11.AutoSize = true;
+            label11.Location = new Point(22, 124);
+            label11.Name = "label11";
+            label11.Size = new Size(38, 15);
+            label11.TabIndex = 8;
+            label11.Text = "수량 :";
             // 
             // txtOutboundAmount
             // 
-            this.txtOutboundAmount.Location = new System.Drawing.Point(80, 121);
-            this.txtOutboundAmount.Name = "txtOutboundAmount";
-            this.txtOutboundAmount.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundAmount.TabIndex = 5;
+            txtOutboundAmount.Location = new Point(80, 121);
+            txtOutboundAmount.Name = "txtOutboundAmount";
+            txtOutboundAmount.Size = new Size(100, 23);
+            txtOutboundAmount.TabIndex = 5;
             // 
             // txtOutboundProduct
             // 
-            this.txtOutboundProduct.Location = new System.Drawing.Point(80, 63);
-            this.txtOutboundProduct.Name = "txtOutboundProduct";
-            this.txtOutboundProduct.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundProduct.TabIndex = 2;
+            txtOutboundProduct.Location = new Point(80, 63);
+            txtOutboundProduct.Name = "txtOutboundProduct";
+            txtOutboundProduct.Size = new Size(100, 23);
+            txtOutboundProduct.TabIndex = 2;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 63);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 15);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "품명 :";
+            label12.AutoSize = true;
+            label12.Location = new Point(22, 63);
+            label12.Name = "label12";
+            label12.Size = new Size(38, 15);
+            label12.TabIndex = 6;
+            label12.Text = "품명 :";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(22, 92);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 15);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "품목 :";
+            label13.AutoSize = true;
+            label13.Location = new Point(22, 92);
+            label13.Name = "label13";
+            label13.Size = new Size(38, 15);
+            label13.TabIndex = 7;
+            label13.Text = "품목 :";
             // 
             // txtOutboundItem
             // 
-            this.txtOutboundItem.Location = new System.Drawing.Point(80, 92);
-            this.txtOutboundItem.Name = "txtOutboundItem";
-            this.txtOutboundItem.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundItem.TabIndex = 3;
+            txtOutboundItem.Location = new Point(80, 92);
+            txtOutboundItem.Name = "txtOutboundItem";
+            txtOutboundItem.Size = new Size(100, 23);
+            txtOutboundItem.TabIndex = 3;
             // 
             // dgvOutBound
             // 
-            this.dgvOutBound.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOutBound.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.outbound_id,
-            this.outbound_product,
-            this.outbound_item,
-            this.outbound_amount,
-            this.outbound_process,
-            this.outbound_contact,
-            this.outbound_regdate});
-            this.dgvOutBound.Location = new System.Drawing.Point(0, 1);
-            this.dgvOutBound.Name = "dgvOutBound";
-            this.dgvOutBound.RowHeadersVisible = false;
-            this.dgvOutBound.RowTemplate.Height = 25;
-            this.dgvOutBound.Size = new System.Drawing.Size(853, 646);
-            this.dgvOutBound.TabIndex = 13;
+            dgvOutBound.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOutBound.Columns.AddRange(new DataGridViewColumn[] { outbound_id, outbound_product, outbound_item, outbound_amount, outbound_process, outbound_contact, outbound_regdate });
+            dgvOutBound.Location = new Point(0, 1);
+            dgvOutBound.Name = "dgvOutBound";
+            dgvOutBound.RowHeadersVisible = false;
+            dgvOutBound.RowTemplate.Height = 25;
+            dgvOutBound.Size = new Size(853, 646);
+            dgvOutBound.TabIndex = 13;
             // 
             // outbound_id
             // 
-            this.outbound_id.HeaderText = "id";
-            this.outbound_id.Name = "outbound_id";
-            this.outbound_id.ReadOnly = true;
-            this.outbound_id.Width = 80;
+            outbound_id.HeaderText = "id";
+            outbound_id.Name = "outbound_id";
+            outbound_id.ReadOnly = true;
+            outbound_id.Width = 80;
             // 
             // outbound_product
             // 
-            this.outbound_product.HeaderText = "품명";
-            this.outbound_product.Name = "outbound_product";
-            this.outbound_product.ReadOnly = true;
-            this.outbound_product.Width = 120;
+            outbound_product.HeaderText = "품명";
+            outbound_product.Name = "outbound_product";
+            outbound_product.ReadOnly = true;
+            outbound_product.Width = 120;
             // 
             // outbound_item
             // 
-            this.outbound_item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.outbound_item.HeaderText = "품목";
-            this.outbound_item.Name = "outbound_item";
-            this.outbound_item.ReadOnly = true;
+            outbound_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            outbound_item.HeaderText = "품목";
+            outbound_item.Name = "outbound_item";
+            outbound_item.ReadOnly = true;
             // 
             // outbound_amount
             // 
-            this.outbound_amount.HeaderText = "수량";
-            this.outbound_amount.Name = "outbound_amount";
-            this.outbound_amount.ReadOnly = true;
-            this.outbound_amount.Width = 80;
+            outbound_amount.HeaderText = "수량";
+            outbound_amount.Name = "outbound_amount";
+            outbound_amount.ReadOnly = true;
+            outbound_amount.Width = 80;
             // 
             // outbound_process
             // 
-            this.outbound_process.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.outbound_process.HeaderText = "거래처";
-            this.outbound_process.Name = "outbound_process";
-            this.outbound_process.ReadOnly = true;
+            outbound_process.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            outbound_process.HeaderText = "거래처";
+            outbound_process.Name = "outbound_process";
+            outbound_process.ReadOnly = true;
             // 
             // outbound_contact
             // 
-            this.outbound_contact.HeaderText = "담당자";
-            this.outbound_contact.Name = "outbound_contact";
-            this.outbound_contact.ReadOnly = true;
+            outbound_contact.HeaderText = "담당자";
+            outbound_contact.Name = "outbound_contact";
+            outbound_contact.ReadOnly = true;
             // 
             // outbound_regdate
             // 
-            this.outbound_regdate.HeaderText = "출고일";
-            this.outbound_regdate.Name = "outbound_regdate";
-            this.outbound_regdate.ReadOnly = true;
+            outbound_regdate.HeaderText = "출고일";
+            outbound_regdate.Name = "outbound_regdate";
+            outbound_regdate.ReadOnly = true;
             // 
             // Purches_outsrch
             // 
-            this.Purches_outsrch.Controls.Add(this.txtOutboundSearch);
-            this.Purches_outsrch.Controls.Add(this.dgvOutboundSearch);
-            this.Purches_outsrch.Controls.Add(this.groupBox5);
-            this.Purches_outsrch.Controls.Add(this.comboBox1);
-            this.Purches_outsrch.Location = new System.Drawing.Point(104, 4);
-            this.Purches_outsrch.Name = "Purches_outsrch";
-            this.Purches_outsrch.Size = new System.Drawing.Size(1069, 649);
-            this.Purches_outsrch.TabIndex = 4;
-            this.Purches_outsrch.Text = "출고 조회";
-            this.Purches_outsrch.UseVisualStyleBackColor = true;
+            Purches_outsrch.Controls.Add(txtOutboundSearch);
+            Purches_outsrch.Controls.Add(dgvOutboundSearch);
+            Purches_outsrch.Controls.Add(groupBox5);
+            Purches_outsrch.Controls.Add(comboBox1);
+            Purches_outsrch.Location = new Point(104, 4);
+            Purches_outsrch.Name = "Purches_outsrch";
+            Purches_outsrch.Size = new Size(1069, 649);
+            Purches_outsrch.TabIndex = 4;
+            Purches_outsrch.Text = "출고 조회";
+            Purches_outsrch.UseVisualStyleBackColor = true;
             // 
             // txtOutboundSearch
             // 
-            this.txtOutboundSearch.Location = new System.Drawing.Point(130, 3);
-            this.txtOutboundSearch.Name = "txtOutboundSearch";
-            this.txtOutboundSearch.PlaceholderText = "품명을 검색하세요";
-            this.txtOutboundSearch.Size = new System.Drawing.Size(723, 23);
-            this.txtOutboundSearch.TabIndex = 17;
+            txtOutboundSearch.Location = new Point(130, 3);
+            txtOutboundSearch.Name = "txtOutboundSearch";
+            txtOutboundSearch.PlaceholderText = "품명을 검색하세요";
+            txtOutboundSearch.Size = new Size(723, 23);
+            txtOutboundSearch.TabIndex = 17;
             // 
             // dgvOutboundSearch
             // 
-            this.dgvOutboundSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOutboundSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
-            this.dgvOutboundSearch.Location = new System.Drawing.Point(0, 32);
-            this.dgvOutboundSearch.Name = "dgvOutboundSearch";
-            this.dgvOutboundSearch.RowHeadersVisible = false;
-            this.dgvOutboundSearch.RowTemplate.Height = 25;
-            this.dgvOutboundSearch.Size = new System.Drawing.Size(856, 614);
-            this.dgvOutboundSearch.TabIndex = 16;
+            dgvOutboundSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOutboundSearch.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
+            dgvOutboundSearch.Location = new Point(0, 32);
+            dgvOutboundSearch.Name = "dgvOutboundSearch";
+            dgvOutboundSearch.RowHeadersVisible = false;
+            dgvOutboundSearch.RowTemplate.Height = 25;
+            dgvOutboundSearch.Size = new Size(856, 614);
+            dgvOutboundSearch.TabIndex = 16;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 80;
+            dataGridViewTextBoxColumn1.HeaderText = "id";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 80;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "품명";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 120;
+            dataGridViewTextBoxColumn2.HeaderText = "품명";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.Width = 120;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "품목";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn3.HeaderText = "품목";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "거래처";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn4.HeaderText = "거래처";
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "수량";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 80;
+            dataGridViewTextBoxColumn5.HeaderText = "수량";
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            dataGridViewTextBoxColumn5.Width = 80;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "담당자";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            dataGridViewTextBoxColumn6.HeaderText = "담당자";
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "입고일";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            dataGridViewTextBoxColumn7.HeaderText = "입고일";
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.txtOutboundSearchRegdate);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.txtOutboundSearchContact);
-            this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.txtOutboundSearchProcess);
-            this.groupBox5.Controls.Add(this.txtOutboundSearchId);
-            this.groupBox5.Controls.Add(this.label21);
-            this.groupBox5.Controls.Add(this.label39);
-            this.groupBox5.Controls.Add(this.txtOutboundSearchAmount);
-            this.groupBox5.Controls.Add(this.txtOutboundSearchProduct);
-            this.groupBox5.Controls.Add(this.label40);
-            this.groupBox5.Controls.Add(this.label41);
-            this.groupBox5.Controls.Add(this.txtOutboundSearchItem);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox5.Location = new System.Drawing.Point(862, 0);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(207, 649);
-            this.groupBox5.TabIndex = 15;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "출고 조회";
+            groupBox5.Controls.Add(label18);
+            groupBox5.Controls.Add(txtOutboundSearchRegdate);
+            groupBox5.Controls.Add(label19);
+            groupBox5.Controls.Add(txtOutboundSearchContact);
+            groupBox5.Controls.Add(label20);
+            groupBox5.Controls.Add(txtOutboundSearchProcess);
+            groupBox5.Controls.Add(txtOutboundSearchId);
+            groupBox5.Controls.Add(label21);
+            groupBox5.Controls.Add(label39);
+            groupBox5.Controls.Add(txtOutboundSearchAmount);
+            groupBox5.Controls.Add(txtOutboundSearchProduct);
+            groupBox5.Controls.Add(label40);
+            groupBox5.Controls.Add(label41);
+            groupBox5.Controls.Add(txtOutboundSearchItem);
+            groupBox5.Dock = DockStyle.Right;
+            groupBox5.Location = new Point(862, 0);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(207, 649);
+            groupBox5.TabIndex = 15;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "출고 조회";
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(22, 208);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 15);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "출고일 :";
+            label18.AutoSize = true;
+            label18.Location = new Point(22, 208);
+            label18.Name = "label18";
+            label18.Size = new Size(50, 15);
+            label18.TabIndex = 23;
+            label18.Text = "출고일 :";
             // 
             // txtOutboundSearchRegdate
             // 
-            this.txtOutboundSearchRegdate.Location = new System.Drawing.Point(80, 205);
-            this.txtOutboundSearchRegdate.Name = "txtOutboundSearchRegdate";
-            this.txtOutboundSearchRegdate.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundSearchRegdate.TabIndex = 7;
+            txtOutboundSearchRegdate.Location = new Point(80, 205);
+            txtOutboundSearchRegdate.Name = "txtOutboundSearchRegdate";
+            txtOutboundSearchRegdate.Size = new Size(100, 23);
+            txtOutboundSearchRegdate.TabIndex = 7;
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(22, 179);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(50, 15);
-            this.label19.TabIndex = 21;
-            this.label19.Text = "담당자 :";
+            label19.AutoSize = true;
+            label19.Location = new Point(22, 179);
+            label19.Name = "label19";
+            label19.Size = new Size(50, 15);
+            label19.TabIndex = 21;
+            label19.Text = "담당자 :";
             // 
             // txtOutboundSearchContact
             // 
-            this.txtOutboundSearchContact.Location = new System.Drawing.Point(80, 176);
-            this.txtOutboundSearchContact.Name = "txtOutboundSearchContact";
-            this.txtOutboundSearchContact.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundSearchContact.TabIndex = 6;
+            txtOutboundSearchContact.Location = new Point(80, 176);
+            txtOutboundSearchContact.Name = "txtOutboundSearchContact";
+            txtOutboundSearchContact.Size = new Size(100, 23);
+            txtOutboundSearchContact.TabIndex = 6;
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(22, 153);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(38, 15);
-            this.label20.TabIndex = 19;
-            this.label20.Text = "공정 :";
+            label20.AutoSize = true;
+            label20.Location = new Point(22, 153);
+            label20.Name = "label20";
+            label20.Size = new Size(38, 15);
+            label20.TabIndex = 19;
+            label20.Text = "공정 :";
             // 
             // txtOutboundSearchProcess
             // 
-            this.txtOutboundSearchProcess.Location = new System.Drawing.Point(80, 150);
-            this.txtOutboundSearchProcess.Name = "txtOutboundSearchProcess";
-            this.txtOutboundSearchProcess.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundSearchProcess.TabIndex = 4;
+            txtOutboundSearchProcess.Location = new Point(80, 150);
+            txtOutboundSearchProcess.Name = "txtOutboundSearchProcess";
+            txtOutboundSearchProcess.Size = new Size(100, 23);
+            txtOutboundSearchProcess.TabIndex = 4;
             // 
             // txtOutboundSearchId
             // 
-            this.txtOutboundSearchId.Location = new System.Drawing.Point(80, 34);
-            this.txtOutboundSearchId.Name = "txtOutboundSearchId";
-            this.txtOutboundSearchId.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundSearchId.TabIndex = 1;
+            txtOutboundSearchId.Location = new Point(80, 34);
+            txtOutboundSearchId.Name = "txtOutboundSearchId";
+            txtOutboundSearchId.Size = new Size(100, 23);
+            txtOutboundSearchId.TabIndex = 1;
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(22, 34);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(26, 15);
-            this.label21.TabIndex = 5;
-            this.label21.Text = "ID :";
+            label21.AutoSize = true;
+            label21.Location = new Point(22, 34);
+            label21.Name = "label21";
+            label21.Size = new Size(26, 15);
+            label21.TabIndex = 5;
+            label21.Text = "ID :";
             // 
             // label39
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(22, 124);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(38, 15);
-            this.label39.TabIndex = 8;
-            this.label39.Text = "수량 :";
+            label39.AutoSize = true;
+            label39.Location = new Point(22, 124);
+            label39.Name = "label39";
+            label39.Size = new Size(38, 15);
+            label39.TabIndex = 8;
+            label39.Text = "수량 :";
             // 
             // txtOutboundSearchAmount
             // 
-            this.txtOutboundSearchAmount.Location = new System.Drawing.Point(80, 121);
-            this.txtOutboundSearchAmount.Name = "txtOutboundSearchAmount";
-            this.txtOutboundSearchAmount.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundSearchAmount.TabIndex = 5;
+            txtOutboundSearchAmount.Location = new Point(80, 121);
+            txtOutboundSearchAmount.Name = "txtOutboundSearchAmount";
+            txtOutboundSearchAmount.Size = new Size(100, 23);
+            txtOutboundSearchAmount.TabIndex = 5;
             // 
             // txtOutboundSearchProduct
             // 
-            this.txtOutboundSearchProduct.Location = new System.Drawing.Point(80, 63);
-            this.txtOutboundSearchProduct.Name = "txtOutboundSearchProduct";
-            this.txtOutboundSearchProduct.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundSearchProduct.TabIndex = 2;
+            txtOutboundSearchProduct.Location = new Point(80, 63);
+            txtOutboundSearchProduct.Name = "txtOutboundSearchProduct";
+            txtOutboundSearchProduct.Size = new Size(100, 23);
+            txtOutboundSearchProduct.TabIndex = 2;
             // 
             // label40
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(22, 63);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(38, 15);
-            this.label40.TabIndex = 6;
-            this.label40.Text = "품명 :";
+            label40.AutoSize = true;
+            label40.Location = new Point(22, 63);
+            label40.Name = "label40";
+            label40.Size = new Size(38, 15);
+            label40.TabIndex = 6;
+            label40.Text = "품명 :";
             // 
             // label41
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(22, 92);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(38, 15);
-            this.label41.TabIndex = 7;
-            this.label41.Text = "품목 :";
+            label41.AutoSize = true;
+            label41.Location = new Point(22, 92);
+            label41.Name = "label41";
+            label41.Size = new Size(38, 15);
+            label41.TabIndex = 7;
+            label41.Text = "품목 :";
             // 
             // txtOutboundSearchItem
             // 
-            this.txtOutboundSearchItem.Location = new System.Drawing.Point(80, 92);
-            this.txtOutboundSearchItem.Name = "txtOutboundSearchItem";
-            this.txtOutboundSearchItem.Size = new System.Drawing.Size(100, 23);
-            this.txtOutboundSearchItem.TabIndex = 3;
+            txtOutboundSearchItem.Location = new Point(80, 92);
+            txtOutboundSearchItem.Name = "txtOutboundSearchItem";
+            txtOutboundSearchItem.Size = new Size(100, 23);
+            txtOutboundSearchItem.TabIndex = 3;
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 1;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(3, 3);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 1;
             // 
             // outsearch_id
             // 
-            this.outsearch_id.HeaderText = "id";
-            this.outsearch_id.Name = "outsearch_id";
-            this.outsearch_id.ReadOnly = true;
-            this.outsearch_id.Width = 80;
+            outsearch_id.HeaderText = "id";
+            outsearch_id.Name = "outsearch_id";
+            outsearch_id.ReadOnly = true;
+            outsearch_id.Width = 80;
             // 
             // outsearch_product
             // 
-            this.outsearch_product.HeaderText = "품명";
-            this.outsearch_product.Name = "outsearch_product";
-            this.outsearch_product.ReadOnly = true;
-            this.outsearch_product.Width = 120;
+            outsearch_product.HeaderText = "품명";
+            outsearch_product.Name = "outsearch_product";
+            outsearch_product.ReadOnly = true;
+            outsearch_product.Width = 120;
             // 
             // outsearch_code
             // 
-            this.outsearch_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.outsearch_code.HeaderText = "품목";
-            this.outsearch_code.Name = "outsearch_code";
-            this.outsearch_code.ReadOnly = true;
+            outsearch_code.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            outsearch_code.HeaderText = "품목";
+            outsearch_code.Name = "outsearch_code";
+            outsearch_code.ReadOnly = true;
             // 
             // outsearch_name
             // 
-            this.outsearch_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.outsearch_name.HeaderText = "거래처";
-            this.outsearch_name.Name = "outsearch_name";
-            this.outsearch_name.ReadOnly = true;
+            outsearch_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            outsearch_name.HeaderText = "거래처";
+            outsearch_name.Name = "outsearch_name";
+            outsearch_name.ReadOnly = true;
             // 
             // outsearch_amount
             // 
-            this.outsearch_amount.HeaderText = "수량";
-            this.outsearch_amount.Name = "outsearch_amount";
-            this.outsearch_amount.ReadOnly = true;
-            this.outsearch_amount.Width = 80;
+            outsearch_amount.HeaderText = "수량";
+            outsearch_amount.Name = "outsearch_amount";
+            outsearch_amount.ReadOnly = true;
+            outsearch_amount.Width = 80;
             // 
             // outsearch_contact
             // 
-            this.outsearch_contact.HeaderText = "담당자";
-            this.outsearch_contact.Name = "outsearch_contact";
-            this.outsearch_contact.ReadOnly = true;
+            outsearch_contact.HeaderText = "담당자";
+            outsearch_contact.Name = "outsearch_contact";
+            outsearch_contact.ReadOnly = true;
             // 
             // outsearch_regdate
             // 
-            this.outsearch_regdate.HeaderText = "입고일";
-            this.outsearch_regdate.Name = "outsearch_regdate";
-            this.outsearch_regdate.ReadOnly = true;
+            outsearch_regdate.HeaderText = "입고일";
+            outsearch_regdate.Name = "outsearch_regdate";
+            outsearch_regdate.ReadOnly = true;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.LogoutMenu});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1177, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.Items.AddRange(new ToolStripItem[] { LogoutMenu });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1177, 24);
+            menuStrip1.TabIndex = 5;
+            menuStrip1.Text = "menuStrip1";
             // 
             // LogoutMenu
             // 
-            this.LogoutMenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.LogoutMenu.Name = "LogoutMenu";
-            this.LogoutMenu.Size = new System.Drawing.Size(67, 20);
-            this.LogoutMenu.Text = "로그아웃";
+            LogoutMenu.Alignment = ToolStripItemAlignment.Right;
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(67, 20);
+            LogoutMenu.Text = "로그아웃";
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 681);
-            this.Controls.Add(this.TabMenu);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
-            this.TabMenu.ResumeLayout(false);
-            this.Purches_warehouse.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWarehouse)).EndInit();
-            this.Purches_inhis.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInbound)).EndInit();
-            this.Purches_insrch.ResumeLayout(false);
-            this.Purches_insrch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInboundSearch)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.Purches_outhis.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOutBound)).EndInit();
-            this.Purches_outsrch.ResumeLayout(false);
-            this.Purches_outsrch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOutboundSearch)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1177, 681);
+            Controls.Add(TabMenu);
+            Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "Main";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Main";
+            TabMenu.ResumeLayout(false);
+            Purches_warehouse.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvWarehouse).EndInit();
+            Purches_inhis.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvInbound).EndInit();
+            Purches_insrch.ResumeLayout(false);
+            Purches_insrch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvInboundSearch).EndInit();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            Purches_outhis.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvOutBound).EndInit();
+            Purches_outsrch.ResumeLayout(false);
+            Purches_outsrch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvOutboundSearch).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

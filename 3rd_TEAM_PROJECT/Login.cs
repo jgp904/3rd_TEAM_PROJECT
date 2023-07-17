@@ -48,8 +48,18 @@ namespace _3rd_TEAM_PROJECT_Desk
                 // 로그인 폼 인스턴스 저장
                 SessionManager.Instance.LoginForm = this;
 
-                Main mainForm = new Main();
-                mainForm.Show();
+                // 계정 정보에 따라 다른 폼을 표시
+                if (loggedInAcount.Department.DepartmentCode == "001")
+                {
+                    Main mainForm = new Main();
+                    mainForm.Show();
+                }
+                else
+                {
+                    ProcessForm processForm = new ProcessForm(); // ProcessForm은 사용자가 새로 만든 폼입니다.
+                    processForm.Show();
+                }
+
                 this.Hide();
             }
             else
@@ -57,6 +67,7 @@ namespace _3rd_TEAM_PROJECT_Desk
                 MessageBox.Show("아이디 혹은 비밀번호가 일치하지 않습니다. 경영지원부에 문의하십시오.");
             }
         }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

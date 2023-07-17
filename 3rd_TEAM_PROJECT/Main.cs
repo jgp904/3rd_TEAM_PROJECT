@@ -87,15 +87,6 @@ namespace _3rd_TEAM_PROJECT
 
         private void Main_Load(object sender, EventArgs e)
         {
-            //계정에 따라 보여지는 탭을 구별한다
-            //DepartmentCode에 따라 구분한다
-
-            //계정 사용 원할 경우 아래 주석을 해제하고, Programs.cs파일의 주석을 해제하면된다.
-            //if (SessionManager.Instance.LoggedInAcount.Department.DepartmentCode != "001")
-            //{
-            //    //TabMenu.TabPages[0].Parent = null;  // 첫 번째 탭을 숨깁니다.
-            //}
-
             LoadWarehouse();
         }
         //로그아웃 메뉴 클릭 시
@@ -131,18 +122,6 @@ namespace _3rd_TEAM_PROJECT
                     break;
                 case 4:
                     //출고 검색
-                    break;
-                case 5:
-        
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:// 
-                   
-                    break;
-                case 9:
                     break;
             }
         }
@@ -502,7 +481,7 @@ namespace _3rd_TEAM_PROJECT
             }
         }
         #endregion
-        
-       
+
+
     }
 }
