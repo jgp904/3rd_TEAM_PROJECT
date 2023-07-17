@@ -64,5 +64,53 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             await mprocessdb.SaveChangesAsync();
             return existingEquip;
         }
-	}
+
+        public async Task<IEnumerable<Equipment>> CodeAsync(string search)
+        {
+            return await mprocessdb.Equipments
+                .Where(x=>(x.Code != null && x.Code.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Equipment>> NameAsync(string search)
+        {
+            return await mprocessdb.Equipments
+                .Where(x => (x.Name != null && x.Name.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Equipment>> StatusAsync(string search)
+        {
+            return await mprocessdb.Equipments
+                .Where(x => (x.Status != null && x.Status.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Equipment>> EventAsync(string search)
+        {
+            return await mprocessdb.Equipments
+                .Where(x => (x.Event != null && x.Event.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Equipment>> ConstAsync(string search)
+        {
+            return await mprocessdb.Equipments
+                .Where(x => (x.Constructor != null && x.Constructor.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Equipment>> ModiAsync(string search)
+        {
+            return await mprocessdb.Equipments
+                .Where(x => (x.Modifier != null && x.Modifier.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+    }
 }

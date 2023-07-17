@@ -21,7 +21,7 @@ namespace _3rd_TEAM_PROJECT
         private IEquipmentRepository equipmentRepository;
 
         //----------Login정보 받기-----------------//
-        public string userName = "김건우"; // SessionManger에서 Acount정보 받기
+        public string userName = "박재걸"; // SessionManger에서 Acount정보 받기
 
         public ProcessForm()
         {
@@ -43,12 +43,12 @@ namespace _3rd_TEAM_PROJECT
                 case 1:
                     LoadEquip();//설비설정
                     break;
+                case 2:
+                    LoadProcess();
+                    break;
 
             }
         }
-
-
-
         // -----------------------------------------------------------------공장-----------------------------------------------------------------------------------------------------//
         #region 공장설정
         //공장목록
@@ -61,7 +61,7 @@ namespace _3rd_TEAM_PROJECT
             dgvfac.Rows.Clear();
             dgvfac.Refresh();
             int i = 0;
-            foreach ( var fact in factories ) 
+            foreach (var fact in factories)
             {
                 dgvfac.Rows.Add();
                 dgvfac.Rows[i].Cells["fac_id"].Value = fact.Id;
@@ -79,7 +79,7 @@ namespace _3rd_TEAM_PROJECT
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                DataGridView dgv = (DataGridView) sender;
+                DataGridView dgv = (DataGridView)sender;
                 DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
 
                 if (selectedRow.Cells.Count > 1)
@@ -359,7 +359,7 @@ namespace _3rd_TEAM_PROJECT
                 return;
             }
         }
-        
+
         //--설비 수정--//
         private async void btnEquipU_Click(object sender, EventArgs e)
         {
@@ -419,7 +419,7 @@ namespace _3rd_TEAM_PROJECT
 
                 if (result == DialogResult.Yes)
                 {
-                    
+
                     await equipmentRepository.DeleteAsync(id);
 
                     LoadEquip();
@@ -427,7 +427,81 @@ namespace _3rd_TEAM_PROJECT
                 else return;
             }
         }
-        #endregion
+        //----설비 검색------//
+        private async void pictureBox1_Click(object sender, EventArgs e)
+        {
+            var equips = await equipmentRepository.GetAllAsync();
+            string search = searchEquip.Text.Trim();
 
+            if (cbbEquip_filter.Text.Trim() == "설비코드") equips = await equipmentRepository.CodeAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "설비명") equips = await equipmentRepository.NameAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "설비상태") equips = await equipmentRepository.StatusAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "설비이벤트") equips = await equipmentRepository.EventAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "생성자") equips = await equipmentRepository.ConstAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "수정자") equips = await equipmentRepository.ModiAsync(search);
+
+            dgvEquip.Rows.Clear();
+            dgvEquip.Refresh();
+            int i = 0;
+            foreach (var item in equips)
+            {
+                dgvEquip.Rows.Add();
+                dgvEquip.Rows[i].Cells["equip_id"].Value = item.Id;
+                dgvEquip.Rows[i].Cells["equip_code"].Value = item.Code;
+                dgvEquip.Rows[i].Cells["equip_name"].Value = item.Name;
+                dgvEquip.Rows[i].Cells["equip_comment"].Value = item.Comment;
+                dgvEquip.Rows[i].Cells["equip_status"].Value = item.Status;
+                dgvEquip.Rows[i].Cells["equip_event"].Value = item.Event;
+                dgvEquip.Rows[i].Cells["equip_const"].Value = item.Constructor;
+                dgvEquip.Rows[i].Cells["equip_regdate"].Value = item.RegDate;
+                dgvEquip.Rows[i].Cells["equip_modi"].Value = item.Modifier;
+                dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate;
+                i++;
+            }
+        }
+        //---엔터 검색---//
+        private async void searchEquip_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                var equips = await equipmentRepository.GetAllAsync();
+                string search = searchEquip.Text.Trim();
+
+                if (cbbEquip_filter.Text.Trim() == "설비코드") equips = await equipmentRepository.CodeAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "설비명") equips = await equipmentRepository.NameAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "설비상태") equips = await equipmentRepository.StatusAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "설비이벤트") equips = await equipmentRepository.EventAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "생성자") equips = await equipmentRepository.ConstAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "수정자") equips = await equipmentRepository.ModiAsync(search);
+
+                dgvEquip.Rows.Clear();
+                dgvEquip.Refresh();
+                int i = 0;
+                foreach (var item in equips)
+                {
+                    dgvEquip.Rows.Add();
+                    dgvEquip.Rows[i].Cells["equip_id"].Value = item.Id;
+                    dgvEquip.Rows[i].Cells["equip_code"].Value = item.Code;
+                    dgvEquip.Rows[i].Cells["equip_name"].Value = item.Name;
+                    dgvEquip.Rows[i].Cells["equip_comment"].Value = item.Comment;
+                    dgvEquip.Rows[i].Cells["equip_status"].Value = item.Status;
+                    dgvEquip.Rows[i].Cells["equip_event"].Value = item.Event;
+                    dgvEquip.Rows[i].Cells["equip_const"].Value = item.Constructor;
+                    dgvEquip.Rows[i].Cells["equip_regdate"].Value = item.RegDate;
+                    dgvEquip.Rows[i].Cells["equip_modi"].Value = item.Modifier;
+                    dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate;
+                    i++;
+                }
+
+            }
+        }
+        #endregion
+        //------------------------------------------------------------------공정------------------------------------------------------------------------------------------------------//
+        #region 공정설정
+        private void LoadProcess()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

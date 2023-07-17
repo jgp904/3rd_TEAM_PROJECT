@@ -29,822 +29,804 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcessForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.LogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabProcess = new System.Windows.Forms.TabControl();
-            this.facsetting = new System.Windows.Forms.TabPage();
-            this.dgvfac = new System.Windows.Forms.DataGridView();
-            this.fac_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fac_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fac_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fac_const = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fac_regdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fac_modi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fac_moddate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbbFilter = new System.Windows.Forms.ComboBox();
-            this.label97 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.txtfacSearch = new System.Windows.Forms.TextBox();
-            this.g_fac_setting = new System.Windows.Forms.GroupBox();
-            this.lbfacId = new System.Windows.Forms.Label();
-            this.btnCFactory = new System.Windows.Forms.Button();
-            this.btnUFactory = new System.Windows.Forms.Button();
-            this.lb = new System.Windows.Forms.Label();
-            this.btnDFactory = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtfac_Moddate = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtfac_Modi = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtfac_Regdate = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtfac_Const = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtfac_Name = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtfac_Code = new System.Windows.Forms.TextBox();
-            this.equipsetting = new System.Windows.Forms.TabPage();
-            this.dgvEquip = new System.Windows.Forms.DataGridView();
-            this.equip_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_const = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_regdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_modi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_moddate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equip_event = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.searchEquip = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbbEquipEvent = new System.Windows.Forms.ComboBox();
-            this.cbbEquipStatus = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtEquip_Comment = new System.Windows.Forms.TextBox();
-            this.lbEquipId = new System.Windows.Forms.Label();
-            this.btnEquipC = new System.Windows.Forms.Button();
-            this.btnEquipU = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnEquipD = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtEquip_Moddate = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtEquip_Modi = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtEquip_Regdate = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtEquip_Const = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtEquip_Name = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtEquip_Code = new System.Windows.Forms.TextBox();
-            this.menuStrip1.SuspendLayout();
-            this.tabProcess.SuspendLayout();
-            this.facsetting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvfac)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.g_fac_setting.SuspendLayout();
-            this.equipsetting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquip)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            menuStrip1 = new MenuStrip();
+            LogOut = new ToolStripMenuItem();
+            tabProcess = new TabControl();
+            facSetting = new TabPage();
+            dgvfac = new DataGridView();
+            fac_id = new DataGridViewTextBoxColumn();
+            fac_code = new DataGridViewTextBoxColumn();
+            fac_name = new DataGridViewTextBoxColumn();
+            fac_const = new DataGridViewTextBoxColumn();
+            fac_regdate = new DataGridViewTextBoxColumn();
+            fac_modi = new DataGridViewTextBoxColumn();
+            fac_moddate = new DataGridViewTextBoxColumn();
+            cbbFilter = new ComboBox();
+            label97 = new Label();
+            pictureBox4 = new PictureBox();
+            txtfacSearch = new TextBox();
+            g_fac_setting = new GroupBox();
+            lbfacId = new Label();
+            btnCFactory = new Button();
+            btnUFactory = new Button();
+            lb = new Label();
+            btnDFactory = new Button();
+            label6 = new Label();
+            txtfac_Moddate = new TextBox();
+            label5 = new Label();
+            txtfac_Modi = new TextBox();
+            label4 = new Label();
+            txtfac_Regdate = new TextBox();
+            label3 = new Label();
+            txtfac_Const = new TextBox();
+            label2 = new Label();
+            txtfac_Name = new TextBox();
+            label1 = new Label();
+            txtfac_Code = new TextBox();
+            equipSetting = new TabPage();
+            dgvEquip = new DataGridView();
+            equip_id = new DataGridViewTextBoxColumn();
+            equip_code = new DataGridViewTextBoxColumn();
+            equip_name = new DataGridViewTextBoxColumn();
+            equip_comment = new DataGridViewTextBoxColumn();
+            equip_const = new DataGridViewTextBoxColumn();
+            equip_regdate = new DataGridViewTextBoxColumn();
+            equip_modi = new DataGridViewTextBoxColumn();
+            equip_moddate = new DataGridViewTextBoxColumn();
+            equip_status = new DataGridViewTextBoxColumn();
+            equip_event = new DataGridViewTextBoxColumn();
+            cbbEquip_filter = new ComboBox();
+            label7 = new Label();
+            pictureBox1 = new PictureBox();
+            searchEquip = new TextBox();
+            groupBox1 = new GroupBox();
+            cbbEquipEvent = new ComboBox();
+            cbbEquipStatus = new ComboBox();
+            label8 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            txtEquip_Comment = new TextBox();
+            lbEquipId = new Label();
+            btnEquipC = new Button();
+            btnEquipU = new Button();
+            label9 = new Label();
+            btnEquipD = new Button();
+            label10 = new Label();
+            txtEquip_Moddate = new TextBox();
+            label11 = new Label();
+            txtEquip_Modi = new TextBox();
+            label12 = new Label();
+            txtEquip_Regdate = new TextBox();
+            label13 = new Label();
+            txtEquip_Const = new TextBox();
+            label14 = new Label();
+            txtEquip_Name = new TextBox();
+            label15 = new Label();
+            txtEquip_Code = new TextBox();
+            equipHistory = new TabPage();
+            menuStrip1.SuspendLayout();
+            tabProcess.SuspendLayout();
+            facSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvfac).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            g_fac_setting.SuspendLayout();
+            equipSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEquip).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.LogOut});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1177, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.Items.AddRange(new ToolStripItem[] { LogOut });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1177, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // LogOut
             // 
-            this.LogOut.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.LogOut.Name = "LogOut";
-            this.LogOut.Size = new System.Drawing.Size(67, 20);
-            this.LogOut.Text = "로그아웃";
+            LogOut.Alignment = ToolStripItemAlignment.Right;
+            LogOut.Name = "LogOut";
+            LogOut.Size = new Size(67, 20);
+            LogOut.Text = "로그아웃";
             // 
             // tabProcess
             // 
-            this.tabProcess.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabProcess.Controls.Add(this.facsetting);
-            this.tabProcess.Controls.Add(this.equipsetting);
-            this.tabProcess.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabProcess.ItemSize = new System.Drawing.Size(25, 100);
-            this.tabProcess.Location = new System.Drawing.Point(0, 24);
-            this.tabProcess.Multiline = true;
-            this.tabProcess.Name = "tabProcess";
-            this.tabProcess.SelectedIndex = 0;
-            this.tabProcess.Size = new System.Drawing.Size(1178, 657);
-            this.tabProcess.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabProcess.TabIndex = 1;
-            this.tabProcess.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabProcess_Selected);
+            tabProcess.Alignment = TabAlignment.Left;
+            tabProcess.Controls.Add(facSetting);
+            tabProcess.Controls.Add(equipSetting);
+            tabProcess.Controls.Add(equipHistory);
+            tabProcess.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabProcess.ItemSize = new Size(25, 100);
+            tabProcess.Location = new Point(0, 24);
+            tabProcess.Multiline = true;
+            tabProcess.Name = "tabProcess";
+            tabProcess.SelectedIndex = 0;
+            tabProcess.Size = new Size(1178, 657);
+            tabProcess.SizeMode = TabSizeMode.Fixed;
+            tabProcess.TabIndex = 1;
+            tabProcess.Selected += tabProcess_Selected;
             // 
-            // facsetting
+            // facSetting
             // 
-            this.facsetting.Controls.Add(this.dgvfac);
-            this.facsetting.Controls.Add(this.cbbFilter);
-            this.facsetting.Controls.Add(this.label97);
-            this.facsetting.Controls.Add(this.pictureBox4);
-            this.facsetting.Controls.Add(this.txtfacSearch);
-            this.facsetting.Controls.Add(this.g_fac_setting);
-            this.facsetting.Location = new System.Drawing.Point(104, 4);
-            this.facsetting.Name = "facsetting";
-            this.facsetting.Padding = new System.Windows.Forms.Padding(3);
-            this.facsetting.Size = new System.Drawing.Size(1070, 649);
-            this.facsetting.TabIndex = 0;
-            this.facsetting.Text = "공장설정";
-            this.facsetting.UseVisualStyleBackColor = true;
+            facSetting.Controls.Add(dgvfac);
+            facSetting.Controls.Add(cbbFilter);
+            facSetting.Controls.Add(label97);
+            facSetting.Controls.Add(pictureBox4);
+            facSetting.Controls.Add(txtfacSearch);
+            facSetting.Controls.Add(g_fac_setting);
+            facSetting.Location = new Point(104, 4);
+            facSetting.Name = "facSetting";
+            facSetting.Padding = new Padding(3);
+            facSetting.Size = new Size(1070, 649);
+            facSetting.TabIndex = 0;
+            facSetting.Text = "공장설정";
+            facSetting.UseVisualStyleBackColor = true;
             // 
             // dgvfac
             // 
-            this.dgvfac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvfac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fac_id,
-            this.fac_code,
-            this.fac_name,
-            this.fac_const,
-            this.fac_regdate,
-            this.fac_modi,
-            this.fac_moddate});
-            this.dgvfac.Location = new System.Drawing.Point(3, 36);
-            this.dgvfac.Name = "dgvfac";
-            this.dgvfac.RowTemplate.Height = 25;
-            this.dgvfac.Size = new System.Drawing.Size(854, 610);
-            this.dgvfac.TabIndex = 42;
-            this.dgvfac.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfac_CellClick);
+            dgvfac.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvfac.Columns.AddRange(new DataGridViewColumn[] { fac_id, fac_code, fac_name, fac_const, fac_regdate, fac_modi, fac_moddate });
+            dgvfac.Location = new Point(3, 36);
+            dgvfac.Name = "dgvfac";
+            dgvfac.RowTemplate.Height = 25;
+            dgvfac.Size = new Size(854, 610);
+            dgvfac.TabIndex = 42;
+            dgvfac.CellClick += dgvfac_CellClick;
             // 
             // fac_id
             // 
-            this.fac_id.HeaderText = "ID";
-            this.fac_id.Name = "fac_id";
-            this.fac_id.Width = 50;
+            fac_id.HeaderText = "ID";
+            fac_id.Name = "fac_id";
+            fac_id.Width = 50;
             // 
             // fac_code
             // 
-            this.fac_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fac_code.HeaderText = "공장코드";
-            this.fac_code.Name = "fac_code";
+            fac_code.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fac_code.HeaderText = "공장코드";
+            fac_code.Name = "fac_code";
             // 
             // fac_name
             // 
-            this.fac_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fac_name.HeaderText = "공장명";
-            this.fac_name.Name = "fac_name";
+            fac_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fac_name.HeaderText = "공장명";
+            fac_name.Name = "fac_name";
             // 
             // fac_const
             // 
-            this.fac_const.HeaderText = "생성자";
-            this.fac_const.Name = "fac_const";
-            this.fac_const.Width = 80;
+            fac_const.HeaderText = "생성자";
+            fac_const.Name = "fac_const";
+            fac_const.Width = 80;
             // 
             // fac_regdate
             // 
-            this.fac_regdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fac_regdate.HeaderText = "생성일자";
-            this.fac_regdate.Name = "fac_regdate";
+            fac_regdate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fac_regdate.HeaderText = "생성일자";
+            fac_regdate.Name = "fac_regdate";
             // 
             // fac_modi
             // 
-            this.fac_modi.HeaderText = "수정자";
-            this.fac_modi.Name = "fac_modi";
-            this.fac_modi.Width = 80;
+            fac_modi.HeaderText = "수정자";
+            fac_modi.Name = "fac_modi";
+            fac_modi.Width = 80;
             // 
             // fac_moddate
             // 
-            this.fac_moddate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fac_moddate.HeaderText = "수정일자";
-            this.fac_moddate.Name = "fac_moddate";
+            fac_moddate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fac_moddate.HeaderText = "수정일자";
+            fac_moddate.Name = "fac_moddate";
             // 
             // cbbFilter
             // 
-            this.cbbFilter.FormattingEnabled = true;
-            this.cbbFilter.Items.AddRange(new object[] {
-            "공장코드",
-            "공장명",
-            "생성자",
-            "수정자"});
-            this.cbbFilter.Location = new System.Drawing.Point(736, 7);
-            this.cbbFilter.Name = "cbbFilter";
-            this.cbbFilter.Size = new System.Drawing.Size(121, 23);
-            this.cbbFilter.TabIndex = 41;
-            this.cbbFilter.Text = "공장코드";
+            cbbFilter.FormattingEnabled = true;
+            cbbFilter.Items.AddRange(new object[] { "공장코드", "공장명", "생성자", "수정자" });
+            cbbFilter.Location = new Point(736, 7);
+            cbbFilter.Name = "cbbFilter";
+            cbbFilter.Size = new Size(121, 23);
+            cbbFilter.TabIndex = 41;
+            cbbFilter.Text = "공장코드";
             // 
             // label97
             // 
-            this.label97.AutoSize = true;
-            this.label97.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label97.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label97.Location = new System.Drawing.Point(7, 6);
-            this.label97.Name = "label97";
-            this.label97.Padding = new System.Windows.Forms.Padding(5);
-            this.label97.Size = new System.Drawing.Size(47, 24);
-            this.label97.TabIndex = 40;
-            this.label97.Text = "검색";
+            label97.AutoSize = true;
+            label97.BackColor = Color.LightSteelBlue;
+            label97.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label97.Location = new Point(7, 6);
+            label97.Name = "label97";
+            label97.Padding = new Padding(5);
+            label97.Size = new Size(47, 24);
+            label97.TabIndex = 40;
+            label97.Text = "검색";
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(709, 7);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 39;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(709, 7);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(21, 23);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 39;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // txtfacSearch
             // 
-            this.txtfacSearch.Location = new System.Drawing.Point(60, 6);
-            this.txtfacSearch.Name = "txtfacSearch";
-            this.txtfacSearch.Size = new System.Drawing.Size(643, 23);
-            this.txtfacSearch.TabIndex = 38;
-            this.txtfacSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfacSearch_KeyPress);
+            txtfacSearch.Location = new Point(60, 6);
+            txtfacSearch.Name = "txtfacSearch";
+            txtfacSearch.Size = new Size(643, 23);
+            txtfacSearch.TabIndex = 38;
+            txtfacSearch.KeyPress += txtfacSearch_KeyPress;
             // 
             // g_fac_setting
             // 
-            this.g_fac_setting.Controls.Add(this.lbfacId);
-            this.g_fac_setting.Controls.Add(this.btnCFactory);
-            this.g_fac_setting.Controls.Add(this.btnUFactory);
-            this.g_fac_setting.Controls.Add(this.lb);
-            this.g_fac_setting.Controls.Add(this.btnDFactory);
-            this.g_fac_setting.Controls.Add(this.label6);
-            this.g_fac_setting.Controls.Add(this.txtfac_Moddate);
-            this.g_fac_setting.Controls.Add(this.label5);
-            this.g_fac_setting.Controls.Add(this.txtfac_Modi);
-            this.g_fac_setting.Controls.Add(this.label4);
-            this.g_fac_setting.Controls.Add(this.txtfac_Regdate);
-            this.g_fac_setting.Controls.Add(this.label3);
-            this.g_fac_setting.Controls.Add(this.txtfac_Const);
-            this.g_fac_setting.Controls.Add(this.label2);
-            this.g_fac_setting.Controls.Add(this.txtfac_Name);
-            this.g_fac_setting.Controls.Add(this.label1);
-            this.g_fac_setting.Controls.Add(this.txtfac_Code);
-            this.g_fac_setting.Dock = System.Windows.Forms.DockStyle.Right;
-            this.g_fac_setting.Location = new System.Drawing.Point(867, 3);
-            this.g_fac_setting.Name = "g_fac_setting";
-            this.g_fac_setting.Size = new System.Drawing.Size(200, 643);
-            this.g_fac_setting.TabIndex = 0;
-            this.g_fac_setting.TabStop = false;
-            this.g_fac_setting.Text = "공장설정";
+            g_fac_setting.Controls.Add(lbfacId);
+            g_fac_setting.Controls.Add(btnCFactory);
+            g_fac_setting.Controls.Add(btnUFactory);
+            g_fac_setting.Controls.Add(lb);
+            g_fac_setting.Controls.Add(btnDFactory);
+            g_fac_setting.Controls.Add(label6);
+            g_fac_setting.Controls.Add(txtfac_Moddate);
+            g_fac_setting.Controls.Add(label5);
+            g_fac_setting.Controls.Add(txtfac_Modi);
+            g_fac_setting.Controls.Add(label4);
+            g_fac_setting.Controls.Add(txtfac_Regdate);
+            g_fac_setting.Controls.Add(label3);
+            g_fac_setting.Controls.Add(txtfac_Const);
+            g_fac_setting.Controls.Add(label2);
+            g_fac_setting.Controls.Add(txtfac_Name);
+            g_fac_setting.Controls.Add(label1);
+            g_fac_setting.Controls.Add(txtfac_Code);
+            g_fac_setting.Dock = DockStyle.Right;
+            g_fac_setting.Location = new Point(867, 3);
+            g_fac_setting.Name = "g_fac_setting";
+            g_fac_setting.Size = new Size(200, 643);
+            g_fac_setting.TabIndex = 0;
+            g_fac_setting.TabStop = false;
+            g_fac_setting.Text = "공장설정";
             // 
             // lbfacId
             // 
-            this.lbfacId.AutoSize = true;
-            this.lbfacId.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbfacId.Location = new System.Drawing.Point(48, 33);
-            this.lbfacId.Name = "lbfacId";
-            this.lbfacId.Size = new System.Drawing.Size(0, 21);
-            this.lbfacId.TabIndex = 46;
+            lbfacId.AutoSize = true;
+            lbfacId.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbfacId.Location = new Point(48, 33);
+            lbfacId.Name = "lbfacId";
+            lbfacId.Size = new Size(0, 21);
+            lbfacId.TabIndex = 46;
             // 
             // btnCFactory
             // 
-            this.btnCFactory.Location = new System.Drawing.Point(2, 556);
-            this.btnCFactory.Name = "btnCFactory";
-            this.btnCFactory.Size = new System.Drawing.Size(198, 23);
-            this.btnCFactory.TabIndex = 45;
-            this.btnCFactory.Text = "생성";
-            this.btnCFactory.UseVisualStyleBackColor = true;
-            this.btnCFactory.Click += new System.EventHandler(this.btnCFactory_Click);
+            btnCFactory.Location = new Point(2, 556);
+            btnCFactory.Name = "btnCFactory";
+            btnCFactory.Size = new Size(198, 23);
+            btnCFactory.TabIndex = 45;
+            btnCFactory.Text = "생성";
+            btnCFactory.UseVisualStyleBackColor = true;
+            btnCFactory.Click += btnCFactory_Click;
             // 
             // btnUFactory
             // 
-            this.btnUFactory.Location = new System.Drawing.Point(2, 585);
-            this.btnUFactory.Name = "btnUFactory";
-            this.btnUFactory.Size = new System.Drawing.Size(198, 23);
-            this.btnUFactory.TabIndex = 44;
-            this.btnUFactory.Text = "수정";
-            this.btnUFactory.UseVisualStyleBackColor = true;
-            this.btnUFactory.Click += new System.EventHandler(this.btnUFactory_Click);
+            btnUFactory.Location = new Point(2, 585);
+            btnUFactory.Name = "btnUFactory";
+            btnUFactory.Size = new Size(198, 23);
+            btnUFactory.TabIndex = 44;
+            btnUFactory.Text = "수정";
+            btnUFactory.UseVisualStyleBackColor = true;
+            btnUFactory.Click += btnUFactory_Click;
             // 
             // lb
             // 
-            this.lb.AutoSize = true;
-            this.lb.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb.Location = new System.Drawing.Point(7, 33);
-            this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(35, 21);
-            this.lb.TabIndex = 14;
-            this.lb.Text = "ID :";
+            lb.AutoSize = true;
+            lb.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lb.Location = new Point(7, 33);
+            lb.Name = "lb";
+            lb.Size = new Size(35, 21);
+            lb.TabIndex = 14;
+            lb.Text = "ID :";
             // 
             // btnDFactory
             // 
-            this.btnDFactory.Location = new System.Drawing.Point(2, 614);
-            this.btnDFactory.Name = "btnDFactory";
-            this.btnDFactory.Size = new System.Drawing.Size(198, 23);
-            this.btnDFactory.TabIndex = 43;
-            this.btnDFactory.Text = "삭제";
-            this.btnDFactory.UseVisualStyleBackColor = true;
-            this.btnDFactory.Click += new System.EventHandler(this.btnDFactory_Click);
+            btnDFactory.Location = new Point(2, 614);
+            btnDFactory.Name = "btnDFactory";
+            btnDFactory.Size = new Size(198, 23);
+            btnDFactory.TabIndex = 43;
+            btnDFactory.Text = "삭제";
+            btnDFactory.UseVisualStyleBackColor = true;
+            btnDFactory.Click += btnDFactory_Click;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 210);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "수정일자 :";
+            label6.AutoSize = true;
+            label6.Location = new Point(7, 210);
+            label6.Name = "label6";
+            label6.Size = new Size(62, 15);
+            label6.TabIndex = 13;
+            label6.Text = "수정일자 :";
             // 
             // txtfac_Moddate
             // 
-            this.txtfac_Moddate.Location = new System.Drawing.Point(89, 207);
-            this.txtfac_Moddate.Name = "txtfac_Moddate";
-            this.txtfac_Moddate.Size = new System.Drawing.Size(100, 23);
-            this.txtfac_Moddate.TabIndex = 12;
+            txtfac_Moddate.Location = new Point(89, 207);
+            txtfac_Moddate.Name = "txtfac_Moddate";
+            txtfac_Moddate.Size = new Size(100, 23);
+            txtfac_Moddate.TabIndex = 12;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 181);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "수정자 :";
+            label5.AutoSize = true;
+            label5.Location = new Point(7, 181);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 15);
+            label5.TabIndex = 11;
+            label5.Text = "수정자 :";
             // 
             // txtfac_Modi
             // 
-            this.txtfac_Modi.Location = new System.Drawing.Point(89, 178);
-            this.txtfac_Modi.Name = "txtfac_Modi";
-            this.txtfac_Modi.Size = new System.Drawing.Size(100, 23);
-            this.txtfac_Modi.TabIndex = 10;
+            txtfac_Modi.Location = new Point(89, 178);
+            txtfac_Modi.Name = "txtfac_Modi";
+            txtfac_Modi.Size = new Size(100, 23);
+            txtfac_Modi.TabIndex = 10;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 152);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "생성일자 :";
+            label4.AutoSize = true;
+            label4.Location = new Point(7, 152);
+            label4.Name = "label4";
+            label4.Size = new Size(62, 15);
+            label4.TabIndex = 9;
+            label4.Text = "생성일자 :";
             // 
             // txtfac_Regdate
             // 
-            this.txtfac_Regdate.Location = new System.Drawing.Point(89, 149);
-            this.txtfac_Regdate.Name = "txtfac_Regdate";
-            this.txtfac_Regdate.Size = new System.Drawing.Size(100, 23);
-            this.txtfac_Regdate.TabIndex = 8;
+            txtfac_Regdate.Location = new Point(89, 149);
+            txtfac_Regdate.Name = "txtfac_Regdate";
+            txtfac_Regdate.Size = new Size(100, 23);
+            txtfac_Regdate.TabIndex = 8;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 123);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "생성자 :";
+            label3.AutoSize = true;
+            label3.Location = new Point(7, 123);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 15);
+            label3.TabIndex = 7;
+            label3.Text = "생성자 :";
             // 
             // txtfac_Const
             // 
-            this.txtfac_Const.Location = new System.Drawing.Point(89, 120);
-            this.txtfac_Const.Name = "txtfac_Const";
-            this.txtfac_Const.Size = new System.Drawing.Size(100, 23);
-            this.txtfac_Const.TabIndex = 6;
+            txtfac_Const.Location = new Point(89, 120);
+            txtfac_Const.Name = "txtfac_Const";
+            txtfac_Const.Size = new Size(100, 23);
+            txtfac_Const.TabIndex = 6;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "공장명 :";
+            label2.AutoSize = true;
+            label2.Location = new Point(7, 94);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 15);
+            label2.TabIndex = 5;
+            label2.Text = "공장명 :";
             // 
             // txtfac_Name
             // 
-            this.txtfac_Name.Location = new System.Drawing.Point(89, 91);
-            this.txtfac_Name.Name = "txtfac_Name";
-            this.txtfac_Name.Size = new System.Drawing.Size(100, 23);
-            this.txtfac_Name.TabIndex = 4;
+            txtfac_Name.Location = new Point(89, 91);
+            txtfac_Name.Name = "txtfac_Name";
+            txtfac_Name.Size = new Size(100, 23);
+            txtfac_Name.TabIndex = 4;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "공장코드 :";
+            label1.AutoSize = true;
+            label1.Location = new Point(7, 65);
+            label1.Name = "label1";
+            label1.Size = new Size(62, 15);
+            label1.TabIndex = 3;
+            label1.Text = "공장코드 :";
             // 
             // txtfac_Code
             // 
-            this.txtfac_Code.Location = new System.Drawing.Point(89, 62);
-            this.txtfac_Code.Name = "txtfac_Code";
-            this.txtfac_Code.Size = new System.Drawing.Size(100, 23);
-            this.txtfac_Code.TabIndex = 2;
+            txtfac_Code.Location = new Point(89, 62);
+            txtfac_Code.Name = "txtfac_Code";
+            txtfac_Code.Size = new Size(100, 23);
+            txtfac_Code.TabIndex = 2;
             // 
-            // equipsetting
+            // equipSetting
             // 
-            this.equipsetting.Controls.Add(this.dgvEquip);
-            this.equipsetting.Controls.Add(this.comboBox1);
-            this.equipsetting.Controls.Add(this.label7);
-            this.equipsetting.Controls.Add(this.pictureBox1);
-            this.equipsetting.Controls.Add(this.searchEquip);
-            this.equipsetting.Controls.Add(this.groupBox1);
-            this.equipsetting.Location = new System.Drawing.Point(104, 4);
-            this.equipsetting.Name = "equipsetting";
-            this.equipsetting.Padding = new System.Windows.Forms.Padding(3);
-            this.equipsetting.Size = new System.Drawing.Size(1070, 649);
-            this.equipsetting.TabIndex = 1;
-            this.equipsetting.Text = "설비설정";
-            this.equipsetting.UseVisualStyleBackColor = true;
+            equipSetting.Controls.Add(dgvEquip);
+            equipSetting.Controls.Add(cbbEquip_filter);
+            equipSetting.Controls.Add(label7);
+            equipSetting.Controls.Add(pictureBox1);
+            equipSetting.Controls.Add(searchEquip);
+            equipSetting.Controls.Add(groupBox1);
+            equipSetting.Location = new Point(104, 4);
+            equipSetting.Name = "equipSetting";
+            equipSetting.Padding = new Padding(3);
+            equipSetting.Size = new Size(1070, 649);
+            equipSetting.TabIndex = 1;
+            equipSetting.Text = "설비설정";
+            equipSetting.UseVisualStyleBackColor = true;
             // 
             // dgvEquip
             // 
-            this.dgvEquip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEquip.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.equip_id,
-            this.equip_code,
-            this.equip_name,
-            this.equip_comment,
-            this.equip_const,
-            this.equip_regdate,
-            this.equip_modi,
-            this.equip_moddate,
-            this.equip_status,
-            this.equip_event});
-            this.dgvEquip.Location = new System.Drawing.Point(3, 36);
-            this.dgvEquip.Name = "dgvEquip";
-            this.dgvEquip.RowTemplate.Height = 25;
-            this.dgvEquip.Size = new System.Drawing.Size(854, 610);
-            this.dgvEquip.TabIndex = 48;
-            this.dgvEquip.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquip_CellClick);
+            dgvEquip.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEquip.Columns.AddRange(new DataGridViewColumn[] { equip_id, equip_code, equip_name, equip_comment, equip_const, equip_regdate, equip_modi, equip_moddate, equip_status, equip_event });
+            dgvEquip.Location = new Point(3, 36);
+            dgvEquip.Name = "dgvEquip";
+            dgvEquip.RowTemplate.Height = 25;
+            dgvEquip.Size = new Size(854, 610);
+            dgvEquip.TabIndex = 48;
+            dgvEquip.CellClick += dgvEquip_CellClick;
             // 
             // equip_id
             // 
-            this.equip_id.HeaderText = "ID";
-            this.equip_id.Name = "equip_id";
-            this.equip_id.Width = 50;
+            equip_id.HeaderText = "ID";
+            equip_id.Name = "equip_id";
+            equip_id.Width = 50;
             // 
             // equip_code
             // 
-            this.equip_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.equip_code.HeaderText = "설비코드";
-            this.equip_code.Name = "equip_code";
+            equip_code.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            equip_code.HeaderText = "설비코드";
+            equip_code.Name = "equip_code";
             // 
             // equip_name
             // 
-            this.equip_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.equip_name.HeaderText = "설비명";
-            this.equip_name.Name = "equip_name";
+            equip_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            equip_name.HeaderText = "설비명";
+            equip_name.Name = "equip_name";
             // 
             // equip_comment
             // 
-            this.equip_comment.HeaderText = "설비설명";
-            this.equip_comment.Name = "equip_comment";
-            this.equip_comment.Width = 150;
+            equip_comment.HeaderText = "설비설명";
+            equip_comment.Name = "equip_comment";
+            equip_comment.Width = 150;
             // 
             // equip_const
             // 
-            this.equip_const.HeaderText = "생성자";
-            this.equip_const.Name = "equip_const";
-            this.equip_const.Width = 80;
+            equip_const.HeaderText = "생성자";
+            equip_const.Name = "equip_const";
+            equip_const.Width = 80;
             // 
             // equip_regdate
             // 
-            this.equip_regdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.equip_regdate.HeaderText = "생성일자";
-            this.equip_regdate.Name = "equip_regdate";
+            equip_regdate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            equip_regdate.HeaderText = "생성일자";
+            equip_regdate.Name = "equip_regdate";
             // 
             // equip_modi
             // 
-            this.equip_modi.HeaderText = "수정자";
-            this.equip_modi.Name = "equip_modi";
-            this.equip_modi.Width = 80;
+            equip_modi.HeaderText = "수정자";
+            equip_modi.Name = "equip_modi";
+            equip_modi.Width = 80;
             // 
             // equip_moddate
             // 
-            this.equip_moddate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.equip_moddate.HeaderText = "수정일자";
-            this.equip_moddate.Name = "equip_moddate";
+            equip_moddate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            equip_moddate.HeaderText = "수정일자";
+            equip_moddate.Name = "equip_moddate";
             // 
             // equip_status
             // 
-            this.equip_status.HeaderText = "설비상태";
-            this.equip_status.Name = "equip_status";
+            equip_status.HeaderText = "설비상태";
+            equip_status.Name = "equip_status";
             // 
             // equip_event
             // 
-            this.equip_event.HeaderText = "설비이벤트";
-            this.equip_event.Name = "equip_event";
+            equip_event.HeaderText = "설비이벤트";
+            equip_event.Name = "equip_event";
             // 
-            // comboBox1
+            // cbbEquip_filter
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "공장코드",
-            "공장명",
-            "생성자",
-            "수정자"});
-            this.comboBox1.Location = new System.Drawing.Point(736, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 47;
-            this.comboBox1.Text = "공장코드";
+            cbbEquip_filter.FormattingEnabled = true;
+            cbbEquip_filter.Items.AddRange(new object[] { "설비코드", "설비명", "설비상태", "설비이벤트", "생성자", "수정자" });
+            cbbEquip_filter.Location = new Point(736, 7);
+            cbbEquip_filter.Name = "cbbEquip_filter";
+            cbbEquip_filter.Size = new Size(121, 23);
+            cbbEquip_filter.TabIndex = 47;
+            cbbEquip_filter.Text = "설비코드";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.label7.Font = new System.Drawing.Font("굴림", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(7, 6);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(5);
-            this.label7.Size = new System.Drawing.Size(47, 24);
-            this.label7.TabIndex = 46;
-            this.label7.Text = "검색";
+            label7.AutoSize = true;
+            label7.BackColor = Color.LightSteelBlue;
+            label7.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(7, 6);
+            label7.Name = "label7";
+            label7.Padding = new Padding(5);
+            label7.Size = new Size(47, 24);
+            label7.TabIndex = 46;
+            label7.Text = "검색";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(709, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(21, 23);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(709, 7);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(21, 23);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 45;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // searchEquip
             // 
-            this.searchEquip.Location = new System.Drawing.Point(60, 6);
-            this.searchEquip.Name = "searchEquip";
-            this.searchEquip.Size = new System.Drawing.Size(643, 23);
-            this.searchEquip.TabIndex = 44;
+            searchEquip.Location = new Point(60, 6);
+            searchEquip.Name = "searchEquip";
+            searchEquip.Size = new Size(643, 23);
+            searchEquip.TabIndex = 44;
+            searchEquip.KeyPress += searchEquip_KeyPress;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbbEquipEvent);
-            this.groupBox1.Controls.Add(this.cbbEquipStatus);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.txtEquip_Comment);
-            this.groupBox1.Controls.Add(this.lbEquipId);
-            this.groupBox1.Controls.Add(this.btnEquipC);
-            this.groupBox1.Controls.Add(this.btnEquipU);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.btnEquipD);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtEquip_Moddate);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtEquip_Modi);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtEquip_Regdate);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.txtEquip_Const);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.txtEquip_Name);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.txtEquip_Code);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(867, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 643);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "공장설정";
+            groupBox1.Controls.Add(cbbEquipEvent);
+            groupBox1.Controls.Add(cbbEquipStatus);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label16);
+            groupBox1.Controls.Add(label17);
+            groupBox1.Controls.Add(txtEquip_Comment);
+            groupBox1.Controls.Add(lbEquipId);
+            groupBox1.Controls.Add(btnEquipC);
+            groupBox1.Controls.Add(btnEquipU);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(btnEquipD);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(txtEquip_Moddate);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(txtEquip_Modi);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(txtEquip_Regdate);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(txtEquip_Const);
+            groupBox1.Controls.Add(label14);
+            groupBox1.Controls.Add(txtEquip_Name);
+            groupBox1.Controls.Add(label15);
+            groupBox1.Controls.Add(txtEquip_Code);
+            groupBox1.Dock = DockStyle.Right;
+            groupBox1.Location = new Point(867, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(200, 643);
+            groupBox1.TabIndex = 43;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "공장설정";
             // 
             // cbbEquipEvent
             // 
-            this.cbbEquipEvent.FormattingEnabled = true;
-            this.cbbEquipEvent.Items.AddRange(new object[] {
-            "BreakeDown",
-            "Maintanunce",
-            "Emergency"});
-            this.cbbEquipEvent.Location = new System.Drawing.Point(89, 178);
-            this.cbbEquipEvent.Name = "cbbEquipEvent";
-            this.cbbEquipEvent.Size = new System.Drawing.Size(100, 23);
-            this.cbbEquipEvent.TabIndex = 49;
-            this.cbbEquipEvent.Text = "NON";
+            cbbEquipEvent.FormattingEnabled = true;
+            cbbEquipEvent.Items.AddRange(new object[] { "NON", "BreakeDown", "Maintanunce", "Emergency" });
+            cbbEquipEvent.Location = new Point(89, 178);
+            cbbEquipEvent.Name = "cbbEquipEvent";
+            cbbEquipEvent.Size = new Size(100, 23);
+            cbbEquipEvent.TabIndex = 49;
+            cbbEquipEvent.Text = "NON";
             // 
             // cbbEquipStatus
             // 
-            this.cbbEquipStatus.FormattingEnabled = true;
-            this.cbbEquipStatus.Items.AddRange(new object[] {
-            "Stop",
-            "Process"});
-            this.cbbEquipStatus.Location = new System.Drawing.Point(89, 149);
-            this.cbbEquipStatus.Name = "cbbEquipStatus";
-            this.cbbEquipStatus.Size = new System.Drawing.Size(100, 23);
-            this.cbbEquipStatus.TabIndex = 49;
-            this.cbbEquipStatus.Text = "Ready";
+            cbbEquipStatus.FormattingEnabled = true;
+            cbbEquipStatus.Items.AddRange(new object[] { "Ready", "Stop", "Process" });
+            cbbEquipStatus.Location = new Point(89, 149);
+            cbbEquipStatus.Name = "cbbEquipStatus";
+            cbbEquipStatus.Size = new Size(100, 23);
+            cbbEquipStatus.TabIndex = 49;
+            cbbEquipStatus.Text = "Ready";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 181);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 15);
-            this.label8.TabIndex = 52;
-            this.label8.Text = "설비이벤트 :";
+            label8.AutoSize = true;
+            label8.Location = new Point(7, 181);
+            label8.Name = "label8";
+            label8.Size = new Size(74, 15);
+            label8.TabIndex = 52;
+            label8.Text = "설비이벤트 :";
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 152);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 15);
-            this.label16.TabIndex = 50;
-            this.label16.Text = "설비상태 :";
+            label16.AutoSize = true;
+            label16.Location = new Point(7, 152);
+            label16.Name = "label16";
+            label16.Size = new Size(62, 15);
+            label16.TabIndex = 50;
+            label16.Text = "설비상태 :";
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(7, 123);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 15);
-            this.label17.TabIndex = 48;
-            this.label17.Text = "설비설명 :";
+            label17.AutoSize = true;
+            label17.Location = new Point(7, 123);
+            label17.Name = "label17";
+            label17.Size = new Size(62, 15);
+            label17.TabIndex = 48;
+            label17.Text = "설비설명 :";
             // 
             // txtEquip_Comment
             // 
-            this.txtEquip_Comment.Location = new System.Drawing.Point(89, 120);
-            this.txtEquip_Comment.Name = "txtEquip_Comment";
-            this.txtEquip_Comment.Size = new System.Drawing.Size(100, 23);
-            this.txtEquip_Comment.TabIndex = 47;
+            txtEquip_Comment.Location = new Point(89, 120);
+            txtEquip_Comment.Name = "txtEquip_Comment";
+            txtEquip_Comment.Size = new Size(100, 23);
+            txtEquip_Comment.TabIndex = 47;
             // 
             // lbEquipId
             // 
-            this.lbEquipId.AutoSize = true;
-            this.lbEquipId.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbEquipId.Location = new System.Drawing.Point(48, 33);
-            this.lbEquipId.Name = "lbEquipId";
-            this.lbEquipId.Size = new System.Drawing.Size(0, 21);
-            this.lbEquipId.TabIndex = 46;
+            lbEquipId.AutoSize = true;
+            lbEquipId.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbEquipId.Location = new Point(48, 33);
+            lbEquipId.Name = "lbEquipId";
+            lbEquipId.Size = new Size(0, 21);
+            lbEquipId.TabIndex = 46;
             // 
             // btnEquipC
             // 
-            this.btnEquipC.Location = new System.Drawing.Point(2, 556);
-            this.btnEquipC.Name = "btnEquipC";
-            this.btnEquipC.Size = new System.Drawing.Size(198, 23);
-            this.btnEquipC.TabIndex = 45;
-            this.btnEquipC.Text = "생성";
-            this.btnEquipC.UseVisualStyleBackColor = true;
-            this.btnEquipC.Click += new System.EventHandler(this.btnEquipC_Click);
+            btnEquipC.Location = new Point(2, 556);
+            btnEquipC.Name = "btnEquipC";
+            btnEquipC.Size = new Size(198, 23);
+            btnEquipC.TabIndex = 45;
+            btnEquipC.Text = "생성";
+            btnEquipC.UseVisualStyleBackColor = true;
+            btnEquipC.Click += btnEquipC_Click;
             // 
             // btnEquipU
             // 
-            this.btnEquipU.Location = new System.Drawing.Point(2, 585);
-            this.btnEquipU.Name = "btnEquipU";
-            this.btnEquipU.Size = new System.Drawing.Size(198, 23);
-            this.btnEquipU.TabIndex = 44;
-            this.btnEquipU.Text = "수정";
-            this.btnEquipU.UseVisualStyleBackColor = true;
-            this.btnEquipU.Click += new System.EventHandler(this.btnEquipU_Click);
+            btnEquipU.Location = new Point(2, 585);
+            btnEquipU.Name = "btnEquipU";
+            btnEquipU.Size = new Size(198, 23);
+            btnEquipU.TabIndex = 44;
+            btnEquipU.Text = "수정";
+            btnEquipU.UseVisualStyleBackColor = true;
+            btnEquipU.Click += btnEquipU_Click;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(7, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 21);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "ID :";
+            label9.AutoSize = true;
+            label9.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(7, 33);
+            label9.Name = "label9";
+            label9.Size = new Size(35, 21);
+            label9.TabIndex = 14;
+            label9.Text = "ID :";
             // 
             // btnEquipD
             // 
-            this.btnEquipD.Location = new System.Drawing.Point(2, 614);
-            this.btnEquipD.Name = "btnEquipD";
-            this.btnEquipD.Size = new System.Drawing.Size(198, 23);
-            this.btnEquipD.TabIndex = 43;
-            this.btnEquipD.Text = "삭제";
-            this.btnEquipD.UseVisualStyleBackColor = true;
-            this.btnEquipD.Click += new System.EventHandler(this.btnEquipD_Click);
+            btnEquipD.Location = new Point(2, 614);
+            btnEquipD.Name = "btnEquipD";
+            btnEquipD.Size = new Size(198, 23);
+            btnEquipD.TabIndex = 43;
+            btnEquipD.Text = "삭제";
+            btnEquipD.UseVisualStyleBackColor = true;
+            btnEquipD.Click += btnEquipD_Click;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 297);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 15);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "수정일자 :";
+            label10.AutoSize = true;
+            label10.Location = new Point(7, 297);
+            label10.Name = "label10";
+            label10.Size = new Size(62, 15);
+            label10.TabIndex = 13;
+            label10.Text = "수정일자 :";
             // 
             // txtEquip_Moddate
             // 
-            this.txtEquip_Moddate.Location = new System.Drawing.Point(89, 294);
-            this.txtEquip_Moddate.Name = "txtEquip_Moddate";
-            this.txtEquip_Moddate.Size = new System.Drawing.Size(100, 23);
-            this.txtEquip_Moddate.TabIndex = 12;
+            txtEquip_Moddate.Location = new Point(89, 294);
+            txtEquip_Moddate.Name = "txtEquip_Moddate";
+            txtEquip_Moddate.Size = new Size(100, 23);
+            txtEquip_Moddate.TabIndex = 12;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 268);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 15);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "수정자 :";
+            label11.AutoSize = true;
+            label11.Location = new Point(7, 268);
+            label11.Name = "label11";
+            label11.Size = new Size(50, 15);
+            label11.TabIndex = 11;
+            label11.Text = "수정자 :";
             // 
             // txtEquip_Modi
             // 
-            this.txtEquip_Modi.Location = new System.Drawing.Point(89, 265);
-            this.txtEquip_Modi.Name = "txtEquip_Modi";
-            this.txtEquip_Modi.Size = new System.Drawing.Size(100, 23);
-            this.txtEquip_Modi.TabIndex = 10;
+            txtEquip_Modi.Location = new Point(89, 265);
+            txtEquip_Modi.Name = "txtEquip_Modi";
+            txtEquip_Modi.Size = new Size(100, 23);
+            txtEquip_Modi.TabIndex = 10;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 239);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 15);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "생성일자 :";
+            label12.AutoSize = true;
+            label12.Location = new Point(7, 239);
+            label12.Name = "label12";
+            label12.Size = new Size(62, 15);
+            label12.TabIndex = 9;
+            label12.Text = "생성일자 :";
             // 
             // txtEquip_Regdate
             // 
-            this.txtEquip_Regdate.Location = new System.Drawing.Point(89, 236);
-            this.txtEquip_Regdate.Name = "txtEquip_Regdate";
-            this.txtEquip_Regdate.Size = new System.Drawing.Size(100, 23);
-            this.txtEquip_Regdate.TabIndex = 8;
+            txtEquip_Regdate.Location = new Point(89, 236);
+            txtEquip_Regdate.Name = "txtEquip_Regdate";
+            txtEquip_Regdate.Size = new Size(100, 23);
+            txtEquip_Regdate.TabIndex = 8;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 210);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 15);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "생성자 :";
+            label13.AutoSize = true;
+            label13.Location = new Point(7, 210);
+            label13.Name = "label13";
+            label13.Size = new Size(50, 15);
+            label13.TabIndex = 7;
+            label13.Text = "생성자 :";
             // 
             // txtEquip_Const
             // 
-            this.txtEquip_Const.Location = new System.Drawing.Point(89, 207);
-            this.txtEquip_Const.Name = "txtEquip_Const";
-            this.txtEquip_Const.Size = new System.Drawing.Size(100, 23);
-            this.txtEquip_Const.TabIndex = 6;
+            txtEquip_Const.Location = new Point(89, 207);
+            txtEquip_Const.Name = "txtEquip_Const";
+            txtEquip_Const.Size = new Size(100, 23);
+            txtEquip_Const.TabIndex = 6;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 94);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 15);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "설비명 :";
+            label14.AutoSize = true;
+            label14.Location = new Point(7, 94);
+            label14.Name = "label14";
+            label14.Size = new Size(50, 15);
+            label14.TabIndex = 5;
+            label14.Text = "설비명 :";
             // 
             // txtEquip_Name
             // 
-            this.txtEquip_Name.Location = new System.Drawing.Point(89, 91);
-            this.txtEquip_Name.Name = "txtEquip_Name";
-            this.txtEquip_Name.Size = new System.Drawing.Size(100, 23);
-            this.txtEquip_Name.TabIndex = 4;
+            txtEquip_Name.Location = new Point(89, 91);
+            txtEquip_Name.Name = "txtEquip_Name";
+            txtEquip_Name.Size = new Size(100, 23);
+            txtEquip_Name.TabIndex = 4;
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 65);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 15);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "설비코드 :";
+            label15.AutoSize = true;
+            label15.Location = new Point(7, 65);
+            label15.Name = "label15";
+            label15.Size = new Size(62, 15);
+            label15.TabIndex = 3;
+            label15.Text = "설비코드 :";
             // 
             // txtEquip_Code
             // 
-            this.txtEquip_Code.Location = new System.Drawing.Point(89, 62);
-            this.txtEquip_Code.Name = "txtEquip_Code";
-            this.txtEquip_Code.Size = new System.Drawing.Size(100, 23);
-            this.txtEquip_Code.TabIndex = 2;
+            txtEquip_Code.Location = new Point(89, 62);
+            txtEquip_Code.Name = "txtEquip_Code";
+            txtEquip_Code.Size = new Size(100, 23);
+            txtEquip_Code.TabIndex = 2;
+            // 
+            // equipHistory
+            // 
+            equipHistory.Location = new Point(104, 4);
+            equipHistory.Name = "equipHistory";
+            equipHistory.Padding = new Padding(3);
+            equipHistory.Size = new Size(1070, 649);
+            equipHistory.TabIndex = 2;
+            equipHistory.Text = "회이력조";
+            equipHistory.UseVisualStyleBackColor = true;
             // 
             // ProcessForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 681);
-            this.Controls.Add(this.tabProcess);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "ProcessForm";
-            this.Text = "Process";
-            this.Load += new System.EventHandler(this.ProcessForm_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.tabProcess.ResumeLayout(false);
-            this.facsetting.ResumeLayout(false);
-            this.facsetting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvfac)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.g_fac_setting.ResumeLayout(false);
-            this.g_fac_setting.PerformLayout();
-            this.equipsetting.ResumeLayout(false);
-            this.equipsetting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEquip)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1177, 681);
+            Controls.Add(tabProcess);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "ProcessForm";
+            Text = "Process";
+            Load += ProcessForm_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            tabProcess.ResumeLayout(false);
+            facSetting.ResumeLayout(false);
+            facSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvfac).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            g_fac_setting.ResumeLayout(false);
+            g_fac_setting.PerformLayout();
+            equipSetting.ResumeLayout(false);
+            equipSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEquip).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -852,8 +834,8 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem LogOut;
         private TabControl tabProcess;
-        private TabPage facsetting;
-        private TabPage equipsetting;
+        private TabPage facSetting;
+        private TabPage equipSetting;
         private GroupBox g_fac_setting;
         private DataGridView dgvfac;
         private ComboBox cbbFilter;
@@ -884,7 +866,7 @@
         private Button btnUFactory;
         private Button btnDFactory;
         private Label lbfacId;
-        private ComboBox comboBox1;
+        private ComboBox cbbEquip_filter;
         private Label label7;
         private PictureBox pictureBox1;
         private TextBox searchEquip;
@@ -923,5 +905,6 @@
         private DataGridViewTextBoxColumn equip_moddate;
         private DataGridViewTextBoxColumn equip_status;
         private DataGridViewTextBoxColumn equip_event;
+        private TabPage equipHistory;
     }
 }
