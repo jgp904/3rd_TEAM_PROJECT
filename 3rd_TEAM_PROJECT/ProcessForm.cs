@@ -33,6 +33,46 @@ namespace _3rd_TEAM_PROJECT
         {
             LoadFactory();
         }
+        //TabControl 디자인 설정
+        private void tabProcess_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            #region Tab 설정
+            Graphics g = e.Graphics;
+            TabPage tabPage = tabProcess.TabPages[e.Index];
+            Rectangle tabBounds = tabProcess.GetTabRect(e.Index);
+
+            StringFormat stringFlags = new StringFormat();
+            stringFlags.Alignment = StringAlignment.Near;
+            stringFlags.LineAlignment = StringAlignment.Center;
+
+            // 선택된 탭의 전경색을 결정합니다.
+            Brush textBrush;
+            Brush bgBrush;
+
+            if (tabProcess.SelectedIndex == e.Index)
+            {
+                // 선택된 탭의 텍스트는 검정색이고 배경은 회색입니다.
+                textBrush = new SolidBrush(Color.Black);
+                bgBrush = new SolidBrush(Color.Gray);
+            }
+            else
+            {
+                // 그렇지 않으면, 기존 색상을 사용합니다.
+                textBrush = new SolidBrush(tabPage.ForeColor);
+                bgBrush = new SolidBrush(tabPage.BackColor);
+            }
+
+            // 배경을 채웁니다.
+            g.FillRectangle(bgBrush, tabBounds);
+
+            // 탭 텍스트를 그립니다.
+            g.DrawString(tabPage.Text, this.Font, textBrush, tabBounds, new StringFormat(stringFlags));
+
+            // 메모리 누수를 피하기 위해 브러시를 처리합니다.
+            textBrush.Dispose();
+            bgBrush.Dispose();
+            #endregion
+        }
         private void tabProcess_Selected(object sender, TabControlEventArgs e)
         {
             switch (e.TabPageIndex)
@@ -61,7 +101,7 @@ namespace _3rd_TEAM_PROJECT
             dgvfac.Rows.Clear();
             dgvfac.Refresh();
             int i = 0;
-            foreach ( var fact in factories ) 
+            foreach (var fact in factories)
             {
                 dgvfac.Rows.Add();
                 dgvfac.Rows[i].Cells["fac_id"].Value = fact.Id;
@@ -79,7 +119,7 @@ namespace _3rd_TEAM_PROJECT
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                DataGridView dgv = (DataGridView) sender;
+                DataGridView dgv = (DataGridView)sender;
                 DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
 
                 if (selectedRow.Cells.Count > 1)
@@ -359,7 +399,7 @@ namespace _3rd_TEAM_PROJECT
                 return;
             }
         }
-        
+
         //--설비 수정--//
         private async void btnEquipU_Click(object sender, EventArgs e)
         {
@@ -419,7 +459,7 @@ namespace _3rd_TEAM_PROJECT
 
                 if (result == DialogResult.Yes)
                 {
-                    
+
                     await equipmentRepository.DeleteAsync(id);
 
                     LoadEquip();
