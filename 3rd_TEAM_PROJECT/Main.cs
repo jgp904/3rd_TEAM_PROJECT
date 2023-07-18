@@ -89,7 +89,7 @@ namespace _3rd_TEAM_PROJECT
         {
             LoadWarehouse();
         }
-        //로그아웃 메뉴 클릭 시
+        //로그아웃
         private void LogoutMenu_Click(object sender, EventArgs e)
         {
             // 로그아웃 처리
@@ -118,15 +118,14 @@ namespace _3rd_TEAM_PROJECT
                     //재고 검색
                     break;
                 case 3:
-                    //출고
+                    LoadOutbound();
                     break;
                 case 4:
                     //출고 검색
                     break;
             }
         }
-        //---------------------------구매라인-----------------------------------------//
-        //창고
+        #region 창고
         private void dgvWarehouse_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ensure that the clicked cell is valid
@@ -166,6 +165,8 @@ namespace _3rd_TEAM_PROJECT
             }
 
         }
+        #endregion
+
         #region 입고
         //입고
         private void dgvInbound_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -480,8 +481,60 @@ namespace _3rd_TEAM_PROJECT
                 row.Cells["outbound_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
             }
         }
+        //출고 조회 Cell 클릭
+        private void dgvOutboundSearch_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // DataGridView에서 선택한 행을 가져옵니다.
+                var row = this.dgvOutboundSearch.Rows[e.RowIndex];
+
+                // 그리드 뷰의 각 셀에 대한 내용을 해당 텍스트 박스에 표시합니다.
+                txtOutboundSearchId.Text = row.Cells["outsearch_id"].Value.ToString();
+                txtOutboundSearchProduct.Text = row.Cells["outsearch_product"].Value.ToString();
+                txtOutboundSearchItem.Text = row.Cells["outsearch_item"].Value.ToString();
+                txtOutboundSearchAmount.Text = row.Cells["outsearch_amount"].Value.ToString();
+                txtOutboundSearchProcess.Text = row.Cells["outsearch_process"].Value.ToString();
+                txtOutboundSearchContact.Text = row.Cells["outsearch_contact"].Value.ToString();
+                txtOutboundSearchRegdate.Text = row.Cells["outsearch_regdate"].Value.ToString();
+
+            }
+        }
+        //출고 조회
+        private async void txtOutboundSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string searchText = txtOutboundSearch.Text;
+
+                try
+                {
+                    var results = await outboundRepository.GetProductAsync(searchText);
+
+                    // 데이터 그리드 뷰를 비웁니다.
+                    dgvOutboundSearch.Rows.Clear();
+
+                    foreach (var result in results)
+                    {
+                        int rowIndex = dgvOutboundSearch.Rows.Add();
+                        DataGridViewRow row = dgvOutboundSearch.Rows[rowIndex];
+
+                        // 결과를 행에 넣습니다.
+                        row.Cells["outsearch_id"].Value = result.Id.ToString();
+                        row.Cells["outsearch_product"].Value = result.Product;
+                        row.Cells["outsearch_item"].Value = result.Item;
+                        row.Cells["outsearch_amount"].Value = result.Amount.ToString();
+                        row.Cells["outsearch_process"].Value = result.MProcess;
+                        row.Cells["outsearch_contact"].Value = result.Contact;
+                        row.Cells["outsearch_regdate"].Value = result.RegDate.ToString("yyyy-MM-dd");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"검색 중 오류 발생: {ex.Message}");
+                }
+            }
+        }
         #endregion
-
-
     }
 }

@@ -53,8 +53,8 @@
             label31 = new Label();
             txtInboundAmount = new TextBox();
             label30 = new Label();
-            btnInbound_Update = new Button();
-            btnInbound_Add = new Button();
+            btnInboundUpdate = new Button();
+            btnInboundAdd = new Button();
             txtInboundId = new TextBox();
             label6 = new Label();
             label7 = new Label();
@@ -99,6 +99,8 @@
             label17 = new Label();
             Purches_outhis = new TabPage();
             groupBox3 = new GroupBox();
+            btnOutboundUpdate = new Button();
+            btnOutboundAdd = new Button();
             label38 = new Label();
             txtOutboundRegdate = new TextBox();
             label37 = new Label();
@@ -122,15 +124,15 @@
             outbound_contact = new DataGridViewTextBoxColumn();
             outbound_regdate = new DataGridViewTextBoxColumn();
             Purches_outsrch = new TabPage();
-            txtOutboundSearch = new TextBox();
             dgvOutboundSearch = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            outsearch_id = new DataGridViewTextBoxColumn();
+            outsearch_product = new DataGridViewTextBoxColumn();
+            outsearch_item = new DataGridViewTextBoxColumn();
+            outsearch_amount = new DataGridViewTextBoxColumn();
+            outsearch_process = new DataGridViewTextBoxColumn();
+            outsearch_contact = new DataGridViewTextBoxColumn();
+            outsearch_regdate = new DataGridViewTextBoxColumn();
+            txtOutboundSearch = new TextBox();
             groupBox5 = new GroupBox();
             label18 = new Label();
             txtOutboundSearchRegdate = new TextBox();
@@ -147,13 +149,6 @@
             label41 = new Label();
             txtOutboundSearchItem = new TextBox();
             comboBox1 = new ComboBox();
-            outsearch_id = new DataGridViewTextBoxColumn();
-            outsearch_product = new DataGridViewTextBoxColumn();
-            outsearch_code = new DataGridViewTextBoxColumn();
-            outsearch_name = new DataGridViewTextBoxColumn();
-            outsearch_amount = new DataGridViewTextBoxColumn();
-            outsearch_contact = new DataGridViewTextBoxColumn();
-            outsearch_regdate = new DataGridViewTextBoxColumn();
             menuStrip1 = new MenuStrip();
             LogoutMenu = new ToolStripMenuItem();
             TabMenu.SuspendLayout();
@@ -309,6 +304,7 @@
             dgvWarehouse.RowTemplate.Height = 25;
             dgvWarehouse.Size = new Size(853, 646);
             dgvWarehouse.TabIndex = 0;
+            dgvWarehouse.CellClick += dgvWarehouse_CellClick;
             // 
             // warehouse_id
             // 
@@ -355,8 +351,8 @@
             groupBox2.Controls.Add(label31);
             groupBox2.Controls.Add(txtInboundAmount);
             groupBox2.Controls.Add(label30);
-            groupBox2.Controls.Add(btnInbound_Update);
-            groupBox2.Controls.Add(btnInbound_Add);
+            groupBox2.Controls.Add(btnInboundUpdate);
+            groupBox2.Controls.Add(btnInboundAdd);
             groupBox2.Controls.Add(txtInboundId);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label7);
@@ -421,23 +417,25 @@
             label30.TabIndex = 13;
             label30.Text = "수량 :";
             // 
-            // btnInbound_Update
+            // btnInboundUpdate
             // 
-            btnInbound_Update.Location = new Point(47, 547);
-            btnInbound_Update.Name = "btnInbound_Update";
-            btnInbound_Update.Size = new Size(119, 42);
-            btnInbound_Update.TabIndex = 9;
-            btnInbound_Update.Text = "내역 수정";
-            btnInbound_Update.UseVisualStyleBackColor = true;
+            btnInboundUpdate.Location = new Point(47, 547);
+            btnInboundUpdate.Name = "btnInboundUpdate";
+            btnInboundUpdate.Size = new Size(119, 42);
+            btnInboundUpdate.TabIndex = 9;
+            btnInboundUpdate.Text = "내역 수정";
+            btnInboundUpdate.UseVisualStyleBackColor = true;
+            btnInboundUpdate.Click += btnInUpdate_Click;
             // 
-            // btnInbound_Add
+            // btnInboundAdd
             // 
-            btnInbound_Add.Location = new Point(47, 595);
-            btnInbound_Add.Name = "btnInbound_Add";
-            btnInbound_Add.Size = new Size(119, 42);
-            btnInbound_Add.TabIndex = 10;
-            btnInbound_Add.Text = "입고 실행";
-            btnInbound_Add.UseVisualStyleBackColor = true;
+            btnInboundAdd.Location = new Point(47, 595);
+            btnInboundAdd.Name = "btnInboundAdd";
+            btnInboundAdd.Size = new Size(119, 42);
+            btnInboundAdd.TabIndex = 10;
+            btnInboundAdd.Text = "입고 실행";
+            btnInboundAdd.UseVisualStyleBackColor = true;
+            btnInboundAdd.Click += btnInAdd_Click;
             // 
             // txtInboundId
             // 
@@ -513,6 +511,7 @@
             dgvInbound.RowTemplate.Height = 25;
             dgvInbound.Size = new Size(853, 646);
             dgvInbound.TabIndex = 11;
+            dgvInbound.CellClick += dgvInbound_CellClick;
             // 
             // inbound_id
             // 
@@ -589,6 +588,7 @@
             txtInboundSearch.PlaceholderText = "품명을 검색하세요";
             txtInboundSearch.Size = new Size(723, 23);
             txtInboundSearch.TabIndex = 2;
+            txtInboundSearch.KeyPress += txtInboundSearch_KeyPress;
             // 
             // dgvInboundSearch
             // 
@@ -600,6 +600,7 @@
             dgvInboundSearch.RowTemplate.Height = 25;
             dgvInboundSearch.Size = new Size(853, 615);
             dgvInboundSearch.TabIndex = 17;
+            dgvInboundSearch.CellClick += dgvInboundSearch_CellClick;
             // 
             // insearch_id
             // 
@@ -797,6 +798,8 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(btnOutboundUpdate);
+            groupBox3.Controls.Add(btnOutboundAdd);
             groupBox3.Controls.Add(label38);
             groupBox3.Controls.Add(txtOutboundRegdate);
             groupBox3.Controls.Add(label37);
@@ -818,6 +821,26 @@
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             groupBox3.Text = "출고 목록";
+            // 
+            // btnOutboundUpdate
+            // 
+            btnOutboundUpdate.Location = new Point(47, 551);
+            btnOutboundUpdate.Name = "btnOutboundUpdate";
+            btnOutboundUpdate.Size = new Size(119, 42);
+            btnOutboundUpdate.TabIndex = 24;
+            btnOutboundUpdate.Text = "내역 수정";
+            btnOutboundUpdate.UseVisualStyleBackColor = true;
+            btnOutboundUpdate.Click += btnOutBoundUpdate_Click;
+            // 
+            // btnOutboundAdd
+            // 
+            btnOutboundAdd.Location = new Point(47, 599);
+            btnOutboundAdd.Name = "btnOutboundAdd";
+            btnOutboundAdd.Size = new Size(119, 42);
+            btnOutboundAdd.TabIndex = 25;
+            btnOutboundAdd.Text = "출고 실행";
+            btnOutboundAdd.UseVisualStyleBackColor = true;
+            btnOutboundAdd.Click += btnOutBoundAdd_Click;
             // 
             // label38
             // 
@@ -941,6 +964,7 @@
             dgvOutBound.RowTemplate.Height = 25;
             dgvOutBound.Size = new Size(853, 646);
             dgvOutBound.TabIndex = 13;
+            dgvOutBound.CellClick += dgvOutBound_CellClick;
             // 
             // outbound_id
             // 
@@ -973,7 +997,7 @@
             // outbound_process
             // 
             outbound_process.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            outbound_process.HeaderText = "거래처";
+            outbound_process.HeaderText = "공정";
             outbound_process.Name = "outbound_process";
             outbound_process.ReadOnly = true;
             // 
@@ -991,8 +1015,8 @@
             // 
             // Purches_outsrch
             // 
-            Purches_outsrch.Controls.Add(txtOutboundSearch);
             Purches_outsrch.Controls.Add(dgvOutboundSearch);
+            Purches_outsrch.Controls.Add(txtOutboundSearch);
             Purches_outsrch.Controls.Add(groupBox5);
             Purches_outsrch.Controls.Add(comboBox1);
             Purches_outsrch.Location = new Point(104, 4);
@@ -1002,6 +1026,65 @@
             Purches_outsrch.Text = "출고 조회";
             Purches_outsrch.UseVisualStyleBackColor = true;
             // 
+            // dgvOutboundSearch
+            // 
+            dgvOutboundSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOutboundSearch.Columns.AddRange(new DataGridViewColumn[] { outsearch_id, outsearch_product, outsearch_item, outsearch_amount, outsearch_process, outsearch_contact, outsearch_regdate });
+            dgvOutboundSearch.Location = new Point(0, 32);
+            dgvOutboundSearch.Name = "dgvOutboundSearch";
+            dgvOutboundSearch.RowHeadersVisible = false;
+            dgvOutboundSearch.RowTemplate.Height = 25;
+            dgvOutboundSearch.Size = new Size(853, 614);
+            dgvOutboundSearch.TabIndex = 18;
+            dgvOutboundSearch.CellClick += dgvOutboundSearch_CellClick;
+            // 
+            // outsearch_id
+            // 
+            outsearch_id.HeaderText = "id";
+            outsearch_id.Name = "outsearch_id";
+            outsearch_id.ReadOnly = true;
+            outsearch_id.Width = 80;
+            // 
+            // outsearch_product
+            // 
+            outsearch_product.HeaderText = "품명";
+            outsearch_product.Name = "outsearch_product";
+            outsearch_product.ReadOnly = true;
+            outsearch_product.Width = 120;
+            // 
+            // outsearch_item
+            // 
+            outsearch_item.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            outsearch_item.HeaderText = "품목";
+            outsearch_item.Name = "outsearch_item";
+            outsearch_item.ReadOnly = true;
+            // 
+            // outsearch_amount
+            // 
+            outsearch_amount.HeaderText = "수량";
+            outsearch_amount.Name = "outsearch_amount";
+            outsearch_amount.ReadOnly = true;
+            outsearch_amount.Width = 80;
+            // 
+            // outsearch_process
+            // 
+            outsearch_process.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            outsearch_process.HeaderText = "공정";
+            outsearch_process.Name = "outsearch_process";
+            outsearch_process.ReadOnly = true;
+            // 
+            // outsearch_contact
+            // 
+            outsearch_contact.HeaderText = "담당자";
+            outsearch_contact.Name = "outsearch_contact";
+            outsearch_contact.ReadOnly = true;
+            // 
+            // outsearch_regdate
+            // 
+            outsearch_regdate.HeaderText = "출고일";
+            outsearch_regdate.Name = "outsearch_regdate";
+            outsearch_regdate.ReadOnly = true;
+            // 
             // txtOutboundSearch
             // 
             txtOutboundSearch.Location = new Point(130, 3);
@@ -1009,64 +1092,7 @@
             txtOutboundSearch.PlaceholderText = "품명을 검색하세요";
             txtOutboundSearch.Size = new Size(723, 23);
             txtOutboundSearch.TabIndex = 17;
-            // 
-            // dgvOutboundSearch
-            // 
-            dgvOutboundSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOutboundSearch.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
-            dgvOutboundSearch.Location = new Point(0, 32);
-            dgvOutboundSearch.Name = "dgvOutboundSearch";
-            dgvOutboundSearch.RowHeadersVisible = false;
-            dgvOutboundSearch.RowTemplate.Height = 25;
-            dgvOutboundSearch.Size = new Size(856, 614);
-            dgvOutboundSearch.TabIndex = 16;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "id";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "품명";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            dataGridViewTextBoxColumn2.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn3.HeaderText = "품목";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewTextBoxColumn4.HeaderText = "거래처";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "수량";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.ReadOnly = true;
-            dataGridViewTextBoxColumn5.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "담당자";
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.HeaderText = "입고일";
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.ReadOnly = true;
+            txtOutboundSearch.KeyPress += txtOutboundSearch_KeyPress;
             // 
             // groupBox5
             // 
@@ -1212,53 +1238,6 @@
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 1;
             // 
-            // outsearch_id
-            // 
-            outsearch_id.HeaderText = "id";
-            outsearch_id.Name = "outsearch_id";
-            outsearch_id.ReadOnly = true;
-            outsearch_id.Width = 80;
-            // 
-            // outsearch_product
-            // 
-            outsearch_product.HeaderText = "품명";
-            outsearch_product.Name = "outsearch_product";
-            outsearch_product.ReadOnly = true;
-            outsearch_product.Width = 120;
-            // 
-            // outsearch_code
-            // 
-            outsearch_code.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            outsearch_code.HeaderText = "품목";
-            outsearch_code.Name = "outsearch_code";
-            outsearch_code.ReadOnly = true;
-            // 
-            // outsearch_name
-            // 
-            outsearch_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            outsearch_name.HeaderText = "거래처";
-            outsearch_name.Name = "outsearch_name";
-            outsearch_name.ReadOnly = true;
-            // 
-            // outsearch_amount
-            // 
-            outsearch_amount.HeaderText = "수량";
-            outsearch_amount.Name = "outsearch_amount";
-            outsearch_amount.ReadOnly = true;
-            outsearch_amount.Width = 80;
-            // 
-            // outsearch_contact
-            // 
-            outsearch_contact.HeaderText = "담당자";
-            outsearch_contact.Name = "outsearch_contact";
-            outsearch_contact.ReadOnly = true;
-            // 
-            // outsearch_regdate
-            // 
-            outsearch_regdate.HeaderText = "입고일";
-            outsearch_regdate.Name = "outsearch_regdate";
-            outsearch_regdate.ReadOnly = true;
-            // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { LogoutMenu });
@@ -1355,11 +1334,10 @@
         private Label label12;
         private Label label13;
         private TextBox txtOutboundItem;
-        private DataGridView dgvOutBound;
         private GroupBox groupBox4;
         private Button btnIn_Del;
-        private Button btnInbound_Update;
-        private Button btnInbound_Add;
+        private Button btnInboundUpdate;
+        private Button btnInboundAdd;
         private Button btnOut_Del;
         private Button btnOut_Mod;
         private Button btnOut_Add;
@@ -1372,13 +1350,6 @@
         private ComboBox comboBox1;
         private TextBox textBox30;
         private DataGridView dataGridView5;
-        private DataGridViewTextBoxColumn outsearch_id;
-        private DataGridViewTextBoxColumn outsearch_product;
-        private DataGridViewTextBoxColumn outsearch_code;
-        private DataGridViewTextBoxColumn outsearch_name;
-        private DataGridViewTextBoxColumn outsearch_amount;
-        private DataGridViewTextBoxColumn outsearch_contact;
-        private DataGridViewTextBoxColumn outsearch_regdate;
         private TextBox txtInboundContact;
         private Label label31;
         private TextBox txtInboundAmount;
@@ -1429,14 +1400,6 @@
         private DataGridViewTextBoxColumn insearch_contact;
         private DataGridViewTextBoxColumn insearch_regdate;
         private DataGridViewTextBoxColumn outbound_vendor;
-        private DataGridView dgvOutboundSearch;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private GroupBox groupBox5;
         private Label label18;
         private TextBox txtOutboundSearchRegdate;
@@ -1452,6 +1415,10 @@
         private Label label40;
         private Label label41;
         private TextBox txtOutboundSearchItem;
+        private TextBox txtOutboundSearch;
+        private Button btnOutboundUpdate;
+        private Button btnOutboundAdd;
+        private DataGridView dgvOutBound;
         private DataGridViewTextBoxColumn outbound_id;
         private DataGridViewTextBoxColumn outbound_product;
         private DataGridViewTextBoxColumn outbound_item;
@@ -1459,6 +1426,13 @@
         private DataGridViewTextBoxColumn outbound_process;
         private DataGridViewTextBoxColumn outbound_contact;
         private DataGridViewTextBoxColumn outbound_regdate;
-        private TextBox txtOutboundSearch;
+        private DataGridView dgvOutboundSearch;
+        private DataGridViewTextBoxColumn outsearch_id;
+        private DataGridViewTextBoxColumn outsearch_product;
+        private DataGridViewTextBoxColumn outsearch_item;
+        private DataGridViewTextBoxColumn outsearch_amount;
+        private DataGridViewTextBoxColumn outsearch_process;
+        private DataGridViewTextBoxColumn outsearch_contact;
+        private DataGridViewTextBoxColumn outsearch_regdate;
     }
 }
