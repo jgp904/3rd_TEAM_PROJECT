@@ -16,6 +16,8 @@ namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
         Task<Equipment?> UpdateAsync(Equipment factory);
         Task<Equipment?> DeleteAsync(int factory);
 
+        Task<IEnumerable<EquipHis>> HisAsync(string search);
+
         Task<IEnumerable<Equipment>> CodeAsync(string search);
         Task<IEnumerable<Equipment>> NameAsync(string search);
         Task<IEnumerable<Equipment>> StatusAsync(string search);

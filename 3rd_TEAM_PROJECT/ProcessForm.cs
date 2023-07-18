@@ -91,7 +91,7 @@ namespace _3rd_TEAM_PROJECT
             }
         }
 
-        
+
 
         // -----------------------------------------------------------------공장-----------------------------------------------------------------------------------------------------//
         #region 공장설정
@@ -331,6 +331,28 @@ namespace _3rd_TEAM_PROJECT
                 i++;
             }
         }
+        private async void LoadEquipHis()
+        {
+            var equipHis = await equipmentRepository.GetAllHisAsync();
+            dgvEquipHis.Rows.Clear();
+            dgvEquipHis.Refresh();
+            int i = 0;
+            foreach (var item in equipHis)
+            {
+                dgvEquipHis.Rows.Add();
+                dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
+                dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
+                dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
+                dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
+                dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
+                dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
+                dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
+                dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate;
+                dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
+                dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate;
+                i++;
+            }
+        }
         //--설비 상세---//
         private void dgvEquip_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -357,6 +379,31 @@ namespace _3rd_TEAM_PROJECT
                 }
             }
 
+        }
+        //---이력상세--//
+        private void dgvEquipHis_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridView dgv = (DataGridView)sender;
+                DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
+
+                if (selectedRow.Cells.Count > 1)
+                {
+                    txtEquipHis_Code.Text = selectedRow.Cells["equipHis_code"].Value.ToString();
+                    txtEquipHis_Name.Text = selectedRow.Cells["equipHis_name"].Value.ToString();
+                    txtEquipHis_Comment.Text = selectedRow.Cells["equipHis_comment"].Value.ToString();
+                    txtEquipHis_Status.Text = selectedRow.Cells["equipHis_status"].Value.ToString();
+                    txtEquipHis_Event.Text = selectedRow.Cells["equipHis_event"].Value.ToString();
+
+                    txtEquipHis_Const.Text = selectedRow.Cells["equipHis_const"].Value.ToString();
+                    txtEquipHis_Regdate.Text = selectedRow.Cells["equipHis_regdate"].Value.ToString();
+                    if (selectedRow.Cells["equipHis_modi"].Value != null) txtEquipHis_Modi.Text = selectedRow.Cells["equipHis_modi"].Value.ToString();
+                    else txtEquipHis_Modi.Text = "";
+                    if (selectedRow.Cells["equipHis_moddate"].Value != null) txtEquipHis_Moddate.Text = selectedRow.Cells["equipHis_moddate"].Value.ToString();
+                    else txtEquipHis_Moddate.Text = "";
+                }
+            }
         }
         //--설비생성--//
         private async void btnEquipC_Click(object sender, EventArgs e)
@@ -503,7 +550,32 @@ namespace _3rd_TEAM_PROJECT
                 i++;
             }
         }
-        //---엔터 검색---//
+        //---이력 조회-----//
+        private async void pictureBox2_Click(object sender, EventArgs e)
+        {
+            string search = searchEquipCode.Text.Trim();
+            var equips = await equipmentRepository.HisAsync(search);
+            dgvEquipHis.Rows.Clear();
+            dgvEquipHis.Refresh();
+            int i = 0;
+            foreach (var item in equips)
+            {
+                dgvEquipHis.Rows.Add();
+                dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
+                dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
+                dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
+                dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
+                dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
+                dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
+                dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
+                dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate;
+                dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
+                dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate;
+                i++;
+            }
+
+        }
+        //---엔터 설비검색---//
         private async void searchEquip_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -539,13 +611,35 @@ namespace _3rd_TEAM_PROJECT
 
             }
         }
-
-
-        //------설비이력조회-------//
-        private void LoadEquipHis()
+        //----엔터 이력조회--//
+        private async void searchEquipCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string search = searchEquipCode.Text.Trim();
+                var equips = await equipmentRepository.HisAsync(search);
+                dgvEquipHis.Rows.Clear();
+                dgvEquipHis.Refresh();
+                int i = 0;
+                foreach (var item in equips)
+                {
+                    dgvEquipHis.Rows.Add();
+                    dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
+                    dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
+                    dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
+                    dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
+                    dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
+                    dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
+                    dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
+                    dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate;
+                    dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
+                    dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate;
+                    i++;
+                }
+
+            }
         }
+
         #endregion
         //------------------------------------------------------------------공정------------------------------------------------------------------------------------------------------//
         #region 공정설정
@@ -554,5 +648,10 @@ namespace _3rd_TEAM_PROJECT
             throw new NotImplementedException();
         }
         #endregion
+
+
+
+
+
     }
 }

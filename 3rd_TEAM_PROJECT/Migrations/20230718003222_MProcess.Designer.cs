@@ -9,10 +9,10 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230718000628_MProcess")]
+    [Migration("20230718003222_MProcess")]
     partial class MProcess
     {
         /// <inheritdoc />
@@ -89,6 +89,51 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.ToTable("T1_CreateLot");
                 });
 
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.EquipHis", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Constructor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Event")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Modifier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("T1_EquipHis");
+                });
+
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.Equipment", b =>
                 {
                     b.Property<int>("Id")
@@ -135,8 +180,6 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsUnique();
 
                     b.ToTable("T1_Equipment");
-
-                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.Factory", b =>
@@ -413,13 +456,6 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.ToTable("T1_WareHouse");
                 });
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.EquipHis", b =>
-                {
-                    b.HasBaseType("_3rd_TEAM_PROJECT.Models.Process.Equipment");
-
-                    b.ToTable("T1_EquipHis");
-                });
-
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.CreateLot", b =>
                 {
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Item", "Item")
@@ -481,15 +517,6 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.Navigation("MProcess");
 
                     b.Navigation("WareHouse");
-                });
-
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.EquipHis", b =>
-                {
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Equipment", null)
-                        .WithOne()
-                        .HasForeignKey("_3rd_TEAM_PROJECT.Models.Process.EquipHis", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

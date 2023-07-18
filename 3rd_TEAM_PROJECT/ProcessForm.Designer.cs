@@ -65,6 +65,16 @@
             txtfac_Code = new TextBox();
             equipSetting = new TabPage();
             dgvEquip = new DataGridView();
+            equip_id = new DataGridViewTextBoxColumn();
+            equip_code = new DataGridViewTextBoxColumn();
+            equip_name = new DataGridViewTextBoxColumn();
+            equip_comment = new DataGridViewTextBoxColumn();
+            equip_const = new DataGridViewTextBoxColumn();
+            equip_regdate = new DataGridViewTextBoxColumn();
+            equip_modi = new DataGridViewTextBoxColumn();
+            equip_moddate = new DataGridViewTextBoxColumn();
+            equip_status = new DataGridViewTextBoxColumn();
+            equip_event = new DataGridViewTextBoxColumn();
             cbbEquip_filter = new ComboBox();
             label7 = new Label();
             pictureBox1 = new PictureBox();
@@ -94,16 +104,83 @@
             label15 = new Label();
             txtEquip_Code = new TextBox();
             equipHistory = new TabPage();
-            equip_id = new DataGridViewTextBoxColumn();
-            equip_code = new DataGridViewTextBoxColumn();
-            equip_name = new DataGridViewTextBoxColumn();
-            equip_comment = new DataGridViewTextBoxColumn();
-            equip_const = new DataGridViewTextBoxColumn();
-            equip_regdate = new DataGridViewTextBoxColumn();
-            equip_modi = new DataGridViewTextBoxColumn();
-            equip_moddate = new DataGridViewTextBoxColumn();
-            equip_status = new DataGridViewTextBoxColumn();
-            equip_event = new DataGridViewTextBoxColumn();
+            dgvEquipHis = new DataGridView();
+            equipHis_id = new DataGridViewTextBoxColumn();
+            equipHis_code = new DataGridViewTextBoxColumn();
+            equipHis_name = new DataGridViewTextBoxColumn();
+            equipHis_comment = new DataGridViewTextBoxColumn();
+            equipHis_status = new DataGridViewTextBoxColumn();
+            equipHis_event = new DataGridViewTextBoxColumn();
+            equipHis_const = new DataGridViewTextBoxColumn();
+            equipHis_regdate = new DataGridViewTextBoxColumn();
+            equipHis_modi = new DataGridViewTextBoxColumn();
+            equipHis_moddate = new DataGridViewTextBoxColumn();
+            label18 = new Label();
+            pictureBox2 = new PictureBox();
+            searchEquipCode = new TextBox();
+            groupBox2 = new GroupBox();
+            txtEquipHis_Event = new TextBox();
+            txtEquipHis_Status = new TextBox();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
+            txtEquipHis_Comment = new TextBox();
+            label24 = new Label();
+            txtEquipHis_Moddate = new TextBox();
+            label25 = new Label();
+            txtEquipHis_Modi = new TextBox();
+            label26 = new Label();
+            txtEquipHis_Regdate = new TextBox();
+            label27 = new Label();
+            txtEquipHis_Const = new TextBox();
+            label28 = new Label();
+            txtEquipHis_Name = new TextBox();
+            label29 = new Label();
+            txtEquipHis_Code = new TextBox();
+            processSetting = new TabPage();
+            dgvProcess = new DataGridView();
+            comboBox4 = new ComboBox();
+            label22 = new Label();
+            pictureBox3 = new PictureBox();
+            searchProcess = new TextBox();
+            groupBox3 = new GroupBox();
+            cbbStock1 = new ComboBox();
+            label23 = new Label();
+            label30 = new Label();
+            label31 = new Label();
+            txtProcess_Equip = new TextBox();
+            lbProcessId = new Label();
+            btnProcess_C = new Button();
+            btnProcess_U = new Button();
+            label33 = new Label();
+            btnProcess_D = new Button();
+            label34 = new Label();
+            txtProcess_Moddate = new TextBox();
+            label35 = new Label();
+            txtProcess_Modi = new TextBox();
+            label36 = new Label();
+            txtProcess_Regdate = new TextBox();
+            label37 = new Label();
+            label38 = new Label();
+            txtProcess_Name = new TextBox();
+            label39 = new Label();
+            txtProcess_Code = new TextBox();
+            search_Equip = new PictureBox();
+            txtProcess_Comment = new TextBox();
+            cbbStock2 = new ComboBox();
+            label32 = new Label();
+            txtProcess_Const = new TextBox();
+            process_id = new DataGridViewTextBoxColumn();
+            process_code = new DataGridViewTextBoxColumn();
+            process_name = new DataGridViewTextBoxColumn();
+            process_comment = new DataGridViewTextBoxColumn();
+            process_equipcode = new DataGridViewTextBoxColumn();
+            process_stock1 = new DataGridViewTextBoxColumn();
+            process_stock2 = new DataGridViewTextBoxColumn();
+            process_const = new DataGridViewTextBoxColumn();
+            process_regdata = new DataGridViewTextBoxColumn();
+            process_modi = new DataGridViewTextBoxColumn();
+            process_moddate = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             tabProcess.SuspendLayout();
             facSetting.SuspendLayout();
@@ -114,6 +191,15 @@
             ((System.ComponentModel.ISupportInitialize)dgvEquip).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
+            equipHistory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEquipHis).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            groupBox2.SuspendLayout();
+            processSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProcess).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)search_Equip).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -138,6 +224,7 @@
             tabProcess.Controls.Add(facSetting);
             tabProcess.Controls.Add(equipSetting);
             tabProcess.Controls.Add(equipHistory);
+            tabProcess.Controls.Add(processSetting);
             tabProcess.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabProcess.ItemSize = new Size(25, 100);
             tabProcess.Location = new Point(0, 24);
@@ -461,6 +548,64 @@
             dgvEquip.TabIndex = 48;
             dgvEquip.CellClick += dgvEquip_CellClick;
             // 
+            // equip_id
+            // 
+            equip_id.HeaderText = "ID";
+            equip_id.Name = "equip_id";
+            equip_id.Width = 50;
+            // 
+            // equip_code
+            // 
+            equip_code.HeaderText = "설비코드";
+            equip_code.Name = "equip_code";
+            equip_code.Width = 80;
+            // 
+            // equip_name
+            // 
+            equip_name.HeaderText = "설비명";
+            equip_name.Name = "equip_name";
+            equip_name.Width = 80;
+            // 
+            // equip_comment
+            // 
+            equip_comment.HeaderText = "설비설명";
+            equip_comment.Name = "equip_comment";
+            equip_comment.Width = 150;
+            // 
+            // equip_const
+            // 
+            equip_const.HeaderText = "생성자";
+            equip_const.Name = "equip_const";
+            equip_const.Width = 80;
+            // 
+            // equip_regdate
+            // 
+            equip_regdate.HeaderText = "생성일자";
+            equip_regdate.Name = "equip_regdate";
+            equip_regdate.Width = 120;
+            // 
+            // equip_modi
+            // 
+            equip_modi.HeaderText = "수정자";
+            equip_modi.Name = "equip_modi";
+            equip_modi.Width = 80;
+            // 
+            // equip_moddate
+            // 
+            equip_moddate.HeaderText = "수정일자";
+            equip_moddate.Name = "equip_moddate";
+            equip_moddate.Width = 120;
+            // 
+            // equip_status
+            // 
+            equip_status.HeaderText = "설비상태";
+            equip_status.Name = "equip_status";
+            // 
+            // equip_event
+            // 
+            equip_event.HeaderText = "설비이벤트";
+            equip_event.Name = "equip_event";
+            // 
             // cbbEquip_filter
             // 
             cbbEquip_filter.FormattingEnabled = true;
@@ -533,7 +678,7 @@
             groupBox1.Size = new Size(200, 643);
             groupBox1.TabIndex = 43;
             groupBox1.TabStop = false;
-            groupBox1.Text = "공장설정";
+            groupBox1.Text = "설비설정";
             // 
             // cbbEquipEvent
             // 
@@ -736,71 +881,687 @@
             // 
             // equipHistory
             // 
+            equipHistory.Controls.Add(dgvEquipHis);
+            equipHistory.Controls.Add(label18);
+            equipHistory.Controls.Add(pictureBox2);
+            equipHistory.Controls.Add(searchEquipCode);
+            equipHistory.Controls.Add(groupBox2);
             equipHistory.Location = new Point(104, 4);
             equipHistory.Name = "equipHistory";
             equipHistory.Padding = new Padding(3);
             equipHistory.Size = new Size(1070, 649);
             equipHistory.TabIndex = 2;
-            equipHistory.Text = "회이력조";
+            equipHistory.Text = "설비 이력조회";
             equipHistory.UseVisualStyleBackColor = true;
             // 
-            // equip_id
+            // dgvEquipHis
             // 
-            equip_id.HeaderText = "ID";
-            equip_id.Name = "equip_id";
-            equip_id.Width = 50;
+            dgvEquipHis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEquipHis.Columns.AddRange(new DataGridViewColumn[] { equipHis_id, equipHis_code, equipHis_name, equipHis_comment, equipHis_status, equipHis_event, equipHis_const, equipHis_regdate, equipHis_modi, equipHis_moddate });
+            dgvEquipHis.Location = new Point(3, 36);
+            dgvEquipHis.Name = "dgvEquipHis";
+            dgvEquipHis.RowHeadersVisible = false;
+            dgvEquipHis.RowTemplate.Height = 25;
+            dgvEquipHis.Size = new Size(854, 610);
+            dgvEquipHis.TabIndex = 54;
+            dgvEquipHis.CellClick += dgvEquipHis_CellClick;
             // 
-            // equip_code
+            // equipHis_id
             // 
-            equip_code.HeaderText = "설비코드";
-            equip_code.Name = "equip_code";
-            equip_code.Width = 80;
+            equipHis_id.HeaderText = "ID";
+            equipHis_id.Name = "equipHis_id";
+            equipHis_id.Width = 50;
             // 
-            // equip_name
+            // equipHis_code
             // 
-            equip_name.HeaderText = "설비명";
-            equip_name.Name = "equip_name";
-            equip_name.Width = 80;
+            equipHis_code.HeaderText = "설비코드";
+            equipHis_code.Name = "equipHis_code";
+            equipHis_code.Width = 80;
             // 
-            // equip_comment
+            // equipHis_name
             // 
-            equip_comment.HeaderText = "설비설명";
-            equip_comment.Name = "equip_comment";
-            equip_comment.Width = 150;
+            equipHis_name.HeaderText = "설비명";
+            equipHis_name.Name = "equipHis_name";
+            equipHis_name.Width = 80;
             // 
-            // equip_const
+            // equipHis_comment
             // 
-            equip_const.HeaderText = "생성자";
-            equip_const.Name = "equip_const";
-            equip_const.Width = 80;
+            equipHis_comment.HeaderText = "설비설명";
+            equipHis_comment.Name = "equipHis_comment";
+            equipHis_comment.Width = 150;
             // 
-            // equip_regdate
+            // equipHis_status
             // 
-            equip_regdate.HeaderText = "생성일자";
-            equip_regdate.Name = "equip_regdate";
-            equip_regdate.Width = 120;
+            equipHis_status.HeaderText = "설비상태";
+            equipHis_status.Name = "equipHis_status";
             // 
-            // equip_modi
+            // equipHis_event
             // 
-            equip_modi.HeaderText = "수정자";
-            equip_modi.Name = "equip_modi";
-            equip_modi.Width = 80;
+            equipHis_event.HeaderText = "설비이벤트";
+            equipHis_event.Name = "equipHis_event";
             // 
-            // equip_moddate
+            // equipHis_const
             // 
-            equip_moddate.HeaderText = "수정일자";
-            equip_moddate.Name = "equip_moddate";
-            equip_moddate.Width = 120;
+            equipHis_const.HeaderText = "생성자";
+            equipHis_const.Name = "equipHis_const";
+            equipHis_const.Width = 80;
             // 
-            // equip_status
+            // equipHis_regdate
             // 
-            equip_status.HeaderText = "설비상태";
-            equip_status.Name = "equip_status";
+            equipHis_regdate.HeaderText = "생성일자";
+            equipHis_regdate.Name = "equipHis_regdate";
+            equipHis_regdate.Width = 120;
             // 
-            // equip_event
+            // equipHis_modi
             // 
-            equip_event.HeaderText = "설비이벤트";
-            equip_event.Name = "equip_event";
+            equipHis_modi.HeaderText = "수정자";
+            equipHis_modi.Name = "equipHis_modi";
+            equipHis_modi.Width = 80;
+            // 
+            // equipHis_moddate
+            // 
+            equipHis_moddate.HeaderText = "수정일자";
+            equipHis_moddate.Name = "equipHis_moddate";
+            equipHis_moddate.Width = 120;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = Color.LightSteelBlue;
+            label18.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label18.Location = new Point(7, 6);
+            label18.Name = "label18";
+            label18.Padding = new Padding(5);
+            label18.Size = new Size(47, 24);
+            label18.TabIndex = 52;
+            label18.Text = "검색";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(836, 7);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(21, 23);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 51;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // searchEquipCode
+            // 
+            searchEquipCode.Location = new Point(60, 6);
+            searchEquipCode.Name = "searchEquipCode";
+            searchEquipCode.Size = new Size(770, 23);
+            searchEquipCode.TabIndex = 50;
+            searchEquipCode.KeyPress += searchEquipCode_KeyPress;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(txtEquipHis_Event);
+            groupBox2.Controls.Add(txtEquipHis_Status);
+            groupBox2.Controls.Add(label19);
+            groupBox2.Controls.Add(label20);
+            groupBox2.Controls.Add(label21);
+            groupBox2.Controls.Add(txtEquipHis_Comment);
+            groupBox2.Controls.Add(label24);
+            groupBox2.Controls.Add(txtEquipHis_Moddate);
+            groupBox2.Controls.Add(label25);
+            groupBox2.Controls.Add(txtEquipHis_Modi);
+            groupBox2.Controls.Add(label26);
+            groupBox2.Controls.Add(txtEquipHis_Regdate);
+            groupBox2.Controls.Add(label27);
+            groupBox2.Controls.Add(txtEquipHis_Const);
+            groupBox2.Controls.Add(label28);
+            groupBox2.Controls.Add(txtEquipHis_Name);
+            groupBox2.Controls.Add(label29);
+            groupBox2.Controls.Add(txtEquipHis_Code);
+            groupBox2.Dock = DockStyle.Right;
+            groupBox2.Location = new Point(867, 3);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(200, 643);
+            groupBox2.TabIndex = 49;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "설비이력";
+            // 
+            // txtEquipHis_Event
+            // 
+            txtEquipHis_Event.Location = new Point(89, 178);
+            txtEquipHis_Event.Name = "txtEquipHis_Event";
+            txtEquipHis_Event.ReadOnly = true;
+            txtEquipHis_Event.Size = new Size(100, 23);
+            txtEquipHis_Event.TabIndex = 54;
+            // 
+            // txtEquipHis_Status
+            // 
+            txtEquipHis_Status.Location = new Point(89, 149);
+            txtEquipHis_Status.Name = "txtEquipHis_Status";
+            txtEquipHis_Status.ReadOnly = true;
+            txtEquipHis_Status.Size = new Size(100, 23);
+            txtEquipHis_Status.TabIndex = 53;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(7, 181);
+            label19.Name = "label19";
+            label19.Size = new Size(74, 15);
+            label19.TabIndex = 52;
+            label19.Text = "설비이벤트 :";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(7, 152);
+            label20.Name = "label20";
+            label20.Size = new Size(62, 15);
+            label20.TabIndex = 50;
+            label20.Text = "설비상태 :";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(7, 123);
+            label21.Name = "label21";
+            label21.Size = new Size(62, 15);
+            label21.TabIndex = 48;
+            label21.Text = "설비설명 :";
+            // 
+            // txtEquipHis_Comment
+            // 
+            txtEquipHis_Comment.Location = new Point(89, 120);
+            txtEquipHis_Comment.Name = "txtEquipHis_Comment";
+            txtEquipHis_Comment.ReadOnly = true;
+            txtEquipHis_Comment.Size = new Size(100, 23);
+            txtEquipHis_Comment.TabIndex = 47;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(7, 297);
+            label24.Name = "label24";
+            label24.Size = new Size(62, 15);
+            label24.TabIndex = 13;
+            label24.Text = "수정일자 :";
+            // 
+            // txtEquipHis_Moddate
+            // 
+            txtEquipHis_Moddate.Location = new Point(89, 294);
+            txtEquipHis_Moddate.Name = "txtEquipHis_Moddate";
+            txtEquipHis_Moddate.ReadOnly = true;
+            txtEquipHis_Moddate.Size = new Size(100, 23);
+            txtEquipHis_Moddate.TabIndex = 12;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(7, 268);
+            label25.Name = "label25";
+            label25.Size = new Size(50, 15);
+            label25.TabIndex = 11;
+            label25.Text = "수정자 :";
+            // 
+            // txtEquipHis_Modi
+            // 
+            txtEquipHis_Modi.Location = new Point(89, 265);
+            txtEquipHis_Modi.Name = "txtEquipHis_Modi";
+            txtEquipHis_Modi.ReadOnly = true;
+            txtEquipHis_Modi.Size = new Size(100, 23);
+            txtEquipHis_Modi.TabIndex = 10;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(7, 239);
+            label26.Name = "label26";
+            label26.Size = new Size(62, 15);
+            label26.TabIndex = 9;
+            label26.Text = "생성일자 :";
+            // 
+            // txtEquipHis_Regdate
+            // 
+            txtEquipHis_Regdate.Location = new Point(89, 236);
+            txtEquipHis_Regdate.Name = "txtEquipHis_Regdate";
+            txtEquipHis_Regdate.ReadOnly = true;
+            txtEquipHis_Regdate.Size = new Size(100, 23);
+            txtEquipHis_Regdate.TabIndex = 8;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(7, 210);
+            label27.Name = "label27";
+            label27.Size = new Size(50, 15);
+            label27.TabIndex = 7;
+            label27.Text = "생성자 :";
+            // 
+            // txtEquipHis_Const
+            // 
+            txtEquipHis_Const.Location = new Point(89, 207);
+            txtEquipHis_Const.Name = "txtEquipHis_Const";
+            txtEquipHis_Const.ReadOnly = true;
+            txtEquipHis_Const.Size = new Size(100, 23);
+            txtEquipHis_Const.TabIndex = 6;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Location = new Point(7, 94);
+            label28.Name = "label28";
+            label28.Size = new Size(50, 15);
+            label28.TabIndex = 5;
+            label28.Text = "설비명 :";
+            // 
+            // txtEquipHis_Name
+            // 
+            txtEquipHis_Name.Location = new Point(89, 91);
+            txtEquipHis_Name.Name = "txtEquipHis_Name";
+            txtEquipHis_Name.ReadOnly = true;
+            txtEquipHis_Name.Size = new Size(100, 23);
+            txtEquipHis_Name.TabIndex = 4;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(7, 65);
+            label29.Name = "label29";
+            label29.Size = new Size(62, 15);
+            label29.TabIndex = 3;
+            label29.Text = "설비코드 :";
+            // 
+            // txtEquipHis_Code
+            // 
+            txtEquipHis_Code.Location = new Point(89, 62);
+            txtEquipHis_Code.Name = "txtEquipHis_Code";
+            txtEquipHis_Code.ReadOnly = true;
+            txtEquipHis_Code.Size = new Size(100, 23);
+            txtEquipHis_Code.TabIndex = 2;
+            // 
+            // processSetting
+            // 
+            processSetting.Controls.Add(dgvProcess);
+            processSetting.Controls.Add(comboBox4);
+            processSetting.Controls.Add(label22);
+            processSetting.Controls.Add(pictureBox3);
+            processSetting.Controls.Add(searchProcess);
+            processSetting.Controls.Add(groupBox3);
+            processSetting.Location = new Point(104, 4);
+            processSetting.Name = "processSetting";
+            processSetting.Padding = new Padding(3);
+            processSetting.Size = new Size(1070, 649);
+            processSetting.TabIndex = 3;
+            processSetting.Text = "공정설정";
+            processSetting.UseVisualStyleBackColor = true;
+            // 
+            // dgvProcess
+            // 
+            dgvProcess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProcess.Columns.AddRange(new DataGridViewColumn[] { process_id, process_code, process_name, process_comment, process_equipcode, process_stock1, process_stock2, process_const, process_regdata, process_modi, process_moddate });
+            dgvProcess.Location = new Point(3, 36);
+            dgvProcess.Name = "dgvProcess";
+            dgvProcess.RowHeadersVisible = false;
+            dgvProcess.RowTemplate.Height = 25;
+            dgvProcess.Size = new Size(854, 610);
+            dgvProcess.TabIndex = 54;
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "설비코드", "설비명", "설비상태", "설비이벤트", "생성자", "수정자" });
+            comboBox4.Location = new Point(736, 7);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(121, 23);
+            comboBox4.TabIndex = 53;
+            comboBox4.Text = "설비코드";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.BackColor = Color.LightSteelBlue;
+            label22.Font = new Font("굴림", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.Location = new Point(7, 6);
+            label22.Name = "label22";
+            label22.Padding = new Padding(5);
+            label22.Size = new Size(47, 24);
+            label22.TabIndex = 52;
+            label22.Text = "검색";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(709, 7);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(21, 23);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 51;
+            pictureBox3.TabStop = false;
+            // 
+            // searchProcess
+            // 
+            searchProcess.Location = new Point(60, 6);
+            searchProcess.Name = "searchProcess";
+            searchProcess.Size = new Size(643, 23);
+            searchProcess.TabIndex = 50;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(label32);
+            groupBox3.Controls.Add(txtProcess_Const);
+            groupBox3.Controls.Add(cbbStock2);
+            groupBox3.Controls.Add(txtProcess_Comment);
+            groupBox3.Controls.Add(search_Equip);
+            groupBox3.Controls.Add(cbbStock1);
+            groupBox3.Controls.Add(label23);
+            groupBox3.Controls.Add(label30);
+            groupBox3.Controls.Add(label31);
+            groupBox3.Controls.Add(txtProcess_Equip);
+            groupBox3.Controls.Add(lbProcessId);
+            groupBox3.Controls.Add(btnProcess_C);
+            groupBox3.Controls.Add(btnProcess_U);
+            groupBox3.Controls.Add(label33);
+            groupBox3.Controls.Add(btnProcess_D);
+            groupBox3.Controls.Add(label34);
+            groupBox3.Controls.Add(txtProcess_Moddate);
+            groupBox3.Controls.Add(label35);
+            groupBox3.Controls.Add(txtProcess_Modi);
+            groupBox3.Controls.Add(label36);
+            groupBox3.Controls.Add(txtProcess_Regdate);
+            groupBox3.Controls.Add(label37);
+            groupBox3.Controls.Add(label38);
+            groupBox3.Controls.Add(txtProcess_Name);
+            groupBox3.Controls.Add(label39);
+            groupBox3.Controls.Add(txtProcess_Code);
+            groupBox3.Dock = DockStyle.Right;
+            groupBox3.Location = new Point(867, 3);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(200, 643);
+            groupBox3.TabIndex = 49;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "공정설정";
+            // 
+            // cbbStock1
+            // 
+            cbbStock1.FormattingEnabled = true;
+            cbbStock1.Items.AddRange(new object[] { "EA", "Kg", "M", "L" });
+            cbbStock1.Location = new Point(89, 178);
+            cbbStock1.Name = "cbbStock1";
+            cbbStock1.Size = new Size(100, 23);
+            cbbStock1.TabIndex = 49;
+            cbbStock1.Text = "EA";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(7, 181);
+            label23.Name = "label23";
+            label23.Size = new Size(69, 15);
+            label23.TabIndex = 52;
+            label23.Text = "단위수량1 :";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(7, 152);
+            label30.Name = "label30";
+            label30.Size = new Size(62, 15);
+            label30.TabIndex = 50;
+            label30.Text = "설비코드 :";
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(7, 123);
+            label31.Name = "label31";
+            label31.Size = new Size(62, 15);
+            label31.TabIndex = 48;
+            label31.Text = "공정설명 :";
+            // 
+            // txtProcess_Equip
+            // 
+            txtProcess_Equip.Location = new Point(89, 149);
+            txtProcess_Equip.Name = "txtProcess_Equip";
+            txtProcess_Equip.Size = new Size(73, 23);
+            txtProcess_Equip.TabIndex = 47;
+            // 
+            // lbProcessId
+            // 
+            lbProcessId.AutoSize = true;
+            lbProcessId.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbProcessId.Location = new Point(48, 33);
+            lbProcessId.Name = "lbProcessId";
+            lbProcessId.Size = new Size(0, 21);
+            lbProcessId.TabIndex = 46;
+            // 
+            // btnProcess_C
+            // 
+            btnProcess_C.Location = new Point(2, 556);
+            btnProcess_C.Name = "btnProcess_C";
+            btnProcess_C.Size = new Size(198, 23);
+            btnProcess_C.TabIndex = 45;
+            btnProcess_C.Text = "생성";
+            btnProcess_C.UseVisualStyleBackColor = true;
+            // 
+            // btnProcess_U
+            // 
+            btnProcess_U.Location = new Point(2, 585);
+            btnProcess_U.Name = "btnProcess_U";
+            btnProcess_U.Size = new Size(198, 23);
+            btnProcess_U.TabIndex = 44;
+            btnProcess_U.Text = "수정";
+            btnProcess_U.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label33.Location = new Point(7, 33);
+            label33.Name = "label33";
+            label33.Size = new Size(35, 21);
+            label33.TabIndex = 14;
+            label33.Text = "ID :";
+            // 
+            // btnProcess_D
+            // 
+            btnProcess_D.Location = new Point(2, 614);
+            btnProcess_D.Name = "btnProcess_D";
+            btnProcess_D.Size = new Size(198, 23);
+            btnProcess_D.TabIndex = 43;
+            btnProcess_D.Text = "삭제";
+            btnProcess_D.UseVisualStyleBackColor = true;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Location = new Point(7, 326);
+            label34.Name = "label34";
+            label34.Size = new Size(62, 15);
+            label34.TabIndex = 13;
+            label34.Text = "수정일자 :";
+            // 
+            // txtProcess_Moddate
+            // 
+            txtProcess_Moddate.Location = new Point(89, 323);
+            txtProcess_Moddate.Name = "txtProcess_Moddate";
+            txtProcess_Moddate.Size = new Size(100, 23);
+            txtProcess_Moddate.TabIndex = 12;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Location = new Point(7, 297);
+            label35.Name = "label35";
+            label35.Size = new Size(50, 15);
+            label35.TabIndex = 11;
+            label35.Text = "수정자 :";
+            // 
+            // txtProcess_Modi
+            // 
+            txtProcess_Modi.Location = new Point(89, 294);
+            txtProcess_Modi.Name = "txtProcess_Modi";
+            txtProcess_Modi.Size = new Size(100, 23);
+            txtProcess_Modi.TabIndex = 10;
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Location = new Point(7, 268);
+            label36.Name = "label36";
+            label36.Size = new Size(62, 15);
+            label36.TabIndex = 9;
+            label36.Text = "생성일자 :";
+            // 
+            // txtProcess_Regdate
+            // 
+            txtProcess_Regdate.Location = new Point(89, 265);
+            txtProcess_Regdate.Name = "txtProcess_Regdate";
+            txtProcess_Regdate.Size = new Size(100, 23);
+            txtProcess_Regdate.TabIndex = 8;
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new Point(7, 210);
+            label37.Name = "label37";
+            label37.Size = new Size(69, 15);
+            label37.TabIndex = 7;
+            label37.Text = "단위수량2 :";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new Point(7, 94);
+            label38.Name = "label38";
+            label38.Size = new Size(50, 15);
+            label38.TabIndex = 5;
+            label38.Text = "공정명 :";
+            // 
+            // txtProcess_Name
+            // 
+            txtProcess_Name.Location = new Point(89, 91);
+            txtProcess_Name.Name = "txtProcess_Name";
+            txtProcess_Name.Size = new Size(100, 23);
+            txtProcess_Name.TabIndex = 4;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new Point(7, 65);
+            label39.Name = "label39";
+            label39.Size = new Size(62, 15);
+            label39.TabIndex = 3;
+            label39.Text = "공정코드 :";
+            // 
+            // txtProcess_Code
+            // 
+            txtProcess_Code.Location = new Point(89, 62);
+            txtProcess_Code.Name = "txtProcess_Code";
+            txtProcess_Code.Size = new Size(100, 23);
+            txtProcess_Code.TabIndex = 2;
+            // 
+            // search_Equip
+            // 
+            search_Equip.Image = (Image)resources.GetObject("search_Equip.Image");
+            search_Equip.Location = new Point(168, 149);
+            search_Equip.Name = "search_Equip";
+            search_Equip.Size = new Size(21, 23);
+            search_Equip.SizeMode = PictureBoxSizeMode.StretchImage;
+            search_Equip.TabIndex = 55;
+            search_Equip.TabStop = false;
+            // 
+            // txtProcess_Comment
+            // 
+            txtProcess_Comment.Location = new Point(89, 120);
+            txtProcess_Comment.Name = "txtProcess_Comment";
+            txtProcess_Comment.Size = new Size(100, 23);
+            txtProcess_Comment.TabIndex = 56;
+            // 
+            // cbbStock2
+            // 
+            cbbStock2.FormattingEnabled = true;
+            cbbStock2.Items.AddRange(new object[] { "EA", "Kg", "M", "L" });
+            cbbStock2.Location = new Point(89, 207);
+            cbbStock2.Name = "cbbStock2";
+            cbbStock2.Size = new Size(100, 23);
+            cbbStock2.TabIndex = 57;
+            cbbStock2.Text = "EA";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(7, 239);
+            label32.Name = "label32";
+            label32.Size = new Size(50, 15);
+            label32.TabIndex = 59;
+            label32.Text = "생성자 :";
+            // 
+            // txtProcess_Const
+            // 
+            txtProcess_Const.Location = new Point(89, 236);
+            txtProcess_Const.Name = "txtProcess_Const";
+            txtProcess_Const.Size = new Size(100, 23);
+            txtProcess_Const.TabIndex = 58;
+            // 
+            // process_id
+            // 
+            process_id.HeaderText = "ID";
+            process_id.Name = "process_id";
+            process_id.Width = 50;
+            // 
+            // process_code
+            // 
+            process_code.HeaderText = "공정코드";
+            process_code.Name = "process_code";
+            process_code.Width = 80;
+            // 
+            // process_name
+            // 
+            process_name.HeaderText = "공정명";
+            process_name.Name = "process_name";
+            process_name.Width = 80;
+            // 
+            // process_comment
+            // 
+            process_comment.HeaderText = "공정설명";
+            process_comment.Name = "process_comment";
+            process_comment.Width = 150;
+            // 
+            // process_equipcode
+            // 
+            process_equipcode.HeaderText = "설비코드";
+            process_equipcode.Name = "process_equipcode";
+            // 
+            // process_stock1
+            // 
+            process_stock1.HeaderText = "단위수량1";
+            process_stock1.Name = "process_stock1";
+            // 
+            // process_stock2
+            // 
+            process_stock2.HeaderText = "단위수량2";
+            process_stock2.Name = "process_stock2";
+            // 
+            // process_const
+            // 
+            process_const.HeaderText = "생성자";
+            process_const.Name = "process_const";
+            process_const.Width = 80;
+            // 
+            // process_regdata
+            // 
+            process_regdata.HeaderText = "생성일자";
+            process_regdata.Name = "process_regdata";
+            process_regdata.Width = 120;
+            // 
+            // process_modi
+            // 
+            process_modi.HeaderText = "수정자";
+            process_modi.Name = "process_modi";
+            process_modi.Width = 80;
+            // 
+            // process_moddate
+            // 
+            process_moddate.HeaderText = "수정일자";
+            process_moddate.Name = "process_moddate";
+            process_moddate.Width = 120;
             // 
             // ProcessForm
             // 
@@ -828,6 +1589,19 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            equipHistory.ResumeLayout(false);
+            equipHistory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEquipHis).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            processSetting.ResumeLayout(false);
+            processSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProcess).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)search_Equip).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -909,5 +1683,95 @@
         private DataGridViewTextBoxColumn equip_moddate;
         private DataGridViewTextBoxColumn equip_status;
         private DataGridViewTextBoxColumn equip_event;
+        private DataGridView dgvEquipHis;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private ComboBox comboBox1;
+        private Label label18;
+        private PictureBox pictureBox2;
+        private TextBox searchEquipCode;
+        private GroupBox groupBox2;
+        private ComboBox comboBox2;
+        private ComboBox comboBox3;
+        private Label label19;
+        private Label label20;
+        private Label label21;
+        private TextBox txtEquipHis_Comment;
+        private Label label24;
+        private TextBox txtEquipHis_Moddate;
+        private Label label25;
+        private TextBox txtEquipHis_Modi;
+        private Label label26;
+        private TextBox txtEquipHis_Regdate;
+        private Label label27;
+        private TextBox txtEquipHis_Const;
+        private Label label28;
+        private TextBox txtEquipHis_Name;
+        private Label label29;
+        private TextBox txtEquipHis_Code;
+        private DataGridViewTextBoxColumn equipHis_id;
+        private DataGridViewTextBoxColumn equipHis_code;
+        private DataGridViewTextBoxColumn equipHis_name;
+        private DataGridViewTextBoxColumn equipHis_comment;
+        private DataGridViewTextBoxColumn equipHis_status;
+        private DataGridViewTextBoxColumn equipHis_event;
+        private DataGridViewTextBoxColumn equipHis_const;
+        private DataGridViewTextBoxColumn equipHis_regdate;
+        private DataGridViewTextBoxColumn equipHis_modi;
+        private DataGridViewTextBoxColumn equipHis_moddate;
+        private TextBox txtEquipHis_Event;
+        private TextBox txtEquipHis_Status;
+        private TabPage processSetting;
+        private DataGridView dgvProcess;
+        private ComboBox comboBox4;
+        private Label label22;
+        private PictureBox pictureBox3;
+        private TextBox searchProcess;
+        private GroupBox groupBox3;
+        private Label label32;
+        private TextBox txtProcess_Const;
+        private ComboBox cbbStock2;
+        private TextBox txtProcess_Comment;
+        private PictureBox search_Equip;
+        private ComboBox cbbStock1;
+        private Label label23;
+        private Label label30;
+        private Label label31;
+        private TextBox txtProcess_Equip;
+        private Label lbProcessId;
+        private Button btnProcess_C;
+        private Button btnProcess_U;
+        private Label label33;
+        private Button btnProcess_D;
+        private Label label34;
+        private TextBox txtProcess_Moddate;
+        private Label label35;
+        private TextBox txtProcess_Modi;
+        private Label label36;
+        private TextBox txtProcess_Regdate;
+        private Label label37;
+        private Label label38;
+        private TextBox txtProcess_Name;
+        private Label label39;
+        private TextBox txtProcess_Code;
+        private DataGridViewTextBoxColumn process_id;
+        private DataGridViewTextBoxColumn process_code;
+        private DataGridViewTextBoxColumn process_name;
+        private DataGridViewTextBoxColumn process_comment;
+        private DataGridViewTextBoxColumn process_equipcode;
+        private DataGridViewTextBoxColumn process_stock1;
+        private DataGridViewTextBoxColumn process_stock2;
+        private DataGridViewTextBoxColumn process_const;
+        private DataGridViewTextBoxColumn process_regdata;
+        private DataGridViewTextBoxColumn process_modi;
+        private DataGridViewTextBoxColumn process_moddate;
     }
 }

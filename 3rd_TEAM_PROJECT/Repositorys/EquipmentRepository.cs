@@ -62,7 +62,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         public async Task<IEnumerable<EquipHis>> GetAllHisAsync()//이력조회
         {
             var equipHis = await mprocessdb.EquipHis.ToListAsync();
-            return equipHis.OrderBy(x => x.Id).ToList();
+            return equipHis.OrderByDescending(x => x.Id).ToList();
         }
 
         public async Task<Equipment?> UpdateAsync(Equipment equip)
@@ -78,7 +78,21 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 
             existingEquip.Modifier = equip.Modifier;
             existingEquip.ModDate = equip.ModDate;
-
+            await mprocessdb.SaveChangesAsync();
+            
+            var equipHis = new EquipHis
+            {
+                Code = existingEquip.Code,
+                Name = existingEquip.Name,
+                Comment = existingEquip.Comment,
+                Status = existingEquip.Status,
+                Event = existingEquip.Event,
+                Constructor = existingEquip.Constructor,
+                RegDate = existingEquip.RegDate,
+                Modifier = existingEquip.Modifier,
+                ModDate = existingEquip.ModDate,
+            };
+            await mprocessdb.EquipHis.AddAsync(equipHis);
             await mprocessdb.SaveChangesAsync();
             return existingEquip;
         }
@@ -86,6 +100,13 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         public async Task<IEnumerable<Equipment>> CodeAsync(string search)
         {
             return await mprocessdb.Equipments
+                .Where(x => (x.Code != null && x.Code.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+        public async Task<IEnumerable<EquipHis>> HisAsync(string search)
+        {
+            return await mprocessdb.EquipHis
                 .Where(x => (x.Code != null && x.Code.Contains(search)))
                 .OrderBy(x => x.Id)
                 .ToListAsync();

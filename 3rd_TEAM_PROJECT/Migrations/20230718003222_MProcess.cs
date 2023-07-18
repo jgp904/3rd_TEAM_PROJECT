@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     /// <inheritdoc />
     public partial class MProcess : Migration
@@ -11,6 +11,27 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "T1_EquipHis",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Event = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T1_EquipHis", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "T1_Equipment",
                 columns: table => new
@@ -82,23 +103,6 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T1_WareHouse", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "T1_EquipHis",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_T1_EquipHis", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_T1_EquipHis_T1_Equipment_Id",
-                        column: x => x.Id,
-                        principalTable: "T1_Equipment",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
