@@ -38,6 +38,7 @@ namespace _3rd_TEAM_PROJECT.Data
 		public DbSet<InBound> InBounds { get; set; }
 		public DbSet<OutBound> OutBounds { get; set; }
 		public DbSet<WareHouse> WareHouses { get; set; }
+		public DbSet<EquipHis> EquipHis { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

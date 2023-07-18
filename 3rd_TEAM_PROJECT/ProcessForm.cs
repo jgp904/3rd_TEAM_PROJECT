@@ -21,7 +21,7 @@ namespace _3rd_TEAM_PROJECT
         private IEquipmentRepository equipmentRepository;
 
         //----------Login정보 받기-----------------//
-        public string userName = "김건우"; // SessionManger에서 Acount정보 받기
+        public string userName = "박재걸"; // SessionManger에서 Acount정보 받기
 
         public ProcessForm()
         {
@@ -34,6 +34,7 @@ namespace _3rd_TEAM_PROJECT
             LoadFactory();
         }
         //TabControl 디자인 설정
+
         private void tabProcess_DrawItem(object sender, DrawItemEventArgs e)
         {
             #region Tab 설정
@@ -53,7 +54,7 @@ namespace _3rd_TEAM_PROJECT
             {
                 // 선택된 탭의 텍스트는 검정색이고 배경은 회색입니다.
                 textBrush = new SolidBrush(Color.Black);
-                bgBrush = new SolidBrush(Color.Gray);
+                bgBrush = new SolidBrush(Color.LightGray);
             }
             else
             {
@@ -83,11 +84,14 @@ namespace _3rd_TEAM_PROJECT
                 case 1:
                     LoadEquip();//설비설정
                     break;
+                case 2:
+                    LoadEquipHis();//설비 이력조회
+                    break;
 
             }
         }
 
-
+        
 
         // -----------------------------------------------------------------공장-----------------------------------------------------------------------------------------------------//
         #region 공장설정
@@ -467,7 +471,88 @@ namespace _3rd_TEAM_PROJECT
                 else return;
             }
         }
-        #endregion
+        //----설비 검색------//
+        private async void pictureBox1_Click(object sender, EventArgs e)
+        {
+            var equips = await equipmentRepository.GetAllAsync();
+            string search = searchEquip.Text.Trim();
 
+            if (cbbEquip_filter.Text.Trim() == "설비코드") equips = await equipmentRepository.CodeAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "설비명") equips = await equipmentRepository.NameAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "설비상태") equips = await equipmentRepository.StatusAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "설비이벤트") equips = await equipmentRepository.EventAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "생성자") equips = await equipmentRepository.ConstAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "수정자") equips = await equipmentRepository.ModiAsync(search);
+
+            dgvEquip.Rows.Clear();
+            dgvEquip.Refresh();
+            int i = 0;
+            foreach (var item in equips)
+            {
+                dgvEquip.Rows.Add();
+                dgvEquip.Rows[i].Cells["equip_id"].Value = item.Id;
+                dgvEquip.Rows[i].Cells["equip_code"].Value = item.Code;
+                dgvEquip.Rows[i].Cells["equip_name"].Value = item.Name;
+                dgvEquip.Rows[i].Cells["equip_comment"].Value = item.Comment;
+                dgvEquip.Rows[i].Cells["equip_status"].Value = item.Status;
+                dgvEquip.Rows[i].Cells["equip_event"].Value = item.Event;
+                dgvEquip.Rows[i].Cells["equip_const"].Value = item.Constructor;
+                dgvEquip.Rows[i].Cells["equip_regdate"].Value = item.RegDate;
+                dgvEquip.Rows[i].Cells["equip_modi"].Value = item.Modifier;
+                dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate;
+                i++;
+            }
+        }
+        //---엔터 검색---//
+        private async void searchEquip_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                var equips = await equipmentRepository.GetAllAsync();
+                string search = searchEquip.Text.Trim();
+
+                if (cbbEquip_filter.Text.Trim() == "설비코드") equips = await equipmentRepository.CodeAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "설비명") equips = await equipmentRepository.NameAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "설비상태") equips = await equipmentRepository.StatusAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "설비이벤트") equips = await equipmentRepository.EventAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "생성자") equips = await equipmentRepository.ConstAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "수정자") equips = await equipmentRepository.ModiAsync(search);
+
+                dgvEquip.Rows.Clear();
+                dgvEquip.Refresh();
+                int i = 0;
+                foreach (var item in equips)
+                {
+                    dgvEquip.Rows.Add();
+                    dgvEquip.Rows[i].Cells["equip_id"].Value = item.Id;
+                    dgvEquip.Rows[i].Cells["equip_code"].Value = item.Code;
+                    dgvEquip.Rows[i].Cells["equip_name"].Value = item.Name;
+                    dgvEquip.Rows[i].Cells["equip_comment"].Value = item.Comment;
+                    dgvEquip.Rows[i].Cells["equip_status"].Value = item.Status;
+                    dgvEquip.Rows[i].Cells["equip_event"].Value = item.Event;
+                    dgvEquip.Rows[i].Cells["equip_const"].Value = item.Constructor;
+                    dgvEquip.Rows[i].Cells["equip_regdate"].Value = item.RegDate;
+                    dgvEquip.Rows[i].Cells["equip_modi"].Value = item.Modifier;
+                    dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate;
+                    i++;
+                }
+
+            }
+        }
+
+
+        //------설비이력조회-------//
+        private void LoadEquipHis()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        //------------------------------------------------------------------공정------------------------------------------------------------------------------------------------------//
+        #region 공정설정
+        private void LoadProcess()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

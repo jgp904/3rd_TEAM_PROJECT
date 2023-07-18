@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230714070416_MProcess")]
+    [Migration("20230718000628_MProcess")]
     partial class MProcess
     {
         /// <inheritdoc />
@@ -135,6 +135,8 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsUnique();
 
                     b.ToTable("T1_Equipment");
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.Factory", b =>
@@ -411,6 +413,13 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.ToTable("T1_WareHouse");
                 });
 
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.EquipHis", b =>
+                {
+                    b.HasBaseType("_3rd_TEAM_PROJECT.Models.Process.Equipment");
+
+                    b.ToTable("T1_EquipHis");
+                });
+
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.CreateLot", b =>
                 {
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Item", "Item")
@@ -472,6 +481,15 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.Navigation("MProcess");
 
                     b.Navigation("WareHouse");
+                });
+
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.EquipHis", b =>
+                {
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Equipment", null)
+                        .WithOne()
+                        .HasForeignKey("_3rd_TEAM_PROJECT.Models.Process.EquipHis", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -132,6 +132,8 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsUnique();
 
                     b.ToTable("T1_Equipment");
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.Factory", b =>
@@ -311,6 +313,10 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Product")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -344,6 +350,14 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .HasColumnType("int");
 
                     b.Property<string>("Contact")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Item")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MProcessCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -394,6 +408,13 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .IsUnique();
 
                     b.ToTable("T1_WareHouse");
+                });
+
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.EquipHis", b =>
+                {
+                    b.HasBaseType("_3rd_TEAM_PROJECT.Models.Process.Equipment");
+
+                    b.ToTable("T1_EquipHis");
                 });
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.CreateLot", b =>
@@ -457,6 +478,15 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     b.Navigation("MProcess");
 
                     b.Navigation("WareHouse");
+                });
+
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.EquipHis", b =>
+                {
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Equipment", null)
+                        .WithOne()
+                        .HasForeignKey("_3rd_TEAM_PROJECT.Models.Process.EquipHis", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

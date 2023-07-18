@@ -32,7 +32,7 @@
             menuStrip1 = new MenuStrip();
             LogOut = new ToolStripMenuItem();
             tabProcess = new TabControl();
-            facsetting = new TabPage();
+            facSetting = new TabPage();
             dgvfac = new DataGridView();
             fac_id = new DataGridViewTextBoxColumn();
             fac_code = new DataGridViewTextBoxColumn();
@@ -63,19 +63,9 @@
             txtfac_Name = new TextBox();
             label1 = new Label();
             txtfac_Code = new TextBox();
-            equipsetting = new TabPage();
+            equipSetting = new TabPage();
             dgvEquip = new DataGridView();
-            equip_id = new DataGridViewTextBoxColumn();
-            equip_code = new DataGridViewTextBoxColumn();
-            equip_name = new DataGridViewTextBoxColumn();
-            equip_comment = new DataGridViewTextBoxColumn();
-            equip_const = new DataGridViewTextBoxColumn();
-            equip_regdate = new DataGridViewTextBoxColumn();
-            equip_modi = new DataGridViewTextBoxColumn();
-            equip_moddate = new DataGridViewTextBoxColumn();
-            equip_status = new DataGridViewTextBoxColumn();
-            equip_event = new DataGridViewTextBoxColumn();
-            comboBox1 = new ComboBox();
+            cbbEquip_filter = new ComboBox();
             label7 = new Label();
             pictureBox1 = new PictureBox();
             searchEquip = new TextBox();
@@ -103,14 +93,24 @@
             txtEquip_Name = new TextBox();
             label15 = new Label();
             txtEquip_Code = new TextBox();
-            tabPage1 = new TabPage();
+            equipHistory = new TabPage();
+            equip_id = new DataGridViewTextBoxColumn();
+            equip_code = new DataGridViewTextBoxColumn();
+            equip_name = new DataGridViewTextBoxColumn();
+            equip_comment = new DataGridViewTextBoxColumn();
+            equip_const = new DataGridViewTextBoxColumn();
+            equip_regdate = new DataGridViewTextBoxColumn();
+            equip_modi = new DataGridViewTextBoxColumn();
+            equip_moddate = new DataGridViewTextBoxColumn();
+            equip_status = new DataGridViewTextBoxColumn();
+            equip_event = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             tabProcess.SuspendLayout();
-            facsetting.SuspendLayout();
+            facSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvfac).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             g_fac_setting.SuspendLayout();
-            equipsetting.SuspendLayout();
+            equipSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEquip).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
@@ -135,9 +135,9 @@
             // tabProcess
             // 
             tabProcess.Alignment = TabAlignment.Left;
-            tabProcess.Controls.Add(facsetting);
-            tabProcess.Controls.Add(equipsetting);
-            tabProcess.Controls.Add(tabPage1);
+            tabProcess.Controls.Add(facSetting);
+            tabProcess.Controls.Add(equipSetting);
+            tabProcess.Controls.Add(equipHistory);
             tabProcess.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabProcess.ItemSize = new Size(25, 100);
             tabProcess.Location = new Point(0, 24);
@@ -150,21 +150,21 @@
             tabProcess.DrawItem += tabProcess_DrawItem;
             tabProcess.Selected += tabProcess_Selected;
             // 
-            // facsetting
+            // facSetting
             // 
-            facsetting.Controls.Add(dgvfac);
-            facsetting.Controls.Add(cbbFilter);
-            facsetting.Controls.Add(label97);
-            facsetting.Controls.Add(pictureBox4);
-            facsetting.Controls.Add(txtfacSearch);
-            facsetting.Controls.Add(g_fac_setting);
-            facsetting.Location = new Point(104, 4);
-            facsetting.Name = "facsetting";
-            facsetting.Padding = new Padding(3);
-            facsetting.Size = new Size(1070, 649);
-            facsetting.TabIndex = 0;
-            facsetting.Text = "공장설정";
-            facsetting.UseVisualStyleBackColor = true;
+            facSetting.Controls.Add(dgvfac);
+            facSetting.Controls.Add(cbbFilter);
+            facSetting.Controls.Add(label97);
+            facSetting.Controls.Add(pictureBox4);
+            facSetting.Controls.Add(txtfacSearch);
+            facSetting.Controls.Add(g_fac_setting);
+            facSetting.Location = new Point(104, 4);
+            facSetting.Name = "facSetting";
+            facSetting.Padding = new Padding(3);
+            facSetting.Size = new Size(1070, 649);
+            facSetting.TabIndex = 0;
+            facSetting.Text = "공장설정";
+            facSetting.UseVisualStyleBackColor = true;
             // 
             // dgvfac
             // 
@@ -172,6 +172,7 @@
             dgvfac.Columns.AddRange(new DataGridViewColumn[] { fac_id, fac_code, fac_name, fac_const, fac_regdate, fac_modi, fac_moddate });
             dgvfac.Location = new Point(3, 36);
             dgvfac.Name = "dgvfac";
+            dgvfac.RowHeadersVisible = false;
             dgvfac.RowTemplate.Height = 25;
             dgvfac.Size = new Size(854, 610);
             dgvfac.TabIndex = 42;
@@ -432,21 +433,21 @@
             txtfac_Code.Size = new Size(100, 23);
             txtfac_Code.TabIndex = 2;
             // 
-            // equipsetting
+            // equipSetting
             // 
-            equipsetting.Controls.Add(dgvEquip);
-            equipsetting.Controls.Add(comboBox1);
-            equipsetting.Controls.Add(label7);
-            equipsetting.Controls.Add(pictureBox1);
-            equipsetting.Controls.Add(searchEquip);
-            equipsetting.Controls.Add(groupBox1);
-            equipsetting.Location = new Point(104, 4);
-            equipsetting.Name = "equipsetting";
-            equipsetting.Padding = new Padding(3);
-            equipsetting.Size = new Size(1070, 649);
-            equipsetting.TabIndex = 1;
-            equipsetting.Text = "설비설정";
-            equipsetting.UseVisualStyleBackColor = true;
+            equipSetting.Controls.Add(dgvEquip);
+            equipSetting.Controls.Add(cbbEquip_filter);
+            equipSetting.Controls.Add(label7);
+            equipSetting.Controls.Add(pictureBox1);
+            equipSetting.Controls.Add(searchEquip);
+            equipSetting.Controls.Add(groupBox1);
+            equipSetting.Location = new Point(104, 4);
+            equipSetting.Name = "equipSetting";
+            equipSetting.Padding = new Padding(3);
+            equipSetting.Size = new Size(1070, 649);
+            equipSetting.TabIndex = 1;
+            equipSetting.Text = "설비설정";
+            equipSetting.UseVisualStyleBackColor = true;
             // 
             // dgvEquip
             // 
@@ -454,78 +455,21 @@
             dgvEquip.Columns.AddRange(new DataGridViewColumn[] { equip_id, equip_code, equip_name, equip_comment, equip_const, equip_regdate, equip_modi, equip_moddate, equip_status, equip_event });
             dgvEquip.Location = new Point(3, 36);
             dgvEquip.Name = "dgvEquip";
+            dgvEquip.RowHeadersVisible = false;
             dgvEquip.RowTemplate.Height = 25;
             dgvEquip.Size = new Size(854, 610);
             dgvEquip.TabIndex = 48;
             dgvEquip.CellClick += dgvEquip_CellClick;
             // 
-            // equip_id
+            // cbbEquip_filter
             // 
-            equip_id.HeaderText = "ID";
-            equip_id.Name = "equip_id";
-            equip_id.Width = 50;
-            // 
-            // equip_code
-            // 
-            equip_code.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            equip_code.HeaderText = "설비코드";
-            equip_code.Name = "equip_code";
-            // 
-            // equip_name
-            // 
-            equip_name.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            equip_name.HeaderText = "설비명";
-            equip_name.Name = "equip_name";
-            // 
-            // equip_comment
-            // 
-            equip_comment.HeaderText = "설비설명";
-            equip_comment.Name = "equip_comment";
-            equip_comment.Width = 150;
-            // 
-            // equip_const
-            // 
-            equip_const.HeaderText = "생성자";
-            equip_const.Name = "equip_const";
-            equip_const.Width = 80;
-            // 
-            // equip_regdate
-            // 
-            equip_regdate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            equip_regdate.HeaderText = "생성일자";
-            equip_regdate.Name = "equip_regdate";
-            // 
-            // equip_modi
-            // 
-            equip_modi.HeaderText = "수정자";
-            equip_modi.Name = "equip_modi";
-            equip_modi.Width = 80;
-            // 
-            // equip_moddate
-            // 
-            equip_moddate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            equip_moddate.HeaderText = "수정일자";
-            equip_moddate.Name = "equip_moddate";
-            // 
-            // equip_status
-            // 
-            equip_status.HeaderText = "설비상태";
-            equip_status.Name = "equip_status";
-            // 
-            // equip_event
-            // 
-            equip_event.HeaderText = "설비이벤트";
-            equip_event.Name = "equip_event";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "공장코드", "공장명", "생성자", "수정자" });
-            comboBox1.Location = new Point(736, 7);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 47;
-            comboBox1.Text = "공장코드";
+            cbbEquip_filter.FormattingEnabled = true;
+            cbbEquip_filter.Items.AddRange(new object[] { "설비코드", "설비명", "설비상태", "설비이벤트", "생성자", "수정자" });
+            cbbEquip_filter.Location = new Point(736, 7);
+            cbbEquip_filter.Name = "cbbEquip_filter";
+            cbbEquip_filter.Size = new Size(121, 23);
+            cbbEquip_filter.TabIndex = 47;
+            cbbEquip_filter.Text = "설비코드";
             // 
             // label7
             // 
@@ -548,6 +492,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 45;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // searchEquip
             // 
@@ -555,6 +500,7 @@
             searchEquip.Name = "searchEquip";
             searchEquip.Size = new Size(643, 23);
             searchEquip.TabIndex = 44;
+            searchEquip.KeyPress += searchEquip_KeyPress;
             // 
             // groupBox1
             // 
@@ -592,7 +538,7 @@
             // cbbEquipEvent
             // 
             cbbEquipEvent.FormattingEnabled = true;
-            cbbEquipEvent.Items.AddRange(new object[] { "BreakeDown", "Maintanunce", "Emergency" });
+            cbbEquipEvent.Items.AddRange(new object[] { "NON", "BreakeDown", "Maintanunce", "Emergency" });
             cbbEquipEvent.Location = new Point(89, 178);
             cbbEquipEvent.Name = "cbbEquipEvent";
             cbbEquipEvent.Size = new Size(100, 23);
@@ -602,7 +548,7 @@
             // cbbEquipStatus
             // 
             cbbEquipStatus.FormattingEnabled = true;
-            cbbEquipStatus.Items.AddRange(new object[] { "Stop", "Process" });
+            cbbEquipStatus.Items.AddRange(new object[] { "Ready", "Stop", "Process" });
             cbbEquipStatus.Location = new Point(89, 149);
             cbbEquipStatus.Name = "cbbEquipStatus";
             cbbEquipStatus.Size = new Size(100, 23);
@@ -788,15 +734,73 @@
             txtEquip_Code.Size = new Size(100, 23);
             txtEquip_Code.TabIndex = 2;
             // 
-            // tabPage1
+            // equipHistory
             // 
-            tabPage1.Location = new Point(104, 4);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1070, 649);
-            tabPage1.TabIndex = 2;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
+            equipHistory.Location = new Point(104, 4);
+            equipHistory.Name = "equipHistory";
+            equipHistory.Padding = new Padding(3);
+            equipHistory.Size = new Size(1070, 649);
+            equipHistory.TabIndex = 2;
+            equipHistory.Text = "회이력조";
+            equipHistory.UseVisualStyleBackColor = true;
+            // 
+            // equip_id
+            // 
+            equip_id.HeaderText = "ID";
+            equip_id.Name = "equip_id";
+            equip_id.Width = 50;
+            // 
+            // equip_code
+            // 
+            equip_code.HeaderText = "설비코드";
+            equip_code.Name = "equip_code";
+            equip_code.Width = 80;
+            // 
+            // equip_name
+            // 
+            equip_name.HeaderText = "설비명";
+            equip_name.Name = "equip_name";
+            equip_name.Width = 80;
+            // 
+            // equip_comment
+            // 
+            equip_comment.HeaderText = "설비설명";
+            equip_comment.Name = "equip_comment";
+            equip_comment.Width = 150;
+            // 
+            // equip_const
+            // 
+            equip_const.HeaderText = "생성자";
+            equip_const.Name = "equip_const";
+            equip_const.Width = 80;
+            // 
+            // equip_regdate
+            // 
+            equip_regdate.HeaderText = "생성일자";
+            equip_regdate.Name = "equip_regdate";
+            equip_regdate.Width = 120;
+            // 
+            // equip_modi
+            // 
+            equip_modi.HeaderText = "수정자";
+            equip_modi.Name = "equip_modi";
+            equip_modi.Width = 80;
+            // 
+            // equip_moddate
+            // 
+            equip_moddate.HeaderText = "수정일자";
+            equip_moddate.Name = "equip_moddate";
+            equip_moddate.Width = 120;
+            // 
+            // equip_status
+            // 
+            equip_status.HeaderText = "설비상태";
+            equip_status.Name = "equip_status";
+            // 
+            // equip_event
+            // 
+            equip_event.HeaderText = "설비이벤트";
+            equip_event.Name = "equip_event";
             // 
             // ProcessForm
             // 
@@ -812,14 +816,14 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tabProcess.ResumeLayout(false);
-            facsetting.ResumeLayout(false);
-            facsetting.PerformLayout();
+            facSetting.ResumeLayout(false);
+            facSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvfac).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             g_fac_setting.ResumeLayout(false);
             g_fac_setting.PerformLayout();
-            equipsetting.ResumeLayout(false);
-            equipsetting.PerformLayout();
+            equipSetting.ResumeLayout(false);
+            equipSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEquip).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
@@ -833,8 +837,8 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem LogOut;
         private TabControl tabProcess;
-        private TabPage facsetting;
-        private TabPage equipsetting;
+        private TabPage facSetting;
+        private TabPage equipSetting;
         private GroupBox g_fac_setting;
         private DataGridView dgvfac;
         private ComboBox cbbFilter;
@@ -865,7 +869,7 @@
         private Button btnUFactory;
         private Button btnDFactory;
         private Label lbfacId;
-        private ComboBox comboBox1;
+        private ComboBox cbbEquip_filter;
         private Label label7;
         private PictureBox pictureBox1;
         private TextBox searchEquip;
@@ -894,6 +898,7 @@
         private Label label8;
         private ComboBox cbbEquipStatus;
         private ComboBox cbbEquipEvent;
+        private TabPage equipHistory;
         private DataGridViewTextBoxColumn equip_id;
         private DataGridViewTextBoxColumn equip_code;
         private DataGridViewTextBoxColumn equip_name;
@@ -904,6 +909,5 @@
         private DataGridViewTextBoxColumn equip_moddate;
         private DataGridViewTextBoxColumn equip_status;
         private DataGridViewTextBoxColumn equip_event;
-        private TabPage tabPage1;
     }
 }
