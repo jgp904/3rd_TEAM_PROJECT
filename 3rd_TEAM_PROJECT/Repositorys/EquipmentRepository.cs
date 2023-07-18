@@ -11,34 +11,41 @@ using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Repositorys
 {
-	public class EquipmentRepository : IEquipmentRepository
-	{
-		private readonly AcountDbContext acountdb;
-		private readonly MProcessDbcontext mprocessdb;
+    public class EquipmentRepository : IEquipmentRepository
+    {
+        private readonly AcountDbContext acountdb;
+        private readonly MProcessDbcontext mprocessdb;
 
-		private readonly IEquipmentRepository equipmentRepository;
+        private readonly IEquipmentRepository equipmentRepository;
 
-		public EquipmentRepository()
-		{
-			acountdb = Program.acountdb;
-			mprocessdb = Program.mprocessdb;
-		}
+        public EquipmentRepository()
+        {
+            acountdb = Program.acountdb;
+            mprocessdb = Program.mprocessdb;
+        }
 
-		public async Task<Equipment> AddAsync(Equipment equip)
-		{
-			await mprocessdb.Equipments.AddAsync(equip);
-			await mprocessdb.SaveChangesAsync();
-			return equip;
-		}
-        public async Task<Equipment> AddEquipHisAsync(Equipment equip)
+        public async Task<Equipment> AddAsync(Equipment equip)
         {
             await mprocessdb.Equipments.AddAsync(equip);
+            await mprocessdb.SaveChangesAsync();
+            var equipHis = new EquipHis
+            {
+                Code = equip.Code,
+                Name = equip.Name,
+                Comment = equip.Comment,
+                Status = equip.Status,
+                Event = equip.Event,
+                Constructor = equip.Constructor,
+                RegDate = equip.RegDate,
+            };
+            await mprocessdb.EquipHis.AddAsync(equipHis);
             await mprocessdb.SaveChangesAsync();
             return equip;
         }
 
+
         public async Task<Equipment?> DeleteAsync(int equip)
-		{
+        {
             var existingEquip = await mprocessdb.Equipments.FindAsync(equip);
             if (existingEquip == null) return null;
 
@@ -47,22 +54,27 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             return existingEquip;
         }
 
-		public async Task<IEnumerable<Equipment>> GetAllAsync()
-		{
-			var equip = await mprocessdb.Equipments.ToListAsync();
-			return equip.OrderBy(x=>x.Id).ToList();
-		}
+        public async Task<IEnumerable<Equipment>> GetAllAsync()
+        {
+            var equip = await mprocessdb.Equipments.ToListAsync();
+            return equip.OrderBy(x => x.Id).ToList();
+        }
+        public async Task<IEnumerable<EquipHis>> GetAllHisAsync()//이력조회
+        {
+            var equipHis = await mprocessdb.EquipHis.ToListAsync();
+            return equipHis.OrderBy(x => x.Id).ToList();
+        }
 
-		public async Task<Equipment?> UpdateAsync(Equipment equip)
-		{
+        public async Task<Equipment?> UpdateAsync(Equipment equip)
+        {
             var existingEquip = await mprocessdb.Equipments.FindAsync(equip.Id);
             if (existingEquip == null) return null;
 
             existingEquip.Code = equip.Code;
             existingEquip.Name = equip.Name;
-			existingEquip.Comment= equip.Comment;
-			existingEquip.Status= equip.Status;
-			existingEquip.Event= equip.Event;
+            existingEquip.Comment = equip.Comment;
+            existingEquip.Status = equip.Status;
+            existingEquip.Event = equip.Event;
 
             existingEquip.Modifier = equip.Modifier;
             existingEquip.ModDate = equip.ModDate;
@@ -74,7 +86,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         public async Task<IEnumerable<Equipment>> CodeAsync(string search)
         {
             return await mprocessdb.Equipments
-                .Where(x=>(x.Code != null && x.Code.Contains(search)))
+                .Where(x => (x.Code != null && x.Code.Contains(search)))
                 .OrderBy(x => x.Id)
                 .ToListAsync();
         }
@@ -119,6 +131,6 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 .ToListAsync();
         }
 
-        
+
     }
 }

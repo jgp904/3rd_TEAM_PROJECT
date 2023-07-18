@@ -85,6 +85,23 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "T1_EquipHis",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T1_EquipHis", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_T1_EquipHis_T1_Equipment_Id",
+                        column: x => x.Id,
+                        principalTable: "T1_Equipment",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "T1_MProcess",
                 columns: table => new
                 {
@@ -307,6 +324,9 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "T1_EquipHis");
+
             migrationBuilder.DropTable(
                 name: "T1_InBound");
 
