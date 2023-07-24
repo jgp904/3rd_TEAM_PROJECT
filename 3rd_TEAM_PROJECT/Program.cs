@@ -15,6 +15,7 @@ namespace _3rd_TEAM_PROJECT_Desk
         public static IOutboundRepository outboundRepository;
         public static IEquipmentRepository equipmentRepository;
         public static IProcessRepository processRepository;
+        public static IItemRepository itemRepository;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -29,6 +30,7 @@ namespace _3rd_TEAM_PROJECT_Desk
 			factoryRepository = new FactoryRepository();//공장
             equipmentRepository = new EquipmentRepository();//설비
             processRepository = new ProcessRepository();//공정
+            itemRepository = new ItemRepository(); //품번
 
 
 			// 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달

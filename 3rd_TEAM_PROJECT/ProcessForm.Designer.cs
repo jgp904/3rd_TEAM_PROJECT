@@ -181,45 +181,43 @@
             txtProcess_Name = new TextBox();
             label39 = new Label();
             txtProcess_Code = new TextBox();
-            tabPage1 = new TabPage();
-            dataGridView1 = new DataGridView();
-            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn16 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn17 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn18 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn19 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn20 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn21 = new DataGridViewTextBoxColumn();
-            comboBox5 = new ComboBox();
+            itemSetting = new TabPage();
+            dgvItem = new DataGridView();
+            item_id = new DataGridViewTextBoxColumn();
+            item_code = new DataGridViewTextBoxColumn();
+            item_name = new DataGridViewTextBoxColumn();
+            item_comment = new DataGridViewTextBoxColumn();
+            item_type = new DataGridViewTextBoxColumn();
+            item_const = new DataGridViewTextBoxColumn();
+            item_regdate = new DataGridViewTextBoxColumn();
+            item_modi = new DataGridViewTextBoxColumn();
+            item_moddate = new DataGridViewTextBoxColumn();
+            cbbItem = new ComboBox();
             label40 = new Label();
             pictureBox5 = new PictureBox();
-            textBox1 = new TextBox();
+            searchItem = new TextBox();
             groupBox4 = new GroupBox();
             label41 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            comboBox7 = new ComboBox();
+            txtItem_Const = new TextBox();
+            txtItem_Comment = new TextBox();
+            cbbItem_Type = new ComboBox();
             label42 = new Label();
             label44 = new Label();
-            label45 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            lbItem_Id = new Label();
+            btnItem_C = new Button();
+            btnItem_U = new Button();
             label46 = new Label();
-            button3 = new Button();
+            btnItem_D = new Button();
             label47 = new Label();
-            textBox5 = new TextBox();
+            txtItem_Moddate = new TextBox();
             label48 = new Label();
-            textBox6 = new TextBox();
+            txtItem_Modi = new TextBox();
             label49 = new Label();
-            textBox7 = new TextBox();
+            txtItem_Regdate = new TextBox();
             label51 = new Label();
-            textBox8 = new TextBox();
+            txtItem_Name = new TextBox();
             label52 = new Label();
-            textBox9 = new TextBox();
+            txtItem_Code = new TextBox();
             menuStrip1.SuspendLayout();
             tabProcess.SuspendLayout();
             facSetting.SuspendLayout();
@@ -239,8 +237,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)search_Equip).BeginInit();
-            tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            itemSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvItem).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             groupBox4.SuspendLayout();
             SuspendLayout();
@@ -268,7 +266,7 @@
             tabProcess.Controls.Add(equipSetting);
             tabProcess.Controls.Add(equipHistory);
             tabProcess.Controls.Add(processSetting);
-            tabProcess.Controls.Add(tabPage1);
+            tabProcess.Controls.Add(itemSetting);
             tabProcess.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabProcess.ItemSize = new Size(25, 100);
             tabProcess.Location = new Point(0, 24);
@@ -1615,105 +1613,97 @@
             txtProcess_Code.Size = new Size(100, 23);
             txtProcess_Code.TabIndex = 2;
             // 
-            // tabPage1
+            // itemSetting
             // 
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Controls.Add(comboBox5);
-            tabPage1.Controls.Add(label40);
-            tabPage1.Controls.Add(pictureBox5);
-            tabPage1.Controls.Add(textBox1);
-            tabPage1.Controls.Add(groupBox4);
-            tabPage1.Location = new Point(104, 4);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1070, 649);
-            tabPage1.TabIndex = 4;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
+            itemSetting.Controls.Add(dgvItem);
+            itemSetting.Controls.Add(cbbItem);
+            itemSetting.Controls.Add(label40);
+            itemSetting.Controls.Add(pictureBox5);
+            itemSetting.Controls.Add(searchItem);
+            itemSetting.Controls.Add(groupBox4);
+            itemSetting.Location = new Point(104, 4);
+            itemSetting.Name = "itemSetting";
+            itemSetting.Padding = new Padding(3);
+            itemSetting.Size = new Size(1070, 649);
+            itemSetting.TabIndex = 4;
+            itemSetting.Text = "품번설정";
+            itemSetting.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvItem
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21 });
-            dataGridView1.Location = new Point(3, 36);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(854, 610);
-            dataGridView1.TabIndex = 60;
+            dgvItem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvItem.Columns.AddRange(new DataGridViewColumn[] { item_id, item_code, item_name, item_comment, item_type, item_const, item_regdate, item_modi, item_moddate });
+            dgvItem.Location = new Point(3, 36);
+            dgvItem.Name = "dgvItem";
+            dgvItem.RowHeadersVisible = false;
+            dgvItem.RowTemplate.Height = 25;
+            dgvItem.Size = new Size(854, 610);
+            dgvItem.TabIndex = 60;
+            dgvItem.CellClick += dgvItem_CellClick;
             // 
-            // dataGridViewTextBoxColumn11
+            // item_id
             // 
-            dataGridViewTextBoxColumn11.HeaderText = "ID";
-            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            dataGridViewTextBoxColumn11.Width = 50;
+            item_id.HeaderText = "ID";
+            item_id.Name = "item_id";
+            item_id.Width = 50;
             // 
-            // dataGridViewTextBoxColumn12
+            // item_code
             // 
-            dataGridViewTextBoxColumn12.HeaderText = "공정코드";
-            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            dataGridViewTextBoxColumn12.Width = 80;
+            item_code.HeaderText = "품번";
+            item_code.Name = "item_code";
+            item_code.Width = 80;
             // 
-            // dataGridViewTextBoxColumn13
+            // item_name
             // 
-            dataGridViewTextBoxColumn13.HeaderText = "공정명";
-            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            dataGridViewTextBoxColumn13.Width = 80;
+            item_name.HeaderText = "품명";
+            item_name.Name = "item_name";
+            item_name.Width = 80;
             // 
-            // dataGridViewTextBoxColumn14
+            // item_comment
             // 
-            dataGridViewTextBoxColumn14.HeaderText = "공정설명";
-            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            dataGridViewTextBoxColumn14.Width = 150;
+            item_comment.HeaderText = "설명";
+            item_comment.Name = "item_comment";
+            item_comment.Width = 150;
             // 
-            // dataGridViewTextBoxColumn15
+            // item_type
             // 
-            dataGridViewTextBoxColumn15.HeaderText = "설비코드";
-            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            item_type.FillWeight = 80F;
+            item_type.HeaderText = "TYPE";
+            item_type.Name = "item_type";
             // 
-            // dataGridViewTextBoxColumn16
+            // item_const
             // 
-            dataGridViewTextBoxColumn16.HeaderText = "단위수량1";
-            dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            item_const.HeaderText = "생성자";
+            item_const.Name = "item_const";
+            item_const.Width = 80;
             // 
-            // dataGridViewTextBoxColumn17
+            // item_regdate
             // 
-            dataGridViewTextBoxColumn17.HeaderText = "단위수량2";
-            dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            item_regdate.HeaderText = "생성일자";
+            item_regdate.Name = "item_regdate";
+            item_regdate.Width = 120;
             // 
-            // dataGridViewTextBoxColumn18
+            // item_modi
             // 
-            dataGridViewTextBoxColumn18.HeaderText = "생성자";
-            dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            dataGridViewTextBoxColumn18.Width = 80;
+            item_modi.HeaderText = "수정자";
+            item_modi.Name = "item_modi";
+            item_modi.Width = 80;
             // 
-            // dataGridViewTextBoxColumn19
+            // item_moddate
             // 
-            dataGridViewTextBoxColumn19.HeaderText = "생성일자";
-            dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            dataGridViewTextBoxColumn19.Width = 120;
+            item_moddate.HeaderText = "수정일자";
+            item_moddate.Name = "item_moddate";
+            item_moddate.Width = 120;
             // 
-            // dataGridViewTextBoxColumn20
+            // cbbItem
             // 
-            dataGridViewTextBoxColumn20.HeaderText = "수정자";
-            dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            dataGridViewTextBoxColumn20.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            dataGridViewTextBoxColumn21.HeaderText = "수정일자";
-            dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            dataGridViewTextBoxColumn21.Width = 120;
-            // 
-            // comboBox5
-            // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "공정코드", "공정명", "설비코드", "생성자", "수정자" });
-            comboBox5.Location = new Point(736, 7);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(121, 23);
-            comboBox5.TabIndex = 59;
-            comboBox5.Text = "공정코드";
+            cbbItem.FormattingEnabled = true;
+            cbbItem.Items.AddRange(new object[] { "품번", "품명", "TYPE", "생성자", "수정자" });
+            cbbItem.Location = new Point(736, 7);
+            cbbItem.Name = "cbbItem";
+            cbbItem.Size = new Size(121, 23);
+            cbbItem.TabIndex = 59;
+            cbbItem.Text = "품번";
             // 
             // label40
             // 
@@ -1736,37 +1726,39 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 57;
             pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
             // 
-            // textBox1
+            // searchItem
             // 
-            textBox1.Location = new Point(60, 6);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(643, 23);
-            textBox1.TabIndex = 56;
+            searchItem.Location = new Point(60, 6);
+            searchItem.Name = "searchItem";
+            searchItem.Size = new Size(643, 23);
+            searchItem.TabIndex = 56;
+            searchItem.KeyPress += searchItem_KeyPress;
             // 
             // groupBox4
             // 
             groupBox4.Controls.Add(label41);
-            groupBox4.Controls.Add(textBox2);
-            groupBox4.Controls.Add(textBox3);
-            groupBox4.Controls.Add(comboBox7);
+            groupBox4.Controls.Add(txtItem_Const);
+            groupBox4.Controls.Add(txtItem_Comment);
+            groupBox4.Controls.Add(cbbItem_Type);
             groupBox4.Controls.Add(label42);
             groupBox4.Controls.Add(label44);
-            groupBox4.Controls.Add(label45);
-            groupBox4.Controls.Add(button1);
-            groupBox4.Controls.Add(button2);
+            groupBox4.Controls.Add(lbItem_Id);
+            groupBox4.Controls.Add(btnItem_C);
+            groupBox4.Controls.Add(btnItem_U);
             groupBox4.Controls.Add(label46);
-            groupBox4.Controls.Add(button3);
+            groupBox4.Controls.Add(btnItem_D);
             groupBox4.Controls.Add(label47);
-            groupBox4.Controls.Add(textBox5);
+            groupBox4.Controls.Add(txtItem_Moddate);
             groupBox4.Controls.Add(label48);
-            groupBox4.Controls.Add(textBox6);
+            groupBox4.Controls.Add(txtItem_Modi);
             groupBox4.Controls.Add(label49);
-            groupBox4.Controls.Add(textBox7);
+            groupBox4.Controls.Add(txtItem_Regdate);
             groupBox4.Controls.Add(label51);
-            groupBox4.Controls.Add(textBox8);
+            groupBox4.Controls.Add(txtItem_Name);
             groupBox4.Controls.Add(label52);
-            groupBox4.Controls.Add(textBox9);
+            groupBox4.Controls.Add(txtItem_Code);
             groupBox4.Dock = DockStyle.Right;
             groupBox4.Location = new Point(867, 3);
             groupBox4.Name = "groupBox4";
@@ -1784,38 +1776,38 @@
             label41.TabIndex = 59;
             label41.Text = "생성자 :";
             // 
-            // textBox2
+            // txtItem_Const
             // 
-            textBox2.Location = new Point(89, 178);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 58;
+            txtItem_Const.Location = new Point(89, 178);
+            txtItem_Const.Name = "txtItem_Const";
+            txtItem_Const.Size = new Size(100, 23);
+            txtItem_Const.TabIndex = 58;
             // 
-            // textBox3
+            // txtItem_Comment
             // 
-            textBox3.Location = new Point(89, 120);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 56;
+            txtItem_Comment.Location = new Point(89, 120);
+            txtItem_Comment.Name = "txtItem_Comment";
+            txtItem_Comment.Size = new Size(100, 23);
+            txtItem_Comment.TabIndex = 56;
             // 
-            // comboBox7
+            // cbbItem_Type
             // 
-            comboBox7.FormattingEnabled = true;
-            comboBox7.Items.AddRange(new object[] { "EA", "Kg", "M", "L" });
-            comboBox7.Location = new Point(89, 149);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new Size(100, 23);
-            comboBox7.TabIndex = 49;
-            comboBox7.Text = "EA";
+            cbbItem_Type.FormattingEnabled = true;
+            cbbItem_Type.Items.AddRange(new object[] { "FERT", "HALB", "ROH", "PART" });
+            cbbItem_Type.Location = new Point(89, 149);
+            cbbItem_Type.Name = "cbbItem_Type";
+            cbbItem_Type.Size = new Size(100, 23);
+            cbbItem_Type.TabIndex = 49;
+            cbbItem_Type.Text = "품번타입";
             // 
             // label42
             // 
             label42.AutoSize = true;
             label42.Location = new Point(7, 152);
             label42.Name = "label42";
-            label42.Size = new Size(69, 15);
+            label42.Size = new Size(40, 15);
             label42.TabIndex = 52;
-            label42.Text = "단위수량1 :";
+            label42.Text = "TYPE :";
             // 
             // label44
             // 
@@ -1826,32 +1818,34 @@
             label44.TabIndex = 48;
             label44.Text = "품번설명 :";
             // 
-            // label45
+            // lbItem_Id
             // 
-            label45.AutoSize = true;
-            label45.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label45.Location = new Point(48, 33);
-            label45.Name = "label45";
-            label45.Size = new Size(0, 21);
-            label45.TabIndex = 46;
+            lbItem_Id.AutoSize = true;
+            lbItem_Id.Font = new Font("맑은 고딕", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbItem_Id.Location = new Point(48, 33);
+            lbItem_Id.Name = "lbItem_Id";
+            lbItem_Id.Size = new Size(0, 21);
+            lbItem_Id.TabIndex = 46;
             // 
-            // button1
+            // btnItem_C
             // 
-            button1.Location = new Point(2, 556);
-            button1.Name = "button1";
-            button1.Size = new Size(198, 23);
-            button1.TabIndex = 45;
-            button1.Text = "생성";
-            button1.UseVisualStyleBackColor = true;
+            btnItem_C.Location = new Point(2, 556);
+            btnItem_C.Name = "btnItem_C";
+            btnItem_C.Size = new Size(198, 23);
+            btnItem_C.TabIndex = 45;
+            btnItem_C.Text = "생성";
+            btnItem_C.UseVisualStyleBackColor = true;
+            btnItem_C.Click += btnItem_C_Click;
             // 
-            // button2
+            // btnItem_U
             // 
-            button2.Location = new Point(2, 585);
-            button2.Name = "button2";
-            button2.Size = new Size(198, 23);
-            button2.TabIndex = 44;
-            button2.Text = "수정";
-            button2.UseVisualStyleBackColor = true;
+            btnItem_U.Location = new Point(2, 585);
+            btnItem_U.Name = "btnItem_U";
+            btnItem_U.Size = new Size(198, 23);
+            btnItem_U.TabIndex = 44;
+            btnItem_U.Text = "수정";
+            btnItem_U.UseVisualStyleBackColor = true;
+            btnItem_U.Click += btnItem_U_Click;
             // 
             // label46
             // 
@@ -1863,14 +1857,15 @@
             label46.TabIndex = 14;
             label46.Text = "ID :";
             // 
-            // button3
+            // btnItem_D
             // 
-            button3.Location = new Point(2, 614);
-            button3.Name = "button3";
-            button3.Size = new Size(198, 23);
-            button3.TabIndex = 43;
-            button3.Text = "삭제";
-            button3.UseVisualStyleBackColor = true;
+            btnItem_D.Location = new Point(2, 614);
+            btnItem_D.Name = "btnItem_D";
+            btnItem_D.Size = new Size(198, 23);
+            btnItem_D.TabIndex = 43;
+            btnItem_D.Text = "삭제";
+            btnItem_D.UseVisualStyleBackColor = true;
+            btnItem_D.Click += btnItem_D_Click;
             // 
             // label47
             // 
@@ -1881,12 +1876,12 @@
             label47.TabIndex = 13;
             label47.Text = "수정일자 :";
             // 
-            // textBox5
+            // txtItem_Moddate
             // 
-            textBox5.Location = new Point(89, 265);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 12;
+            txtItem_Moddate.Location = new Point(89, 265);
+            txtItem_Moddate.Name = "txtItem_Moddate";
+            txtItem_Moddate.Size = new Size(100, 23);
+            txtItem_Moddate.TabIndex = 12;
             // 
             // label48
             // 
@@ -1897,12 +1892,12 @@
             label48.TabIndex = 11;
             label48.Text = "수정자 :";
             // 
-            // textBox6
+            // txtItem_Modi
             // 
-            textBox6.Location = new Point(89, 236);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 10;
+            txtItem_Modi.Location = new Point(89, 236);
+            txtItem_Modi.Name = "txtItem_Modi";
+            txtItem_Modi.Size = new Size(100, 23);
+            txtItem_Modi.TabIndex = 10;
             // 
             // label49
             // 
@@ -1913,12 +1908,12 @@
             label49.TabIndex = 9;
             label49.Text = "생성일자 :";
             // 
-            // textBox7
+            // txtItem_Regdate
             // 
-            textBox7.Location = new Point(89, 207);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 8;
+            txtItem_Regdate.Location = new Point(89, 207);
+            txtItem_Regdate.Name = "txtItem_Regdate";
+            txtItem_Regdate.Size = new Size(100, 23);
+            txtItem_Regdate.TabIndex = 8;
             // 
             // label51
             // 
@@ -1929,28 +1924,28 @@
             label51.TabIndex = 5;
             label51.Text = "품명 :";
             // 
-            // textBox8
+            // txtItem_Name
             // 
-            textBox8.Location = new Point(89, 91);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
-            textBox8.TabIndex = 4;
+            txtItem_Name.Location = new Point(89, 91);
+            txtItem_Name.Name = "txtItem_Name";
+            txtItem_Name.Size = new Size(100, 23);
+            txtItem_Name.TabIndex = 4;
             // 
             // label52
             // 
             label52.AutoSize = true;
             label52.Location = new Point(7, 65);
             label52.Name = "label52";
-            label52.Size = new Size(62, 15);
+            label52.Size = new Size(38, 15);
             label52.TabIndex = 3;
-            label52.Text = "품번코드 :";
+            label52.Text = "품번 :";
             // 
-            // textBox9
+            // txtItem_Code
             // 
-            textBox9.Location = new Point(89, 62);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(100, 23);
-            textBox9.TabIndex = 2;
+            txtItem_Code.Location = new Point(89, 62);
+            txtItem_Code.Name = "txtItem_Code";
+            txtItem_Code.Size = new Size(100, 23);
+            txtItem_Code.TabIndex = 2;
             // 
             // ProcessForm
             // 
@@ -1991,9 +1986,9 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)search_Equip).EndInit();
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            itemSetting.ResumeLayout(false);
+            itemSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvItem).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
@@ -2168,44 +2163,42 @@
         private DataGridViewTextBoxColumn process_regdate;
         private DataGridViewTextBoxColumn process_modi;
         private DataGridViewTextBoxColumn process_moddate;
-        private TabPage tabPage1;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private ComboBox comboBox5;
+        private TabPage itemSetting;
+        private DataGridView dgvItem;
+        private ComboBox cbbItem;
         private Label label40;
         private PictureBox pictureBox5;
-        private TextBox textBox1;
+        private TextBox searchItem;
         private GroupBox groupBox4;
         private Label label41;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private ComboBox comboBox7;
+        private TextBox txtItem_Const;
+        private TextBox txtItem_Comment;
+        private ComboBox cbbItem_Type;
         private Label label42;
         private Label label44;
-        private Label label45;
-        private Button button1;
-        private Button button2;
+        private Label lbItem_Id;
+        private Button btnItem_C;
+        private Button btnItem_U;
         private Label label46;
-        private Button button3;
+        private Button btnItem_D;
         private Label label47;
-        private TextBox textBox5;
+        private TextBox txtItem_Moddate;
         private Label label48;
-        private TextBox textBox6;
+        private TextBox txtItem_Modi;
         private Label label49;
-        private TextBox textBox7;
+        private TextBox txtItem_Regdate;
         private Label label51;
-        private TextBox textBox8;
+        private TextBox txtItem_Name;
         private Label label52;
-        private TextBox textBox9;
+        private TextBox txtItem_Code;
+        private DataGridViewTextBoxColumn item_id;
+        private DataGridViewTextBoxColumn item_code;
+        private DataGridViewTextBoxColumn item_name;
+        private DataGridViewTextBoxColumn item_comment;
+        private DataGridViewTextBoxColumn item_type;
+        private DataGridViewTextBoxColumn item_const;
+        private DataGridViewTextBoxColumn item_regdate;
+        private DataGridViewTextBoxColumn item_modi;
+        private DataGridViewTextBoxColumn item_moddate;
     }
 }

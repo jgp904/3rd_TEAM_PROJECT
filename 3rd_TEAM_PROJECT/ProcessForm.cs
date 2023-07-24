@@ -21,6 +21,7 @@ namespace _3rd_TEAM_PROJECT
         private IFactoryRepository factoryRepository;
         private IEquipmentRepository equipmentRepository;
         private IProcessRepository processRepository;
+        private IItemRepository itemRepository;
 
 
         public string SEquip { get; set; }
@@ -33,6 +34,7 @@ namespace _3rd_TEAM_PROJECT
             factoryRepository = Program.factoryRepository;
             equipmentRepository = Program.equipmentRepository;
             processRepository = Program.processRepository;
+            itemRepository = Program.itemRepository;
         }
         private void ProcessForm_Load(object sender, EventArgs e)
         {
@@ -94,6 +96,9 @@ namespace _3rd_TEAM_PROJECT
                     break;
                 case 3:
                     LoadProcess();//공정 설정
+                    break;
+                case 4:
+                    LoadItem();//품번 설정
                     break;
 
             }
@@ -769,10 +774,10 @@ namespace _3rd_TEAM_PROJECT
 
                     txtProcess_Const.Text = selectedRow.Cells["process_const"].Value.ToString();
                     txtProcess_Regdate.Text = selectedRow.Cells["process_regdate"].Value.ToString();
-                    if (selectedRow.Cells["process_modi"].Value != null) txtEquip_Modi.Text = selectedRow.Cells["process_modi"].Value.ToString();
-                    else txtEquip_Modi.Text = "";
-                    if (selectedRow.Cells["process_moddate"].Value != null) txtEquip_Moddate.Text = selectedRow.Cells["process_moddate"].Value.ToString();
-                    else txtEquip_Moddate.Text = "";
+                    if (selectedRow.Cells["process_modi"].Value != null) txtProcess_Modi.Text = selectedRow.Cells["process_modi"].Value.ToString();
+                    else txtProcess_Modi.Text = "";
+                    if (selectedRow.Cells["process_moddate"].Value != null) txtProcess_Moddate.Text = selectedRow.Cells["process_moddate"].Value.ToString();
+                    else txtProcess_Moddate.Text = "";
                 }
             }
         }
@@ -913,12 +918,246 @@ namespace _3rd_TEAM_PROJECT
             }
         }
         #endregion
+        #region 품번 설정
+        public async void LoadItem()//품번 목록
+        {
+            txtItem_Const.Text = userName;
+            var items = await itemRepository.GetAllAsync();
 
+            dgvItem.Rows.Clear();
+            dgvItem.Refresh();
 
+            int i = 0;
+            foreach (var item in items)
+            {
+                dgvItem.Rows.Add();
+                dgvItem.Rows[i].Cells["item_id"].Value = item.Id;
+                dgvItem.Rows[i].Cells["item_code"].Value = item.Code;
+                dgvItem.Rows[i].Cells["item_name"].Value = item.Name;
+                dgvItem.Rows[i].Cells["item_comment"].Value = item.Comment;
+                dgvItem.Rows[i].Cells["item_type"].Value = item.Type;
 
+                dgvItem.Rows[i].Cells["item_const"].Value = item.Constructor;
+                dgvItem.Rows[i].Cells["item_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvItem.Rows[i].Cells["item_modi"].Value = item.Modifier;
+                dgvItem.Rows[i].Cells["item_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                i++;
+            }
+        }
+        private void dgvItem_CellClick(object sender, DataGridViewCellEventArgs e)//품번 상세
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridView dgv = (DataGridView)sender;
+                DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
 
+                if (selectedRow.Cells.Count > 1)
+                {
+                    lbItem_Id.Text = selectedRow.Cells["item_id"].Value.ToString();
+                    txtItem_Code.Text = selectedRow.Cells["item_code"].Value.ToString();
+                    txtItem_Name.Text = selectedRow.Cells["item_name"].Value.ToString();
+                    txtItem_Comment.Text = selectedRow.Cells["item_comment"].Value.ToString();
 
+                    cbbItem_Type.Text = selectedRow.Cells["item_type"].Value.ToString();
 
+                    txtItem_Const.Text = selectedRow.Cells["item_const"].Value.ToString();
+                    txtItem_Regdate.Text = selectedRow.Cells["item_regdate"].Value.ToString();
+                    if (selectedRow.Cells["item_modi"].Value != null) txtItem_Modi.Text = selectedRow.Cells["item_modi"].Value.ToString();
+                    else txtItem_Modi.Text = "";
+                    if (selectedRow.Cells["item_moddate"].Value != null) txtItem_Moddate.Text = selectedRow.Cells["item_moddate"].Value.ToString();
+                    else txtItem_Moddate.Text = "";
+                }
+            }
+        }
+        private async void btnItem_C_Click(object sender, EventArgs e)//품번 생성
+        {
+            Item? items;
+            var item = await itemRepository.GetAllAsync();
+            string code = txtItem_Code.Text.Trim();
+            string name = txtItem_Name.Text.Trim();
+            string type = cbbItem_Type.Text.Trim();
+
+            foreach (var item1 in item)
+            {
+                if (item1.Code == code)
+                {
+                    MessageBox.Show("이미존재한 공정입니다.");
+                    return;
+                }
+
+            }
+            if (code.Length == 0)
+            {
+                MessageBox.Show("품번을 입력하세요.");
+                return;
+            }
+            else if (name.Length == 0)
+            {
+                MessageBox.Show("품명을 입력하세요.");
+                return;
+            }
+            else if (type == "품번타입")
+            {
+                MessageBox.Show("타입을 선택하세요.");
+                return;
+            }
+            else
+            {
+                items = new()
+                {
+                    Code = code,
+                    Name = name,
+                    Comment = txtProcess_Comment.Text.Trim(),
+
+                    Type = type,
+
+                    Constructor = userName,
+                    RegDate = DateTime.Now,
+                };
+                items = await itemRepository.AddAsync(items);
+                MessageBox.Show("수정완료");
+
+                LoadItem();
+                return;
+            }
+        }
+
+        private async void btnItem_U_Click(object sender, EventArgs e)//품번 수정
+        {
+            Item? items;
+
+            string code = txtItem_Code.Text.Trim();
+            string name = txtItem_Name.Text.Trim();
+            string type = cbbItem_Type.Text.Trim();
+            if (code.Length == 0)
+            {
+                MessageBox.Show("품번을 입력하세요.");
+                return;
+            }
+            else if (name.Length == 0)
+            {
+                MessageBox.Show("품명을 입력하세요.");
+                return;
+            }
+            else if (type == "품번타입")
+            {
+                MessageBox.Show("타입을 선택하세요.");
+                return;
+            }
+            else
+            {
+                items = new()
+                {
+                    Id = int.Parse(lbItem_Id.Text.Trim()),
+                    Code = code,
+                    Name = name,
+                    Comment = txtItem_Comment.Text.Trim(),
+
+                    Type = type,
+
+                    Modifier = userName,
+                    ModDate = DateTime.Now,
+                };
+                items = await itemRepository.UpdateAsync(items);
+                MessageBox.Show("수정완료");
+                LoadItem();
+                return;
+            }
+
+        }
+
+        private async void btnItem_D_Click(object sender, EventArgs e)//품번 삭제
+        {
+            if (dgvItem.SelectedCells.Count > 0)
+            {
+                int rowIndex = dgvItem.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = dgvItem.Rows[rowIndex];
+                int id = (int)selectedRow.Cells["item_id"].Value;
+
+                if (id == null) return;
+
+                DialogResult result = MessageBox.Show($"선택된 품번({selectedRow.Cells["item_code"].Value})을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    await itemRepository.DeleteAsync(id);
+
+                    LoadItem();
+                }
+                else return;
+            }
+
+        }
+        private async void searchItem_KeyPress(object sender, KeyPressEventArgs e)//품번 검색 textbox
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                var items = await itemRepository.GetAllAsync();
+                string search = searchItem.Text.Trim();
+
+                if (cbbItem.Text.Trim() == "품번") items = await itemRepository.CodeAsync(search);
+                else if (cbbItem.Text.Trim() == "품명") items = await itemRepository.NameAsync(search);
+                else if (cbbItem.Text.Trim() == "TYPE") items = await itemRepository.TypeAsync(search);
+                else if (cbbItem.Text.Trim() == "생성자") items = await itemRepository.ConstAsync(search);
+                else if (cbbItem.Text.Trim() == "수정자") items = await itemRepository.ModiAsync(search);
+
+                dgvItem.Rows.Clear();
+                dgvItem.Refresh();
+
+                int i = 0;
+                foreach (var item in items)
+                {
+                    dgvItem.Rows.Add();
+                    dgvItem.Rows[i].Cells["item_id"].Value = item.Id;
+                    dgvItem.Rows[i].Cells["item_code"].Value = item.Code;
+                    dgvItem.Rows[i].Cells["item_name"].Value = item.Name;
+                    dgvItem.Rows[i].Cells["item_comment"].Value = item.Comment;
+                    dgvItem.Rows[i].Cells["item_type"].Value = item.Type;
+
+                    dgvItem.Rows[i].Cells["item_const"].Value = item.Constructor;
+                    dgvItem.Rows[i].Cells["item_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                    dgvItem.Rows[i].Cells["item_modi"].Value = item.Modifier;
+                    dgvItem.Rows[i].Cells["item_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                    i++;
+                }
+
+            }
+        }
+
+        private async void pictureBox5_Click(object sender, EventArgs e)//품번 검색 picturebox
+        {
+            var items = await itemRepository.GetAllAsync();
+            string search = searchItem.Text.Trim();
+
+            if (cbbItem.Text.Trim() == "품번") items = await itemRepository.CodeAsync(search);
+            else if (cbbItem.Text.Trim() == "품명") items = await itemRepository.NameAsync(search);
+            else if (cbbItem.Text.Trim() == "TYPE") items = await itemRepository.TypeAsync(search);
+            else if (cbbItem.Text.Trim() == "생성자") items = await itemRepository.ConstAsync(search);
+            else if (cbbItem.Text.Trim() == "수정자") items = await itemRepository.ModiAsync(search);
+
+            dgvItem.Rows.Clear();
+            dgvItem.Refresh();
+
+            int i = 0;
+            foreach (var item in items)
+            {
+                dgvItem.Rows.Add();
+                dgvItem.Rows[i].Cells["item_id"].Value = item.Id;
+                dgvItem.Rows[i].Cells["item_code"].Value = item.Code;
+                dgvItem.Rows[i].Cells["item_name"].Value = item.Name;
+                dgvItem.Rows[i].Cells["item_comment"].Value = item.Comment;
+                dgvItem.Rows[i].Cells["item_type"].Value = item.Type;
+
+                dgvItem.Rows[i].Cells["item_const"].Value = item.Constructor;
+                dgvItem.Rows[i].Cells["item_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvItem.Rows[i].Cells["item_modi"].Value = item.Modifier;
+                dgvItem.Rows[i].Cells["item_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                i++;
+            }
+        }
+        #endregion
 
 
 

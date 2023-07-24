@@ -15,14 +15,12 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 
     public class FactoryRepository : IFactoryRepository
 	{
-		private readonly AcountDbContext acountdb;
 		private readonly MProcessDbcontext mprocessdb;
 
-		private readonly IFactoryRepository factoryRepository;
+	
 
 		public FactoryRepository()
 		{
-			acountdb = Program.acountdb;
 			mprocessdb = Program.mprocessdb;
 		}
 		public async Task<Factory> AddAsync(Factory factory)
