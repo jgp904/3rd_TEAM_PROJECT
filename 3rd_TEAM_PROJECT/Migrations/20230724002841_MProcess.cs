@@ -113,7 +113,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Coment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EquipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StockUnit1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StockUnit2 = table.Column<string>(type: "nvarchar(max)", nullable: true),

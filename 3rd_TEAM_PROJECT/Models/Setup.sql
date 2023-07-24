@@ -87,7 +87,7 @@ Values
 ,('P_Test02','테스트2','','Equip01','EA','','김건우',GETDATE())
 ,('P_Test03','테스트3','','Equip01','EA','','김건우',GETDATE())
 ,('P_Test04','테스트4','','Equip01','EA','','김건우',GETDATE())
-
+select * from t1_MProcess;
 
 --Create Lot--
 delete from T1_CreateLot;

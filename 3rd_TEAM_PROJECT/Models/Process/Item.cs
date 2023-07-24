@@ -13,7 +13,8 @@ namespace _3rd_TEAM_PROJECT.Models.Process
         public int Id { get; set; } // PK
         public string Code { get; set; } //품번
 		public string Name { get; set; } // 품명
-        public string Type { get; set; }
+		public string Comment { get; set; }//설명
+		public string Type { get; set; }
 		/*
 		 * 품번타입
 		 * 제품 : FERT

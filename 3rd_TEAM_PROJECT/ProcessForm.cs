@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,10 @@ namespace _3rd_TEAM_PROJECT
     {
         private IFactoryRepository factoryRepository;
         private IEquipmentRepository equipmentRepository;
+        private IProcessRepository processRepository;
 
+
+        public string SEquip { get; set; }
         //----------Login정보 받기-----------------//
         public string userName = "박재걸"; // SessionManger에서 Acount정보 받기
 
@@ -28,6 +32,7 @@ namespace _3rd_TEAM_PROJECT
             InitializeComponent();
             factoryRepository = Program.factoryRepository;
             equipmentRepository = Program.equipmentRepository;
+            processRepository = Program.processRepository;
         }
         private void ProcessForm_Load(object sender, EventArgs e)
         {
@@ -86,6 +91,9 @@ namespace _3rd_TEAM_PROJECT
                     break;
                 case 2:
                     LoadEquipHis();//설비 이력조회
+                    break;
+                case 3:
+                    LoadProcess();//공정 설정
                     break;
 
             }
@@ -325,9 +333,9 @@ namespace _3rd_TEAM_PROJECT
                 dgvEquip.Rows[i].Cells["equip_status"].Value = item.Status;
                 dgvEquip.Rows[i].Cells["equip_event"].Value = item.Event;
                 dgvEquip.Rows[i].Cells["equip_const"].Value = item.Constructor;
-                dgvEquip.Rows[i].Cells["equip_regdate"].Value = item.RegDate;
+                dgvEquip.Rows[i].Cells["equip_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
                 dgvEquip.Rows[i].Cells["equip_modi"].Value = item.Modifier;
-                dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate;
+                dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
                 i++;
             }
         }
@@ -643,11 +651,273 @@ namespace _3rd_TEAM_PROJECT
         #endregion
         //------------------------------------------------------------------공정------------------------------------------------------------------------------------------------------//
         #region 공정설정
-        private void LoadProcess()
+        private async void LoadProcess()//공정 목록
         {
-            throw new NotImplementedException();
+            txtProcess_Const.Text = userName;
+            var process = await processRepository.GetAllAsync();
+
+            dgvProcess.Rows.Clear();
+            dgvProcess.Refresh();
+
+            int i = 0;
+            foreach (var item in process)
+            {
+                dgvProcess.Rows.Add();
+                dgvProcess.Rows[i].Cells["process_id"].Value = item.Id;
+                dgvProcess.Rows[i].Cells["process_code"].Value = item.Code;
+                dgvProcess.Rows[i].Cells["process_name"].Value = item.Name;
+                dgvProcess.Rows[i].Cells["process_comment"].Value = item.Comment;
+
+                dgvProcess.Rows[i].Cells["process_equipcode"].Value = item.EquipCode;
+                dgvProcess.Rows[i].Cells["process_stock1"].Value = item.StockUnit1;
+                dgvProcess.Rows[i].Cells["process_stock2"].Value = item.StockUnit2;
+
+                dgvProcess.Rows[i].Cells["process_const"].Value = item.Constructor;
+                dgvProcess.Rows[i].Cells["process_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvProcess.Rows[i].Cells["process_modi"].Value = item.Modifier;
+                dgvProcess.Rows[i].Cells["process_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                i++;
+            }
+        }
+        #region 설비등록
+        private void txtProcess_Equip_Click(object sender, EventArgs e) //설비등록 TextBox_Click
+        {
+            S_Equip s_Equip = new S_Equip();
+            s_Equip.EquipCodeSelected += SEquip_EquipCodeSelected; // 이벤트 핸들러 등록
+            s_Equip.ShowDialog();
+
+        }
+
+        private void search_Equip_Click(object sender, EventArgs e)//설비등록 PictureBox_Click
+        {
+            S_Equip s_Equip = new S_Equip();
+            s_Equip.EquipCodeSelected += SEquip_EquipCodeSelected; // 이벤트 핸들러 등록
+            s_Equip.ShowDialog();
+        }
+        private void SEquip_EquipCodeSelected(object sender, string equipCode)
+        {
+            // S_Equip 폼에서 선택한 값인 equipCode를 처리합니다.
+            txtProcess_Equip.Text = equipCode;
         }
         #endregion
+
+        private async void btnProcess_C_Click(object sender, EventArgs e)//공정 생성
+        {
+            MProcess? mprocess;
+            var process = await processRepository.GetAllAsync();
+            string code = txtProcess_Code.Text.Trim();
+            string name = txtProcess_Name.Text.Trim();
+
+            foreach (var item in process)
+            {
+                if (item.Code == code)
+                {
+                    MessageBox.Show("이미존재한 공정입니다.");
+                    return;
+                }
+
+            }
+            if (code.Length == 0)
+            {
+                MessageBox.Show("공정코드를 입력하세요.");
+                return;
+            }
+            else if (name.Length == 0)
+            {
+                MessageBox.Show("공정이름을 입력하세요.");
+                return;
+            }
+            else
+            {
+                mprocess = new()
+                {
+                    Code = code,
+                    Name = name,
+                    Comment = txtProcess_Comment.Text.Trim(),
+
+                    EquipCode = txtProcess_Equip.Text.Trim(),
+                    StockUnit1 = cbbStock1.Text.Trim(),
+                    StockUnit2 = cbbStock2.Text.Trim(),
+
+                    Constructor = userName,
+                    RegDate = DateTime.Now,
+                };
+                mprocess = await processRepository.AddAsync(mprocess);
+                MessageBox.Show("생성완료");
+
+                LoadProcess();
+                return;
+            }
+        }
+        private void dgvProcess_CellClick(object sender, DataGridViewCellEventArgs e)//공정 상세
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridView dgv = (DataGridView)sender;
+                DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
+
+                if (selectedRow.Cells.Count > 1)
+                {
+                    lbProcessId.Text = selectedRow.Cells["process_id"].Value.ToString();
+                    txtProcess_Code.Text = selectedRow.Cells["process_code"].Value.ToString();
+                    txtProcess_Name.Text = selectedRow.Cells["process_name"].Value.ToString();
+                    txtProcess_Comment.Text = selectedRow.Cells["process_comment"].Value.ToString();
+
+                    txtProcess_Equip.Text = selectedRow.Cells["process_equipcode"].Value.ToString();
+                    cbbStock1.Text = selectedRow.Cells["process_stock1"].Value.ToString();
+                    cbbStock2.Text = selectedRow.Cells["process_stock2"].Value.ToString();
+
+                    txtProcess_Const.Text = selectedRow.Cells["process_const"].Value.ToString();
+                    txtProcess_Regdate.Text = selectedRow.Cells["process_regdate"].Value.ToString();
+                    if (selectedRow.Cells["process_modi"].Value != null) txtEquip_Modi.Text = selectedRow.Cells["process_modi"].Value.ToString();
+                    else txtEquip_Modi.Text = "";
+                    if (selectedRow.Cells["process_moddate"].Value != null) txtEquip_Moddate.Text = selectedRow.Cells["process_moddate"].Value.ToString();
+                    else txtEquip_Moddate.Text = "";
+                }
+            }
+        }
+        private async void btnProcess_U_Click(object sender, EventArgs e)//공정 수정
+        {
+            MProcess? mprocess;
+
+            string code = txtProcess_Code.Text.Trim();
+            string name = txtProcess_Name.Text.Trim();
+            if (code.Length == 0)
+            {
+                MessageBox.Show("공정코드를 입력하세요.");
+                return;
+            }
+            else if (name.Length == 0)
+            {
+                MessageBox.Show("공정이름을 입력하세요.");
+                return;
+            }
+            else
+            {
+                mprocess = new()
+                {
+                    Id = int.Parse(lbProcessId.Text.Trim()),
+                    Code = code,
+                    Name = name,
+                    Comment = txtProcess_Comment.Text.Trim(),
+
+                    EquipCode = txtProcess_Equip.Text.Trim(),
+                    StockUnit1 = cbbStock1.Text.Trim(),
+                    StockUnit2 = cbbStock2.Text.Trim(),
+
+                    Constructor = userName,
+                    RegDate = DateTime.Now,
+                };
+                mprocess = await processRepository.UpdateAsync(mprocess);
+                MessageBox.Show("수정완료");
+                LoadProcess();
+                return;
+            }
+        }
+
+        private async void btnProcess_D_Click(object sender, EventArgs e)//공정 삭제
+        {
+            if (dgvProcess.SelectedCells.Count > 0)
+            {
+                int rowIndex = dgvProcess.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = dgvProcess.Rows[rowIndex];
+                int id = (int)selectedRow.Cells["process_id"].Value;
+
+                if (id == null) return;
+
+                DialogResult result = MessageBox.Show($"선택된 공정({selectedRow.Cells["process_code"].Value})을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    await processRepository.DeleteAsync(id);
+
+                    LoadProcess();
+                }
+                else return;
+            }
+
+        }
+        private async void searchProcess_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                var process = await processRepository.GetAllAsync();
+                string search = searchProcess.Text.Trim();
+
+                if (cbbEquip_filter.Text.Trim() == "공정코드") process = await processRepository.CodeAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "공정명") process = await processRepository.NameAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "설비코드") process = await processRepository.EquipAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "생성자") process = await processRepository.ConstAsync(search);
+                else if (cbbEquip_filter.Text.Trim() == "수정자") process = await processRepository.ModiAsync(search);
+
+                dgvProcess.Rows.Clear();
+                dgvProcess.Refresh();
+
+                int i = 0;
+                foreach (var item in process)
+                {
+                    dgvProcess.Rows.Add();
+                    dgvProcess.Rows[i].Cells["process_id"].Value = item.Id;
+                    dgvProcess.Rows[i].Cells["process_code"].Value = item.Code;
+                    dgvProcess.Rows[i].Cells["process_name"].Value = item.Name;
+                    dgvProcess.Rows[i].Cells["process_comment"].Value = item.Comment;
+
+                    dgvProcess.Rows[i].Cells["process_equipcode"].Value = item.EquipCode;
+                    dgvProcess.Rows[i].Cells["process_stock1"].Value = item.StockUnit1;
+                    dgvProcess.Rows[i].Cells["process_stock2"].Value = item.StockUnit2;
+
+                    dgvProcess.Rows[i].Cells["process_const"].Value = item.Constructor;
+                    dgvProcess.Rows[i].Cells["process_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                    dgvProcess.Rows[i].Cells["process_modi"].Value = item.Modifier;
+                    dgvProcess.Rows[i].Cells["process_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                    i++;
+                }
+
+            }
+        }
+
+        private async void pictureBox3_Click(object sender, EventArgs e)
+        {
+            var process = await processRepository.GetAllAsync();
+            string search = searchProcess.Text.Trim();
+
+            if (cbbEquip_filter.Text.Trim() == "공정코드") process = await processRepository.CodeAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "공정명") process = await processRepository.NameAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "설비코드") process = await processRepository.EquipAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "생성자") process = await processRepository.ConstAsync(search);
+            else if (cbbEquip_filter.Text.Trim() == "수정자") process = await processRepository.ModiAsync(search);
+
+            dgvProcess.Rows.Clear();
+            dgvProcess.Refresh();
+
+            int i = 0;
+            foreach (var item in process)
+            {
+                dgvProcess.Rows.Add();
+                dgvProcess.Rows[i].Cells["process_id"].Value = item.Id;
+                dgvProcess.Rows[i].Cells["process_code"].Value = item.Code;
+                dgvProcess.Rows[i].Cells["process_name"].Value = item.Name;
+                dgvProcess.Rows[i].Cells["process_comment"].Value = item.Comment;
+
+                dgvProcess.Rows[i].Cells["process_equipcode"].Value = item.EquipCode;
+                dgvProcess.Rows[i].Cells["process_stock1"].Value = item.StockUnit1;
+                dgvProcess.Rows[i].Cells["process_stock2"].Value = item.StockUnit2;
+
+                dgvProcess.Rows[i].Cells["process_const"].Value = item.Constructor;
+                dgvProcess.Rows[i].Cells["process_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvProcess.Rows[i].Cells["process_modi"].Value = item.Modifier;
+                dgvProcess.Rows[i].Cells["process_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                i++;
+            }
+        }
+        #endregion
+
+
+
+
+
 
 
 

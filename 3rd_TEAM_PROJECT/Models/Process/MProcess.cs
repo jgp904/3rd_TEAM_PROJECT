@@ -13,7 +13,7 @@ namespace _3rd_TEAM_PROJECT.Models.Process
         public int Id { get; set; } // PK
         public string Code { get; set; } // UQ
         public string Name { get; set; }
-        public string? Coment { get; set; } // Null허용
+        public string? Comment { get; set; } // Null허용
 
         public string EquipCode { get; set; } // 
 

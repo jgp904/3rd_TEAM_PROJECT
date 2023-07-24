@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230718003222_MProcess")]
+    [Migration("20230724002841_MProcess")]
     partial class MProcess
     {
         /// <inheritdoc />
@@ -296,7 +296,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Coment")
+                    b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Constructor")
