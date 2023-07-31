@@ -199,6 +199,7 @@
             TabMenu.SizeMode = TabSizeMode.Fixed;
             TabMenu.TabIndex = 4;
             TabMenu.DrawItem += TabMenu_DrawItem;
+            TabMenu.Selected += TabMenu_Selected;
             // 
             // Purches_warehouse
             // 
@@ -234,6 +235,7 @@
             // 
             txtWareId.Location = new Point(78, 31);
             txtWareId.Name = "txtWareId";
+            txtWareId.ReadOnly = true;
             txtWareId.Size = new Size(100, 23);
             txtWareId.TabIndex = 1;
             // 
@@ -259,6 +261,7 @@
             // 
             txtWareAmount.Location = new Point(78, 118);
             txtWareAmount.Name = "txtWareAmount";
+            txtWareAmount.ReadOnly = true;
             txtWareAmount.Size = new Size(100, 23);
             txtWareAmount.TabIndex = 4;
             // 
@@ -266,6 +269,7 @@
             // 
             txtWareProduct.Location = new Point(78, 60);
             txtWareProduct.Name = "txtWareProduct";
+            txtWareProduct.ReadOnly = true;
             txtWareProduct.Size = new Size(100, 23);
             txtWareProduct.TabIndex = 2;
             // 
@@ -291,6 +295,7 @@
             // 
             txtWareItem.Location = new Point(78, 89);
             txtWareItem.Name = "txtWareItem";
+            txtWareItem.ReadOnly = true;
             txtWareItem.Size = new Size(100, 23);
             txtWareItem.TabIndex = 3;
             // 
@@ -373,6 +378,7 @@
             // 
             txtInboundRegdate.Location = new Point(78, 205);
             txtInboundRegdate.Name = "txtInboundRegdate";
+            txtInboundRegdate.ReadOnly = true;
             txtInboundRegdate.Size = new Size(100, 23);
             txtInboundRegdate.TabIndex = 7;
             // 
@@ -389,6 +395,7 @@
             // 
             txtInboundContact.Location = new Point(78, 176);
             txtInboundContact.Name = "txtInboundContact";
+            txtInboundContact.ReadOnly = true;
             txtInboundContact.Size = new Size(100, 23);
             txtInboundContact.TabIndex = 6;
             // 
@@ -441,6 +448,7 @@
             // 
             txtInboundId.Location = new Point(78, 31);
             txtInboundId.Name = "txtInboundId";
+            txtInboundId.ReadOnly = true;
             txtInboundId.Size = new Size(100, 23);
             txtInboundId.TabIndex = 1;
             // 
@@ -677,6 +685,7 @@
             // 
             txtInSearchRegdate.Location = new Point(75, 209);
             txtInSearchRegdate.Name = "txtInSearchRegdate";
+            txtInSearchRegdate.ReadOnly = true;
             txtInSearchRegdate.Size = new Size(100, 23);
             txtInSearchRegdate.TabIndex = 9;
             // 
@@ -684,6 +693,7 @@
             // 
             txtInSearchId.Location = new Point(75, 35);
             txtInSearchId.Name = "txtInSearchId";
+            txtInSearchId.ReadOnly = true;
             txtInSearchId.Size = new Size(100, 23);
             txtInSearchId.TabIndex = 3;
             // 
@@ -707,6 +717,7 @@
             // 
             txtInSearchContact.Location = new Point(75, 180);
             txtInSearchContact.Name = "txtInSearchContact";
+            txtInSearchContact.ReadOnly = true;
             txtInSearchContact.Size = new Size(100, 23);
             txtInSearchContact.TabIndex = 8;
             // 
@@ -855,6 +866,7 @@
             // 
             txtOutboundRegdate.Location = new Point(80, 205);
             txtOutboundRegdate.Name = "txtOutboundRegdate";
+            txtOutboundRegdate.ReadOnly = true;
             txtOutboundRegdate.Size = new Size(100, 23);
             txtOutboundRegdate.TabIndex = 7;
             // 
@@ -871,6 +883,7 @@
             // 
             txtOutboundContact.Location = new Point(80, 176);
             txtOutboundContact.Name = "txtOutboundContact";
+            txtOutboundContact.ReadOnly = true;
             txtOutboundContact.Size = new Size(100, 23);
             txtOutboundContact.TabIndex = 6;
             // 
@@ -894,6 +907,7 @@
             // 
             txtOutboundId.Location = new Point(80, 34);
             txtOutboundId.Name = "txtOutboundId";
+            txtOutboundId.ReadOnly = true;
             txtOutboundId.Size = new Size(100, 23);
             txtOutboundId.TabIndex = 1;
             // 
@@ -1131,6 +1145,7 @@
             // 
             txtOutboundSearchRegdate.Location = new Point(80, 205);
             txtOutboundSearchRegdate.Name = "txtOutboundSearchRegdate";
+            txtOutboundSearchRegdate.ReadOnly = true;
             txtOutboundSearchRegdate.Size = new Size(100, 23);
             txtOutboundSearchRegdate.TabIndex = 7;
             // 
@@ -1147,6 +1162,7 @@
             // 
             txtOutboundSearchContact.Location = new Point(80, 176);
             txtOutboundSearchContact.Name = "txtOutboundSearchContact";
+            txtOutboundSearchContact.ReadOnly = true;
             txtOutboundSearchContact.Size = new Size(100, 23);
             txtOutboundSearchContact.TabIndex = 6;
             // 
@@ -1170,6 +1186,7 @@
             // 
             txtOutboundSearchId.Location = new Point(80, 34);
             txtOutboundSearchId.Name = "txtOutboundSearchId";
+            txtOutboundSearchId.ReadOnly = true;
             txtOutboundSearchId.Size = new Size(100, 23);
             txtOutboundSearchId.TabIndex = 1;
             // 

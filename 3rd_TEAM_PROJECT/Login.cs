@@ -49,15 +49,20 @@ namespace _3rd_TEAM_PROJECT_Desk
                 SessionManager.Instance.LoginForm = this;
 
                 // 계정 정보에 따라 다른 폼을 표시
-                if (loggedInAcount.Department.DepartmentCode == "001")
+                //if (loggedInAcount.Department.DepartmentCode == "002")
+                if(loggedInAcount.DepartmentCode == "002")
                 {
                     Main mainForm = new Main();
                     mainForm.Show();
                 }
-                else
+                else if (loggedInAcount.DepartmentCode == "003")
                 {
                     ProcessForm processForm = new ProcessForm(); // ProcessForm은 사용자가 새로 만든 폼입니다.
                     processForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("구매부서는 WEB PAGE를 이용해주십시오");
                 }
 
                 this.Hide();
