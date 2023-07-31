@@ -252,12 +252,14 @@
             pbsItem = new PictureBox();
             label62 = new Label();
             txtLot_ItemCode = new TextBox();
+            cbbLot_Stock2 = new ComboBox();
             label53 = new Label();
             pbsProcess = new PictureBox();
             label61 = new Label();
             txtLot_ProcessCode = new TextBox();
             label45 = new Label();
             txtLot_Const = new TextBox();
+            cbbLot_Stock1 = new ComboBox();
             label50 = new Label();
             lbLot_Id = new Label();
             btnLot_C = new Button();
@@ -326,8 +328,6 @@
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             작업종료ToolStripMenuItem = new ToolStripMenuItem();
-            txtLot_Stock1 = new TextBox();
-            txtLot_Stock2 = new TextBox();
             menuStrip1.SuspendLayout();
             tabProcess.SuspendLayout();
             facSetting.SuspendLayout();
@@ -2296,19 +2296,19 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(txtLot_Stock2);
-            groupBox5.Controls.Add(txtLot_Stock1);
             groupBox5.Controls.Add(label77);
             groupBox5.Controls.Add(txtLot_Amount2);
             groupBox5.Controls.Add(pbsItem);
             groupBox5.Controls.Add(label62);
             groupBox5.Controls.Add(txtLot_ItemCode);
+            groupBox5.Controls.Add(cbbLot_Stock2);
             groupBox5.Controls.Add(label53);
             groupBox5.Controls.Add(pbsProcess);
             groupBox5.Controls.Add(label61);
             groupBox5.Controls.Add(txtLot_ProcessCode);
             groupBox5.Controls.Add(label45);
             groupBox5.Controls.Add(txtLot_Const);
+            groupBox5.Controls.Add(cbbLot_Stock1);
             groupBox5.Controls.Add(label50);
             groupBox5.Controls.Add(lbLot_Id);
             groupBox5.Controls.Add(btnLot_C);
@@ -2336,7 +2336,7 @@
             // label77
             // 
             label77.AutoSize = true;
-            label77.Location = new Point(7, 210);
+            label77.Location = new Point(7, 152);
             label77.Name = "label77";
             label77.Size = new Size(45, 15);
             label77.TabIndex = 69;
@@ -2344,7 +2344,7 @@
             // 
             // txtLot_Amount2
             // 
-            txtLot_Amount2.Location = new Point(89, 207);
+            txtLot_Amount2.Location = new Point(89, 149);
             txtLot_Amount2.Name = "txtLot_Amount2";
             txtLot_Amount2.Size = new Size(100, 23);
             txtLot_Amount2.TabIndex = 68;
@@ -2352,7 +2352,7 @@
             // pbsItem
             // 
             pbsItem.Image = (Image)resources.GetObject("pbsItem.Image");
-            pbsItem.Location = new Point(168, 120);
+            pbsItem.Location = new Point(168, 236);
             pbsItem.Name = "pbsItem";
             pbsItem.Size = new Size(21, 23);
             pbsItem.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -2363,7 +2363,7 @@
             // label62
             // 
             label62.AutoSize = true;
-            label62.Location = new Point(7, 123);
+            label62.Location = new Point(7, 239);
             label62.Name = "label62";
             label62.Size = new Size(38, 15);
             label62.TabIndex = 66;
@@ -2371,16 +2371,25 @@
             // 
             // txtLot_ItemCode
             // 
-            txtLot_ItemCode.Location = new Point(89, 120);
+            txtLot_ItemCode.Location = new Point(89, 236);
             txtLot_ItemCode.Name = "txtLot_ItemCode";
             txtLot_ItemCode.Size = new Size(73, 23);
             txtLot_ItemCode.TabIndex = 65;
             txtLot_ItemCode.Click += txtLot_ItemCode_Click;
             // 
+            // cbbLot_Stock2
+            // 
+            cbbLot_Stock2.FormattingEnabled = true;
+            cbbLot_Stock2.Items.AddRange(new object[] { "EA", "Kg", "M", "L" });
+            cbbLot_Stock2.Location = new Point(89, 178);
+            cbbLot_Stock2.Name = "cbbLot_Stock2";
+            cbbLot_Stock2.Size = new Size(100, 23);
+            cbbLot_Stock2.TabIndex = 63;
+            // 
             // label53
             // 
             label53.AutoSize = true;
-            label53.Location = new Point(7, 239);
+            label53.Location = new Point(7, 181);
             label53.Name = "label53";
             label53.Size = new Size(45, 15);
             label53.TabIndex = 64;
@@ -2389,17 +2398,18 @@
             // pbsProcess
             // 
             pbsProcess.Image = (Image)resources.GetObject("pbsProcess.Image");
-            pbsProcess.Location = new Point(168, 91);
+            pbsProcess.Location = new Point(168, 207);
             pbsProcess.Name = "pbsProcess";
             pbsProcess.Size = new Size(21, 23);
             pbsProcess.SizeMode = PictureBoxSizeMode.StretchImage;
             pbsProcess.TabIndex = 62;
             pbsProcess.TabStop = false;
+            pbsProcess.Click += pbsProcess_Click;
             // 
             // label61
             // 
             label61.AutoSize = true;
-            label61.Location = new Point(7, 94);
+            label61.Location = new Point(7, 210);
             label61.Name = "label61";
             label61.Size = new Size(62, 15);
             label61.TabIndex = 61;
@@ -2407,10 +2417,11 @@
             // 
             // txtLot_ProcessCode
             // 
-            txtLot_ProcessCode.Location = new Point(89, 91);
+            txtLot_ProcessCode.Location = new Point(89, 207);
             txtLot_ProcessCode.Name = "txtLot_ProcessCode";
             txtLot_ProcessCode.Size = new Size(73, 23);
             txtLot_ProcessCode.TabIndex = 60;
+            txtLot_ProcessCode.Click += txtLot_ProcessCode_Click;
             // 
             // label45
             // 
@@ -2428,10 +2439,20 @@
             txtLot_Const.Size = new Size(100, 23);
             txtLot_Const.TabIndex = 58;
             // 
+            // cbbLot_Stock1
+            // 
+            cbbLot_Stock1.FormattingEnabled = true;
+            cbbLot_Stock1.Items.AddRange(new object[] { "EA", "Kg", "M", "L" });
+            cbbLot_Stock1.Location = new Point(89, 120);
+            cbbLot_Stock1.Name = "cbbLot_Stock1";
+            cbbLot_Stock1.Size = new Size(100, 23);
+            cbbLot_Stock1.TabIndex = 49;
+            cbbLot_Stock1.Text = "EA";
+            // 
             // label50
             // 
             label50.AutoSize = true;
-            label50.Location = new Point(7, 181);
+            label50.Location = new Point(7, 123);
             label50.Name = "label50";
             label50.Size = new Size(45, 15);
             label50.TabIndex = 52;
@@ -2537,7 +2558,7 @@
             // label59
             // 
             label59.AutoSize = true;
-            label59.Location = new Point(7, 152);
+            label59.Location = new Point(7, 94);
             label59.Name = "label59";
             label59.Size = new Size(45, 15);
             label59.TabIndex = 5;
@@ -2545,7 +2566,7 @@
             // 
             // txtLot_Amount1
             // 
-            txtLot_Amount1.Location = new Point(89, 149);
+            txtLot_Amount1.Location = new Point(89, 91);
             txtLot_Amount1.Name = "txtLot_Amount1";
             txtLot_Amount1.Size = new Size(100, 23);
             txtLot_Amount1.TabIndex = 4;
@@ -3037,20 +3058,6 @@
             작업종료ToolStripMenuItem.Size = new Size(67, 20);
             작업종료ToolStripMenuItem.Text = "작업완료";
             // 
-            // txtLot_Stock1
-            // 
-            txtLot_Stock1.Location = new Point(89, 178);
-            txtLot_Stock1.Name = "txtLot_Stock1";
-            txtLot_Stock1.Size = new Size(100, 23);
-            txtLot_Stock1.TabIndex = 70;
-            // 
-            // txtLot_Stock2
-            // 
-            txtLot_Stock2.Location = new Point(89, 236);
-            txtLot_Stock2.Name = "txtLot_Stock2";
-            txtLot_Stock2.Size = new Size(100, 23);
-            txtLot_Stock2.TabIndex = 71;
-            // 
             // ProcessForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3290,12 +3297,14 @@
         private PictureBox pbsItem;
         private Label label62;
         private TextBox txtLot_ItemCode;
+        private ComboBox cbbLot_Stock2;
         private Label label53;
         private PictureBox pbsProcess;
         private Label label61;
         private TextBox txtLot_ProcessCode;
         private Label label45;
         private TextBox txtLot_Const;
+        private ComboBox cbbLot_Stock1;
         private Label label50;
         private Label lbLot_Id;
         private Button btnLot_C;
@@ -3417,7 +3426,5 @@
         private TextBox txtLot_Amount2;
         private Label label78;
         private TextBox txtLothis_amount2;
-        private TextBox txtLot_Stock2;
-        private TextBox txtLot_Stock1;
     }
 }

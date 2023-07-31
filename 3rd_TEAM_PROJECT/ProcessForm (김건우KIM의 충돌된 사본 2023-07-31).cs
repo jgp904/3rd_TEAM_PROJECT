@@ -434,18 +434,10 @@ namespace _3rd_TEAM_PROJECT
         }//end이력상세
         #region 공정등록
 
-        private void SProcess_ProcessCodeSelected(object sender,(string processCode, string stock1, string? stock2) args)// 공정 검색
+        private void SProcess_ProcessCodeSelected(object sender, string processcode)// 공정 검색
         {
-            // 선택된 공정 코드
-            string processCode = args.processCode;
-            // 재고 정보
-            txtLot_Stock1.Text = args.stock1;
-            txtLot_Stock2.Text = args.stock2;
-
-
-            // 선택된 공정 코드를 다른 폼에 표시하거나 처리할 수 있습니다.
-            txtLot_ProcessCode.Text = processCode;
-            txtEquip_ProCode.Text = processCode;
+            txtLot_ProcessCode.Text = processcode;
+            txtEquip_ProCode.Text = processcode;
         }
         private void txtEquip_ProCode_Click(object sender, EventArgs e)
         {
@@ -1286,8 +1278,8 @@ namespace _3rd_TEAM_PROJECT
                     lbLot_Id.Text = selectedRow.Cells["lot_id"].Value.ToString();
                     txtLot_Code.Text = selectedRow.Cells["lot_code"].Value.ToString();
                     txtLot_Amount1.Text = selectedRow.Cells["lot_amount"].Value.ToString();
-                    txtLot_Stock1.Text = selectedRow.Cells["lot_stock1"].Value.ToString();
-                    txtLot_Stock2.Text = selectedRow.Cells["lot_stock2"].Value.ToString();
+                    cbbLot_Stock1.Text = selectedRow.Cells["lot_stock1"].Value.ToString();
+                    cbbLot_Stock2.Text = selectedRow.Cells["lot_stock2"].Value.ToString();
 
 
                     txtLot_ProcessCode.Text = selectedRow.Cells["lot_processcode"].Value.ToString();
@@ -1351,8 +1343,8 @@ namespace _3rd_TEAM_PROJECT
                 {
                     Code = code,
                     Amount1 = int.Parse(amount),
-                    StockUnit1 = txtLot_Stock1.Text.Trim(),
-                    StockUnit2 = txtLot_Stock2.Text.Trim(),
+                    StockUnit1 = cbbLot_Stock1.Text.Trim(),
+                    StockUnit2 = cbbLot_Stock2.Text.Trim(),
 
                     ActionCode = "Create",
                     ActionTime = DateTime.Now,
@@ -1372,7 +1364,7 @@ namespace _3rd_TEAM_PROJECT
 
         }
         #region 공정등록
-
+        
 
         #endregion
         #region 품번 등록
@@ -1433,8 +1425,8 @@ namespace _3rd_TEAM_PROJECT
                     Code = code,
                     Amount1 = int.Parse(amount1),
                     Amount2 = int.Parse(amount2),
-                    StockUnit1 = txtLot_Stock1.Text.Trim(),
-                    StockUnit2 = txtLot_Stock2.Text.Trim(),
+                    StockUnit1 = cbbLot_Stock1.Text.Trim(),
+                    StockUnit2 = cbbLot_Stock2.Text.Trim(),
 
                     ActionCode = "Modify",
                     ActionTime = DateTime.Now,
@@ -1693,6 +1685,6 @@ namespace _3rd_TEAM_PROJECT
 
         }
 
-
+        
     }
 }
