@@ -69,7 +69,6 @@
             dgvSEquip.RowTemplate.Height = 25;
             dgvSEquip.Size = new Size(392, 374);
             dgvSEquip.TabIndex = 3;
-      
             // 
             // sequip_id
             // 
@@ -138,7 +137,7 @@
             Controls.Add(txtSEquip);
             Controls.Add(label1);
             Name = "S_Equip";
-            Text = "Form1";
+            Text = "SearchEquip";
             Load += S_Equip_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSEquip).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();

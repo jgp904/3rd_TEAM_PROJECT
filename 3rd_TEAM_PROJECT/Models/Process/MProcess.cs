@@ -11,11 +11,10 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 	public class MProcess
 	{
         public int Id { get; set; } // PK
+        public string FacCode { get; set; } // UQ
         public string Code { get; set; } // UQ
         public string Name { get; set; }
         public string? Comment { get; set; } // Null허용
-
-        public string EquipCode { get; set; } // 
 
         public string? StockUnit1 { get; set;}
         public string? StockUnit2 { get; set;}
@@ -25,7 +24,7 @@ namespace _3rd_TEAM_PROJECT.Models.Process
         public string? Modifier { get; set; }
         public DateTime? ModDate { get; set; }
 
-        public Equipment? Equipment { get; set; }
+       
         public Factory? Factories { get; set; }
     }
 }

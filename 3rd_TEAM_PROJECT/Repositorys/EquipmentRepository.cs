@@ -13,14 +13,11 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 {
     public class EquipmentRepository : IEquipmentRepository
     {
-        private readonly AcountDbContext acountdb;
-        private readonly MProcessDbcontext mprocessdb;
 
-        private readonly IEquipmentRepository equipmentRepository;
+        private readonly MProcessDbcontext mprocessdb;      
 
         public EquipmentRepository()
         {
-            acountdb = Program.acountdb;
             mprocessdb = Program.mprocessdb;
         }
 
@@ -30,6 +27,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             await mprocessdb.SaveChangesAsync();
             var equipHis = new EquipHis
             {
+                ProcessCode = equip.ProcessCode,
                 Code = equip.Code,
                 Name = equip.Name,
                 Comment = equip.Comment,
@@ -70,6 +68,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             var existingEquip = await mprocessdb.Equipments.FindAsync(equip.Id);
             if (existingEquip == null) return null;
 
+            existingEquip.ProcessCode = equip.ProcessCode;
             existingEquip.Code = equip.Code;
             existingEquip.Name = equip.Name;
             existingEquip.Comment = equip.Comment;
@@ -82,6 +81,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             
             var equipHis = new EquipHis
             {
+                ProcessCode = existingEquip.ProcessCode,
                 Code = existingEquip.Code,
                 Name = existingEquip.Name,
                 Comment = existingEquip.Comment,
@@ -152,6 +152,12 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 .ToListAsync();
         }
 
-
+        public async Task<IEnumerable<Equipment>> ProcessCodeAsync(string search)
+        {
+            return await mprocessdb.Equipments
+                .Where(x => (x.ProcessCode != null && x.ProcessCode.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
     }
 }

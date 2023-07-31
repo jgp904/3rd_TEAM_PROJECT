@@ -26,21 +26,23 @@ namespace _3rd_TEAM_PROJECT.Data
 				.EnableSensitiveDataLogging()
 				;
 		}
-
+		//------------------공정---------------------------------//
 		public DbSet<CreateLot> CreateLots { get; set; }
 		public DbSet<Equipment> Equipments { get; set; }
 		public DbSet<Factory> Factories { get; set; }
 		public DbSet<Item> Items { get; set; }
-		public DbSet<LotHis> LotHis { get; set; }
-		public DbSet<Models.Process.MProcess> MProcesses { get; set; }
+		
+		public DbSet<MProcess> MProcesses { get; set; }
 
-
+		//--------------------창고-------------------------------//
 		public DbSet<InBound> InBounds { get; set; }
 		public DbSet<OutBound> OutBounds { get; set; }
 		public DbSet<WareHouse> WareHouses { get; set; }
+		//---------------------이력조회--------------------------//
 		public DbSet<EquipHis> EquipHis { get; set; }
+        public DbSet<LotHis> LotHis { get; set; }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<CreateLot>()
 				.HasIndex(j => j.Code)

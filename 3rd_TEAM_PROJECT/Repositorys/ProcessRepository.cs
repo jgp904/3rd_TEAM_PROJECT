@@ -45,11 +45,12 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             var existingProcess = await mprocessdb.MProcesses.FindAsync(process.Id);
             if (existingProcess == null) return null;
 
+            existingProcess.FacCode = process.FacCode;
             existingProcess.Code = process.Code;
             existingProcess.Name = process.Name;
             existingProcess.Comment = process.Comment;
 
-            existingProcess.EquipCode = process.EquipCode;
+          
             existingProcess.StockUnit1 = process.StockUnit1;
             existingProcess.StockUnit2 = process.StockUnit2;
 
@@ -80,14 +81,6 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                     .ToListAsync();
         }
 
-        public async Task<IEnumerable<MProcess>> EquipAsync(string search)
-        {
-            return await mprocessdb.MProcesses
-                    .Where(x => (x.EquipCode != null && x.EquipCode.Contains(search)))
-                    .OrderBy(x => x.Id)
-                    .ToListAsync();
-        }
-
         public async Task<IEnumerable<MProcess>> ModiAsync(string search)
         {
             return await mprocessdb.MProcesses
@@ -100,6 +93,14 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         {
             return await mprocessdb.MProcesses
                     .Where(x => (x.Name != null && x.Name.Contains(search)))
+                    .OrderBy(x => x.Id)
+                    .ToListAsync();
+        }
+
+        public async Task<IEnumerable<MProcess>> FacCodeAsync(string search)
+        {
+            return await mprocessdb.MProcesses
+                    .Where(x => (x.FacCode != null && x.FacCode.Contains(search)))
                     .OrderBy(x => x.Id)
                     .ToListAsync();
         }

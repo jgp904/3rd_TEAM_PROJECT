@@ -14,8 +14,8 @@ namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
         Task<MProcess?> UpdateAsync(MProcess process);
         Task<MProcess?> DeleteAsync(int process);
         Task<IEnumerable<MProcess>> CodeAsync(string search);
+        Task<IEnumerable<MProcess>> FacCodeAsync(string search);
         Task<IEnumerable<MProcess>> NameAsync(string search);
-        Task<IEnumerable<MProcess>> EquipAsync(string search);
         Task<IEnumerable<MProcess>> ConstAsync(string search);
         Task<IEnumerable<MProcess>> ModiAsync(string search);
     }

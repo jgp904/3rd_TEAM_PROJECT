@@ -19,6 +19,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
         Task<IEnumerable<EquipHis>> HisAsync(string search);
 
         Task<IEnumerable<Equipment>> CodeAsync(string search);
+        Task<IEnumerable<Equipment>> ProcessCodeAsync(string search);
         Task<IEnumerable<Equipment>> NameAsync(string search);
         Task<IEnumerable<Equipment>> StatusAsync(string search);
         Task<IEnumerable<Equipment>> EventAsync(string search);

@@ -7,6 +7,7 @@ values
 ,('003','생산팀');
 --Acount--
 delete from T1_Acount;
+delete from process;
 
 insert into [LTDB].[dbo].[T1_Acount] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode)
 values
@@ -81,7 +82,7 @@ Values
 
 --Process--
 delete from t1_MProcess;
-insert into [LTDB].[dbo].[T1_MProcess] (Code,Name,Coment,EquipCode,StockUnit1,StockUnit2,Constructor,RegDate)
+insert into [LTDB].[dbo].[T1_MProcess] (Code,Name,Comment,EquipCode,StockUnit1,StockUnit2,Constructor,RegDate)
 Values
 ('P_Test01','테스트1','','Equip01','EA','','김건우',GETDATE())
 ,('P_Test02','테스트2','','Equip01','EA','','김건우',GETDATE())

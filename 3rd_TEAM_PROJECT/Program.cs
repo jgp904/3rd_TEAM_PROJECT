@@ -9,13 +9,17 @@ namespace _3rd_TEAM_PROJECT_Desk
     {
         public static AcountDbContext acountdb;
         public static MProcessDbcontext mprocessdb;
-        public static IFactoryRepository? factoryRepository;
+        //----------------WareHouse------------------------//
         public static IWarehouseRepository warehouseRepository;
         public static IInboundRepository? inboundRepository;
         public static IOutboundRepository outboundRepository;
+
+        //-----------------Process-------------------------//
+        public static IFactoryRepository? factoryRepository;
         public static IEquipmentRepository equipmentRepository;
         public static IProcessRepository processRepository;
         public static IItemRepository itemRepository;
+        public static ILotRepository lotRepository;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -31,6 +35,7 @@ namespace _3rd_TEAM_PROJECT_Desk
             equipmentRepository = new EquipmentRepository();//설비
             processRepository = new ProcessRepository();//공정
             itemRepository = new ItemRepository(); //품번
+            lotRepository = new LotRepository(); //Lot번호
 
 
 			// 생성자 인젝션을 이용하여 InboundRepository에 필요한 DbContext 전달

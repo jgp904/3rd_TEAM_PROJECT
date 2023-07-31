@@ -11,6 +11,8 @@ namespace _3rd_TEAM_PROJECT.Models.Process
     public class EquipHis
     {
         public int Id { get; set; }
+
+        public string ProcessCode { get; set; }
         public string Code { get; set; } //설비코드
         public string Name { get; set; } //설비명
         public string? Comment { get; set; } //설명

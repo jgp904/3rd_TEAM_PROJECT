@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230724002841_MProcess")]
+    [Migration("20230727111040_MProcess")]
     partial class MProcess
     {
         /// <inheritdoc />
@@ -40,7 +40,10 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.Property<DateTime>("ActionTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Amount")
+                    b.Property<int>("Amount1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount2")
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
@@ -76,6 +79,12 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("StockUnit1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StockUnit2")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -122,6 +131,10 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProcessCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("datetime2");
 
@@ -157,6 +170,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("MProcessId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("ModDate")
                         .HasColumnType("datetime2");
 
@@ -164,6 +180,10 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProcessCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -178,6 +198,8 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
                     b.HasIndex("Code")
                         .IsUnique();
+
+                    b.HasIndex("MProcessId");
 
                     b.ToTable("T1_Equipment");
                 });
@@ -231,6 +253,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Constructor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -268,13 +293,54 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ActionCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ActionTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Amount1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Amount2")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Constructor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("CreateLotId")
                         .HasColumnType("int");
+
+                    b.Property<int>("HisNum")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ItemCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Modifier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProcessCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StockUnit1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StockUnit2")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -303,12 +369,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EquipCode")
+                    b.Property<string>("FacCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("EquipmentId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("FactoriesId")
                         .HasColumnType("int");
@@ -336,8 +399,6 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
                     b.HasIndex("Code")
                         .IsUnique();
-
-                    b.HasIndex("EquipmentId");
 
                     b.HasIndex("FactoriesId");
 
@@ -471,6 +532,15 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.Navigation("Process");
                 });
 
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.Equipment", b =>
+                {
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.MProcess", "MProcess")
+                        .WithMany()
+                        .HasForeignKey("MProcessId");
+
+                    b.Navigation("MProcess");
+                });
+
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.LotHis", b =>
                 {
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.CreateLot", "CreateLot")
@@ -482,15 +552,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
             modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Process.MProcess", b =>
                 {
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Equipment", "Equipment")
-                        .WithMany()
-                        .HasForeignKey("EquipmentId");
-
                     b.HasOne("_3rd_TEAM_PROJECT.Models.Process.Factory", "Factories")
                         .WithMany()
                         .HasForeignKey("FactoriesId");
-
-                    b.Navigation("Equipment");
 
                     b.Navigation("Factories");
                 });

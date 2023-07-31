@@ -17,6 +17,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ProcessCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -30,27 +31,6 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T1_EquipHis", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "T1_Equipment",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Event = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_T1_Equipment", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -79,6 +59,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -111,27 +92,21 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    FacCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EquipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StockUnit1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StockUnit2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    EquipmentId = table.Column<int>(type: "int", nullable: true),
                     FactoriesId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_T1_MProcess", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_T1_MProcess_T1_Equipment_EquipmentId",
-                        column: x => x.EquipmentId,
-                        principalTable: "T1_Equipment",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_T1_MProcess_T1_Factory_FactoriesId",
                         column: x => x.FactoriesId,
@@ -170,10 +145,13 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Amount = table.Column<int>(type: "int", nullable: false),
+                    Amount1 = table.Column<int>(type: "int", nullable: false),
+                    Amount2 = table.Column<int>(type: "int", nullable: false),
+                    StockUnit1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StockUnit2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ActionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HisNum = table.Column<int>(type: "int", nullable: false),
                     ActionCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HisNum = table.Column<int>(type: "int", nullable: false),
                     ProcessCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ItemCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -194,6 +172,34 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     table.ForeignKey(
                         name: "FK_T1_CreateLot_T1_MProcess_ProcessId",
                         column: x => x.ProcessId,
+                        principalTable: "T1_MProcess",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "T1_Equipment",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Event = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProcessCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    MProcessId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_T1_Equipment", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_T1_Equipment_T1_MProcess_MProcessId",
+                        column: x => x.MProcessId,
                         principalTable: "T1_MProcess",
                         principalColumn: "Id");
                 });
@@ -234,8 +240,20 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ModDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Amount1 = table.Column<int>(type: "int", nullable: false),
+                    Amount2 = table.Column<int>(type: "int", nullable: false),
+                    StockUnit1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StockUnit2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ActionTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ActionCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HisNum = table.Column<int>(type: "int", nullable: false),
+                    ProcessCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ItemCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreateLotId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -271,6 +289,11 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_T1_Equipment_MProcessId",
+                table: "T1_Equipment",
+                column: "MProcessId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_T1_Factory_Code",
                 table: "T1_Factory",
                 column: "Code",
@@ -297,11 +320,6 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 table: "T1_MProcess",
                 column: "Code",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_T1_MProcess_EquipmentId",
-                table: "T1_MProcess",
-                column: "EquipmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_T1_MProcess_FactoriesId",
@@ -332,6 +350,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                 name: "T1_EquipHis");
 
             migrationBuilder.DropTable(
+                name: "T1_Equipment");
+
+            migrationBuilder.DropTable(
                 name: "T1_InBound");
 
             migrationBuilder.DropTable(
@@ -351,9 +372,6 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
             migrationBuilder.DropTable(
                 name: "T1_MProcess");
-
-            migrationBuilder.DropTable(
-                name: "T1_Equipment");
 
             migrationBuilder.DropTable(
                 name: "T1_Factory");

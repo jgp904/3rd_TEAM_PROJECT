@@ -25,7 +25,7 @@ namespace _3rd_TEAM_PROJECT
         {
             InitializeComponent();
             equipmentRepository = Program.equipmentRepository;
-            
+
         }
         private void S_Equip_Load(object sender, EventArgs e)
         {
@@ -96,7 +96,7 @@ namespace _3rd_TEAM_PROJECT
             }
         }
 
-      
+
 
         private void btnSelect_Equip_Click(object sender, EventArgs e)
         {

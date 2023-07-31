@@ -12,10 +12,18 @@ namespace _3rd_TEAM_PROJECT.Models.Process
     {
         public int Id { get; set; }// PK 
         public string Code { get; set; } // UQ
-        public int Amount { get; set; }// 수량
+        public int Amount1 { get; set; }// 수량1
+        public int Amount2 { get; set; }// 수량2
+        public string? StockUnit1 { get; set; }
+        public string? StockUnit2 { get; set; }
         public DateTime ActionTime { get; set; }//실행시간
-        public int HisNum { get; set; }//이력번호
         public string ActionCode { get; set; }// 실행코드
+		/*
+		 * Start
+		 * End
+		 * Stop
+		 */
+        public int HisNum { get; set; }//이력번호
 		public string ProcessCode { get; set; }// 공정코드
 		public string ItemCode { get; set; } // 품번
 		

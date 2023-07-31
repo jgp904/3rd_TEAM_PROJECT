@@ -22,18 +22,21 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 		Process : 작업중
 		*/
 		public string Event { get; set; }
-		/*설비이벤트
+        /*설비이벤트
 		 * 고장: BreakeDown
 		 * 정비: Maintenance
 		 * 위험: Emergency
 		 * NON : NON
 		 */
 
-		public string Constructor { get; set; }
+        public string ProcessCode { get; set; } //공정 코드
+
+        public string Constructor { get; set; }
 		public DateTime RegDate { get; set; }
 		public string? Modifier { get; set; }
 		public DateTime?  ModDate { get; set; }
 
+		public MProcess? MProcess { get; set; }
 		
 	}
 }
