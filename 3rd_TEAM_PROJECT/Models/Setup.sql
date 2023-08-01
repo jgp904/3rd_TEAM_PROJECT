@@ -1,24 +1,33 @@
 ﻿delete from T1_Department;
-
+--Acount--
+delete from process;
+delete from T1_Acount;
+select * from T1_Acount;
+select * from T1_Department;
 insert into [LTDB].[dbo].[T1_Department] (DepartmentCode,Name)
 values
 ('001','경영팀')
 ,('002','구매팀')
 ,('003','생산팀');
---Acount--
-delete from T1_Acount;
-delete from process;
 
 insert into [LTDB].[dbo].[T1_Acount] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode)
 values
 ('admin1','김건우','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'))
-,('admin2','박재걸','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'))
-,('admin3','이용학','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'))
+,('admin2','박재걸','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '002'))
+,('admin3','이용학','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '003'));
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+insert into [LTDB].[dbo].[T1_Acount] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode, DepartmentId)
+values
+ ('admin1','김건우','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '001'))
+,('admin2','박재걸','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '002'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '002'))
+,('admin3','이용학','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '003'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '001'));
 
 SELECT * FROM T1_Acount;
 --WareHouse--
 delete from T1_WareHouse;
+
 SELECT * FROM T1_WareHouse;
+SELECT * FROM T1_OutBound;
 insert into [LTDB].[dbo].[T1_WareHouse] (Product,Item,Amount)
 values
 ('RTX1060','GraphicCard',100)
@@ -92,12 +101,12 @@ select * from t1_MProcess;
 
 --Create Lot--
 delete from T1_CreateLot;
-insert into [LTDB].[dbo].[T1_CreateLot] (Code,Amount,ActionTime,HisNum,ActionCode,ProcessCode,ItemCode,Constructor,RegDate)
+insert into [LTDB].[dbo].[T1_CreateLot] (Code,Amount1,Amount2,HisNum,ActionCode,ProcessCode,ItemCode,Constructor,RegDate)
 Values
-('L_Test01','50',GETDATE(),1,'Create','P_Test01','C_001','김건우',GETDATE())
-,('L_Test02','50',GETDATE(),1,'Create','P_Test02','C_002','김건우',GETDATE())
-,('L_Test03','50',GETDATE(),1,'Create','P_Test03','C_003','김건우',GETDATE())
-,('L_Test04','50',GETDATE(),1,'Create','P_Test04','C_004','김건우',GETDATE())
+('L_Test01','50','50',1,'Create','P_Test01','C_001','김건우',GETDATE())
+,('L_Test02','50','50',1,'Create','P_Test02','C_002','김건우',GETDATE())
+,('L_Test03','50','50',1,'Create','P_Test03','C_003','김건우',GETDATE())
+,('L_Test04','50','50',1,'Create','P_Test04','C_004','김건우',GETDATE());
 
 SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001';
 

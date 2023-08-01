@@ -179,7 +179,7 @@ namespace _3rd_TEAM_PROJECT
             txtInboundId.Text = row.Cells["inbound_id"].Value?.ToString();
             txtInboundProduct.Text = row.Cells["inbound_product"].Value?.ToString();
             txtInboundItem.Text = row.Cells["inbound_item"].Value?.ToString();
-            txtInboundVendor.Text = row.Cells["inbound_vender"].Value?.ToString();
+            txtInboundVendor.Text = row.Cells["inbound_vendor"].Value?.ToString();
             txtInboundAmount.Text = row.Cells["inbound_amount"].Value?.ToString();
             txtInboundContact.Text = row.Cells["inbound_contact"].Value?.ToString();
             txtInboundRegdate.Text = row.Cells["inbound_regdate"].Value?.ToString();
@@ -240,7 +240,7 @@ namespace _3rd_TEAM_PROJECT
                     Id = Convert.ToInt64(selectedRow.Cells["inbound_id"].Value),
                     Product = selectedRow.Cells["inbound_product"].Value?.ToString(),
                     Item = selectedRow.Cells["inbound_item"].Value?.ToString(),
-                    Vendor = selectedRow.Cells["inbound_vender"].Value?.ToString(),
+                    Vendor = selectedRow.Cells["inbound_vendor"].Value?.ToString(),
                     Amount = Convert.ToInt32(selectedRow.Cells["inbound_amount"].Value),
                     Contact = selectedRow.Cells["inbound_contact"].Value?.ToString(),
                 };
@@ -284,13 +284,13 @@ namespace _3rd_TEAM_PROJECT
 
             foreach (var item in items)
             {
-                int rowIndex = dgvInboundSearch.Rows.Add();
-                DataGridViewRow row = dgvInboundSearch.Rows[rowIndex];
+                int rowIndex = dgvInbound.Rows.Add();
+                DataGridViewRow row = dgvInbound.Rows[rowIndex];
 
                 row.Cells["inbound_id"].Value = item.Id;
                 row.Cells["inbound_product"].Value = item.Product;
                 row.Cells["inbound_item"].Value = item.Item;
-                row.Cells["inbound_vender"].Value = item.Vendor;
+                row.Cells["inbound_vendor"].Value = item.Vendor;
                 row.Cells["inbound_amount"].Value = item.Amount;
                 row.Cells["inbound_contact"].Value = item.Contact;
                 row.Cells["inbound_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
@@ -368,7 +368,7 @@ namespace _3rd_TEAM_PROJECT
             txtOutboundProduct.Text = row.Cells["outbound_product"].Value?.ToString();
             txtOutboundItem.Text = row.Cells["outbound_item"].Value?.ToString();
             txtOutboundAmount.Text = row.Cells["outbound_amount"].Value?.ToString();
-            txtOutboundProcess.Text = row.Cells["outbound_vendor"].Value?.ToString();
+            txtOutboundProcess.Text = row.Cells["outbound_process"].Value?.ToString();
             txtOutboundContact.Text = row.Cells["outbound_contact"].Value?.ToString();
             txtOutboundRegdate.Text = row.Cells["outbound_regdate"].Value?.ToString();
         }
@@ -464,18 +464,18 @@ namespace _3rd_TEAM_PROJECT
                 return;  //테이블에 값이 없을 경우 메소드 실행 중지
             }
 
-            dgvInbound.Rows.Clear();
-            dgvInbound.Refresh();
+            dgvOutBound.Rows.Clear();
+            dgvOutBound.Refresh();
 
             foreach (var item in items)
             {
-                int rowIndex = dgvInboundSearch.Rows.Add();
-                DataGridViewRow row = dgvInboundSearch.Rows[rowIndex];
+                int rowIndex = dgvOutBound.Rows.Add();
+                DataGridViewRow row = dgvOutBound.Rows[rowIndex];
 
                 row.Cells["outbound_id"].Value = item.Id;
                 row.Cells["outbound_product"].Value = item.Product;
                 row.Cells["outbound_item"].Value = item.Item;
-                row.Cells["outbound_mprocess"].Value = item.MProcessCode;
+                row.Cells["outbound_process"].Value = item.MProcessCode;
                 row.Cells["outbound_amount"].Value = item.Amount;
                 row.Cells["outbound_contact"].Value = item.Contact;
                 row.Cells["outbound_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
@@ -535,6 +535,7 @@ namespace _3rd_TEAM_PROJECT
                 }
             }
         }
+
         #endregion
     }
 }
