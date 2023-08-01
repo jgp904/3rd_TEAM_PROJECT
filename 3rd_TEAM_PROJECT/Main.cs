@@ -1,4 +1,4 @@
-﻿using _3rd_TEAM_PROJECT.Models.Acount;
+﻿using _3rd_TEAM_PROJECT.Models.Account;
 using _3rd_TEAM_PROJECT.Models.Process;
 using _3rd_TEAM_PROJECT.Repositorys.InterFace;
 using _3rd_TEAM_PROJECT.Models.WareHouse;
@@ -18,7 +18,7 @@ namespace _3rd_TEAM_PROJECT
         private IEquipmentRepository equipmentRepository;
 
         //로그인한 계정을 구별
-        public Acount LoggedInAcount { get; set; }
+        public Account LoggedInAccount { get; set; }
         public Login LoginForm { get; set; }
 
         //----------Login정보 받기-----------------//
@@ -77,13 +77,40 @@ namespace _3rd_TEAM_PROJECT
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //화면 닫을 때 확인메시지 출력
+            //Application.OpenForms 컬렉션의 복사본을 만들고 이 복사본을 순회하는 방법을 제안할 수 있습니다. 다음은 해당 방법을 적용한 코드입니다:
+
+            // 화면 닫을 때 확인메시지 출력
             DialogResult result = MessageBox.Show("프로그램을 종료하시겠습니까?", "Exit", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
+
+            if (result == DialogResult.Yes)
             {
+                // 폼 닫기 이벤트 취소하지 않음
+                e.Cancel = false;
+
+                // 열려있는 폼 확인
+                List<Form> openForms = new List<Form>();
+                foreach (Form form in Application.OpenForms)
+                    openForms.Add(form);
+
+                foreach (Form form in openForms)
+                {
+                    //열려있는 폼이 로그인 폼이면
+                    if (form is Login)
+                    {
+                        // 폼 닫음
+                        form.Close();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                // 'No'를 눌렀을 때 폼 닫기 이벤트 취소
                 e.Cancel = true;
             }
         }
+
+
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -211,7 +238,7 @@ namespace _3rd_TEAM_PROJECT
                 Item = txtInboundItem.Text,
                 Vendor = txtInboundVendor.Text,
                 Amount = amount,
-                Contact = SessionManager.Instance.LoggedInAcount.Name,
+                Contact = SessionManager.Instance.LoggedInAccount.Name,
                 RegDate = DateTime.Now,
             };
 
@@ -398,7 +425,7 @@ namespace _3rd_TEAM_PROJECT
                 Item = txtOutboundItem.Text,
                 Amount = amount,
                 MProcessCode = txtOutboundProcess.Text,
-                Contact = SessionManager.Instance.LoggedInAcount.Name,
+                Contact = SessionManager.Instance.LoggedInAccount.Name,
                 RegDate = DateTime.Now,
             };
 

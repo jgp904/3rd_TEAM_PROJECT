@@ -13,13 +13,13 @@ namespace _3rd_TEAM_PROJECT.Repositorys
     public class InboundRepository : IInboundRepository
     {
         //계정 테이블 DbContext
-        private readonly AcountDbContext acountDb;
+        private readonly AccountDbContext accountDb;
         //그 외 테이블 DbContext
         private readonly MProcessDbcontext mprocessDb;
 
-        public InboundRepository(AcountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
+        public InboundRepository(AccountDbContext accountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.acountDb = acountDbContext;
+            this.accountDb = accountDbContext;
             this.mprocessDb = mProcessDbcontext;
         }
 
@@ -27,7 +27,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         public async Task<InBound> AddAsync(InBound inbound)
         {
             //// 현재 로그인한 사용자의 이름을 담당자로 설정합니다.
-            //inbound.Contact = SessionManager.Instance.LoggedInAcount.Name;
+            //inbound.Contact = SessionManager.Instance.LoggedInAccount.Name;
             ////입고 날짜
             //inbound.RegDate = DateTime.Now;
 

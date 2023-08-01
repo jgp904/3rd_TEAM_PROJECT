@@ -13,12 +13,12 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 {
     public class WarehouseRepository : IWarehouseRepository
     {
-        private readonly AcountDbContext acountDb;
+        private readonly AccountDbContext accountDb;
         private readonly MProcessDbcontext mprocessDb;
 
-        public WarehouseRepository(AcountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
+        public WarehouseRepository(AccountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.acountDb = acountDbContext;
+            this.accountDb = acountDbContext;
             this.mprocessDb = mProcessDbcontext;
         }
 

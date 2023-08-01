@@ -1,4 +1,4 @@
-﻿using _3rd_TEAM_PROJECT.Models.Acount;
+﻿using _3rd_TEAM_PROJECT.Models.Account;
 using _3rd_TEAM_PROJECT_Desk;
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace _3rd_TEAM_PROJECT
             }
         }
 
-        public Acount LoggedInAcount { get; private set; }
+        public Account LoggedInAccount { get; private set; }
 
         // set 접근자를 public으로 변경하였습니다.
         public Login LoginForm { get; set; }
@@ -35,14 +35,14 @@ namespace _3rd_TEAM_PROJECT
         {
         }
 
-        public void Login(Acount acount)
+        public void Login(Account acount)
         {
-            LoggedInAcount = acount;
+            LoggedInAccount = acount;
         }
 
         public void Logout()
         {
-            LoggedInAcount = null;
+            LoggedInAccount = null;
         }
     }
 }

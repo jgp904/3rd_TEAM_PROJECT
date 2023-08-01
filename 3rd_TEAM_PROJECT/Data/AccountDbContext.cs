@@ -1,5 +1,5 @@
 ﻿using _3rd_TEAM_PROJECT.Models;
-using _3rd_TEAM_PROJECT.Models.Acount;
+using _3rd_TEAM_PROJECT.Models.Account;
 using _3rd_TEAM_PROJECT.Models.Process;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace _3rd_TEAM_PROJECT.Data
 {
-    public class AcountDbContext : DbContext
+    public class AccountDbContext : DbContext
 	{
 		/*로그인 : user0706 / 1234
 		DB : LTDB*/
@@ -25,12 +25,12 @@ namespace _3rd_TEAM_PROJECT.Data
 				.EnableSensitiveDataLogging()
 				;
 		}
-		public DbSet<Acount> Acounts { get; set; }
+		public DbSet<Account> Accounts { get; set; }
 		public DbSet<Department> Departments { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<Acount>()
+			modelBuilder.Entity<Account>()
 				.HasIndex(j => j.UserId)
 				.IsUnique();
 		}

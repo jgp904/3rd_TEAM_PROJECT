@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Models.Acount
+namespace _3rd_TEAM_PROJECT.Models.Account
 {
-    [Table("T1_Acount")]
-	public class Acount
+    [Table("T1_Account")]
+	public class Account
 	{
         public int Id { get; set; } //PK
         //ToDo UQ 설정		

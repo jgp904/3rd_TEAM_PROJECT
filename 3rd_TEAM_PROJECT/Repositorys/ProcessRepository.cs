@@ -13,13 +13,13 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 {
     public class ProcessRepository : IProcessRepository
     {
-        private readonly AcountDbContext acountdb;
+        private readonly AccountDbContext accountdb;
         private readonly MProcessDbcontext mprocessdb;
 
         public ProcessRepository()
         {
             mprocessdb = Program.mprocessdb;
-            acountdb = Program.acountdb;
+            accountdb = Program.accountdb;
         }
         public async Task<MProcess> AddAsync(MProcess process)
         {
