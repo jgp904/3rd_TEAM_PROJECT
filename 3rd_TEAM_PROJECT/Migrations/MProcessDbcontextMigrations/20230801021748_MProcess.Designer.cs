@@ -9,11 +9,11 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations
+namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230731002337_mprocess")]
-    partial class mprocess
+    [Migration("20230801021748_MProcess")]
+    partial class MProcess
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,6 +54,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EquipCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("HisNum")
                         .HasColumnType("int");
 
@@ -64,10 +67,17 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.Property<int?>("ItemId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ItemType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Modifier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextProcessCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProcessCode")
@@ -316,6 +326,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
                     b.Property<int?>("CreateLotId")
                         .HasColumnType("int");
+
+                    b.Property<string>("EquipCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("HisNum")
                         .HasColumnType("int");

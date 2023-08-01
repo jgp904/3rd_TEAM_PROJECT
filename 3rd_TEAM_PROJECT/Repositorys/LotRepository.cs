@@ -176,6 +176,12 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 .ToListAsync();
         }
 
-        
+        public async Task<IEnumerable<CreateLot>> EquipCode(string search)
+        {
+            return await mprocessdb.CreateLots
+                .Where(x=>(x.EquipCode != null && x.EquipCode.Contains(search)))
+                .OrderByDescending(x=>x.Id)
+                .ToListAsync();
+        }
     }
 }

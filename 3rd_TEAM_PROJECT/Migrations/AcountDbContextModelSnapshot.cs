@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AcountDbContext))]
-    [Migration("20230731002342_acount")]
-    partial class acount
+    partial class AcountDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

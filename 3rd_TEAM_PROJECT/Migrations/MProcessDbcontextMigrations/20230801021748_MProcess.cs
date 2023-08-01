@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations
+namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
 {
     /// <inheritdoc />
-    public partial class mprocess : Migration
+    public partial class MProcess : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -153,7 +153,10 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     ActionCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HisNum = table.Column<int>(type: "int", nullable: false),
                     ProcessCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NextProcessCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ItemCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EquipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ItemType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -250,6 +253,7 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     HisNum = table.Column<int>(type: "int", nullable: false),
                     ProcessCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ItemCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EquipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),

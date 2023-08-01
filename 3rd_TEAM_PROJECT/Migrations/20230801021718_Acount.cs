@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     /// <inheritdoc />
-    public partial class acount : Migration
+    public partial class Acount : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

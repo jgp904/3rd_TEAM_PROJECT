@@ -22,6 +22,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
         Task<IEnumerable<CreateLot>> ConstAsync(string search);
         Task<IEnumerable<CreateLot>> ModiAsync(string search);
         Task<IEnumerable<CreateLot>> ActionCode(string search);
+        Task<IEnumerable<CreateLot>> EquipCode(string search);
 
         Task<IEnumerable<LotHis>> HisAsync(string search);
     }

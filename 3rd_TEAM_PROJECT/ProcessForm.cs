@@ -1,4 +1,5 @@
-﻿using _3rd_TEAM_PROJECT.Models.Acount;
+﻿using _3rd_TEAM_PROJECT.Migrations;
+using _3rd_TEAM_PROJECT.Models.Acount;
 using _3rd_TEAM_PROJECT.Models.Process;
 using _3rd_TEAM_PROJECT.Repositorys;
 using _3rd_TEAM_PROJECT.Repositorys.InterFace;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace _3rd_TEAM_PROJECT
 {
@@ -108,6 +110,9 @@ namespace _3rd_TEAM_PROJECT
                     break;
                 case 6:
                     LoadLotHis();//Lot 이력조회
+                    break;
+                case 7:
+                    LoadLotProcess();//Lot 작업 시작종료
                     break;
 
             }
@@ -546,6 +551,71 @@ namespace _3rd_TEAM_PROJECT
             }
             else
             {
+                
+                if (e_event != "NON")
+                {
+                    CreateLot? createLot;
+                    var lot = await lotRepository.EquipCode(code);
+                    status = "Stop";
+                    foreach (var item in lot)
+                    {                        
+                        createLot = new()
+                        {
+                            Id = item.Id,
+                            Code = item.Code,
+                            Amount1 = item.Amount1,
+                            Amount2 = item.Amount2,
+                            StockUnit1 = item.StockUnit1,
+                            StockUnit2 = item.StockUnit2,
+
+                            ActionCode = "Stop",
+                            ActionTime = DateTime.Now,
+                            EquipCode = item.EquipCode,
+                            ProcessCode = item.ProcessCode,
+                            ItemCode = item.ItemCode,
+                            ItemType = item.ItemType,
+
+                          
+
+                            Modifier = userName,
+                            ModDate = DateTime.Now,
+                        };
+                        createLot = await lotRepository.UpdateAsync(createLot);
+                    }
+                }
+                else if(e_event == "NON")
+                {
+                    if (status != "Stop") status = cbbEquipStatus.Text.ToString().Trim();
+                    else status = "Ready";
+                    CreateLot? createLot;
+                    var lot = await lotRepository.EquipCode(code);
+                    foreach (var item in lot)
+                    {
+
+                        createLot = new()
+                        {
+                            Id = item.Id,
+                            Code = item.Code,
+                            Amount1 = item.Amount1,
+                            Amount2 = item.Amount2,
+                            StockUnit1 = item.StockUnit1,
+                            StockUnit2 = item.StockUnit2,
+
+                            ActionCode = "Run",
+                            ActionTime = DateTime.Now,
+                            ProcessCode = item.ProcessCode,
+                            EquipCode= item.EquipCode,
+                            ItemCode = item.ItemCode,
+                            ItemType = item.ItemType,
+                          
+
+                            Modifier = userName,
+                            ModDate = DateTime.Now,
+                        };
+                        createLot = await lotRepository.UpdateAsync(createLot);
+                    }
+
+                }//-----------------------------------------
                 equipment = new()
                 {
                     Id = int.Parse(lbEquipId.Text.Trim()),
@@ -559,9 +629,10 @@ namespace _3rd_TEAM_PROJECT
                     Modifier = userName,
                     ModDate = DateTime.Now
                 };
+
                 equipment = await equipmentRepository.UpdateAsync(equipment);
                 MessageBox.Show("수정완료");
-                LoadEquip();
+               LoadEquip();
                 return;
             }
         }//end//--설비 수정--//
@@ -1741,7 +1812,24 @@ namespace _3rd_TEAM_PROJECT
             }
         }
         #endregion
-
+        private void LoadLotProcess()
+        {
+            lotStart_equipcode.Items.Clear();
+            lotStart_itemcode.Text = "";
+            lotStart_itemname.Text = "";
+            lotStart_processcode.Text = "";
+            lotStart_processname.Text = "";
+            lotStart_amount1.Text = "";
+            lotStart_amount2.Text = "";
+            lotEnd_Equip.Items.Clear();
+            lotEnd_lotCode.Text = "";
+            lotEnd_ItemCode.Text = "";
+            lotEnd_ItemName.Text = "";
+            lotEnd_ProCode.Text = "";
+            lotEnd_ProName.Text = "";
+            lotEnd_Amount1.Text = "";
+            lotEnd_Amount2.Text = "";
+        }
         #region Lot작업 시작
         public void LotStartClear()//Lot정보 Clear
         {
@@ -1881,6 +1969,11 @@ namespace _3rd_TEAM_PROJECT
             {
                 foreach (var item in lot)
                 {
+                    if (item.ActionCode == "Stop" || item.ActionCode == "Start" || item.ActionCode == "Run")
+                    {
+                        MessageBox.Show("작업을 완료하지 않거나 작업이 중단되어 작업을 실행할수 없습니다.");
+                        return;
+                    }
                     createLot = new()
                     {
                         Id = item.Id,
@@ -1907,12 +2000,39 @@ namespace _3rd_TEAM_PROJECT
 
                 if (createLot != null)
                 {
+                    
+                    Equipment? equipment = null;
+                    var equips = await equipmentRepository.CodeAsync(equip);
+                    foreach (var item in equips)
+                    {
+                        if (item.Status == "Stop") { MessageBox.Show($"{item.Code}는 동작하지 않습니다."); return; }
+                        else if (item.Status == "Process") { MessageBox.Show($"{item.Code}는 동작중 입니다."); return; }
+                        equipment = new()
+                        {
+                            Id = item.Id,
+                            ProcessCode = item.ProcessCode,
+                            Code = item.Code,
+                            Name = item.Name,
+                            Comment = item.Comment,
+                            Status = "Process",
+                            Event = item.Event,
+
+                            Modifier = userName,
+                            ModDate = DateTime.Now
+                        };
+                    }
+                    if (equips != null)
+                    {
+                        equipment = await equipmentRepository.UpdateAsync(equipment);
+                    }
+                    else
+                    {
+                        MessageBox.Show("해당하는 Lot의 설비를 찾을 수 없습니다.");
+                        return;
+                    }
                     createLot = await lotRepository.UpdateAsync(createLot);
-                    MessageBox.Show("작업시작");
-
-                    LoadLot();
+                    MessageBox.Show("작업 시작");                  
                     return;
-
                 }
                 else
                 {
@@ -2036,10 +2156,6 @@ namespace _3rd_TEAM_PROJECT
             s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
             s_Process.ShowDialog();
         }
-
-        #endregion
-
-
         private async void button1_Click(object sender, EventArgs e)
         {
             CreateLot? createLot = null;
@@ -2065,6 +2181,11 @@ namespace _3rd_TEAM_PROJECT
             {
                 foreach (var item in lot)
                 {
+                    if (item.ActionCode == "Stop" || item.ActionCode == "End")
+                    {
+                        MessageBox.Show("작업을 시작하지 않거나 중단되어 작업을 완료할수 없습니다.");
+                        return;
+                    }
                     createLot = new()
                     {
                         Id = item.Id,
@@ -2092,10 +2213,37 @@ namespace _3rd_TEAM_PROJECT
 
                 if (createLot != null)
                 {
-                    createLot = await lotRepository.UpdateAsync(createLot);
-                    MessageBox.Show("작업종료");
+                    Equipment? equipment = null;
+                    var equips = await equipmentRepository.CodeAsync(equip);
+                    foreach (var item in equips)
+                    {
+                        if (item.Status == "Stop") { MessageBox.Show($"{item.Code}는 동작하지 않습니다."); return; }
+                        else if (item.Status == "Ready") { MessageBox.Show($"{item.Code}는 동작준비중 입니다."); return; }
+                        equipment = new()
+                        {
+                            Id = item.Id,
+                            ProcessCode = item.ProcessCode,
+                            Code = item.Code,
+                            Name = item.Name,
+                            Comment = item.Comment,
+                            Status = "Ready",
+                            Event = item.Event,
 
-                    LoadLot();
+                            Modifier = userName,
+                            ModDate = DateTime.Now
+                        };
+                    }
+                    if (equips != null)
+                    {
+                        equipment = await equipmentRepository.UpdateAsync(equipment);
+                    }
+                    else
+                    {
+                        MessageBox.Show("해당하는 Lot의 설비를 찾을 수 없습니다.");
+                        return;
+                    }
+                    createLot = await lotRepository.UpdateAsync(createLot);
+                    MessageBox.Show("작업 완료");
                     return;
 
                 }
@@ -2108,5 +2256,9 @@ namespace _3rd_TEAM_PROJECT
 
             }
         }
+
+        #endregion
+
+
     }
 }
