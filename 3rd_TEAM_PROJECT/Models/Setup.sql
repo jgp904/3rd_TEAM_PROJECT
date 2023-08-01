@@ -57,37 +57,37 @@ VALUES
 delete from T1_Factory;
 insert into [LTDB].[dbo].[T1_Factory] (Code,Name,Constructor,RegDate)
 values
-('F_COM_001','컴퓨터공장','김건우',GETDATE())
-,('F_COM_0012','컴퓨터공장2','김건우',GETDATE())
+('F_COM_001','컴퓨터공장1','김건우',GETDATE())
+,('F_COM_002','컴퓨터공장2','김건우',GETDATE())
+,('F_COM_003','컴퓨터공장3','김건우',GETDATE())
 SELECT * FROM T1_Factory;
 --Equiment--
 SELECT * FROM T1_Equipment;
 delete from T1_Equipment;
-insert into [LTDB].[dbo].[T1_Equipment] (Code,Name,Comment,Status,Event,Constructor,RegDate)
+insert into [LTDB].[dbo].[T1_Equipment] (Code,Name,Comment,ProcessCode,Status,Event,Constructor,RegDate)
 values
-('Equip01','설비1','','Ready','NON','김건우',GETDATE())
-,('Equip02','설비2','','Ready','NON','김건우',GETDATE())
-,('Equip03','설비3','','Ready','NON','김건우',GETDATE())
-,('Equip04','설비4','','Ready','NON','김건우',GETDATE())
+('Equip01','설비1','','P_Test01','Ready','NON','김건우',GETDATE())
+,('Equip02','설비2','','P_Test01','Ready','NON','김건우',GETDATE())
+,('Equip03','설비3','','P_Test01','Ready','NON','김건우',GETDATE())
+
 
 --Item--
 
 delete from T1_Item;
-insert into [LTDB].[dbo].[T1_Item] (Code,Name,Type,Constructor,RegDate)
+insert into [LTDB].[dbo].[T1_Item] (Code,Name,Comment,Type,Constructor,RegDate)
 Values
-('C_001','컴퓨터corei3','FERT','김건우',GETDATE())
-,('C_002','컴퓨터corei5','FERT','김건우',GETDATE())
-,('C_003','컴퓨터corei7','FERT','김건우',GETDATE())
-,('C_004','컴퓨터corei9','FERT','김건우',GETDATE())
+('C_001','컴퓨터corei3','','ROH','김건우',GETDATE())
+,('C_002','컴퓨터corei5','','ROH','김건우',GETDATE())
+,('C_003','컴퓨터corei7','','ROH','김건우',GETDATE())
+,('C_004','컴퓨터corei9','','ROH','김건우',GETDATE())
 
 --Process--
 delete from t1_MProcess;
-insert into [LTDB].[dbo].[T1_MProcess] (Code,Name,Comment,EquipCode,StockUnit1,StockUnit2,Constructor,RegDate)
+insert into [LTDB].[dbo].[T1_MProcess] (Code,Name,Comment,StockUnit1,StockUnit2,FacCode,Constructor,RegDate)
 Values
-('P_Test01','테스트1','','Equip01','EA','','김건우',GETDATE())
-,('P_Test02','테스트2','','Equip01','EA','','김건우',GETDATE())
-,('P_Test03','테스트3','','Equip01','EA','','김건우',GETDATE())
-,('P_Test04','테스트4','','Equip01','EA','','김건우',GETDATE())
+('P_Test01','테스트1','','EA','','F_COM_001','김건우',GETDATE())
+,('P_Test02','테스트2','','EA','','F_COM_001','김건우',GETDATE())
+
 select * from t1_MProcess;
 
 --Create Lot--
@@ -102,4 +102,7 @@ Values
 SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001';
 
 select * from T1_Factory;
-select * from T1_Equipment
+select * from T1_Equipment;
+
+
+select * from T1_CreateLot;
