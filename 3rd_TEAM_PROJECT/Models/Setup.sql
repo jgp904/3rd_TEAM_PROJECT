@@ -1,7 +1,9 @@
 ﻿delete from T1_Department;
 --Acount--
-delete from process;
-delete from T1_Acount;
+ALTER TABLE [LTDB].[dbo].[T1_Acount]
+ADD DEFAULT (1) FOR [Authority]
+-- "Server=127.0.0.1; Database=LTDB; uid=user0706; pwd=1234; Encrypt=false"; --
+
 select * from T1_Acount;
 select * from T1_Department;
 insert into [LTDB].[dbo].[T1_Department] (DepartmentCode,Name)
@@ -10,11 +12,6 @@ values
 ,('002','구매팀')
 ,('003','생산팀');
 
-insert into [LTDB].[dbo].[T1_Acount] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode)
-values
-('admin1','김건우','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'))
-,('admin2','박재걸','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '002'))
-,('admin3','이용학','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '003'));
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 insert into [LTDB].[dbo].[T1_Acount] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode, DepartmentId)
 values
@@ -72,12 +69,12 @@ SELECT * FROM T1_Factory;
 --Equiment--
 SELECT * FROM T1_Equipment;
 delete from T1_Equipment;
-insert into [LTDB].[dbo].[T1_Equipment] (Code,Name,Comment,Status,Event,Constructor,RegDate)
+insert into [LTDB].[dbo].[T1_Equipment] (Code,Name,Comment,Status,Event,ProcessCode,Constructor,RegDate)
 values
-('Equip01','설비1','','Ready','NON','김건우',GETDATE())
-,('Equip02','설비2','','Ready','NON','김건우',GETDATE())
-,('Equip03','설비3','','Ready','NON','김건우',GETDATE())
-,('Equip04','설비4','','Ready','NON','김건우',GETDATE())
+('Equip01','설비1','','Ready','NON','P_Test01','김건우',GETDATE())
+,('Equip02','설비2','','Ready','NON','P_Test02','김건우',GETDATE())
+,('Equip03','설비3','','Ready','NON','P_Test03','김건우',GETDATE())
+,('Equip04','설비4','','Ready','NON','P_Test04','김건우',GETDATE())
 
 --Item--
 
@@ -91,12 +88,13 @@ Values
 
 --Process--
 delete from t1_MProcess;
-insert into [LTDB].[dbo].[T1_MProcess] (Code,Name,Comment,EquipCode,StockUnit1,StockUnit2,Constructor,RegDate)
+select * from T1_MProcess;
+insert into [LTDB].[dbo].[T1_MProcess] (FacCode,Code,Name,Comment,StockUnit1,StockUnit2,Constructor,RegDate)
 Values
-('P_Test01','테스트1','','Equip01','EA','','김건우',GETDATE())
-,('P_Test02','테스트2','','Equip01','EA','','김건우',GETDATE())
-,('P_Test03','테스트3','','Equip01','EA','','김건우',GETDATE())
-,('P_Test04','테스트4','','Equip01','EA','','김건우',GETDATE())
+ ('F_Test_01','P_Test01','테스트1','ㄹㅇ','Equip01','EA','김건우',GETDATE())
+,('F_Test_02','P_Test02','테스트2','ㅋㅋ','Equip01','EA','김건우',GETDATE())
+,('F_Test_03','P_Test03','테스트3','ㄹㅇㅋㅋ','Equip01','EA','김건우',GETDATE())
+,('F_Test_04','P_Test04','테스트4','ㅋㅋㄹㅇ','Equip01','EA','김건우',GETDATE())
 select * from t1_MProcess;
 
 --Create Lot--

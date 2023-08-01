@@ -247,6 +247,8 @@
             pictureBox6 = new PictureBox();
             txtsearchLot = new TextBox();
             groupBox5 = new GroupBox();
+            txtLot_Stock2 = new TextBox();
+            txtLot_Stock1 = new TextBox();
             label77 = new Label();
             txtLot_Amount2 = new TextBox();
             pbsItem = new PictureBox();
@@ -326,8 +328,6 @@
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             작업종료ToolStripMenuItem = new ToolStripMenuItem();
-            txtLot_Stock1 = new TextBox();
-            txtLot_Stock2 = new TextBox();
             menuStrip1.SuspendLayout();
             tabProcess.SuspendLayout();
             facSetting.SuspendLayout();
@@ -2333,6 +2333,20 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "Lot생성";
             // 
+            // txtLot_Stock2
+            // 
+            txtLot_Stock2.Location = new Point(89, 236);
+            txtLot_Stock2.Name = "txtLot_Stock2";
+            txtLot_Stock2.Size = new Size(100, 23);
+            txtLot_Stock2.TabIndex = 71;
+            // 
+            // txtLot_Stock1
+            // 
+            txtLot_Stock1.Location = new Point(89, 178);
+            txtLot_Stock1.Name = "txtLot_Stock1";
+            txtLot_Stock1.Size = new Size(100, 23);
+            txtLot_Stock1.TabIndex = 70;
+            // 
             // label77
             // 
             label77.AutoSize = true;
@@ -3036,20 +3050,6 @@
             작업종료ToolStripMenuItem.Name = "작업종료ToolStripMenuItem";
             작업종료ToolStripMenuItem.Size = new Size(67, 20);
             작업종료ToolStripMenuItem.Text = "작업완료";
-            // 
-            // txtLot_Stock1
-            // 
-            txtLot_Stock1.Location = new Point(89, 178);
-            txtLot_Stock1.Name = "txtLot_Stock1";
-            txtLot_Stock1.Size = new Size(100, 23);
-            txtLot_Stock1.TabIndex = 70;
-            // 
-            // txtLot_Stock2
-            // 
-            txtLot_Stock2.Location = new Point(89, 236);
-            txtLot_Stock2.Name = "txtLot_Stock2";
-            txtLot_Stock2.Size = new Size(100, 23);
-            txtLot_Stock2.TabIndex = 71;
             // 
             // ProcessForm
             // 

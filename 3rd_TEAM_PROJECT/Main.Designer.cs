@@ -1270,6 +1270,7 @@
             LogoutMenu.Name = "LogoutMenu";
             LogoutMenu.Size = new Size(67, 20);
             LogoutMenu.Text = "로그아웃";
+            LogoutMenu.Click += LogoutMenu_Click;
             // 
             // Main
             // 
@@ -1283,6 +1284,7 @@
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
+            FormClosing += Main_FormClosing;
             TabMenu.ResumeLayout(false);
             Purches_warehouse.ResumeLayout(false);
             groupBox1.ResumeLayout(false);

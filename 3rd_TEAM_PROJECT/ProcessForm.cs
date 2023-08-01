@@ -434,7 +434,7 @@ namespace _3rd_TEAM_PROJECT
         }//end이력상세
         #region 공정등록
 
-        private void SProcess_ProcessCodeSelected(object sender,(string processCode, string stock1, string? stock2) args)// 공정 검색
+        private void SProcess_ProcessCodeSelected(object sender, (string processCode, string stock1, string? stock2) args)// 공정 검색
         {
             // 선택된 공정 코드
             string processCode = args.processCode;
@@ -1692,7 +1692,5 @@ namespace _3rd_TEAM_PROJECT
             // S_Equip 폼에서 선택한 값인 equipCode를 처리합니다.
 
         }
-
-
     }
 }

@@ -34,6 +34,7 @@
             btnLogin = new Button();
             btnExit = new Button();
             picPassIcon = new PictureBox();
+            checkBoxAutoLogin = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)picPassIcon).BeginInit();
             SuspendLayout();
             // 
@@ -96,12 +97,23 @@
             picPassIcon.MouseLeave += picPassIcon_MouseLeave;
             picPassIcon.MouseMove += picPassIcon_MouseMove;
             // 
+            // checkBoxAutoLogin
+            // 
+            checkBoxAutoLogin.AutoSize = true;
+            checkBoxAutoLogin.Location = new Point(30, 205);
+            checkBoxAutoLogin.Name = "checkBoxAutoLogin";
+            checkBoxAutoLogin.Size = new Size(90, 19);
+            checkBoxAutoLogin.TabIndex = 6;
+            checkBoxAutoLogin.Text = "자동 로그인";
+            checkBoxAutoLogin.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(281, 305);
+            Controls.Add(checkBoxAutoLogin);
             Controls.Add(picPassIcon);
             Controls.Add(btnExit);
             Controls.Add(btnLogin);
@@ -124,5 +136,6 @@
         private Button btnLogin;
         private Button btnExit;
         private PictureBox picPassIcon;
+        private CheckBox checkBoxAutoLogin;
     }
 }
