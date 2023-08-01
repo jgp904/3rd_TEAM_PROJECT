@@ -13,13 +13,13 @@ namespace _3rd_TEAM_PROJECT.Repositorys
     public class OutboundRepository : IOutboundRepository
     {
         //계정 테이블 DbContext
-        private readonly AcountDbContext acountDb;
+        private readonly AccountDbContext accountDb;
         //그 외 테이블 DbContext
         private readonly MProcessDbcontext mprocessDb;
 
-        public OutboundRepository(AcountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
+        public OutboundRepository(AccountDbContext accountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.acountDb = acountDbContext;
+            this.accountDb = accountDbContext;
             this.mprocessDb = mProcessDbcontext;
         }
 

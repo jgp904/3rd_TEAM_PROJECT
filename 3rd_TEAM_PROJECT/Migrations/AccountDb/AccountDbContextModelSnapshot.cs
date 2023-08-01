@@ -8,10 +8,10 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
+namespace _3rd_TEAM_PROJECT.Migrations.AccountDb
 {
-    [DbContext(typeof(AcountDbContext))]
-    partial class AcountDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AccountDbContext))]
+    partial class AccountDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount.Acount", b =>
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Account.Account", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,10 +66,10 @@ namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("T1_Acount");
+                    b.ToTable("T1_Account");
                 });
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount.Department", b =>
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Account.Department", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,9 +90,9 @@ namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
                     b.ToTable("T1_Department");
                 });
 
-            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Acount.Acount", b =>
+            modelBuilder.Entity("_3rd_TEAM_PROJECT.Models.Account.Account", b =>
                 {
-                    b.HasOne("_3rd_TEAM_PROJECT.Models.Acount.Department", "Department")
+                    b.HasOne("_3rd_TEAM_PROJECT.Models.Account.Department", "Department")
                         .WithMany()
                         .HasForeignKey("DepartmentId");
 

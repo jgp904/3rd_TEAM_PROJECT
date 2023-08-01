@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
+namespace _3rd_TEAM_PROJECT.Migrations.AccountDb
 {
     /// <inheritdoc />
     public partial class acount : Migration
@@ -26,7 +26,7 @@ namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
                 });
 
             migrationBuilder.CreateTable(
-                name: "T1_Acount",
+                name: "T1_Account",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -42,22 +42,22 @@ namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_T1_Acount", x => x.Id);
+                    table.PrimaryKey("PK_T1_Account", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_T1_Acount_T1_Department_DepartmentId",
+                        name: "FK_T1_Account_T1_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "T1_Department",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_T1_Acount_DepartmentId",
-                table: "T1_Acount",
+                name: "IX_T1_Account_DepartmentId",
+                table: "T1_Account",
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_T1_Acount_UserId",
-                table: "T1_Acount",
+                name: "IX_T1_Account_UserId",
+                table: "T1_Account",
                 column: "UserId",
                 unique: true);
         }
@@ -66,7 +66,7 @@ namespace _3rd_TEAM_PROJECT.Migrations.AcountDb
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "T1_Acount");
+                name: "T1_Account");
 
             migrationBuilder.DropTable(
                 name: "T1_Department");

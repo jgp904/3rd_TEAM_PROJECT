@@ -4,7 +4,7 @@ ALTER TABLE [LTDB].[dbo].[T1_Acount]
 ADD DEFAULT (1) FOR [Authority]
 -- "Server=127.0.0.1; Database=LTDB; uid=user0706; pwd=1234; Encrypt=false"; --
 
-select * from T1_Acount;
+select * from T1_Account;
 select * from T1_Department;
 insert into [LTDB].[dbo].[T1_Department] (DepartmentCode,Name)
 values
@@ -13,13 +13,13 @@ values
 ,('003','생산팀');
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-insert into [LTDB].[dbo].[T1_Acount] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode, DepartmentId)
+insert into [LTDB].[dbo].[T1_Account] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode, DepartmentId)
 values
  ('admin1','김건우','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '001'))
 ,('admin2','박재걸','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '002'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '002'))
 ,('admin3','이용학','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '003'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '001'));
 
-SELECT * FROM T1_Acount;
+SELECT * FROM T1_Account;
 --WareHouse--
 delete from T1_WareHouse;
 
@@ -118,4 +118,5 @@ select * from T1_CreateLot;
 EXEC sp_MSforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"
 
 -- 모든 테이블 삭제
+-- 남는 테이블은 수동으로 삭제할 것
 EXEC sp_MSforeachtable "DROP TABLE ?"

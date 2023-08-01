@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230731222249_mprocess")]
+    [Migration("20230801074124_mprocess")]
     partial class mprocess
     {
         /// <inheritdoc />
@@ -54,6 +54,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EquipCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("HisNum")
                         .HasColumnType("int");
 
@@ -64,10 +67,17 @@ namespace _3rd_TEAM_PROJECT.Migrations
                     b.Property<int?>("ItemId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ItemType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Modifier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NextProcessCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProcessCode")
@@ -316,6 +326,9 @@ namespace _3rd_TEAM_PROJECT.Migrations
 
                     b.Property<int?>("CreateLotId")
                         .HasColumnType("int");
+
+                    b.Property<string>("EquipCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("HisNum")
                         .HasColumnType("int");

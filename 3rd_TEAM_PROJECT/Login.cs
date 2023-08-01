@@ -1,6 +1,6 @@
 using _3rd_TEAM_PROJECT;
 using _3rd_TEAM_PROJECT.Data;
-using _3rd_TEAM_PROJECT.Models.Acount;
+using _3rd_TEAM_PROJECT.Models.Account;
 using _3rd_TEAM_PROJECT.Properties;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -64,27 +64,27 @@ namespace _3rd_TEAM_PROJECT_Desk
         }
 
         // CheckLogin: 사용자 로그인 정보를 검사
-        private Acount CheckLogin()
+        private Account CheckLogin()
         {
             string userId = txtId.Text;
             string password = txtPw.Text;
 
-            using (var context = new AcountDbContext())
+            using (var context = new AccountDbContext())
             {
-                var acount = context.Acounts
+                var account = context.Accounts
                     .Include(a => a.Department) // Department 정보도 같이 가져오기 위해 Include를 사용합니다.
                     .FirstOrDefault(a => a.UserId == userId && a.PassWord == password);
 
-                return acount;
+                return account;
             }
         }
 
         // btnLogin_Click: 로그인 버튼 클릭 시 실행되는 메서드
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Acount loggedInAcount = CheckLogin();
+            Account loggedInAccount = CheckLogin();
 
-            if (loggedInAcount != null)
+            if (loggedInAccount != null)
             {
                 //자동 로그인 체크박스 확인
                 if (checkBoxAutoLogin.Checked)
@@ -104,26 +104,26 @@ namespace _3rd_TEAM_PROJECT_Desk
                 textclear();
 
                 // 로그인 상태 저장
-                SessionManager.Instance.Login(loggedInAcount);
+                SessionManager.Instance.Login(loggedInAccount);
 
                 // 로그인 폼 인스턴스 저장
                 SessionManager.Instance.LoginForm = this;
 
                 // 계정 정보에 따라 다른 폼을 표시
-                //if (loggedInAcount.Department.DepartmentCode == "002")
-                if (loggedInAcount.DepartmentCode == "002")
+                //if (loggedInAccount.Department.DepartmentCode == "002")
+                if (loggedInAccount.DepartmentCode == "002")
                 {
                     Main mainForm = new Main();
                     mainForm.Show();
                 }
-                else if (loggedInAcount.DepartmentCode == "003")
+                else if (loggedInAccount.DepartmentCode == "003")
                 {
                     ProcessForm processForm = new ProcessForm(); // ProcessForm은 사용자가 새로 만든 폼입니다.
                     processForm.Show();
                 }
                 else
                 {
-                    MessageBox.Show("구매부서는 WEB PAGE를 이용해주십시오");
+                    MessageBox.Show("경영지원부는 WEB PAGE를 이용해주십시오");
                 }
 
                 this.Hide();

@@ -1,4 +1,4 @@
-﻿using _3rd_TEAM_PROJECT.Models.Acount;
+﻿using _3rd_TEAM_PROJECT.Models.Account;
 using _3rd_TEAM_PROJECT.Models.Process;
 using _3rd_TEAM_PROJECT.Repositorys.InterFace;
 using _3rd_TEAM_PROJECT.Models.WareHouse;
@@ -18,7 +18,7 @@ namespace _3rd_TEAM_PROJECT
         private IEquipmentRepository equipmentRepository;
 
         //로그인한 계정을 구별
-        public Acount LoggedInAcount { get; set; }
+        public Account LoggedInAccount { get; set; }
         public Login LoginForm { get; set; }
 
         //----------Login정보 받기-----------------//
@@ -238,7 +238,7 @@ namespace _3rd_TEAM_PROJECT
                 Item = txtInboundItem.Text,
                 Vendor = txtInboundVendor.Text,
                 Amount = amount,
-                Contact = SessionManager.Instance.LoggedInAcount.Name,
+                Contact = SessionManager.Instance.LoggedInAccount.Name,
                 RegDate = DateTime.Now,
             };
 
@@ -425,7 +425,7 @@ namespace _3rd_TEAM_PROJECT
                 Item = txtOutboundItem.Text,
                 Amount = amount,
                 MProcessCode = txtOutboundProcess.Text,
-                Contact = SessionManager.Instance.LoggedInAcount.Name,
+                Contact = SessionManager.Instance.LoggedInAccount.Name,
                 RegDate = DateTime.Now,
             };
 
