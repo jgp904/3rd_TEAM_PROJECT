@@ -25,8 +25,12 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 		 */
         public int HisNum { get; set; }//이력번호
 		public string ProcessCode { get; set; }// 공정코드
-		public string ItemCode { get; set; } // 품번
-		
+		public string? NextProcessCode { get; set; }// 공정코드
+		public string ItemCode { get; set; } // 품번		
+		public string? EquipCode { get; set; } //설비코드
+
+		public string ItemType { get; set; }//itemType
+
 
 		public string Constructor { get; set; } //생성자
 		public DateTime RegDate { get; set; } //생성일자

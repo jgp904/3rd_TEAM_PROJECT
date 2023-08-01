@@ -36,6 +36,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 HisNum = lots.HisNum,
                 ProcessCode = lots.ProcessCode,
                 ItemCode = lots.ItemCode,
+                EquipCode = lots.EquipCode,
 
                 Constructor = lots.Constructor,
                 RegDate = lots.RegDate,
@@ -72,7 +73,9 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             existingLot.ActionTime = lots.ActionTime;
             existingLot.HisNum = hisnum;
             existingLot.ProcessCode = lots.ProcessCode;
+            existingLot.NextProcessCode = lots.NextProcessCode;
             existingLot.ItemCode = lots.ItemCode;
+            existingLot.EquipCode = lots.EquipCode;
 
             existingLot.Modifier = lots.Modifier;
             existingLot.ModDate = lots.ModDate;
@@ -93,6 +96,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 HisNum = existingLot.HisNum,
                 ProcessCode = existingLot.ProcessCode,
                 ItemCode = existingLot.ItemCode,
+                EquipCode = existingLot.EquipCode,
 
                 Constructor = existingLot.Constructor,
                 RegDate = existingLot.RegDate,
@@ -168,7 +172,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         {
             return await mprocessdb.LotHis
                 .Where(x => (x.Code != null && x.Code.Contains(search)))
-                .OrderBy(x => x.Id)
+                .OrderByDescending(x => x.Id)
                 .ToListAsync();
         }
 

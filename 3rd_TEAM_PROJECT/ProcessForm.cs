@@ -1,4 +1,5 @@
-﻿using _3rd_TEAM_PROJECT.Models.Process;
+﻿using _3rd_TEAM_PROJECT.Models.Acount;
+using _3rd_TEAM_PROJECT.Models.Process;
 using _3rd_TEAM_PROJECT.Repositorys;
 using _3rd_TEAM_PROJECT.Repositorys.InterFace;
 using _3rd_TEAM_PROJECT_Desk;
@@ -446,6 +447,7 @@ namespace _3rd_TEAM_PROJECT
             // 선택된 공정 코드를 다른 폼에 표시하거나 처리할 수 있습니다.
             txtLot_ProcessCode.Text = processCode;
             txtEquip_ProCode.Text = processCode;
+            txtlotEnd_NextPro.Text = processCode;
         }
         private void txtEquip_ProCode_Click(object sender, EventArgs e)
         {
@@ -1260,17 +1262,18 @@ namespace _3rd_TEAM_PROJECT
                 dgvLot.Rows[i].Cells["lot_stock1"].Value = item.StockUnit1;
                 dgvLot.Rows[i].Cells["lot_stock2"].Value = item.StockUnit2;
 
-                dgvLot.Rows[i].Cells["lot_actiontime"].Value = item.ActionTime;
+                dgvLot.Rows[i].Cells["lot_actiontime"].Value = item.ActionTime.ToString("MM.dd.HH.mm");
                 dgvLot.Rows[i].Cells["lot_actioncode"].Value = item.ActionCode;
 
+                dgvLot.Rows[i].Cells["lot_equipcode"].Value = item.EquipCode;
                 dgvLot.Rows[i].Cells["lot_processcode"].Value = item.ProcessCode;
                 dgvLot.Rows[i].Cells["lot_itemcode"].Value = item.ItemCode;
 
 
                 dgvLot.Rows[i].Cells["lot_const"].Value = item.Constructor;
-                dgvLot.Rows[i].Cells["lot_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvLot.Rows[i].Cells["lot_regdate"].Value = item.RegDate.ToString("MM.dd.HH.mm");
                 dgvLot.Rows[i].Cells["lot_modi"].Value = item.Modifier;
-                dgvLot.Rows[i].Cells["lot_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                dgvLot.Rows[i].Cells["lot_moddate"].Value = item.ModDate?.ToString("MM.dd.HH.mm");
                 i++;
             }
         }
@@ -1285,7 +1288,9 @@ namespace _3rd_TEAM_PROJECT
                 {
                     lbLot_Id.Text = selectedRow.Cells["lot_id"].Value.ToString();
                     txtLot_Code.Text = selectedRow.Cells["lot_code"].Value.ToString();
-                    txtLot_Amount1.Text = selectedRow.Cells["lot_amount"].Value.ToString();
+                    txtLot_Amount1.Text = selectedRow.Cells["lot_amount1"].Value.ToString();
+                    txtLot_Amount2.Text = selectedRow.Cells["lot_amount2"].Value.ToString();
+
                     txtLot_Stock1.Text = selectedRow.Cells["lot_stock1"].Value.ToString();
                     txtLot_Stock2.Text = selectedRow.Cells["lot_stock2"].Value.ToString();
 
@@ -1310,11 +1315,21 @@ namespace _3rd_TEAM_PROJECT
             CreateLot? createLot;
 
             var lots = await lotRepository.GetAllAsync();
+
             string code = txtLot_Code.Text.Trim();
-            string amount = txtLot_Amount1.Text.Trim();
+            string amount1txt = txtLot_Amount1.Text.Trim();
+            string amount2txt = txtLot_Amount2.Text.Trim();
             string processcode = txtLot_ProcessCode.Text.Trim();
             string itemcode = txtLot_ItemCode.Text.Trim();
-
+            string stock2 = txtLot_Stock2.Text.Trim();
+            string itemtype = "";
+            
+            
+            var itemtypes = await itemRepository.CodeAsync(itemcode);
+            foreach (var item in itemtypes)
+            {
+                itemtype = item.Type.ToString();
+            }
 
             foreach (var item in lots)
             {
@@ -1330,9 +1345,14 @@ namespace _3rd_TEAM_PROJECT
                 MessageBox.Show("Lot번호를 입력하세요.");
                 return;
             }
-            else if (amount.Length == 0)
+            else if (amount1txt.Length == 0)
             {
-                MessageBox.Show("수량을 입력하세요.");
+                MessageBox.Show("수량1을 입력하세요.");
+                return;
+            }
+            else if (stock2.Length != 0 && amount2txt.Length == 0)
+            {
+                MessageBox.Show("수량2를 입력하세요.");
                 return;
             }
             else if (processcode.Length == 0)
@@ -1347,10 +1367,14 @@ namespace _3rd_TEAM_PROJECT
             }
             else
             {
+                int amount1 = int.Parse(amount1txt.Trim());
+                int amount2 = 0;
+                if(amount2txt.Length != 0)amount2 = int.Parse(amount2txt.Trim());
                 createLot = new()
                 {
                     Code = code,
-                    Amount1 = int.Parse(amount),
+                    Amount1 = amount1,
+                    Amount2 = amount2,
                     StockUnit1 = txtLot_Stock1.Text.Trim(),
                     StockUnit2 = txtLot_Stock2.Text.Trim(),
 
@@ -1359,6 +1383,7 @@ namespace _3rd_TEAM_PROJECT
                     HisNum = 0,
                     ProcessCode = processcode,
                     ItemCode = itemcode,
+                    ItemType = itemtype,
 
                     Constructor = userName,
                     RegDate = DateTime.Now,
@@ -1372,7 +1397,19 @@ namespace _3rd_TEAM_PROJECT
 
         }
         #region 공정등록
+        private void txtLot_ProcessCode_Click(object sender, EventArgs e)
+        {
+            S_Process s_Process = new S_Process();
+            s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
+            s_Process.ShowDialog();
+        }
 
+        private void pbsProcess_Click(object sender, EventArgs e)
+        {
+            S_Process s_Process = new S_Process();
+            s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
+            s_Process.ShowDialog();
+        }
 
         #endregion
         #region 품번 등록
@@ -1400,19 +1437,30 @@ namespace _3rd_TEAM_PROJECT
             CreateLot? createLot;
 
             string code = txtLot_Code.Text.Trim();
-            string amount1 = txtLot_Amount1.Text.Trim();
-            string amount2 = txtLot_Amount2.Text.Trim();
+            int amount1 = int.Parse(txtLot_Amount1.Text.Trim());
+            int amount2 = int.Parse(txtLot_Amount2.Text.Trim());
             string processcode = txtLot_ProcessCode.Text.Trim();
             string itemcode = txtLot_ItemCode.Text.Trim();
-
+            string stock2 = txtLot_Stock2.Text.Trim();
+            string itemtype = "";
+            var itemtypes = await itemRepository.CodeAsync(itemcode);
+            foreach (var item in itemtypes)
+            {
+                itemtype = item.Type.ToString();
+            }
             if (code.Length == 0)
             {
                 MessageBox.Show("Lot번호를 입력하세요.");
                 return;
             }
-            else if (amount1.Length == 0)
+            else if (amount1 == null)
             {
-                MessageBox.Show("수량을 입력하세요.");
+                MessageBox.Show("수량1을 입력하세요.");
+                return;
+            }
+            else if (stock2.Length != 0 && amount2 == null)
+            {
+                MessageBox.Show("수량2를 입력하세요.");
                 return;
             }
             else if (processcode.Length == 0)
@@ -1431,8 +1479,8 @@ namespace _3rd_TEAM_PROJECT
                 {
                     Id = int.Parse(lbLot_Id.Text.Trim()),
                     Code = code,
-                    Amount1 = int.Parse(amount1),
-                    Amount2 = int.Parse(amount2),
+                    Amount1 = amount1,
+                    Amount2 = amount2,
                     StockUnit1 = txtLot_Stock1.Text.Trim(),
                     StockUnit2 = txtLot_Stock2.Text.Trim(),
 
@@ -1441,6 +1489,7 @@ namespace _3rd_TEAM_PROJECT
 
                     ProcessCode = processcode,
                     ItemCode = itemcode,
+                    ItemType = itemtype,
 
                     Modifier = userName,
                     ModDate = DateTime.Now,
@@ -1504,17 +1553,18 @@ namespace _3rd_TEAM_PROJECT
                     dgvLot.Rows[i].Cells["lot_stock1"].Value = item.StockUnit1;
                     dgvLot.Rows[i].Cells["lot_stock2"].Value = item.StockUnit2;
 
-                    dgvLot.Rows[i].Cells["lot_actiontime"].Value = item.ActionTime;
+                    dgvLot.Rows[i].Cells["lot_actiontime"].Value = item.ActionTime.ToString("MM.dd.HH.mm");
                     dgvLot.Rows[i].Cells["lot_actioncode"].Value = item.ActionCode;
 
+                    dgvLot.Rows[i].Cells["lot_equipcode"].Value = item.EquipCode;
                     dgvLot.Rows[i].Cells["lot_processcode"].Value = item.ProcessCode;
                     dgvLot.Rows[i].Cells["lot_itemcode"].Value = item.ItemCode;
 
 
                     dgvLot.Rows[i].Cells["lot_const"].Value = item.Constructor;
-                    dgvLot.Rows[i].Cells["lot_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                    dgvLot.Rows[i].Cells["lot_regdate"].Value = item.RegDate.ToString("MM.dd.HH.mm");
                     dgvLot.Rows[i].Cells["lot_modi"].Value = item.Modifier;
-                    dgvLot.Rows[i].Cells["lot_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                    dgvLot.Rows[i].Cells["lot_moddate"].Value = item.ModDate?.ToString("MM.dd.HH.mm");
                     i++;
                 }
 
@@ -1546,17 +1596,18 @@ namespace _3rd_TEAM_PROJECT
                 dgvLot.Rows[i].Cells["lot_stock1"].Value = item.StockUnit1;
                 dgvLot.Rows[i].Cells["lot_stock2"].Value = item.StockUnit2;
 
-                dgvLot.Rows[i].Cells["lot_actiontime"].Value = item.ActionTime;
+                dgvLot.Rows[i].Cells["lot_actiontime"].Value = item.ActionTime.ToString("MM.dd.HH.mm");
                 dgvLot.Rows[i].Cells["lot_actioncode"].Value = item.ActionCode;
 
+                dgvLot.Rows[i].Cells["lot_equipcode"].Value = item.EquipCode;
                 dgvLot.Rows[i].Cells["lot_processcode"].Value = item.ProcessCode;
                 dgvLot.Rows[i].Cells["lot_itemcode"].Value = item.ItemCode;
 
 
                 dgvLot.Rows[i].Cells["lot_const"].Value = item.Constructor;
-                dgvLot.Rows[i].Cells["lot_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvLot.Rows[i].Cells["lot_regdate"].Value = item.RegDate.ToString("MM.dd.HH.mm");
                 dgvLot.Rows[i].Cells["lot_modi"].Value = item.Modifier;
-                dgvLot.Rows[i].Cells["lot_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                dgvLot.Rows[i].Cells["lot_moddate"].Value = item.ModDate?.ToString("MM.dd.HH.mm");
                 i++;
             }
         }
@@ -1583,12 +1634,15 @@ namespace _3rd_TEAM_PROJECT
                 dgvLotHis.Rows[i].Cells["lothis_stock2"].Value = item.StockUnit2;
                 dgvLotHis.Rows[i].Cells["lothis_actiontime"].Value = item.ActionTime;
                 dgvLotHis.Rows[i].Cells["lothis_actioncode"].Value = item.ActionCode;
+
                 dgvLotHis.Rows[i].Cells["lothis_processcode"].Value = item.ProcessCode;
                 dgvLotHis.Rows[i].Cells["lothis_itemcode"].Value = item.ItemCode;
+                dgvLotHis.Rows[i].Cells["lothis_equipcode"].Value = item.EquipCode;
+
                 dgvLotHis.Rows[i].Cells["lothis_const"].Value = item.Constructor;
-                dgvLotHis.Rows[i].Cells["lothis_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvLotHis.Rows[i].Cells["lothis_regdate"].Value = item.RegDate.ToString("MM.dd.HH.mm");
                 dgvLotHis.Rows[i].Cells["lothis_modi"].Value = item.Modifier;
-                dgvLotHis.Rows[i].Cells["lothis_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                dgvLotHis.Rows[i].Cells["lothis_moddate"].Value = item.ModDate?.ToString("MM.dd.HH.mm");
                 i++;
             }
         }
@@ -1617,7 +1671,7 @@ namespace _3rd_TEAM_PROJECT
                     dgvLotHis.Rows[i].Cells["lothis_processcode"].Value = item.ProcessCode;
                     dgvLotHis.Rows[i].Cells["lothis_itemcode"].Value = item.ItemCode;
                     dgvLotHis.Rows[i].Cells["lothis_const"].Value = item.Constructor;
-                    dgvLotHis.Rows[i].Cells["lothis_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                    dgvLotHis.Rows[i].Cells["lothis_regdate"].Value = item.RegDate.ToString("MM.dd.HH.mm");
                     dgvLotHis.Rows[i].Cells["lothis_modi"].Value = item.Modifier;
                     dgvLotHis.Rows[i].Cells["lothis_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
                     i++;
@@ -1649,9 +1703,9 @@ namespace _3rd_TEAM_PROJECT
                 dgvLotHis.Rows[i].Cells["lothis_processcode"].Value = item.ProcessCode;
                 dgvLotHis.Rows[i].Cells["lothis_itemcode"].Value = item.ItemCode;
                 dgvLotHis.Rows[i].Cells["lothis_const"].Value = item.Constructor;
-                dgvLotHis.Rows[i].Cells["lothis_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvLotHis.Rows[i].Cells["lothis_regdate"].Value = item.RegDate.ToString("MM.dd.HH.mm");
                 dgvLotHis.Rows[i].Cells["lothis_modi"].Value = item.Modifier;
-                dgvLotHis.Rows[i].Cells["lothis_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                dgvLotHis.Rows[i].Cells["lothis_moddate"].Value = item.ModDate?.ToString("MM.dd.HH.mm");
                 i++;
             }
         }
@@ -1665,7 +1719,8 @@ namespace _3rd_TEAM_PROJECT
                 if (selectedRow.Cells.Count > 1)
                 {
                     txtLothis_Code.Text = selectedRow.Cells["lothis_code"].Value.ToString();
-                    txtLothis_amount1.Text = selectedRow.Cells["lothis_amount"].Value.ToString();
+                    txtLothis_amount1.Text = selectedRow.Cells["lothis_amount1"].Value.ToString();
+                    txtLothis_amount2.Text = selectedRow.Cells["lothis_amount2"].Value.ToString();
                     txtLothis_Stock1.Text = selectedRow.Cells["lothis_stock1"].Value.ToString();
                     txtLothis_Stock2.Text = selectedRow.Cells["lothis_stock2"].Value.ToString();
                     txtLothis_ActionCode.Text = selectedRow.Cells["lothis_actioncode"].Value.ToString();
@@ -1687,10 +1742,371 @@ namespace _3rd_TEAM_PROJECT
         }
         #endregion
 
-        private void SEquip_EquipCodeSelected(object sender, string equipCode)
+        #region Lot작업 시작
+        public void LotStartClear()//Lot정보 Clear
         {
-            // S_Equip 폼에서 선택한 값인 equipCode를 처리합니다.
+            lotStart_equipcode.Items.Clear();
+            lotStart_itemcode.Text = "";
+            lotStart_itemname.Text = "";
+            lotStart_processcode.Text = "";
+            lotStart_processname.Text = "";
+            lotStart_amount1.Text = "";
+            lotStart_amount2.Text = "";
+        }
+        private async void lotStart_Code_KeyPress(object sender, KeyPressEventArgs e) //Lot검색
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string lotcode = lotStart_Code.Text.Trim();
+                var lot = await lotRepository.CodeAsync(lotcode);
+                if (lot.Count() == 0)
+                {
+                    MessageBox.Show("존제하지 않는 Lot번호입니다.");
+                    return;
+                }
 
+                string lotnum = "", itemcode = "", itemname = "", processcode = "", processname = "";
+                string amount1 = "", amount2 = "";
+
+                foreach (var item in lot)
+                {
+                    lotnum = item.Code;
+                    itemcode = item.ItemCode;
+                    if (item.NextProcessCode == null) processcode = item.ProcessCode;
+                    else processcode = item.NextProcessCode;
+                    amount1 = $"{item.Amount1}  {item.StockUnit1}";
+                    amount2 = $"{item.Amount2}  {item.StockUnit2}";
+                }
+                var process = await processRepository.CodeAsync(processcode);
+                foreach (var item in process)
+                {
+                    processname = item.Name;
+                }
+                var item1 = await itemRepository.CodeAsync(itemcode);
+                foreach (var item in item1)
+                {
+                    itemname = item.Name;
+                }
+                var equip = await equipmentRepository.ProcessCodeAsync(processcode);
+                lotStart_equipcode.Items.Clear();
+                foreach (var item in equip)
+                {
+                    lotStart_equipcode.Items.Add(item.Code);
+                }
+                lotStart_lotCode.Text = lotnum;
+                lotStart_itemcode.Text = itemcode;
+                lotStart_itemname.Text = itemname;
+                lotStart_processcode.Text = processcode;
+                lotStart_processname.Text = processname;
+                lotStart_amount1.Text = amount1;
+                lotStart_amount2.Text = amount2;
+
+            }
+        }
+        private async void pictureBox7_Click(object sender, EventArgs e)//검색
+        {
+            string lotcode = lotStart_Code.Text.Trim();
+            var lot = await lotRepository.CodeAsync(lotcode);
+            if (lot.Count() == 0)
+            {
+                MessageBox.Show("존제하지 않는 Lot번호입니다.");
+                return;
+            }
+
+            string lotnum = "", itemcode = "", itemname = "", processcode = "", processname = "";
+            string amount1 = "", amount2 = "";
+            int a1 = 0, a2 = 0;
+            foreach (var item in lot)
+            {
+                lotnum = item.Code;
+                itemcode = item.ItemCode;
+                if (item.NextProcessCode == null) processcode = item.ProcessCode;
+                else processcode = item.NextProcessCode;
+                amount1 = $"{item.Amount1}  {item.StockUnit1}";
+                amount2 = $"{item.Amount2}  {item.StockUnit2}";
+
+            }
+            var process = await processRepository.CodeAsync(processcode);
+            foreach (var item in process)
+            {
+                processname = item.Name;
+            }
+            var item1 = await itemRepository.CodeAsync(itemcode);
+            foreach (var item in item1)
+            {
+                itemname = item.Name;
+            }
+            var equip = await equipmentRepository.ProcessCodeAsync(processcode);
+            lotStart_equipcode.Items.Clear();
+            foreach (var item in equip)
+            {
+                lotStart_equipcode.Items.Add(item.Code);
+            }
+            lotStart_lotCode.Text = lotnum;
+            lotStart_itemcode.Text = itemcode;
+            lotStart_itemname.Text = itemname;
+            lotStart_processcode.Text = processcode;
+            lotStart_processname.Text = processname;
+            lotStart_amount1.Text = amount1;
+            lotStart_amount2.Text = amount2;
+        }
+
+        private void btnlotStart_Clear_Click(object sender, EventArgs e) // 새로고침 버튼
+        {
+            LotStartClear();
+        }
+
+        private async void btnlotStart_Click(object sender, EventArgs e) // 실행 버튼
+        {
+            CreateLot? createLot = null;
+
+            string equip = lotStart_equipcode.Text.Trim();
+            string lotcode = lotStart_lotCode.Text.Trim();
+            string process = lotStart_processcode.Text.Trim();
+            if (lotcode.Length == 0)
+            {
+                MessageBox.Show("Lot번호를 조회 후 작업을 시작하세요");
+                return;
+            }
+
+            var lot = await lotRepository.CodeAsync(lotcode);
+
+
+            if (equip.Length == 0)
+            {
+                MessageBox.Show("설비를 설정하세요.");
+                return;
+            }
+            else
+            {
+                foreach (var item in lot)
+                {
+                    createLot = new()
+                    {
+                        Id = item.Id,
+
+                        Code = item.Code,
+                        Amount1 = item.Amount1,
+                        Amount2 = item.Amount2,
+                        StockUnit1 = item.StockUnit1,
+                        StockUnit2 = item.StockUnit2,
+
+                        EquipCode = equip,
+                        ProcessCode = process,
+                        ItemCode = item.ItemCode,
+                        ItemType = item.ItemType,
+
+                        ActionCode = "Start",
+                        ActionTime = DateTime.Now,
+
+                        Modifier = userName,
+                        ModDate = DateTime.Now,
+
+                    };
+                }
+
+                if (createLot != null)
+                {
+                    createLot = await lotRepository.UpdateAsync(createLot);
+                    MessageBox.Show("작업시작");
+
+                    LoadLot();
+                    return;
+
+                }
+                else
+                {
+                    MessageBox.Show("해당하는 Lot을 찾을 수 없습니다.");
+                    return;
+                }
+
+
+            }
+
+        }
+        #endregion
+
+        #region Lot 작업종료
+        public void LotEndClear()//Lot정보 Clear
+        {
+            lotEnd_Equip.Items.Clear();
+            lotEnd_lotCode.Text = "";
+            lotEnd_ItemCode.Text = "";
+            lotEnd_ItemName.Text = "";
+            lotEnd_ProCode.Text = "";
+            lotEnd_ProName.Text = "";
+            lotEnd_Amount1.Text = "";
+            lotEnd_Amount2.Text = "";
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LotEndClear();
+        }
+        private async void lotEnd_Code_KeyPress(object sender, KeyPressEventArgs e)//Lot조회
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string lotcode = lotStart_Code.Text.Trim();
+                var lot = await lotRepository.CodeAsync(lotcode);
+                if (lot.Count() == 0)
+                {
+                    MessageBox.Show("존제하지 않는 Lot번호입니다.");
+                    return;
+                }
+
+
+                foreach (var item in lot)
+                {
+                    lotEnd_lotCode.Text = item.Code;
+                    lotEnd_ItemCode.Text = item.ItemCode;
+                    lotEnd_ProCode.Text = item.ProcessCode;
+                    lotEnd_Amount1.Text = $"{item.Amount1}  {item.StockUnit1}";
+                    lotEnd_Amount2.Text = $"{item.Amount2}  {item.StockUnit2}";
+                }
+                string processcode = lotEnd_ProCode.Text.Trim();
+                string itemcode = lotEnd_ItemCode.Text.Trim();
+
+                var process = await processRepository.CodeAsync(processcode);
+                foreach (var item in process)
+                {
+                    lotEnd_ProName.Text = item.Name;
+                }
+                var item1 = await itemRepository.CodeAsync(itemcode);
+                foreach (var item in item1)
+                {
+                    lotEnd_ItemName.Text = item.Name;
+                }
+                var equip = await equipmentRepository.ProcessCodeAsync(processcode);
+                lotEnd_Equip.Items.Clear();
+                foreach (var item in equip)
+                {
+                    lotEnd_Equip.Items.Add(item.Code);
+                }
+            }
+        }
+        private async void pictureBox8_Click(object sender, EventArgs e)//Lot조회
+        {
+            string lotcode = lotStart_Code.Text.Trim();
+            var lot = await lotRepository.CodeAsync(lotcode);
+            if (lot.Count() == 0)
+            {
+                MessageBox.Show("존제하지 않는 Lot번호입니다.");
+                return;
+            }
+
+
+            foreach (var item in lot)
+            {
+                lotEnd_lotCode.Text = item.Code;
+                lotEnd_ItemCode.Text = item.ItemCode;
+                lotEnd_ProCode.Text = item.ProcessCode;
+                lotEnd_Amount1.Text = $"{item.Amount1}  {item.StockUnit1}";
+                lotEnd_Amount2.Text = $"{item.Amount2}  {item.StockUnit2}";
+            }
+            string processcode = lotEnd_ProCode.Text.Trim();
+            string itemcode = lotEnd_ItemCode.Text.Trim();
+
+            var process = await processRepository.CodeAsync(processcode);
+            foreach (var item in process)
+            {
+                lotEnd_ProName.Text = item.Name;
+            }
+            var item1 = await itemRepository.CodeAsync(itemcode);
+            foreach (var item in item1)
+            {
+                lotEnd_ItemName.Text = item.Name;
+            }
+            var equip = await equipmentRepository.ProcessCodeAsync(processcode);
+            lotStart_equipcode.Items.Clear();
+            foreach (var item in equip)
+            {
+                lotStart_equipcode.Items.Add(item.Code);
+            }
+        }
+        private void txtlotEnd_NextPro_Click(object sender, EventArgs e)//공정검색
+        {
+            S_Process s_Process = new S_Process();
+            s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
+            s_Process.ShowDialog();
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)//공정검색
+        {
+            S_Process s_Process = new S_Process();
+            s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
+            s_Process.ShowDialog();
+        }
+
+        #endregion
+
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            CreateLot? createLot = null;
+
+            string equip = lotEnd_Equip.Text.Trim();
+            string lotcode = lotEnd_lotCode.Text.Trim();
+            string process = lotEnd_ProCode.Text.Trim();
+            if (lotcode.Length == 0)
+            {
+                MessageBox.Show("Lot번호를 조회 후 작업을 시작하세요");
+                return;
+            }
+
+            var lot = await lotRepository.CodeAsync(lotcode);
+
+
+            if (equip.Length == 0)
+            {
+                MessageBox.Show("설비를 설정하세요.");
+                return;
+            }
+            else
+            {
+                foreach (var item in lot)
+                {
+                    createLot = new()
+                    {
+                        Id = item.Id,
+
+                        Code = item.Code,
+                        Amount1 = item.Amount1,
+                        Amount2 = item.Amount2,
+                        StockUnit1 = item.StockUnit1,
+                        StockUnit2 = item.StockUnit2,
+
+                        EquipCode = equip,
+                        ProcessCode = process,
+                        NextProcessCode = txtlotEnd_NextPro.Text.Trim(),
+                        ItemCode = item.ItemCode,
+                        ItemType = item.ItemType,
+
+                        ActionCode = "End",
+                        ActionTime = DateTime.Now,
+
+                        Modifier = userName,
+                        ModDate = DateTime.Now,
+
+                    };
+                }
+
+                if (createLot != null)
+                {
+                    createLot = await lotRepository.UpdateAsync(createLot);
+                    MessageBox.Show("작업종료");
+
+                    LoadLot();
+                    return;
+
+                }
+                else
+                {
+                    MessageBox.Show("해당하는 Lot을 찾을 수 없습니다.");
+                    return;
+                }
+
+
+            }
         }
     }
 }
