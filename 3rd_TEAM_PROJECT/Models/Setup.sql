@@ -41,6 +41,9 @@ values
 
 
 delete from T1_InBound;
+delete from T1_OutBound;
+SELECT * FROM T1_InBound;
+SELECT * FROM T1_OutBound;
 
 INSERT INTO [LTDB].[dbo].[T1_InBound] ( Product,Amount ,Vendor, RegDate, Contact)
 VALUES 
@@ -49,9 +52,6 @@ VALUES
 ,((SELECT Product FROM T1_WareHouse WHERE Product = 'Corei5'),20,'다나와', GETDATE(), '김건우')
 ,((SELECT Product FROM T1_WareHouse WHERE Product = 'Corei3'),20,'다나와', GETDATE(), '김건우')
 --Process 추가후 다시---
-SELECT * FROM T1_InBound;
-SELECT * FROM T1_OutBound;
-delete from T1_OutBound;
 INSERT INTO [LTDB].[dbo].[T1_OutBound] (Product,Amount,Contact,RegDate)
 VALUES
 ('Corei9',20,'김건우',GETDATE())
@@ -61,15 +61,15 @@ VALUES
 ------------------------------------------------------------------------------------------------------------
 --Factory--
 delete from T1_Factory;
+delete from T1_Equipment;
+SELECT * FROM T1_Equipment;
+SELECT * FROM T1_Factory;
 insert into [LTDB].[dbo].[T1_Factory] (Code,Name,Constructor,RegDate)
 values
 ('F_COM_001','컴퓨터공장1','김건우',GETDATE())
 ,('F_COM_002','컴퓨터공장2','김건우',GETDATE())
 ,('F_COM_003','컴퓨터공장3','김건우',GETDATE())
-SELECT * FROM T1_Factory;
 --Equiment--
-SELECT * FROM T1_Equipment;
-delete from T1_Equipment;
 insert into [LTDB].[dbo].[T1_Equipment] (Code,Name,Comment,Status,Event,Constructor,RegDate)
 values
 ('Equip01','설비1','','P_Test01','Ready','NON','김건우',GETDATE())
@@ -109,8 +109,6 @@ SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001';
 
 select * from T1_Factory;
 select * from T1_Equipment;
-
-
 select * from T1_CreateLot;
 
 ---------------------------
