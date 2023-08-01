@@ -112,3 +112,10 @@ select * from T1_Equipment;
 
 
 select * from T1_CreateLot;
+
+---------------------------
+-- 모든 테이블의 외래 키 제약 조건 비활성화
+EXEC sp_MSforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all"
+
+-- 모든 테이블 삭제
+EXEC sp_MSforeachtable "DROP TABLE ?"
