@@ -11,10 +11,11 @@ namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
     {
         Task<IEnumerable<Equipment>> GetAllAsync();
         Task<IEnumerable<EquipHis>> GetAllHisAsync();
-        Task<Equipment> AddAsync(Equipment factory);
+        Task<Equipment> AddAsync(Equipment equipment);
 
-        Task<Equipment?> UpdateAsync(Equipment factory);
-        Task<Equipment?> DeleteAsync(int factory);
+        Task<Equipment?> UpdateAsync(Equipment equipment);
+        Task<Equipment?> DeleteAsync(int equipment);
+        Task<EquipHis?> DeleteHisAsync(int equipment);
 
         Task<IEnumerable<EquipHis>> HisAsync(string search);
 
@@ -25,5 +26,6 @@ namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
         Task<IEnumerable<Equipment>> EventAsync(string search);
         Task<IEnumerable<Equipment>> ConstAsync(string search);
         Task<IEnumerable<Equipment>> ModiAsync(string search);
+        Task<IEnumerable<EquipHis>> DeleteHis(string search);
     }
 }

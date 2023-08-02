@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     /// <inheritdoc />
     public partial class MProcess : Migration
@@ -23,6 +23,7 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Event = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    History = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Constructor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RegDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Modifier = table.Column<string>(type: "nvarchar(max)", nullable: true),

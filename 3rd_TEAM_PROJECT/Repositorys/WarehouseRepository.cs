@@ -16,9 +16,9 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         private readonly AccountDbContext accountDb;
         private readonly MProcessDbcontext mprocessDb;
 
-        public WarehouseRepository(AccountDbContext acountDbContext, MProcessDbcontext mProcessDbcontext)
+        public WarehouseRepository(AccountDbContext accountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.accountDb = acountDbContext;
+            this.accountDb = accountDbContext;
             this.mprocessDb = mProcessDbcontext;
         }
 

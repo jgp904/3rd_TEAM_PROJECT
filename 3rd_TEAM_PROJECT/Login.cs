@@ -145,7 +145,7 @@ namespace _3rd_TEAM_PROJECT_Desk
         // btnExit_Click: 종료 버튼 클릭 시 실행되는 메서드
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); 
         }
 
         // textclear: 텍스트 입력란 초기화

@@ -29,7 +29,12 @@ namespace _3rd_TEAM_PROJECT.Models.Process
 		 * 위험: Emergency
 		 * NON : NON
 		 */
-
+        public string History { get; set; }
+        /*설비이력
+        생성 : Create
+        수정 : Update 
+        삭제 : Delete
+         */
         public string Constructor { get; set; }
         public DateTime RegDate { get; set; }
         public string? Modifier { get; set; }

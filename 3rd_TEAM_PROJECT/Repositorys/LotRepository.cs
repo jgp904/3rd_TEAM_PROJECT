@@ -45,11 +45,40 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             await mprocessdb.SaveChangesAsync();
             return lots;
         }
-
+        public async Task<LotHis?> DeleteHisAsync(int lots)
+        {
+            var existingLot = await mprocessdb.LotHis.FindAsync(lots);
+            mprocessdb.LotHis.Remove(existingLot);
+            await mprocessdb.SaveChangesAsync();
+            return existingLot;
+        }
 
         public async Task<CreateLot?> DeleteAsync(int lots)
         {
             var existingLot = await mprocessdb.CreateLots.FindAsync(lots);
+            var lotHis = new LotHis
+            {
+                Code = existingLot.Code,
+                Amount1 = existingLot.Amount1,
+                Amount2 = existingLot.Amount2,
+
+                StockUnit1 = existingLot.StockUnit1,
+                StockUnit2 = existingLot.StockUnit2,
+
+                ActionTime = existingLot.ActionTime,
+                ActionCode = "Delete",
+
+                HisNum = existingLot.HisNum,
+                ProcessCode = existingLot.ProcessCode,
+                ItemCode = existingLot.ItemCode,
+                EquipCode = existingLot.EquipCode,
+
+                Constructor = existingLot.Constructor,
+                RegDate = existingLot.RegDate,
+                Modifier = existingLot.Modifier,
+                ModDate = existingLot.ModDate,
+            };
+            await mprocessdb.LotHis.AddAsync(lotHis);
             if (existingLot == null) return null;
 
             mprocessdb.CreateLots.Remove(existingLot);
@@ -183,5 +212,15 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 .OrderByDescending(x=>x.Id)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<LotHis>> ActionCodeHis(string search)
+        {
+            return await mprocessdb.LotHis
+                .Where(x => (x.ActionCode != null && x.ActionCode.Contains(search)))
+                .OrderBy(x => x.Id)
+                .ToListAsync();
+        }
+
+        
     }
 }

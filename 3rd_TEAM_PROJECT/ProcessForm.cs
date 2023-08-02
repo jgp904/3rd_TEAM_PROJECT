@@ -1,5 +1,5 @@
-﻿using _3rd_TEAM_PROJECT.Migrations;
-using _3rd_TEAM_PROJECT.Models.Acount;
+﻿
+
 using _3rd_TEAM_PROJECT.Models.Process;
 using _3rd_TEAM_PROJECT.Repositorys;
 using _3rd_TEAM_PROJECT.Repositorys.InterFace;
@@ -334,6 +334,7 @@ namespace _3rd_TEAM_PROJECT
         #endregion
         //------------------------------------------------------------------설비------------------------------------------------------------------------------------------------------//
         #region 설비설정      
+
         private async void LoadEquip()//--설비목록--
         {
             txtEquip_Const.Text = userName;
@@ -360,29 +361,7 @@ namespace _3rd_TEAM_PROJECT
                 i++;
             }
         }  //--End설비목록
-        private async void LoadEquipHis()//이력조회
-        {
-            var equipHis = await equipmentRepository.GetAllHisAsync();
-            dgvEquipHis.Rows.Clear();
-            dgvEquipHis.Refresh();
-            int i = 0;
-            foreach (var item in equipHis)
-            {
-                dgvEquipHis.Rows.Add();
-                dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
-                dgvEquipHis.Rows[i].Cells["equipHis_processcode"].Value = item.ProcessCode;//공정추가 완
-                dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
-                dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
-                dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
-                dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
-                dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
-                dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
-                dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
-                dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
-                dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
-                i++;
-            }
-        }//end이력조회
+
 
         private void dgvEquip_CellClick(object sender, DataGridViewCellEventArgs e)//--설비 상세---//
         {
@@ -411,33 +390,7 @@ namespace _3rd_TEAM_PROJECT
                 }
             }
 
-        }//end설비 상세
-        private void dgvEquipHis_CellClick(object sender, DataGridViewCellEventArgs e)     //---이력상세--//
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                DataGridView dgv = (DataGridView)sender;
-                DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
-
-                if (selectedRow.Cells.Count > 1)
-                {
-                    txtEquip_ProCode.Text = selectedRow.Cells["equipHis_processcode"].Value.ToString();
-                    txtEquipHis_Code.Text = selectedRow.Cells["equipHis_code"].Value.ToString();
-                    txtEquipHis_ProCode.Text = selectedRow.Cells["equipHis_processcode"].Value.ToString();
-                    txtEquipHis_Name.Text = selectedRow.Cells["equipHis_name"].Value.ToString();
-                    txtEquipHis_Comment.Text = selectedRow.Cells["equipHis_comment"].Value.ToString();
-                    txtEquipHis_Status.Text = selectedRow.Cells["equipHis_status"].Value.ToString();
-                    txtEquipHis_Event.Text = selectedRow.Cells["equipHis_event"].Value.ToString();
-
-                    txtEquipHis_Const.Text = selectedRow.Cells["equipHis_const"].Value.ToString();
-                    txtEquipHis_Regdate.Text = selectedRow.Cells["equipHis_regdate"].Value.ToString();
-                    if (selectedRow.Cells["equipHis_modi"].Value != null) txtEquipHis_Modi.Text = selectedRow.Cells["equipHis_modi"].Value.ToString();
-                    else txtEquipHis_Modi.Text = "";
-                    if (selectedRow.Cells["equipHis_moddate"].Value != null) txtEquipHis_Moddate.Text = selectedRow.Cells["equipHis_moddate"].Value.ToString();
-                    else txtEquipHis_Moddate.Text = "";
-                }
-            }
-        }//end이력상세
+        }//end설비 상세    
         #region 공정등록
 
         private void SProcess_ProcessCodeSelected(object sender, (string processCode, string stock1, string? stock2) args)// 공정 검색
@@ -551,14 +504,14 @@ namespace _3rd_TEAM_PROJECT
             }
             else
             {
-                
+
                 if (e_event != "NON")
                 {
                     CreateLot? createLot;
                     var lot = await lotRepository.EquipCode(code);
                     status = "Stop";
                     foreach (var item in lot)
-                    {                        
+                    {
                         createLot = new()
                         {
                             Id = item.Id,
@@ -575,7 +528,7 @@ namespace _3rd_TEAM_PROJECT
                             ItemCode = item.ItemCode,
                             ItemType = item.ItemType,
 
-                          
+
 
                             Modifier = userName,
                             ModDate = DateTime.Now,
@@ -583,7 +536,7 @@ namespace _3rd_TEAM_PROJECT
                         createLot = await lotRepository.UpdateAsync(createLot);
                     }
                 }
-                else if(e_event == "NON")
+                else if (e_event == "NON")
                 {
                     if (status != "Stop") status = cbbEquipStatus.Text.ToString().Trim();
                     else status = "Ready";
@@ -604,10 +557,10 @@ namespace _3rd_TEAM_PROJECT
                             ActionCode = "Run",
                             ActionTime = DateTime.Now,
                             ProcessCode = item.ProcessCode,
-                            EquipCode= item.EquipCode,
+                            EquipCode = item.EquipCode,
                             ItemCode = item.ItemCode,
                             ItemType = item.ItemType,
-                          
+
 
                             Modifier = userName,
                             ModDate = DateTime.Now,
@@ -632,7 +585,7 @@ namespace _3rd_TEAM_PROJECT
 
                 equipment = await equipmentRepository.UpdateAsync(equipment);
                 MessageBox.Show("수정완료");
-               LoadEquip();
+                LoadEquip();
                 return;
             }
         }//end//--설비 수정--//
@@ -693,33 +646,7 @@ namespace _3rd_TEAM_PROJECT
                 dgvEquip.Rows[i].Cells["equip_moddate"].Value = item.ModDate;
                 i++;
             }
-        }//end설비 검색
-
-        private async void pictureBox2_Click(object sender, EventArgs e)//---이력 검색-----//
-        {
-            string search = searchEquipCode.Text.Trim();
-            var equips = await equipmentRepository.HisAsync(search);
-            dgvEquipHis.Rows.Clear();
-            dgvEquipHis.Refresh();
-            int i = 0;
-            foreach (var item in equips)
-            {
-                dgvEquipHis.Rows.Add();
-                dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
-                dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
-                dgvEquipHis.Rows[i].Cells["equipHis_processcode"].Value = item.ProcessCode;
-                dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
-                dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
-                dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
-                dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
-                dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
-                dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate;
-                dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
-                dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate;
-                i++;
-            }
-
-        }//end이력 검색
+        }//end설비 검색       
          //---엔터 설비검색---//
         private async void searchEquip_KeyPress(object sender, KeyPressEventArgs e)//---엔터 설비검색---//
         {
@@ -759,6 +686,85 @@ namespace _3rd_TEAM_PROJECT
             }
         }//end--엔터 설비검색
 
+
+        #endregion
+        //-----------------------------------------------------------------설비이력--------------------------------------------------------------------------------------------------//
+        #region 설비이력조회
+        private async void LoadEquipHis()//이력조회
+        {
+            var equipHis = await equipmentRepository.GetAllHisAsync();
+            dgvEquipHis.Rows.Clear();
+            dgvEquipHis.Refresh();
+            int i = 0;
+            foreach (var item in equipHis)
+            {
+                dgvEquipHis.Rows.Add();
+                dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
+                dgvEquipHis.Rows[i].Cells["equipHis_processcode"].Value = item.ProcessCode;//공정추가 완
+                dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
+                dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
+                dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
+                dgvEquipHis.Rows[i].Cells["equipHis_history"].Value = item.History;
+                dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
+                dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
+                dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
+                dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
+                dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                i++;
+            }
+        }//end이력조회
+        private void dgvEquipHis_CellClick(object sender, DataGridViewCellEventArgs e)     //---이력상세--//
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridView dgv = (DataGridView)sender;
+                DataGridViewRow selectedRow = dgv.Rows[e.RowIndex];
+
+                if (selectedRow.Cells.Count > 1)
+                {
+                    txtEquip_ProCode.Text = selectedRow.Cells["equipHis_processcode"].Value.ToString();
+                    txtEquipHis_Code.Text = selectedRow.Cells["equipHis_code"].Value.ToString();
+                    txtEquipHis_ProCode.Text = selectedRow.Cells["equipHis_processcode"].Value.ToString();
+                    txtEquipHis_Name.Text = selectedRow.Cells["equipHis_name"].Value.ToString();
+                    txtEquipHis_Comment.Text = selectedRow.Cells["equipHis_comment"].Value.ToString();
+                    txtEquipHis_Status.Text = selectedRow.Cells["equipHis_status"].Value.ToString();
+                    txtEquipHis_Event.Text = selectedRow.Cells["equipHis_event"].Value.ToString();
+
+                    txtEquipHis_Const.Text = selectedRow.Cells["equipHis_const"].Value.ToString();
+                    txtEquipHis_Regdate.Text = selectedRow.Cells["equipHis_regdate"].Value.ToString();
+                    if (selectedRow.Cells["equipHis_modi"].Value != null) txtEquipHis_Modi.Text = selectedRow.Cells["equipHis_modi"].Value.ToString();
+                    else txtEquipHis_Modi.Text = "";
+                    if (selectedRow.Cells["equipHis_moddate"].Value != null) txtEquipHis_Moddate.Text = selectedRow.Cells["equipHis_moddate"].Value.ToString();
+                    else txtEquipHis_Moddate.Text = "";
+                }
+            }
+        }//end이력상세
+        private async void pictureBox2_Click(object sender, EventArgs e)//---이력 검색-----//
+        {
+            string search = searchEquipCode.Text.Trim();
+            var equips = await equipmentRepository.HisAsync(search);
+            dgvEquipHis.Rows.Clear();
+            dgvEquipHis.Refresh();
+            int i = 0;
+            foreach (var item in equips)
+            {
+                dgvEquipHis.Rows.Add();
+                dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
+                dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
+                dgvEquipHis.Rows[i].Cells["equipHis_processcode"].Value = item.ProcessCode;
+                dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
+                dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
+                dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
+                dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
+                dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
+                dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate;
+                dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
+                dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate;
+                i++;
+            }
+
+        }//end이력 검색
         private async void searchEquipCode_KeyPress(object sender, KeyPressEventArgs e) //----엔터 이력조회--//
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -772,22 +778,87 @@ namespace _3rd_TEAM_PROJECT
                 {
                     dgvEquipHis.Rows.Add();
                     dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
+                    dgvEquipHis.Rows[i].Cells["equipHis_processcode"].Value = item.ProcessCode;//공정추가 완
                     dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
-                    dgvEquipHis.Rows[i].Cells["equipHis_processcode"].Value = item.ProcessCode;
                     dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
                     dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
+                    dgvEquipHis.Rows[i].Cells["equipHis_history"].Value = item.History;
                     dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
                     dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
                     dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
-                    dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate;
+                    dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
                     dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
-                    dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate;
+                    dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
                     i++;
                 }
 
             }
         }//end 엔터 이력조회
 
+        private async void btnEquipHis_DeleteList_Click(object sender, EventArgs e)//삭제된설비 이력조회
+        {
+            string search = "Delete";
+            var equips = await equipmentRepository.DeleteHis(search);
+            dgvEquipHis.Rows.Clear();
+            dgvEquipHis.Refresh();
+            int i = 0;
+            foreach (var item in equips)
+            {
+                dgvEquipHis.Rows.Add();
+                dgvEquipHis.Rows[i].Cells["equipHis_id"].Value = item.Id;
+                dgvEquipHis.Rows[i].Cells["equipHis_processcode"].Value = item.ProcessCode;//공정추가 완
+                dgvEquipHis.Rows[i].Cells["equipHis_code"].Value = item.Code;
+                dgvEquipHis.Rows[i].Cells["equipHis_name"].Value = item.Name;
+                dgvEquipHis.Rows[i].Cells["equipHis_comment"].Value = item.Comment;
+                dgvEquipHis.Rows[i].Cells["equipHis_history"].Value = item.History;
+                dgvEquipHis.Rows[i].Cells["equipHis_status"].Value = item.Status;
+                dgvEquipHis.Rows[i].Cells["equipHis_event"].Value = item.Event;
+                dgvEquipHis.Rows[i].Cells["equipHis_const"].Value = item.Constructor;
+                dgvEquipHis.Rows[i].Cells["equipHis_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                dgvEquipHis.Rows[i].Cells["equipHis_modi"].Value = item.Modifier;
+                dgvEquipHis.Rows[i].Cells["equipHis_moddate"].Value = item.ModDate?.ToString("yyyy-MM-dd");
+                i++;
+            }
+        }
+        private async void btnEquipHis_ListDelete_Click(object sender, EventArgs e)
+        {
+            string equipcode = txtEquipHis_Code.Text.Trim();
+            var equipHis = await equipmentRepository.HisAsync(equipcode);
+
+            DialogResult result = MessageBox.Show($"선택된 설비({equipcode})을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                foreach (var item in equipHis) { var hisDel = await equipmentRepository.DeleteHisAsync(item.Id); };
+                LoadEquipHis();
+            }
+            else return;
+        }
+
+        private async void btnEquipHis_delete_Click(object sender, EventArgs e)
+        {
+
+            if (dgvEquipHis.SelectedCells.Count > 0)
+            {
+                int rowIndex = dgvEquipHis.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = dgvEquipHis.Rows[rowIndex];
+                int id = (int)selectedRow.Cells["equipHis_id"].Value;
+
+                if (id == null) return;
+
+                DialogResult result = MessageBox.Show($"선택된 설비({selectedRow.Cells["equipHis_code"].Value})의 이력ID{id}번을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    await equipmentRepository.DeleteHisAsync(id);
+
+                    LoadEquipHis();
+                }
+                else return;
+            }
+        }
         #endregion
         //------------------------------------------------------------------공정------------------------------------------------------------------------------------------------------//
         #region 공정설정
@@ -1394,8 +1465,8 @@ namespace _3rd_TEAM_PROJECT
             string itemcode = txtLot_ItemCode.Text.Trim();
             string stock2 = txtLot_Stock2.Text.Trim();
             string itemtype = "";
-            
-            
+
+
             var itemtypes = await itemRepository.CodeAsync(itemcode);
             foreach (var item in itemtypes)
             {
@@ -1440,7 +1511,7 @@ namespace _3rd_TEAM_PROJECT
             {
                 int amount1 = int.Parse(amount1txt.Trim());
                 int amount2 = 0;
-                if(amount2txt.Length != 0)amount2 = int.Parse(amount2txt.Trim());
+                if (amount2txt.Length != 0) amount2 = int.Parse(amount2txt.Trim());
                 createLot = new()
                 {
                     Code = code,
@@ -1697,6 +1768,7 @@ namespace _3rd_TEAM_PROJECT
             foreach (var item in items)
             {
                 dgvLotHis.Rows.Add();
+                dgvLotHis.Rows[i].Cells["lothis_id"].Value = item.Id;
                 dgvLotHis.Rows[i].Cells["lothis_hisnum"].Value = item.HisNum;
                 dgvLotHis.Rows[i].Cells["lothis_code"].Value = item.Code;
                 dgvLotHis.Rows[i].Cells["lothis_amount1"].Value = item.Amount1;
@@ -1731,6 +1803,7 @@ namespace _3rd_TEAM_PROJECT
                 foreach (var item in lots)
                 {
                     dgvLotHis.Rows.Add();
+                    dgvLotHis.Rows[i].Cells["lothis_id"].Value = item.Id;
                     dgvLotHis.Rows[i].Cells["lothis_hisnum"].Value = item.HisNum;
                     dgvLotHis.Rows[i].Cells["lothis_code"].Value = item.Code;
                     dgvLotHis.Rows[i].Cells["lothis_amount1"].Value = item.Amount1;
@@ -1763,6 +1836,7 @@ namespace _3rd_TEAM_PROJECT
             foreach (var item in lots)
             {
                 dgvLotHis.Rows.Add();
+                dgvLotHis.Rows[i].Cells["lothis_id"].Value = item.Id;
                 dgvLotHis.Rows[i].Cells["lothis_hisnum"].Value = item.HisNum;
                 dgvLotHis.Rows[i].Cells["lothis_code"].Value = item.Code;
                 dgvLotHis.Rows[i].Cells["lothis_amount1"].Value = item.Amount1;
@@ -1789,6 +1863,7 @@ namespace _3rd_TEAM_PROJECT
 
                 if (selectedRow.Cells.Count > 1)
                 {
+                    lbLotHis_Id.Text = selectedRow.Cells["lothis_id"].Value.ToString();
                     txtLothis_Code.Text = selectedRow.Cells["lothis_code"].Value.ToString();
                     txtLothis_amount1.Text = selectedRow.Cells["lothis_amount1"].Value.ToString();
                     txtLothis_amount2.Text = selectedRow.Cells["lothis_amount2"].Value.ToString();
@@ -1811,25 +1886,80 @@ namespace _3rd_TEAM_PROJECT
                 }
             }
         }
-        #endregion
-        private void LoadLotProcess()
+        private async void btnLotHis_delList_Click(object sender, EventArgs e)//삭제 이력조회
         {
-            lotStart_equipcode.Items.Clear();
-            lotStart_itemcode.Text = "";
-            lotStart_itemname.Text = "";
-            lotStart_processcode.Text = "";
-            lotStart_processname.Text = "";
-            lotStart_amount1.Text = "";
-            lotStart_amount2.Text = "";
-            lotEnd_Equip.Items.Clear();
-            lotEnd_lotCode.Text = "";
-            lotEnd_ItemCode.Text = "";
-            lotEnd_ItemName.Text = "";
-            lotEnd_ProCode.Text = "";
-            lotEnd_ProName.Text = "";
-            lotEnd_Amount1.Text = "";
-            lotEnd_Amount2.Text = "";
+            string actioncode = "Delete";
+
+            var lots = await lotRepository.ActionCodeHis(actioncode);
+
+            dgvLotHis.Rows.Clear();
+            dgvLotHis.Refresh();
+
+            int i = 0;
+            foreach (var item in lots)
+            {
+                dgvLotHis.Rows.Add();
+                dgvLotHis.Rows[i].Cells["lothis_id"].Value = item.Id;
+                dgvLotHis.Rows[i].Cells["lothis_hisnum"].Value = item.HisNum;
+                dgvLotHis.Rows[i].Cells["lothis_code"].Value = item.Code;
+                dgvLotHis.Rows[i].Cells["lothis_amount1"].Value = item.Amount1;
+                dgvLotHis.Rows[i].Cells["lothis_amount2"].Value = item.Amount2;
+                dgvLotHis.Rows[i].Cells["lothis_stock1"].Value = item.StockUnit1;
+                dgvLotHis.Rows[i].Cells["lothis_stock2"].Value = item.StockUnit2;
+                dgvLotHis.Rows[i].Cells["lothis_actiontime"].Value = item.ActionTime;
+                dgvLotHis.Rows[i].Cells["lothis_actioncode"].Value = item.ActionCode;
+                dgvLotHis.Rows[i].Cells["lothis_processcode"].Value = item.ProcessCode;
+                dgvLotHis.Rows[i].Cells["lothis_itemcode"].Value = item.ItemCode;
+                dgvLotHis.Rows[i].Cells["lothis_const"].Value = item.Constructor;
+                dgvLotHis.Rows[i].Cells["lothis_regdate"].Value = item.RegDate.ToString("MM.dd.HH.mm");
+                dgvLotHis.Rows[i].Cells["lothis_modi"].Value = item.Modifier;
+                dgvLotHis.Rows[i].Cells["lothis_moddate"].Value = item.ModDate?.ToString("MM.dd.HH.mm");
+                i++;
+            }
+
         }
+        private async void btnLotHis_ListDel_Click(object sender, EventArgs e)
+        {
+            string lotcode = txtLothis_Code.Text.Trim();
+            var lothis = await lotRepository.HisAsync(lotcode);
+
+            DialogResult result = MessageBox.Show($"선택된 설비({lotcode})을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                foreach (var item in lothis) { var hisDel = await lotRepository.DeleteHisAsync(item.Id); };
+                LoadLotHis();
+            }
+            else return;
+
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            if (dgvLotHis.SelectedCells.Count > 0)
+            {
+                int rowIndex = dgvLotHis.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = dgvLotHis.Rows[rowIndex];
+                string lotcode = selectedRow.Cells["lothis_code"].Value.ToString();
+                string hisnum = selectedRow.Cells["lothis_hisnum"].Value.ToString();
+                int id = (int)selectedRow.Cells["lothis_id"].Value;
+                if (lotcode == null) return;
+
+                DialogResult result = MessageBox.Show($"선택된 설비({lotcode})의 이력번호{hisnum}번을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    var hisDel = await lotRepository.DeleteHisAsync(id);
+
+                    LoadLotHis();
+                }
+                else return;
+            }
+        }
+        #endregion
+        //-----------------------------------------------------Lot작업-----------------------------------------------------------------------------------------------------------//
         #region Lot작업 시작
         public void LotStartClear()//Lot정보 Clear
         {
@@ -2000,7 +2130,7 @@ namespace _3rd_TEAM_PROJECT
 
                 if (createLot != null)
                 {
-                    
+
                     Equipment? equipment = null;
                     var equips = await equipmentRepository.CodeAsync(equip);
                     foreach (var item in equips)
@@ -2031,7 +2161,7 @@ namespace _3rd_TEAM_PROJECT
                         return;
                     }
                     createLot = await lotRepository.UpdateAsync(createLot);
-                    MessageBox.Show("작업 시작");                  
+                    MessageBox.Show("작업 시작");
                     return;
                 }
                 else
@@ -2258,6 +2388,73 @@ namespace _3rd_TEAM_PROJECT
         }
 
         #endregion
+
+        private void LoadLotProcess()
+        {
+            lotStart_equipcode.Items.Clear();
+            lotStart_itemcode.Text = "";
+            lotStart_itemname.Text = "";
+            lotStart_processcode.Text = "";
+            lotStart_processname.Text = "";
+            lotStart_amount1.Text = "";
+            lotStart_amount2.Text = "";
+            lotEnd_Equip.Items.Clear();
+            lotEnd_lotCode.Text = "";
+            lotEnd_ItemCode.Text = "";
+            lotEnd_ItemName.Text = "";
+            lotEnd_ProCode.Text = "";
+            lotEnd_ProName.Text = "";
+            lotEnd_Amount1.Text = "";
+            lotEnd_Amount2.Text = "";
+        }
+
+        private void ProcessForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Application.OpenForms 컬렉션의 복사본을 만들고 이 복사본을 순회하는 방법을 제안할 수 있습니다. 다음은 해당 방법을 적용한 코드입니다:
+
+            // 화면 닫을 때 확인메시지 출력
+            DialogResult result = MessageBox.Show("프로그램을 종료하시겠습니까?", "Exit", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                // 폼 닫기 이벤트 취소하지 않음
+                e.Cancel = false;
+
+                // 열려있는 폼 확인
+                List<Form> openForms = new List<Form>();
+                foreach (Form form in Application.OpenForms)
+                    openForms.Add(form);
+
+                foreach (Form form in openForms)
+                {
+                    //열려있는 폼이 로그인 폼이면
+                    if (form is Login)
+                    {
+                        // 폼 닫음
+                        form.Close();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                // 'No'를 눌렀을 때 폼 닫기 이벤트 취소
+                e.Cancel = true;
+            }
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            // 로그아웃 처리
+            SessionManager.Instance.Logout();
+
+            // 현재 메인 폼을 숨깁니다.
+            this.Hide();
+            //this.Close();
+
+            // 저장된 로그인 폼 인스턴스를 다시 표시합니다.
+            SessionManager.Instance.LoginForm.Show();
+        }
 
 
     }

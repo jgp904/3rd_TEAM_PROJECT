@@ -18,8 +18,8 @@ values
 ,('admin2','박재걸','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '002'))
 ,('admin3','이용학','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '001'));
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-delete from T1_Acount;
-insert into [LTDB].[dbo].[T1_Acount] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode, DepartmentId)
+delete from T1_Account;
+insert into [LTDB].[dbo].[T1_Account] (UserId,Name,Position,Authority,PassWord,RegDate,DepartmentCode, DepartmentId)
 values
  ('admin1','김건우','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '003'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '003'))
 ,('admin2','박재걸','팀장',0,'1234',GETDATE(),(SELECT DepartmentCode FROM T1_Department WHERE DepartmentCode = '002'), (SELECT Id FROM T1_Department WHERE DepartmentCode = '002'))

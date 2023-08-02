@@ -128,6 +128,10 @@ namespace _3rd_TEAM_PROJECT.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("History")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModDate")
                         .HasColumnType("datetime2");
 

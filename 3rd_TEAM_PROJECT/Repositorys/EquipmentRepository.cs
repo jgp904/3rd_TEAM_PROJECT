@@ -33,6 +33,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 Comment = equip.Comment,
                 Status = equip.Status,
                 Event = equip.Event,
+                History = "Create",
                 Constructor = equip.Constructor,
                 RegDate = equip.RegDate,
             };
@@ -41,12 +42,34 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             return equip;
         }
 
-
+        public async Task<EquipHis?> DeleteHisAsync(int equipment)
+        {
+            var existingEquip = await mprocessdb.EquipHis.FindAsync(equipment);
+            if (existingEquip == null) return null;
+            
+            mprocessdb.EquipHis.Remove(existingEquip);
+            await mprocessdb.SaveChangesAsync();    
+            return existingEquip;
+        }
         public async Task<Equipment?> DeleteAsync(int equip)
         {
             var existingEquip = await mprocessdb.Equipments.FindAsync(equip);
             if (existingEquip == null) return null;
-
+            var equipHis = new EquipHis
+            {
+                ProcessCode = existingEquip.ProcessCode,
+                Code = existingEquip.Code,
+                Name = existingEquip.Name,
+                Comment = existingEquip.Comment,
+                Status = existingEquip.Status,
+                Event = existingEquip.Event,
+                History = "Delete",
+                Constructor = existingEquip.Constructor,
+                RegDate = existingEquip.RegDate,
+                Modifier = existingEquip.Modifier,
+                ModDate = existingEquip.ModDate,
+            };
+            await mprocessdb.EquipHis.AddAsync(equipHis);
             mprocessdb.Equipments.Remove(existingEquip);
             await mprocessdb.SaveChangesAsync();
             return existingEquip;
@@ -87,6 +110,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 Comment = existingEquip.Comment,
                 Status = existingEquip.Status,
                 Event = existingEquip.Event,
+                History = "Update",
                 Constructor = existingEquip.Constructor,
                 RegDate = existingEquip.RegDate,
                 Modifier = existingEquip.Modifier,
@@ -96,6 +120,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             await mprocessdb.SaveChangesAsync();
             return existingEquip;
         }
+        
 
         public async Task<IEnumerable<Equipment>> CodeAsync(string search)
         {
@@ -159,5 +184,15 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                 .OrderBy(x => x.Id)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<EquipHis>> DeleteHis(string search)
+        {
+            return await mprocessdb.EquipHis
+                .Where(x=>x.History != null && x.History.Contains(search))
+                .OrderBy(x=>x.Id)
+                .ToListAsync();
+        }
+
+        
     }
 }

@@ -9,16 +9,11 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-<<<<<<<< HEAD:3rd_TEAM_PROJECT/Migrations/MProcessDbcontextMigrations/20230801021748_MProcess.Designer.cs
-    [Migration("20230801021748_MProcess")]
+    [Migration("20230802012214_MProcess")]
     partial class MProcess
-========
-    [Migration("20230801074124_mprocess")]
-    partial class mprocess
->>>>>>>> 1035309e3a512d7119a51fa0e50a654b80a196b8:3rd_TEAM_PROJECT/Migrations/20230801074124_mprocess.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,6 +128,10 @@ namespace _3rd_TEAM_PROJECT.Migrations.MProcessDbcontextMigrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Event")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("History")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

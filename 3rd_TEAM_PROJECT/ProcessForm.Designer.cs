@@ -70,12 +70,12 @@
             equip_code = new DataGridViewTextBoxColumn();
             equip_name = new DataGridViewTextBoxColumn();
             equip_comment = new DataGridViewTextBoxColumn();
+            equip_status = new DataGridViewTextBoxColumn();
+            equip_event = new DataGridViewTextBoxColumn();
             equip_const = new DataGridViewTextBoxColumn();
             equip_regdate = new DataGridViewTextBoxColumn();
             equip_modi = new DataGridViewTextBoxColumn();
             equip_moddate = new DataGridViewTextBoxColumn();
-            equip_status = new DataGridViewTextBoxColumn();
-            equip_event = new DataGridViewTextBoxColumn();
             cbbEquip_filter = new ComboBox();
             label7 = new Label();
             pictureBox1 = new PictureBox();
@@ -116,6 +116,7 @@
             equipHis_comment = new DataGridViewTextBoxColumn();
             equipHis_status = new DataGridViewTextBoxColumn();
             equipHis_event = new DataGridViewTextBoxColumn();
+            equipHis_history = new DataGridViewTextBoxColumn();
             equipHis_const = new DataGridViewTextBoxColumn();
             equipHis_regdate = new DataGridViewTextBoxColumn();
             equipHis_modi = new DataGridViewTextBoxColumn();
@@ -124,6 +125,9 @@
             pictureBox2 = new PictureBox();
             searchEquipCode = new TextBox();
             groupBox2 = new GroupBox();
+            btnEquipHis_ListDelete = new Button();
+            btnEquipHis_delete = new Button();
+            btnEquipHis_DeleteList = new Button();
             label76 = new Label();
             txtEquipHis_ProCode = new TextBox();
             txtEquipHis_Event = new TextBox();
@@ -151,7 +155,6 @@
             process_code = new DataGridViewTextBoxColumn();
             process_name = new DataGridViewTextBoxColumn();
             process_comment = new DataGridViewTextBoxColumn();
-            process_equipcode = new DataGridViewTextBoxColumn();
             process_stock1 = new DataGridViewTextBoxColumn();
             process_stock2 = new DataGridViewTextBoxColumn();
             process_const = new DataGridViewTextBoxColumn();
@@ -279,6 +282,8 @@
             txtLot_Code = new TextBox();
             lotHistory = new TabPage();
             groupBox6 = new GroupBox();
+            btnLotHis_delList = new Button();
+            btnLotHis_ListDel = new Button();
             label78 = new Label();
             txtLothis_amount2 = new TextBox();
             txtLothis_ActionTime = new TextBox();
@@ -307,21 +312,6 @@
             label74 = new Label();
             txtLothis_Code = new TextBox();
             dgvLotHis = new DataGridView();
-            lothis_hisnum = new DataGridViewTextBoxColumn();
-            lothis_code = new DataGridViewTextBoxColumn();
-            lothis_amount1 = new DataGridViewTextBoxColumn();
-            lothis_stock1 = new DataGridViewTextBoxColumn();
-            lothis_amount2 = new DataGridViewTextBoxColumn();
-            lothis_stock2 = new DataGridViewTextBoxColumn();
-            lothis_actiontime = new DataGridViewTextBoxColumn();
-            lothis_actioncode = new DataGridViewTextBoxColumn();
-            lothis_equipcode = new DataGridViewTextBoxColumn();
-            lothis_processcode = new DataGridViewTextBoxColumn();
-            lothis_itemcode = new DataGridViewTextBoxColumn();
-            lothis_const = new DataGridViewTextBoxColumn();
-            lothis_regdate = new DataGridViewTextBoxColumn();
-            lothis_modi = new DataGridViewTextBoxColumn();
-            lothis_moddate = new DataGridViewTextBoxColumn();
             label54 = new Label();
             pbLotHis = new PictureBox();
             searchLotHis = new TextBox();
@@ -409,6 +399,23 @@
             lotEnd_ItemName = new TextBox();
             lotEnd_ItemCode = new TextBox();
             작업종료ToolStripMenuItem = new ToolStripMenuItem();
+            lbLotHis_Id = new Label();
+            lothis_id = new DataGridViewTextBoxColumn();
+            lothis_hisnum = new DataGridViewTextBoxColumn();
+            lothis_code = new DataGridViewTextBoxColumn();
+            lothis_amount1 = new DataGridViewTextBoxColumn();
+            lothis_stock1 = new DataGridViewTextBoxColumn();
+            lothis_amount2 = new DataGridViewTextBoxColumn();
+            lothis_stock2 = new DataGridViewTextBoxColumn();
+            lothis_actiontime = new DataGridViewTextBoxColumn();
+            lothis_actioncode = new DataGridViewTextBoxColumn();
+            lothis_equipcode = new DataGridViewTextBoxColumn();
+            lothis_processcode = new DataGridViewTextBoxColumn();
+            lothis_itemcode = new DataGridViewTextBoxColumn();
+            lothis_const = new DataGridViewTextBoxColumn();
+            lothis_regdate = new DataGridViewTextBoxColumn();
+            lothis_modi = new DataGridViewTextBoxColumn();
+            lothis_moddate = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             tabProcess.SuspendLayout();
             facSetting.SuspendLayout();
@@ -473,6 +480,7 @@
             LogOut.Name = "LogOut";
             LogOut.Size = new Size(67, 20);
             LogOut.Text = "로그아웃";
+            LogOut.Click += LogOut_Click;
             // 
             // tabProcess
             // 
@@ -801,7 +809,7 @@
             // 
             dgvEquip.AllowUserToAddRows = false;
             dgvEquip.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquip.Columns.AddRange(new DataGridViewColumn[] { equip_id, equip_processcode, equip_code, equip_name, equip_comment, equip_const, equip_regdate, equip_modi, equip_moddate, equip_status, equip_event });
+            dgvEquip.Columns.AddRange(new DataGridViewColumn[] { equip_id, equip_processcode, equip_code, equip_name, equip_comment, equip_status, equip_event, equip_const, equip_regdate, equip_modi, equip_moddate });
             dgvEquip.Location = new Point(3, 36);
             dgvEquip.Name = "dgvEquip";
             dgvEquip.RowHeadersVisible = false;
@@ -839,6 +847,16 @@
             equip_comment.Name = "equip_comment";
             equip_comment.Width = 150;
             // 
+            // equip_status
+            // 
+            equip_status.HeaderText = "설비상태";
+            equip_status.Name = "equip_status";
+            // 
+            // equip_event
+            // 
+            equip_event.HeaderText = "설비이벤트";
+            equip_event.Name = "equip_event";
+            // 
             // equip_const
             // 
             equip_const.HeaderText = "생성자";
@@ -862,16 +880,6 @@
             equip_moddate.HeaderText = "수정일자";
             equip_moddate.Name = "equip_moddate";
             equip_moddate.Width = 120;
-            // 
-            // equip_status
-            // 
-            equip_status.HeaderText = "설비상태";
-            equip_status.Name = "equip_status";
-            // 
-            // equip_event
-            // 
-            equip_event.HeaderText = "설비이벤트";
-            equip_event.Name = "equip_event";
             // 
             // cbbEquip_filter
             // 
@@ -1196,7 +1204,7 @@
             // 
             dgvEquipHis.AllowUserToAddRows = false;
             dgvEquipHis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipHis.Columns.AddRange(new DataGridViewColumn[] { equipHis_id, equipHis_processcode, equipHis_code, equipHis_name, equipHis_comment, equipHis_status, equipHis_event, equipHis_const, equipHis_regdate, equipHis_modi, equipHis_moddate });
+            dgvEquipHis.Columns.AddRange(new DataGridViewColumn[] { equipHis_id, equipHis_processcode, equipHis_code, equipHis_name, equipHis_comment, equipHis_status, equipHis_event, equipHis_history, equipHis_const, equipHis_regdate, equipHis_modi, equipHis_moddate });
             dgvEquipHis.Location = new Point(3, 36);
             dgvEquipHis.Name = "dgvEquipHis";
             dgvEquipHis.RowHeadersVisible = false;
@@ -1243,6 +1251,11 @@
             // 
             equipHis_event.HeaderText = "설비이벤트";
             equipHis_event.Name = "equipHis_event";
+            // 
+            // equipHis_history
+            // 
+            equipHis_history.HeaderText = "설비이력";
+            equipHis_history.Name = "equipHis_history";
             // 
             // equipHis_const
             // 
@@ -1301,6 +1314,9 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnEquipHis_ListDelete);
+            groupBox2.Controls.Add(btnEquipHis_delete);
+            groupBox2.Controls.Add(btnEquipHis_DeleteList);
             groupBox2.Controls.Add(label76);
             groupBox2.Controls.Add(txtEquipHis_ProCode);
             groupBox2.Controls.Add(txtEquipHis_Event);
@@ -1328,6 +1344,36 @@
             groupBox2.TabIndex = 49;
             groupBox2.TabStop = false;
             groupBox2.Text = "설비이력";
+            // 
+            // btnEquipHis_ListDelete
+            // 
+            btnEquipHis_ListDelete.Location = new Point(2, 585);
+            btnEquipHis_ListDelete.Name = "btnEquipHis_ListDelete";
+            btnEquipHis_ListDelete.Size = new Size(195, 23);
+            btnEquipHis_ListDelete.TabIndex = 57;
+            btnEquipHis_ListDelete.Text = "설비삭제";
+            btnEquipHis_ListDelete.UseVisualStyleBackColor = true;
+            btnEquipHis_ListDelete.Click += btnEquipHis_ListDelete_Click;
+            // 
+            // btnEquipHis_delete
+            // 
+            btnEquipHis_delete.Location = new Point(2, 614);
+            btnEquipHis_delete.Name = "btnEquipHis_delete";
+            btnEquipHis_delete.Size = new Size(195, 23);
+            btnEquipHis_delete.TabIndex = 55;
+            btnEquipHis_delete.Text = "이력삭제";
+            btnEquipHis_delete.UseVisualStyleBackColor = true;
+            btnEquipHis_delete.Click += btnEquipHis_delete_Click;
+            // 
+            // btnEquipHis_DeleteList
+            // 
+            btnEquipHis_DeleteList.Location = new Point(2, 556);
+            btnEquipHis_DeleteList.Name = "btnEquipHis_DeleteList";
+            btnEquipHis_DeleteList.Size = new Size(195, 23);
+            btnEquipHis_DeleteList.TabIndex = 55;
+            btnEquipHis_DeleteList.Text = "삭제된 설비조회";
+            btnEquipHis_DeleteList.UseVisualStyleBackColor = true;
+            btnEquipHis_DeleteList.Click += btnEquipHis_DeleteList_Click;
             // 
             // label76
             // 
@@ -1519,7 +1565,7 @@
             // 
             dgvProcess.AllowUserToAddRows = false;
             dgvProcess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProcess.Columns.AddRange(new DataGridViewColumn[] { process_id, process_faccode, process_code, process_name, process_comment, process_equipcode, process_stock1, process_stock2, process_const, process_regdate, process_modi, process_moddate });
+            dgvProcess.Columns.AddRange(new DataGridViewColumn[] { process_id, process_faccode, process_code, process_name, process_comment, process_stock1, process_stock2, process_const, process_regdate, process_modi, process_moddate });
             dgvProcess.Location = new Point(3, 36);
             dgvProcess.Name = "dgvProcess";
             dgvProcess.RowHeadersVisible = false;
@@ -1556,11 +1602,6 @@
             process_comment.HeaderText = "공정설명";
             process_comment.Name = "process_comment";
             process_comment.Width = 150;
-            // 
-            // process_equipcode
-            // 
-            process_equipcode.HeaderText = "설비코드";
-            process_equipcode.Name = "process_equipcode";
             // 
             // process_stock1
             // 
@@ -2698,6 +2739,9 @@
             // 
             // groupBox6
             // 
+            groupBox6.Controls.Add(lbLotHis_Id);
+            groupBox6.Controls.Add(btnLotHis_delList);
+            groupBox6.Controls.Add(btnLotHis_ListDel);
             groupBox6.Controls.Add(label78);
             groupBox6.Controls.Add(txtLothis_amount2);
             groupBox6.Controls.Add(txtLothis_ActionTime);
@@ -2732,6 +2776,26 @@
             groupBox6.TabIndex = 68;
             groupBox6.TabStop = false;
             groupBox6.Text = "Lot생성";
+            // 
+            // btnLotHis_delList
+            // 
+            btnLotHis_delList.Location = new Point(2, 556);
+            btnLotHis_delList.Name = "btnLotHis_delList";
+            btnLotHis_delList.Size = new Size(198, 23);
+            btnLotHis_delList.TabIndex = 77;
+            btnLotHis_delList.Text = "삭제된Lot조회";
+            btnLotHis_delList.UseVisualStyleBackColor = true;
+            btnLotHis_delList.Click += btnLotHis_delList_Click;
+            // 
+            // btnLotHis_ListDel
+            // 
+            btnLotHis_ListDel.Location = new Point(2, 585);
+            btnLotHis_ListDel.Name = "btnLotHis_ListDel";
+            btnLotHis_ListDel.Size = new Size(198, 23);
+            btnLotHis_ListDel.TabIndex = 69;
+            btnLotHis_ListDel.Text = "Lot삭제";
+            btnLotHis_ListDel.UseVisualStyleBackColor = true;
+            btnLotHis_ListDel.Click += btnLotHis_ListDel_Click;
             // 
             // label78
             // 
@@ -2877,6 +2941,7 @@
             button3.TabIndex = 43;
             button3.Text = "삭제";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label70
             // 
@@ -2968,7 +3033,7 @@
             dgvLotHis.AllowUserToAddRows = false;
             dgvLotHis.AllowUserToDeleteRows = false;
             dgvLotHis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLotHis.Columns.AddRange(new DataGridViewColumn[] { lothis_hisnum, lothis_code, lothis_amount1, lothis_stock1, lothis_amount2, lothis_stock2, lothis_actiontime, lothis_actioncode, lothis_equipcode, lothis_processcode, lothis_itemcode, lothis_const, lothis_regdate, lothis_modi, lothis_moddate });
+            dgvLotHis.Columns.AddRange(new DataGridViewColumn[] { lothis_id, lothis_hisnum, lothis_code, lothis_amount1, lothis_stock1, lothis_amount2, lothis_stock2, lothis_actiontime, lothis_actioncode, lothis_equipcode, lothis_processcode, lothis_itemcode, lothis_const, lothis_regdate, lothis_modi, lothis_moddate });
             dgvLotHis.Location = new Point(3, 36);
             dgvLotHis.Name = "dgvLotHis";
             dgvLotHis.ReadOnly = true;
@@ -2977,107 +3042,6 @@
             dgvLotHis.Size = new Size(854, 610);
             dgvLotHis.TabIndex = 67;
             dgvLotHis.CellClick += dgvLotHis_CellClick;
-            // 
-            // lothis_hisnum
-            // 
-            lothis_hisnum.HeaderText = "이력번호";
-            lothis_hisnum.Name = "lothis_hisnum";
-            lothis_hisnum.ReadOnly = true;
-            // 
-            // lothis_code
-            // 
-            lothis_code.HeaderText = "Lot번호";
-            lothis_code.Name = "lothis_code";
-            lothis_code.ReadOnly = true;
-            lothis_code.Width = 80;
-            // 
-            // lothis_amount1
-            // 
-            lothis_amount1.HeaderText = "수량1";
-            lothis_amount1.Name = "lothis_amount1";
-            lothis_amount1.ReadOnly = true;
-            lothis_amount1.Width = 80;
-            // 
-            // lothis_stock1
-            // 
-            lothis_stock1.FillWeight = 50F;
-            lothis_stock1.HeaderText = "단위1";
-            lothis_stock1.Name = "lothis_stock1";
-            lothis_stock1.ReadOnly = true;
-            lothis_stock1.Width = 80;
-            // 
-            // lothis_amount2
-            // 
-            lothis_amount2.HeaderText = "수량2";
-            lothis_amount2.Name = "lothis_amount2";
-            lothis_amount2.ReadOnly = true;
-            // 
-            // lothis_stock2
-            // 
-            lothis_stock2.FillWeight = 50F;
-            lothis_stock2.HeaderText = "단위2";
-            lothis_stock2.Name = "lothis_stock2";
-            lothis_stock2.ReadOnly = true;
-            lothis_stock2.Width = 80;
-            // 
-            // lothis_actiontime
-            // 
-            lothis_actiontime.HeaderText = "작업시간";
-            lothis_actiontime.Name = "lothis_actiontime";
-            lothis_actiontime.ReadOnly = true;
-            lothis_actiontime.Width = 150;
-            // 
-            // lothis_actioncode
-            // 
-            lothis_actioncode.HeaderText = "작업코드";
-            lothis_actioncode.Name = "lothis_actioncode";
-            lothis_actioncode.ReadOnly = true;
-            // 
-            // lothis_equipcode
-            // 
-            lothis_equipcode.HeaderText = "설비코드";
-            lothis_equipcode.Name = "lothis_equipcode";
-            lothis_equipcode.ReadOnly = true;
-            // 
-            // lothis_processcode
-            // 
-            lothis_processcode.HeaderText = "공정코드";
-            lothis_processcode.Name = "lothis_processcode";
-            lothis_processcode.ReadOnly = true;
-            // 
-            // lothis_itemcode
-            // 
-            lothis_itemcode.HeaderText = "품번코드";
-            lothis_itemcode.Name = "lothis_itemcode";
-            lothis_itemcode.ReadOnly = true;
-            // 
-            // lothis_const
-            // 
-            lothis_const.HeaderText = "생성자";
-            lothis_const.Name = "lothis_const";
-            lothis_const.ReadOnly = true;
-            lothis_const.Width = 80;
-            // 
-            // lothis_regdate
-            // 
-            lothis_regdate.HeaderText = "생성일자";
-            lothis_regdate.Name = "lothis_regdate";
-            lothis_regdate.ReadOnly = true;
-            lothis_regdate.Width = 120;
-            // 
-            // lothis_modi
-            // 
-            lothis_modi.HeaderText = "수정자";
-            lothis_modi.Name = "lothis_modi";
-            lothis_modi.ReadOnly = true;
-            lothis_modi.Width = 80;
-            // 
-            // lothis_moddate
-            // 
-            lothis_moddate.HeaderText = "수정일자";
-            lothis_moddate.Name = "lothis_moddate";
-            lothis_moddate.ReadOnly = true;
-            lothis_moddate.Width = 120;
             // 
             // label54
             // 
@@ -4089,6 +4053,121 @@
             작업종료ToolStripMenuItem.Size = new Size(67, 20);
             작업종료ToolStripMenuItem.Text = "작업완료";
             // 
+            // lbLotHis_Id
+            // 
+            lbLotHis_Id.AutoSize = true;
+            lbLotHis_Id.Location = new Point(7, 19);
+            lbLotHis_Id.Name = "lbLotHis_Id";
+            lbLotHis_Id.Size = new Size(0, 15);
+            lbLotHis_Id.TabIndex = 78;
+            // 
+            // lothis_id
+            // 
+            lothis_id.HeaderText = "Id";
+            lothis_id.Name = "lothis_id";
+            lothis_id.ReadOnly = true;
+            // 
+            // lothis_hisnum
+            // 
+            lothis_hisnum.HeaderText = "이력번호";
+            lothis_hisnum.Name = "lothis_hisnum";
+            lothis_hisnum.ReadOnly = true;
+            // 
+            // lothis_code
+            // 
+            lothis_code.HeaderText = "Lot번호";
+            lothis_code.Name = "lothis_code";
+            lothis_code.ReadOnly = true;
+            lothis_code.Width = 80;
+            // 
+            // lothis_amount1
+            // 
+            lothis_amount1.HeaderText = "수량1";
+            lothis_amount1.Name = "lothis_amount1";
+            lothis_amount1.ReadOnly = true;
+            lothis_amount1.Width = 80;
+            // 
+            // lothis_stock1
+            // 
+            lothis_stock1.FillWeight = 50F;
+            lothis_stock1.HeaderText = "단위1";
+            lothis_stock1.Name = "lothis_stock1";
+            lothis_stock1.ReadOnly = true;
+            lothis_stock1.Width = 80;
+            // 
+            // lothis_amount2
+            // 
+            lothis_amount2.HeaderText = "수량2";
+            lothis_amount2.Name = "lothis_amount2";
+            lothis_amount2.ReadOnly = true;
+            // 
+            // lothis_stock2
+            // 
+            lothis_stock2.FillWeight = 50F;
+            lothis_stock2.HeaderText = "단위2";
+            lothis_stock2.Name = "lothis_stock2";
+            lothis_stock2.ReadOnly = true;
+            lothis_stock2.Width = 80;
+            // 
+            // lothis_actiontime
+            // 
+            lothis_actiontime.HeaderText = "작업시간";
+            lothis_actiontime.Name = "lothis_actiontime";
+            lothis_actiontime.ReadOnly = true;
+            lothis_actiontime.Width = 150;
+            // 
+            // lothis_actioncode
+            // 
+            lothis_actioncode.HeaderText = "작업코드";
+            lothis_actioncode.Name = "lothis_actioncode";
+            lothis_actioncode.ReadOnly = true;
+            // 
+            // lothis_equipcode
+            // 
+            lothis_equipcode.HeaderText = "설비코드";
+            lothis_equipcode.Name = "lothis_equipcode";
+            lothis_equipcode.ReadOnly = true;
+            // 
+            // lothis_processcode
+            // 
+            lothis_processcode.HeaderText = "공정코드";
+            lothis_processcode.Name = "lothis_processcode";
+            lothis_processcode.ReadOnly = true;
+            // 
+            // lothis_itemcode
+            // 
+            lothis_itemcode.HeaderText = "품번코드";
+            lothis_itemcode.Name = "lothis_itemcode";
+            lothis_itemcode.ReadOnly = true;
+            // 
+            // lothis_const
+            // 
+            lothis_const.HeaderText = "생성자";
+            lothis_const.Name = "lothis_const";
+            lothis_const.ReadOnly = true;
+            lothis_const.Width = 80;
+            // 
+            // lothis_regdate
+            // 
+            lothis_regdate.HeaderText = "생성일자";
+            lothis_regdate.Name = "lothis_regdate";
+            lothis_regdate.ReadOnly = true;
+            lothis_regdate.Width = 120;
+            // 
+            // lothis_modi
+            // 
+            lothis_modi.HeaderText = "수정자";
+            lothis_modi.Name = "lothis_modi";
+            lothis_modi.ReadOnly = true;
+            lothis_modi.Width = 80;
+            // 
+            // lothis_moddate
+            // 
+            lothis_moddate.HeaderText = "수정일자";
+            lothis_moddate.Name = "lothis_moddate";
+            lothis_moddate.ReadOnly = true;
+            lothis_moddate.Width = 120;
+            // 
             // ProcessForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -4099,6 +4178,7 @@
             MainMenuStrip = menuStrip1;
             Name = "ProcessForm";
             Text = "Process";
+            FormClosing += ProcessForm_FormClosing;
             Load += ProcessForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -4398,17 +4478,6 @@
         private TabControl tabControl1;
         private TabPage lotStart;
         private TabPage lotEnd;
-        private DataGridViewTextBoxColumn equip_id;
-        private DataGridViewTextBoxColumn equip_processcode;
-        private DataGridViewTextBoxColumn equip_code;
-        private DataGridViewTextBoxColumn equip_name;
-        private DataGridViewTextBoxColumn equip_comment;
-        private DataGridViewTextBoxColumn equip_const;
-        private DataGridViewTextBoxColumn equip_regdate;
-        private DataGridViewTextBoxColumn equip_modi;
-        private DataGridViewTextBoxColumn equip_moddate;
-        private DataGridViewTextBoxColumn equip_status;
-        private DataGridViewTextBoxColumn equip_event;
         private PictureBox pbEquipPro;
         private Label label75;
         private TextBox txtEquip_ProCode;
@@ -4417,29 +4486,6 @@
         private PictureBox pbPro_Fac;
         private Label label30;
         private TextBox txtProcess_FacCode;
-        private DataGridViewTextBoxColumn process_id;
-        private DataGridViewTextBoxColumn process_faccode;
-        private DataGridViewTextBoxColumn process_code;
-        private DataGridViewTextBoxColumn process_name;
-        private DataGridViewTextBoxColumn process_comment;
-        private DataGridViewTextBoxColumn process_equipcode;
-        private DataGridViewTextBoxColumn process_stock1;
-        private DataGridViewTextBoxColumn process_stock2;
-        private DataGridViewTextBoxColumn process_const;
-        private DataGridViewTextBoxColumn process_regdate;
-        private DataGridViewTextBoxColumn process_modi;
-        private DataGridViewTextBoxColumn process_moddate;
-        private DataGridViewTextBoxColumn equipHis_id;
-        private DataGridViewTextBoxColumn equipHis_processcode;
-        private DataGridViewTextBoxColumn equipHis_code;
-        private DataGridViewTextBoxColumn equipHis_name;
-        private DataGridViewTextBoxColumn equipHis_comment;
-        private DataGridViewTextBoxColumn equipHis_status;
-        private DataGridViewTextBoxColumn equipHis_event;
-        private DataGridViewTextBoxColumn equipHis_const;
-        private DataGridViewTextBoxColumn equipHis_regdate;
-        private DataGridViewTextBoxColumn equipHis_modi;
-        private DataGridViewTextBoxColumn equipHis_moddate;
         private Label label77;
         private TextBox txtLot_Amount2;
         private Label label78;
@@ -4495,21 +4541,6 @@
         private DataGridViewTextBoxColumn lot_regdate;
         private DataGridViewTextBoxColumn lot_modi;
         private DataGridViewTextBoxColumn lot_moddate;
-        private DataGridViewTextBoxColumn lothis_hisnum;
-        private DataGridViewTextBoxColumn lothis_code;
-        private DataGridViewTextBoxColumn lothis_amount1;
-        private DataGridViewTextBoxColumn lothis_stock1;
-        private DataGridViewTextBoxColumn lothis_amount2;
-        private DataGridViewTextBoxColumn lothis_stock2;
-        private DataGridViewTextBoxColumn lothis_actiontime;
-        private DataGridViewTextBoxColumn lothis_actioncode;
-        private DataGridViewTextBoxColumn lothis_equipcode;
-        private DataGridViewTextBoxColumn lothis_processcode;
-        private DataGridViewTextBoxColumn lothis_itemcode;
-        private DataGridViewTextBoxColumn lothis_const;
-        private DataGridViewTextBoxColumn lothis_regdate;
-        private DataGridViewTextBoxColumn lothis_modi;
-        private DataGridViewTextBoxColumn lothis_moddate;
         private TextBox lotStart_lotCode;
         private Label label87;
         private Panel panel14;
@@ -4555,5 +4586,61 @@
         private TextBox lotEnd_ProCode;
         private TextBox lotEnd_ItemName;
         private TextBox lotEnd_ItemCode;
+        private Button btnEquipHis_delete;
+        private Button btnEquipHis_DeleteList;
+        private DataGridViewTextBoxColumn process_id;
+        private DataGridViewTextBoxColumn process_faccode;
+        private DataGridViewTextBoxColumn process_code;
+        private DataGridViewTextBoxColumn process_name;
+        private DataGridViewTextBoxColumn process_comment;
+        private DataGridViewTextBoxColumn process_stock1;
+        private DataGridViewTextBoxColumn process_stock2;
+        private DataGridViewTextBoxColumn process_const;
+        private DataGridViewTextBoxColumn process_regdate;
+        private DataGridViewTextBoxColumn process_modi;
+        private DataGridViewTextBoxColumn process_moddate;
+        private DataGridViewTextBoxColumn equip_id;
+        private DataGridViewTextBoxColumn equip_processcode;
+        private DataGridViewTextBoxColumn equip_code;
+        private DataGridViewTextBoxColumn equip_name;
+        private DataGridViewTextBoxColumn equip_comment;
+        private DataGridViewTextBoxColumn equip_status;
+        private DataGridViewTextBoxColumn equip_event;
+        private DataGridViewTextBoxColumn equip_const;
+        private DataGridViewTextBoxColumn equip_regdate;
+        private DataGridViewTextBoxColumn equip_modi;
+        private DataGridViewTextBoxColumn equip_moddate;
+        private DataGridViewTextBoxColumn equipHis_id;
+        private DataGridViewTextBoxColumn equipHis_processcode;
+        private DataGridViewTextBoxColumn equipHis_code;
+        private DataGridViewTextBoxColumn equipHis_name;
+        private DataGridViewTextBoxColumn equipHis_comment;
+        private DataGridViewTextBoxColumn equipHis_status;
+        private DataGridViewTextBoxColumn equipHis_event;
+        private DataGridViewTextBoxColumn equipHis_history;
+        private DataGridViewTextBoxColumn equipHis_const;
+        private DataGridViewTextBoxColumn equipHis_regdate;
+        private DataGridViewTextBoxColumn equipHis_modi;
+        private DataGridViewTextBoxColumn equipHis_moddate;
+        private Button btnEquipHis_ListDelete;
+        private Button btnLotHis_delList;
+        private Button btnLotHis_ListDel;
+        private Label lbLotHis_Id;
+        private DataGridViewTextBoxColumn lothis_id;
+        private DataGridViewTextBoxColumn lothis_hisnum;
+        private DataGridViewTextBoxColumn lothis_code;
+        private DataGridViewTextBoxColumn lothis_amount1;
+        private DataGridViewTextBoxColumn lothis_stock1;
+        private DataGridViewTextBoxColumn lothis_amount2;
+        private DataGridViewTextBoxColumn lothis_stock2;
+        private DataGridViewTextBoxColumn lothis_actiontime;
+        private DataGridViewTextBoxColumn lothis_actioncode;
+        private DataGridViewTextBoxColumn lothis_equipcode;
+        private DataGridViewTextBoxColumn lothis_processcode;
+        private DataGridViewTextBoxColumn lothis_itemcode;
+        private DataGridViewTextBoxColumn lothis_const;
+        private DataGridViewTextBoxColumn lothis_regdate;
+        private DataGridViewTextBoxColumn lothis_modi;
+        private DataGridViewTextBoxColumn lothis_moddate;
     }
 }
