@@ -1,5 +1,5 @@
-﻿using _3rd_TEAM_PROJECT.Repositorys;
-using _3rd_TEAM_PROJECT.Repositorys.InterFace;
+﻿using _3rd_TEAM_PROJECT.InterFace;
+using _3rd_TEAM_PROJECT.Repositorys;
 using _3rd_TEAM_PROJECT_Desk;
 using System;
 using System.Collections.Generic;

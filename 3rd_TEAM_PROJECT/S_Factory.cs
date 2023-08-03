@@ -1,5 +1,5 @@
-﻿using _3rd_TEAM_PROJECT.Repositorys;
-using _3rd_TEAM_PROJECT.Repositorys.InterFace;
+﻿using _3rd_TEAM_PROJECT.InterFace;
+using _3rd_TEAM_PROJECT.Repositorys;
 using _3rd_TEAM_PROJECT_Desk;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;
@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace _3rd_TEAM_PROJECT
 {
-	public partial class S_Factory : Form
+    public partial class S_Factory : Form
 	{
 		private readonly IFactoryRepository factoryRepository;
 		public event EventHandler<string> FacCodeSelected;

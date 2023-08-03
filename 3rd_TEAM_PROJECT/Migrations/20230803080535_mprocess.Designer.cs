@@ -12,8 +12,8 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230802012214_MProcess")]
-    partial class MProcess
+    [Migration("20230803080535_mprocess")]
+    partial class mprocess
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

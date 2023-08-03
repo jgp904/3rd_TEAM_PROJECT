@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _3rd_TEAM_PROJECT.Repositorys.InterFace
+namespace _3rd_TEAM_PROJECT.InterFace
 {
     public interface IEquipmentRepository
     {

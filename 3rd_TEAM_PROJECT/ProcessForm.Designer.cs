@@ -282,6 +282,7 @@
             txtLot_Code = new TextBox();
             lotHistory = new TabPage();
             groupBox6 = new GroupBox();
+            lbLotHis_Id = new Label();
             btnLotHis_delList = new Button();
             btnLotHis_ListDel = new Button();
             label78 = new Label();
@@ -312,6 +313,22 @@
             label74 = new Label();
             txtLothis_Code = new TextBox();
             dgvLotHis = new DataGridView();
+            lothis_id = new DataGridViewTextBoxColumn();
+            lothis_hisnum = new DataGridViewTextBoxColumn();
+            lothis_code = new DataGridViewTextBoxColumn();
+            lothis_amount1 = new DataGridViewTextBoxColumn();
+            lothis_stock1 = new DataGridViewTextBoxColumn();
+            lothis_amount2 = new DataGridViewTextBoxColumn();
+            lothis_stock2 = new DataGridViewTextBoxColumn();
+            lothis_actiontime = new DataGridViewTextBoxColumn();
+            lothis_actioncode = new DataGridViewTextBoxColumn();
+            lothis_equipcode = new DataGridViewTextBoxColumn();
+            lothis_processcode = new DataGridViewTextBoxColumn();
+            lothis_itemcode = new DataGridViewTextBoxColumn();
+            lothis_const = new DataGridViewTextBoxColumn();
+            lothis_regdate = new DataGridViewTextBoxColumn();
+            lothis_modi = new DataGridViewTextBoxColumn();
+            lothis_moddate = new DataGridViewTextBoxColumn();
             label54 = new Label();
             pbLotHis = new PictureBox();
             searchLotHis = new TextBox();
@@ -399,23 +416,6 @@
             lotEnd_ItemName = new TextBox();
             lotEnd_ItemCode = new TextBox();
             작업종료ToolStripMenuItem = new ToolStripMenuItem();
-            lbLotHis_Id = new Label();
-            lothis_id = new DataGridViewTextBoxColumn();
-            lothis_hisnum = new DataGridViewTextBoxColumn();
-            lothis_code = new DataGridViewTextBoxColumn();
-            lothis_amount1 = new DataGridViewTextBoxColumn();
-            lothis_stock1 = new DataGridViewTextBoxColumn();
-            lothis_amount2 = new DataGridViewTextBoxColumn();
-            lothis_stock2 = new DataGridViewTextBoxColumn();
-            lothis_actiontime = new DataGridViewTextBoxColumn();
-            lothis_actioncode = new DataGridViewTextBoxColumn();
-            lothis_equipcode = new DataGridViewTextBoxColumn();
-            lothis_processcode = new DataGridViewTextBoxColumn();
-            lothis_itemcode = new DataGridViewTextBoxColumn();
-            lothis_const = new DataGridViewTextBoxColumn();
-            lothis_regdate = new DataGridViewTextBoxColumn();
-            lothis_modi = new DataGridViewTextBoxColumn();
-            lothis_moddate = new DataGridViewTextBoxColumn();
             menuStrip1.SuspendLayout();
             tabProcess.SuspendLayout();
             facSetting.SuspendLayout();
@@ -2777,6 +2777,14 @@
             groupBox6.TabStop = false;
             groupBox6.Text = "Lot생성";
             // 
+            // lbLotHis_Id
+            // 
+            lbLotHis_Id.AutoSize = true;
+            lbLotHis_Id.Location = new Point(7, 19);
+            lbLotHis_Id.Name = "lbLotHis_Id";
+            lbLotHis_Id.Size = new Size(0, 15);
+            lbLotHis_Id.TabIndex = 78;
+            // 
             // btnLotHis_delList
             // 
             btnLotHis_delList.Location = new Point(2, 556);
@@ -2939,7 +2947,7 @@
             button3.Name = "button3";
             button3.Size = new Size(198, 23);
             button3.TabIndex = 43;
-            button3.Text = "삭제";
+            button3.Text = "이력삭제";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -3042,6 +3050,113 @@
             dgvLotHis.Size = new Size(854, 610);
             dgvLotHis.TabIndex = 67;
             dgvLotHis.CellClick += dgvLotHis_CellClick;
+            // 
+            // lothis_id
+            // 
+            lothis_id.HeaderText = "Id";
+            lothis_id.Name = "lothis_id";
+            lothis_id.ReadOnly = true;
+            // 
+            // lothis_hisnum
+            // 
+            lothis_hisnum.HeaderText = "이력번호";
+            lothis_hisnum.Name = "lothis_hisnum";
+            lothis_hisnum.ReadOnly = true;
+            // 
+            // lothis_code
+            // 
+            lothis_code.HeaderText = "Lot번호";
+            lothis_code.Name = "lothis_code";
+            lothis_code.ReadOnly = true;
+            lothis_code.Width = 80;
+            // 
+            // lothis_amount1
+            // 
+            lothis_amount1.HeaderText = "수량1";
+            lothis_amount1.Name = "lothis_amount1";
+            lothis_amount1.ReadOnly = true;
+            lothis_amount1.Width = 80;
+            // 
+            // lothis_stock1
+            // 
+            lothis_stock1.FillWeight = 50F;
+            lothis_stock1.HeaderText = "단위1";
+            lothis_stock1.Name = "lothis_stock1";
+            lothis_stock1.ReadOnly = true;
+            lothis_stock1.Width = 80;
+            // 
+            // lothis_amount2
+            // 
+            lothis_amount2.HeaderText = "수량2";
+            lothis_amount2.Name = "lothis_amount2";
+            lothis_amount2.ReadOnly = true;
+            // 
+            // lothis_stock2
+            // 
+            lothis_stock2.FillWeight = 50F;
+            lothis_stock2.HeaderText = "단위2";
+            lothis_stock2.Name = "lothis_stock2";
+            lothis_stock2.ReadOnly = true;
+            lothis_stock2.Width = 80;
+            // 
+            // lothis_actiontime
+            // 
+            lothis_actiontime.HeaderText = "작업시간";
+            lothis_actiontime.Name = "lothis_actiontime";
+            lothis_actiontime.ReadOnly = true;
+            lothis_actiontime.Width = 150;
+            // 
+            // lothis_actioncode
+            // 
+            lothis_actioncode.HeaderText = "작업코드";
+            lothis_actioncode.Name = "lothis_actioncode";
+            lothis_actioncode.ReadOnly = true;
+            // 
+            // lothis_equipcode
+            // 
+            lothis_equipcode.HeaderText = "설비코드";
+            lothis_equipcode.Name = "lothis_equipcode";
+            lothis_equipcode.ReadOnly = true;
+            // 
+            // lothis_processcode
+            // 
+            lothis_processcode.HeaderText = "공정코드";
+            lothis_processcode.Name = "lothis_processcode";
+            lothis_processcode.ReadOnly = true;
+            // 
+            // lothis_itemcode
+            // 
+            lothis_itemcode.HeaderText = "품번코드";
+            lothis_itemcode.Name = "lothis_itemcode";
+            lothis_itemcode.ReadOnly = true;
+            // 
+            // lothis_const
+            // 
+            lothis_const.HeaderText = "생성자";
+            lothis_const.Name = "lothis_const";
+            lothis_const.ReadOnly = true;
+            lothis_const.Width = 80;
+            // 
+            // lothis_regdate
+            // 
+            lothis_regdate.HeaderText = "생성일자";
+            lothis_regdate.Name = "lothis_regdate";
+            lothis_regdate.ReadOnly = true;
+            lothis_regdate.Width = 120;
+            // 
+            // lothis_modi
+            // 
+            lothis_modi.HeaderText = "수정자";
+            lothis_modi.Name = "lothis_modi";
+            lothis_modi.ReadOnly = true;
+            lothis_modi.Width = 80;
+            // 
+            // lothis_moddate
+            // 
+            lothis_moddate.HeaderText = "수정일자";
+            lothis_moddate.Name = "lothis_moddate";
+            lothis_moddate.ReadOnly = true;
+            lothis_moddate.Width = 120;
             // 
             // label54
             // 
@@ -4052,121 +4167,6 @@
             작업종료ToolStripMenuItem.Name = "작업종료ToolStripMenuItem";
             작업종료ToolStripMenuItem.Size = new Size(67, 20);
             작업종료ToolStripMenuItem.Text = "작업완료";
-            // 
-            // lbLotHis_Id
-            // 
-            lbLotHis_Id.AutoSize = true;
-            lbLotHis_Id.Location = new Point(7, 19);
-            lbLotHis_Id.Name = "lbLotHis_Id";
-            lbLotHis_Id.Size = new Size(0, 15);
-            lbLotHis_Id.TabIndex = 78;
-            // 
-            // lothis_id
-            // 
-            lothis_id.HeaderText = "Id";
-            lothis_id.Name = "lothis_id";
-            lothis_id.ReadOnly = true;
-            // 
-            // lothis_hisnum
-            // 
-            lothis_hisnum.HeaderText = "이력번호";
-            lothis_hisnum.Name = "lothis_hisnum";
-            lothis_hisnum.ReadOnly = true;
-            // 
-            // lothis_code
-            // 
-            lothis_code.HeaderText = "Lot번호";
-            lothis_code.Name = "lothis_code";
-            lothis_code.ReadOnly = true;
-            lothis_code.Width = 80;
-            // 
-            // lothis_amount1
-            // 
-            lothis_amount1.HeaderText = "수량1";
-            lothis_amount1.Name = "lothis_amount1";
-            lothis_amount1.ReadOnly = true;
-            lothis_amount1.Width = 80;
-            // 
-            // lothis_stock1
-            // 
-            lothis_stock1.FillWeight = 50F;
-            lothis_stock1.HeaderText = "단위1";
-            lothis_stock1.Name = "lothis_stock1";
-            lothis_stock1.ReadOnly = true;
-            lothis_stock1.Width = 80;
-            // 
-            // lothis_amount2
-            // 
-            lothis_amount2.HeaderText = "수량2";
-            lothis_amount2.Name = "lothis_amount2";
-            lothis_amount2.ReadOnly = true;
-            // 
-            // lothis_stock2
-            // 
-            lothis_stock2.FillWeight = 50F;
-            lothis_stock2.HeaderText = "단위2";
-            lothis_stock2.Name = "lothis_stock2";
-            lothis_stock2.ReadOnly = true;
-            lothis_stock2.Width = 80;
-            // 
-            // lothis_actiontime
-            // 
-            lothis_actiontime.HeaderText = "작업시간";
-            lothis_actiontime.Name = "lothis_actiontime";
-            lothis_actiontime.ReadOnly = true;
-            lothis_actiontime.Width = 150;
-            // 
-            // lothis_actioncode
-            // 
-            lothis_actioncode.HeaderText = "작업코드";
-            lothis_actioncode.Name = "lothis_actioncode";
-            lothis_actioncode.ReadOnly = true;
-            // 
-            // lothis_equipcode
-            // 
-            lothis_equipcode.HeaderText = "설비코드";
-            lothis_equipcode.Name = "lothis_equipcode";
-            lothis_equipcode.ReadOnly = true;
-            // 
-            // lothis_processcode
-            // 
-            lothis_processcode.HeaderText = "공정코드";
-            lothis_processcode.Name = "lothis_processcode";
-            lothis_processcode.ReadOnly = true;
-            // 
-            // lothis_itemcode
-            // 
-            lothis_itemcode.HeaderText = "품번코드";
-            lothis_itemcode.Name = "lothis_itemcode";
-            lothis_itemcode.ReadOnly = true;
-            // 
-            // lothis_const
-            // 
-            lothis_const.HeaderText = "생성자";
-            lothis_const.Name = "lothis_const";
-            lothis_const.ReadOnly = true;
-            lothis_const.Width = 80;
-            // 
-            // lothis_regdate
-            // 
-            lothis_regdate.HeaderText = "생성일자";
-            lothis_regdate.Name = "lothis_regdate";
-            lothis_regdate.ReadOnly = true;
-            lothis_regdate.Width = 120;
-            // 
-            // lothis_modi
-            // 
-            lothis_modi.HeaderText = "수정자";
-            lothis_modi.Name = "lothis_modi";
-            lothis_modi.ReadOnly = true;
-            lothis_modi.Width = 80;
-            // 
-            // lothis_moddate
-            // 
-            lothis_moddate.HeaderText = "수정일자";
-            lothis_moddate.Name = "lothis_moddate";
-            lothis_moddate.ReadOnly = true;
-            lothis_moddate.Width = 120;
             // 
             // ProcessForm
             // 
