@@ -28,9 +28,9 @@ namespace _3rd_TEAM_PROJECT
         private ILotRepository lotRepository;
 
 
-        public string SEquip { get; set; }
+        
         //----------Login정보 받기-----------------//
-        public string userName = "박재걸"; // SessionManger에서 Acount정보 받기
+        public string userName = SessionManager.Instance.LoggedInAccount.Name; // SessionManger에서 Acount정보 받기
 
         public ProcessForm()
         {

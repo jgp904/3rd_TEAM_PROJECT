@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             label1 = new Label();
             TabMenu = new TabControl();
             Purches_warehouse = new TabPage();
@@ -99,6 +100,7 @@
             label17 = new Label();
             Purches_outhis = new TabPage();
             groupBox3 = new GroupBox();
+            pbPro_Fac = new PictureBox();
             btnOutboundUpdate = new Button();
             btnOutboundAdd = new Button();
             label38 = new Label();
@@ -163,6 +165,7 @@
             groupBox4.SuspendLayout();
             Purches_outhis.SuspendLayout();
             groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbPro_Fac).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvOutBound).BeginInit();
             Purches_outsrch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOutboundSearch).BeginInit();
@@ -809,6 +812,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(pbPro_Fac);
             groupBox3.Controls.Add(btnOutboundUpdate);
             groupBox3.Controls.Add(btnOutboundAdd);
             groupBox3.Controls.Add(label38);
@@ -832,6 +836,17 @@
             groupBox3.TabIndex = 14;
             groupBox3.TabStop = false;
             groupBox3.Text = "출고 목록";
+            // 
+            // pbPro_Fac
+            // 
+            pbPro_Fac.Image = (Image)resources.GetObject("pbPro_Fac.Image");
+            pbPro_Fac.Location = new Point(159, 150);
+            pbPro_Fac.Name = "pbPro_Fac";
+            pbPro_Fac.Size = new Size(21, 23);
+            pbPro_Fac.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPro_Fac.TabIndex = 63;
+            pbPro_Fac.TabStop = false;
+            pbPro_Fac.Click += pbPro_Fac_Click;
             // 
             // btnOutboundUpdate
             // 
@@ -900,8 +915,9 @@
             // 
             txtOutboundProcess.Location = new Point(80, 150);
             txtOutboundProcess.Name = "txtOutboundProcess";
-            txtOutboundProcess.Size = new Size(100, 23);
+            txtOutboundProcess.Size = new Size(73, 23);
             txtOutboundProcess.TabIndex = 4;
+            txtOutboundProcess.Click += txtOutboundProcess_Click;
             // 
             // txtOutboundId
             // 
@@ -1283,7 +1299,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Main";
+            Text = "WareHouse";
             FormClosing += Main_FormClosing;
             TabMenu.ResumeLayout(false);
             Purches_warehouse.ResumeLayout(false);
@@ -1302,6 +1318,7 @@
             Purches_outhis.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbPro_Fac).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvOutBound).EndInit();
             Purches_outsrch.ResumeLayout(false);
             Purches_outsrch.PerformLayout();
@@ -1453,5 +1470,6 @@
         private DataGridViewTextBoxColumn outsearch_process;
         private DataGridViewTextBoxColumn outsearch_contact;
         private DataGridViewTextBoxColumn outsearch_regdate;
+        private PictureBox pbPro_Fac;
     }
 }

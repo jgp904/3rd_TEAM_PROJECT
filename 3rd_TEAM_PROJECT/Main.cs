@@ -564,5 +564,27 @@ namespace _3rd_TEAM_PROJECT
         }
 
         #endregion
+
+        private void SProcess_ProcessCodeSelected(object sender, (string processCode, string stock1, string? stock2) args)// 공정 검색
+        {
+            // 선택된 공정 코드
+            string processCode = args.processCode;
+            // 재고 정보
+            txtOutboundProcess.Text = processCode;
+        }
+
+        private void txtOutboundProcess_Click(object sender, EventArgs e)
+        {
+            S_Process s_Process = new S_Process();
+            s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
+            s_Process.ShowDialog();
+        }
+
+        private void pbPro_Fac_Click(object sender, EventArgs e)
+        {
+            S_Process s_Process = new S_Process();
+            s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
+            s_Process.ShowDialog();
+        }
     }
 }
