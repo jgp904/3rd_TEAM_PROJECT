@@ -77,40 +77,8 @@ namespace _3rd_TEAM_PROJECT
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Application.OpenForms 컬렉션의 복사본을 만들고 이 복사본을 순회하는 방법을 제안할 수 있습니다. 다음은 해당 방법을 적용한 코드입니다:
-
-            // 화면 닫을 때 확인메시지 출력
-            DialogResult result = MessageBox.Show("프로그램을 종료하시겠습니까?", "Exit", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                // 폼 닫기 이벤트 취소하지 않음
-                e.Cancel = false;
-
-                // 열려있는 폼 확인
-                List<Form> openForms = new List<Form>();
-                foreach (Form form in Application.OpenForms)
-                    openForms.Add(form);
-
-                foreach (Form form in openForms)
-                {
-                    //열려있는 폼이 로그인 폼이면
-                    if (form is Login)
-                    {
-                        // 폼 닫음
-                        form.Close();
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                // 'No'를 눌렀을 때 폼 닫기 이벤트 취소
-                e.Cancel = true;
-            }
+            Application.Exit();
         }
-
-
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -143,18 +111,21 @@ namespace _3rd_TEAM_PROJECT
                     break;
                 case 2:
                     //재고 검색
+                    txtInboundSearch.Clear();
                     break;
                 case 3:
                     LoadOutbound();
                     break;
                 case 4:
                     //출고 검색
+                    txtOutboundSearch.Clear();
                     break;
             }
         }
         #region 창고
         private void dgvWarehouse_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             // Ensure that the clicked cell is valid
             if (e.RowIndex >= 0)
             {
@@ -170,6 +141,8 @@ namespace _3rd_TEAM_PROJECT
         }
         private async void LoadWarehouse()
         {
+            txtWarehouseSearch.Clear();
+
             //GetAllAsync();
             var items = await warehouseRepository.GetAllAsync();
 
@@ -192,24 +165,59 @@ namespace _3rd_TEAM_PROJECT
             }
 
         }
+
+        private async void txtWarehouseSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string searchText = txtWarehouseSearch.Text;
+
+                try
+                {
+                    var results = await warehouseRepository.GetProductAsync(searchText);
+
+                    // 데이터 그리드 뷰를 비웁니다.
+                    dgvWarehouse.Rows.Clear();
+
+                    foreach (var result in results)
+                    {
+                        int rowIndex = dgvWarehouse.Rows.Add();
+                        DataGridViewRow row = dgvWarehouse.Rows[rowIndex];
+
+                        // 결과를 행에 넣습니다.
+                        row.Cells["warehouse_id"].Value = result.Id.ToString();
+                        row.Cells["warehouse_product"].Value = result.Product;
+                        row.Cells["warehouse_item"].Value = result.Item;
+                        row.Cells["warehouse_amount"].Value = result.Amount.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"검색 중 오류 발생: {ex.Message}");
+                }
+            }
+        }
         #endregion
 
         #region 입고
         //입고
         private void dgvInbound_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Get the clicked row
-            DataGridViewRow row = this.dgvInbound.Rows[e.RowIndex];
+            if (e.RowIndex >= 0)
+            {
+                // Get the clicked row
+                DataGridViewRow row = this.dgvInbound.Rows[e.RowIndex];
 
-            // Assign the row data to the TextBoxes
-            //txWareId.Text = row.Cells["warehouse_id"].Value?.ToString();
-            txtInboundId.Text = row.Cells["inbound_id"].Value?.ToString();
-            txtInboundProduct.Text = row.Cells["inbound_product"].Value?.ToString();
-            txtInboundItem.Text = row.Cells["inbound_item"].Value?.ToString();
-            txtInboundVendor.Text = row.Cells["inbound_vendor"].Value?.ToString();
-            txtInboundAmount.Text = row.Cells["inbound_amount"].Value?.ToString();
-            txtInboundContact.Text = row.Cells["inbound_contact"].Value?.ToString();
-            txtInboundRegdate.Text = row.Cells["inbound_regdate"].Value?.ToString();
+                // Assign the row data to the TextBoxes
+                //txWareId.Text = row.Cells["warehouse_id"].Value?.ToString();
+                txtInboundId.Text = row.Cells["inbound_id"].Value?.ToString();
+                txtInboundProduct.Text = row.Cells["inbound_product"].Value?.ToString();
+                txtInboundItem.Text = row.Cells["inbound_item"].Value?.ToString();
+                txtInboundVendor.Text = row.Cells["inbound_vendor"].Value?.ToString();
+                txtInboundAmount.Text = row.Cells["inbound_amount"].Value?.ToString();
+                txtInboundContact.Text = row.Cells["inbound_contact"].Value?.ToString();
+                txtInboundRegdate.Text = row.Cells["inbound_regdate"].Value?.ToString();
+            }
         }
 
         //입고 내역 추가
@@ -328,7 +336,7 @@ namespace _3rd_TEAM_PROJECT
         //입고 검색
         private void dgvInboundSearch_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && dgvInboundSearch.Rows[e.RowIndex].Cells.Cast<DataGridViewCell>().All(c => c.Value != null))
             {
                 // DataGridView에서 선택한 행을 가져옵니다.
                 var row = this.dgvInboundSearch.Rows[e.RowIndex];
@@ -341,9 +349,9 @@ namespace _3rd_TEAM_PROJECT
                 txtInSearchAmount.Text = row.Cells["insearch_amount"].Value.ToString();
                 txtInSearchContact.Text = row.Cells["insearch_contact"].Value.ToString();
                 txtInSearchRegdate.Text = row.Cells["insearch_regdate"].Value.ToString();
-
             }
         }
+
 
         private async void txtInboundSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -382,61 +390,95 @@ namespace _3rd_TEAM_PROJECT
         #endregion
 
         #region 출고
-        //출고
+        // Form 클래스 내부의 변수로 이동
+        private string[] textBoxNames = new string[]{
+            "txtOutboundId",
+            "txtOutboundProduct",
+            "txtOutboundItem",
+            "txtOutboundAmount",
+            "txtOutboundProcess",
+            "txtOutboundContact",
+            "txtOutboundRegdate"
+        };
+        private string[] cellNames = new string[]{
+            "outbound_id",
+            "outbound_product",
+            "outbound_item",
+            "outbound_amount",
+            "outbound_process",
+            "outbound_contact",
+            "outbound_regdate"
+        };
+        private string[] searchTextBoxNames = new string[]{
+            "txtOutboundSearchId",
+            "txtOutboundSearchProduct",
+            "txtOutboundSearchItem",
+            "txtOutboundSearchAmount",
+            "txtOutboundSearchProcess",
+            "txtOutboundSearchContact",
+            "txtOutboundSearchRegdate"
+        };
+        private string[] searchCellNames = new string[]{
+            "outsearch_id",
+            "outsearch_product",
+            "outsearch_item",
+            "outsearch_amount",
+            "outsearch_process",
+            "outsearch_contact",
+            "outsearch_regdate"
+        };
+        // 공통 메서드 추가
+        private void SetTextBoxValuesFromRow(DataGridViewRow row, string[] textBoxNames, string[] cellNames)
+        {
+            for (int i = 0; i < textBoxNames.Length; i++)
+            {
+                this.Controls[textBoxNames[i]].Text = row.Cells[cellNames[i]].Value?.ToString();
+            }
+        }
+        private OutBound CreateOutBoundFromTextBoxes(){
+            var outbound = new OutBound{
+                Product = txtOutboundProduct.Text,
+                Item = txtOutboundItem.Text,
+                Amount = Convert.ToInt32(txtOutboundAmount.Text),
+                MProcessCode = txtOutboundProcess.Text,
+                Contact = txtOutboundContact.Text,
+                RegDate = DateTime.Now,
+            };
+            return outbound;
+        }
         //내역 TextBox에 출력
         private void dgvOutBound_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Get the clicked row
-            DataGridViewRow row = this.dgvOutBound.Rows[e.RowIndex];
-
-            // Assign the row data to the TextBoxes
-            //txWareId.Text = row.Cells["warehouse_id"].Value?.ToString();
-            txtOutboundId.Text = row.Cells["outbound_id"].Value?.ToString();
-            txtOutboundProduct.Text = row.Cells["outbound_product"].Value?.ToString();
-            txtOutboundItem.Text = row.Cells["outbound_item"].Value?.ToString();
-            txtOutboundAmount.Text = row.Cells["outbound_amount"].Value?.ToString();
-            txtOutboundProcess.Text = row.Cells["outbound_process"].Value?.ToString();
-            txtOutboundContact.Text = row.Cells["outbound_contact"].Value?.ToString();
-            txtOutboundRegdate.Text = row.Cells["outbound_regdate"].Value?.ToString();
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgvOutBound.Rows[e.RowIndex];
+                SetTextBoxValuesFromRow(row, textBoxNames, cellNames);
+            }
         }
         //내역 추가
         private async void btnOutBoundAdd_Click(object sender, EventArgs e)
         {
-            // 값이 비어있지 않은지 확인
             if (string.IsNullOrWhiteSpace(txtOutboundProduct.Text) ||
                string.IsNullOrWhiteSpace(txtOutboundItem.Text) ||
                string.IsNullOrWhiteSpace(txtOutboundProcess.Text) ||
-               string.IsNullOrWhiteSpace(txtOutboundAmount.Text))
-            {
+               string.IsNullOrWhiteSpace(txtOutboundAmount.Text)){
                 MessageBox.Show("입력에 필요한 필드를 모두 입력해주세요.");
                 return;
             }
 
-            // 수량이 숫자인지 확인
-            if (!int.TryParse(txtInboundAmount.Text, out int amount))
-            {
+            if (!int.TryParse(txtOutboundAmount.Text, out int amount)){
                 MessageBox.Show("수량은 숫자만 입력 가능합니다.");
                 return;
             }
-
-            var outbound = new OutBound
-            {
-                Product = txtOutboundProduct.Text,
-                Item = txtOutboundItem.Text,
-                Amount = amount,
-                MProcessCode = txtOutboundProcess.Text,
-                Contact = SessionManager.Instance.LoggedInAccount.Name,
-                RegDate = DateTime.Now,
-            };
-
-            try
-            {
+            var outbound = CreateOutBoundFromTextBoxes();
+            try{
                 var result = await outboundRepository.ReleaseAsync(outbound);
-                MessageBox.Show("성공적으로 출고되었습니다.");
-                LoadOutbound();
+                if (result != null){
+                    MessageBox.Show("성공적으로 출고되었습니다.");
+                    LoadOutbound();
+                }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex){
                 MessageBox.Show($"오류 발생: {ex.Message}");
             }
         }
@@ -486,45 +528,35 @@ namespace _3rd_TEAM_PROJECT
         private async void LoadOutbound()
         {
             var items = await outboundRepository.GetAllAsync();
-            if (items == null)
-            {
-                return;  //테이블에 값이 없을 경우 메소드 실행 중지
-            }
+            if (items == null) return;
 
             dgvOutBound.Rows.Clear();
             dgvOutBound.Refresh();
 
-            foreach (var item in items)
-            {
+            foreach (var item in items){
                 int rowIndex = dgvOutBound.Rows.Add();
                 DataGridViewRow row = dgvOutBound.Rows[rowIndex];
 
-                row.Cells["outbound_id"].Value = item.Id;
-                row.Cells["outbound_product"].Value = item.Product;
-                row.Cells["outbound_item"].Value = item.Item;
-                row.Cells["outbound_process"].Value = item.MProcessCode;
-                row.Cells["outbound_amount"].Value = item.Amount;
-                row.Cells["outbound_contact"].Value = item.Contact;
-                row.Cells["outbound_regdate"].Value = item.RegDate.ToString("yyyy-MM-dd");
+                string[] cellValues = new string[]{
+                    item.Id.ToString(),
+                    item.Product,
+                    item.Item,
+                    item.Amount.ToString(),
+                    item.MProcessCode,
+                    item.Contact,
+                    item.RegDate.ToString("yyyy-MM-dd")
+                };
+
+                for (int i = 0; i < cellNames.Length; i++){
+                    row.Cells[cellNames[i]].Value = cellValues[i];
+                }
             }
         }
         //출고 조회 Cell 클릭
-        private void dgvOutboundSearch_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                // DataGridView에서 선택한 행을 가져옵니다.
+        private void dgvOutboundSearch_CellClick(object sender, DataGridViewCellEventArgs e){
+            if (e.RowIndex >= 0 && dgvOutboundSearch.Rows[e.RowIndex].Cells.Cast<DataGridViewCell>().All(c => c.Value != null)){
                 var row = this.dgvOutboundSearch.Rows[e.RowIndex];
-
-                // 그리드 뷰의 각 셀에 대한 내용을 해당 텍스트 박스에 표시합니다.
-                txtOutboundSearchId.Text = row.Cells["outsearch_id"].Value.ToString();
-                txtOutboundSearchProduct.Text = row.Cells["outsearch_product"].Value.ToString();
-                txtOutboundSearchItem.Text = row.Cells["outsearch_item"].Value.ToString();
-                txtOutboundSearchAmount.Text = row.Cells["outsearch_amount"].Value.ToString();
-                txtOutboundSearchProcess.Text = row.Cells["outsearch_process"].Value.ToString();
-                txtOutboundSearchContact.Text = row.Cells["outsearch_contact"].Value.ToString();
-                txtOutboundSearchRegdate.Text = row.Cells["outsearch_regdate"].Value.ToString();
-
+                SetTextBoxValuesFromRow(row, searchTextBoxNames, searchCellNames);
             }
         }
         //출고 조회
@@ -533,18 +565,24 @@ namespace _3rd_TEAM_PROJECT
             if (e.KeyChar == (char)Keys.Enter)
             {
                 string searchText = txtOutboundSearch.Text;
-
-                try
-                {
+                try{
                     var results = await outboundRepository.GetProductAsync(searchText);
-
                     // 데이터 그리드 뷰를 비웁니다.
                     dgvOutboundSearch.Rows.Clear();
-
-                    foreach (var result in results)
-                    {
+                    foreach (var result in results){
                         int rowIndex = dgvOutboundSearch.Rows.Add();
                         DataGridViewRow row = dgvOutboundSearch.Rows[rowIndex];
+
+                        string[] cellValues = new string[]
+                {
+                    result.Id.ToString(),
+                    result.Product,
+                    result.Item,
+                    result.Amount.ToString(),
+                    result.MProcess,
+                    result.Contact,
+                    result.RegDate.ToString("yyyy-MM-dd")
+                };
 
                         // 결과를 행에 넣습니다.
                         row.Cells["outsearch_id"].Value = result.Id.ToString();
@@ -556,14 +594,11 @@ namespace _3rd_TEAM_PROJECT
                         row.Cells["outsearch_regdate"].Value = result.RegDate.ToString("yyyy-MM-dd");
                     }
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex){
                     MessageBox.Show($"검색 중 오류 발생: {ex.Message}");
                 }
             }
         }
-
-        #endregion
 
         private void SProcess_ProcessCodeSelected(object sender, (string processCode, string stock1, string? stock2) args)// 공정 검색
         {
@@ -586,5 +621,6 @@ namespace _3rd_TEAM_PROJECT
             s_Process.ProcessCodeSelected += SProcess_ProcessCodeSelected;
             s_Process.ShowDialog();
         }
+        #endregion
     }
 }

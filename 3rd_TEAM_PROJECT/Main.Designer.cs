@@ -32,6 +32,7 @@
             label1 = new Label();
             TabMenu = new TabControl();
             Purches_warehouse = new TabPage();
+            txtWarehouseSearch = new TextBox();
             groupBox1 = new GroupBox();
             txtWareId = new TextBox();
             label2 = new Label();
@@ -73,7 +74,6 @@
             inbound_contact = new DataGridViewTextBoxColumn();
             inbound_regdate = new DataGridViewTextBoxColumn();
             Purches_insrch = new TabPage();
-            InSearchCategory = new ComboBox();
             txtInboundSearch = new TextBox();
             dgvInboundSearch = new DataGridView();
             insearch_id = new DataGridViewTextBoxColumn();
@@ -150,7 +150,6 @@
             label40 = new Label();
             label41 = new Label();
             txtOutboundSearchItem = new TextBox();
-            comboBox1 = new ComboBox();
             menuStrip1 = new MenuStrip();
             LogoutMenu = new ToolStripMenuItem();
             TabMenu.SuspendLayout();
@@ -206,6 +205,7 @@
             // 
             // Purches_warehouse
             // 
+            Purches_warehouse.Controls.Add(txtWarehouseSearch);
             Purches_warehouse.Controls.Add(groupBox1);
             Purches_warehouse.Controls.Add(dgvWarehouse);
             Purches_warehouse.Location = new Point(104, 4);
@@ -213,8 +213,17 @@
             Purches_warehouse.Padding = new Padding(3);
             Purches_warehouse.Size = new Size(1069, 649);
             Purches_warehouse.TabIndex = 0;
-            Purches_warehouse.Text = "재고";
+            Purches_warehouse.Text = "재고 창고";
             Purches_warehouse.UseVisualStyleBackColor = true;
+            // 
+            // txtWarehouseSearch
+            // 
+            txtWarehouseSearch.Location = new Point(3, 5);
+            txtWarehouseSearch.Name = "txtWarehouseSearch";
+            txtWarehouseSearch.PlaceholderText = "품명 혹은 품목을 입력하고 엔터를 누르세요.";
+            txtWarehouseSearch.Size = new Size(850, 23);
+            txtWarehouseSearch.TabIndex = 11;
+            txtWarehouseSearch.KeyPress += txtWarehouseSearch_KeyPress;
             // 
             // groupBox1
             // 
@@ -306,11 +315,11 @@
             // 
             dgvWarehouse.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvWarehouse.Columns.AddRange(new DataGridViewColumn[] { warehouse_id, warehouse_product, warehouse_item, warehouse_amount });
-            dgvWarehouse.Location = new Point(0, 0);
+            dgvWarehouse.Location = new Point(0, 34);
             dgvWarehouse.Name = "dgvWarehouse";
             dgvWarehouse.RowHeadersVisible = false;
             dgvWarehouse.RowTemplate.Height = 25;
-            dgvWarehouse.Size = new Size(853, 646);
+            dgvWarehouse.Size = new Size(853, 612);
             dgvWarehouse.TabIndex = 0;
             dgvWarehouse.CellClick += dgvWarehouse_CellClick;
             // 
@@ -573,7 +582,6 @@
             // 
             // Purches_insrch
             // 
-            Purches_insrch.Controls.Add(InSearchCategory);
             Purches_insrch.Controls.Add(txtInboundSearch);
             Purches_insrch.Controls.Add(dgvInboundSearch);
             Purches_insrch.Controls.Add(groupBox4);
@@ -584,20 +592,12 @@
             Purches_insrch.Text = "입고 조회";
             Purches_insrch.UseVisualStyleBackColor = true;
             // 
-            // InSearchCategory
-            // 
-            InSearchCategory.FormattingEnabled = true;
-            InSearchCategory.Location = new Point(3, 3);
-            InSearchCategory.Name = "InSearchCategory";
-            InSearchCategory.Size = new Size(121, 23);
-            InSearchCategory.TabIndex = 1;
-            // 
             // txtInboundSearch
             // 
-            txtInboundSearch.Location = new Point(130, 3);
+            txtInboundSearch.Location = new Point(3, 3);
             txtInboundSearch.Name = "txtInboundSearch";
-            txtInboundSearch.PlaceholderText = "품명을 검색하세요";
-            txtInboundSearch.Size = new Size(723, 23);
+            txtInboundSearch.PlaceholderText = "품명 혹은 품목을 입력하고 엔터를 누르세요.";
+            txtInboundSearch.Size = new Size(850, 23);
             txtInboundSearch.TabIndex = 2;
             txtInboundSearch.KeyPress += txtInboundSearch_KeyPress;
             // 
@@ -1048,7 +1048,6 @@
             Purches_outsrch.Controls.Add(dgvOutboundSearch);
             Purches_outsrch.Controls.Add(txtOutboundSearch);
             Purches_outsrch.Controls.Add(groupBox5);
-            Purches_outsrch.Controls.Add(comboBox1);
             Purches_outsrch.Location = new Point(104, 4);
             Purches_outsrch.Name = "Purches_outsrch";
             Purches_outsrch.Size = new Size(1069, 649);
@@ -1117,10 +1116,10 @@
             // 
             // txtOutboundSearch
             // 
-            txtOutboundSearch.Location = new Point(130, 3);
+            txtOutboundSearch.Location = new Point(3, 3);
             txtOutboundSearch.Name = "txtOutboundSearch";
-            txtOutboundSearch.PlaceholderText = "품명을 검색하세요";
-            txtOutboundSearch.Size = new Size(723, 23);
+            txtOutboundSearch.PlaceholderText = "품명 혹은 품목을 입력하고 엔터를 누르세요.";
+            txtOutboundSearch.Size = new Size(850, 23);
             txtOutboundSearch.TabIndex = 17;
             txtOutboundSearch.KeyPress += txtOutboundSearch_KeyPress;
             // 
@@ -1263,14 +1262,6 @@
             txtOutboundSearchItem.Size = new Size(100, 23);
             txtOutboundSearchItem.TabIndex = 3;
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(3, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 1;
-            // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { LogoutMenu });
@@ -1301,8 +1292,10 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "WareHouse";
             FormClosing += Main_FormClosing;
+            Load += Main_Load;
             TabMenu.ResumeLayout(false);
             Purches_warehouse.ResumeLayout(false);
+            Purches_warehouse.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvWarehouse).EndInit();
@@ -1378,12 +1371,10 @@
         private Button btnOut_Mod;
         private Button btnOut_Add;
         private TextBox textBox17;
-        private ComboBox InSearchCategory;
         private TextBox txtInboundSearch;
         private DataGridView dgvInboundSearch;
         private DataGridViewTextBoxColumn insearch_code;
         private DataGridViewTextBoxColumn insearch_name;
-        private ComboBox comboBox1;
         private TextBox textBox30;
         private DataGridView dataGridView5;
         private TextBox txtInboundContact;
@@ -1471,5 +1462,6 @@
         private DataGridViewTextBoxColumn outsearch_contact;
         private DataGridViewTextBoxColumn outsearch_regdate;
         private PictureBox pbPro_Fac;
+        private TextBox txtWarehouseSearch;
     }
 }

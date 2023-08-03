@@ -26,16 +26,13 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         //입고 추가 하면 창고에 적재되어야 한다
         public async Task<InBound> AddAsync(InBound inbound)
         {
-            //// 현재 로그인한 사용자의 이름을 담당자로 설정합니다.
-            //inbound.Contact = SessionManager.Instance.LoggedInAccount.Name;
-            ////입고 날짜
-            //inbound.RegDate = DateTime.Now;
-
             // 입고 내역을 저장합니다.
             mprocessDb.InBounds.Add(inbound);
 
             // 창고에 상품을 적재합니다.
-            var wareHouseItem = await mprocessDb.WareHouses.FirstOrDefaultAsync(w => w.Product == inbound.Product);
+            var wareHouseItem = await mprocessDb
+                .WareHouses
+                .FirstOrDefaultAsync(w => w.Product == inbound.Product);
             if (wareHouseItem != null)
             {
                 // 상품이 이미 존재하면 수량을 증가시킵니다.
@@ -111,7 +108,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         public async Task<IEnumerable<InBound>> GetAllAsync()
         {
             var items = await mprocessDb.InBounds.ToListAsync();
-            return items.OrderBy(x => x.Id).ToList();
+            return items.OrderByDescending(x => x.Id).ToList();
         }
 
         //입고 내역 검색 결과
@@ -125,7 +122,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                     (inbound.Vendor != null && inbound.Vendor.ToLower().Contains(text)) ||
                     (inbound.Item != null && inbound.Item.ToLower().Contains(text)) ||
                     (inbound.Contact != null && inbound.Contact.ToLower().Contains(text)))
-                .OrderBy(inbound => inbound.Id)
+                .OrderByDescending(inbound => inbound.Id)
                 .ToListAsync();
         }
     }

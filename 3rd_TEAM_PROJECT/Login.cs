@@ -54,7 +54,7 @@ namespace _3rd_TEAM_PROJECT_Desk
                         txtId.Text = Settings.Default.Username;
                         txtPw.Text = Decrypt(Settings.Default.Password);
 
-                        await Task.Delay(1000);
+                        await Task.Delay(500);
 
                         // 로그인 버튼 클릭 이벤트를 프로그래밍적으로 호출
                         btnLogin.PerformClick();
@@ -86,19 +86,21 @@ namespace _3rd_TEAM_PROJECT_Desk
 
             if (loggedInAccount != null)
             {
-                //자동 로그인 체크박스 확인
+                //로그인 시 로컬에 설정값 저장
                 if (checkBoxAutoLogin.Checked)
                 {
                     Settings.Default.Username = txtId.Text;
                     Settings.Default.Password = Encrypt(txtPw.Text);
-                    Settings.Default.AutoLoginEnabled = true; // 체크박스의 상태를 저장합니다.
-                    Settings.Default.Save();
+                    Settings.Default.AutoLoginEnabled = true;
                 }
                 else
                 {
-                    Settings.Default.AutoLoginEnabled = false; // 체크박스의 상태를 저장합니다.
-                    Settings.Default.Save();
+                    Settings.Default.Username = string.Empty;
+                    Settings.Default.Password = string.Empty;
+                    Settings.Default.AutoLoginEnabled = false;
                 }
+                Settings.Default.Save();
+
 
                 // 로그인 상태 저장
                 SessionManager.Instance.Login(loggedInAccount);

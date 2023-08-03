@@ -27,7 +27,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         public async Task<IEnumerable<OutBound>> GetAllAsync()
         {
             var items = await mprocessDb.OutBounds.ToListAsync();
-            return items.OrderBy(x => x.Id).ToList();
+            return items.OrderByDescending(x => x.Id).ToList();
         }
 
         //추가
@@ -112,6 +112,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
                              || ob.Item.ToLower().Contains(text)
                              || ob.MProcessCode.ToLower().Contains(text)
                              || ob.Contact.ToLower().Contains(text))
+                .OrderByDescending(x => x.Id)
                 .ToListAsync();
 
             return outbounds;
