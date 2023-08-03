@@ -1,5 +1,6 @@
 ﻿
 
+using _3rd_TEAM_PROJECT.InterFace;
 using _3rd_TEAM_PROJECT.Models.Process;
 using _3rd_TEAM_PROJECT.Repositorys;
 using _3rd_TEAM_PROJECT.Repositorys.InterFace;
@@ -21,17 +22,13 @@ namespace _3rd_TEAM_PROJECT
 {
     public partial class ProcessForm : Form
     {
+        //----------Login정보 받기-----------------//
+        public string userName = SessionManager.Instance.LoggedInAccount.Name; // SessionManger에서 Acount정보 받기
         private IFactoryRepository factoryRepository;
         private IEquipmentRepository equipmentRepository;
         private IProcessRepository processRepository;
         private IItemRepository itemRepository;
         private ILotRepository lotRepository;
-
-
-        
-        //----------Login정보 받기-----------------//
-        public string userName = SessionManager.Instance.LoggedInAccount.Name; // SessionManger에서 Acount정보 받기
-
         public ProcessForm()
         {
             InitializeComponent();
@@ -172,7 +169,7 @@ namespace _3rd_TEAM_PROJECT
         // -------공장 생성---------//
         private async void btnCFactory_Click(object sender, EventArgs e)
         {
-            Factory? factory;
+
             var items = await factoryRepository.GetAllAsync();
 
             string code = txtfac_Code.Text.Trim();
@@ -205,6 +202,7 @@ namespace _3rd_TEAM_PROJECT
             }
             else
             {
+                Factory? factory;
                 factory = new()
                 {
                     Code = code,
@@ -221,7 +219,7 @@ namespace _3rd_TEAM_PROJECT
         // -------공장 수정---------//
         private async void btnUFactory_Click(object sender, EventArgs e)
         {
-            Factory? factory;
+
 
             string code = txtfac_Code.Text.Trim();
             string name = txtfac_Name.Text.Trim();
@@ -238,6 +236,7 @@ namespace _3rd_TEAM_PROJECT
             }
             else
             {
+                Factory? factory;
                 factory = new()
                 {
                     Id = int.Parse(lbfacId.Text.Trim()),
@@ -307,7 +306,9 @@ namespace _3rd_TEAM_PROJECT
             {
                 var items = await factoryRepository.GetAllAsync();
                 string search = txtfacSearch.Text.Trim();
+
                 if (cbbFilter.Text.Trim() == "공장코드") items = await factoryRepository.CodeAsync(search);
+
                 else if (cbbFilter.Text.Trim() == "공장명") items = await factoryRepository.NameAsync(search);
                 else if (cbbFilter.Text.Trim() == "생성자") items = await factoryRepository.ConstAsync(search);
                 else if (cbbFilter.Text.Trim() == "수정자") items = await factoryRepository.ModiAsync(search);
@@ -534,6 +535,7 @@ namespace _3rd_TEAM_PROJECT
                             ModDate = DateTime.Now,
                         };
                         createLot = await lotRepository.UpdateAsync(createLot);
+                        break;
                     }
                 }
                 else if (e_event == "NON")
@@ -824,7 +826,7 @@ namespace _3rd_TEAM_PROJECT
         {
             string equipcode = txtEquipHis_Code.Text.Trim();
             var equipHis = await equipmentRepository.HisAsync(equipcode);
-
+            
             DialogResult result = MessageBox.Show($"선택된 설비({equipcode})을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -844,19 +846,38 @@ namespace _3rd_TEAM_PROJECT
 
                 DataGridViewRow selectedRow = dgvEquipHis.Rows[rowIndex];
                 int id = (int)selectedRow.Cells["equipHis_id"].Value;
+                string history = selectedRow.Cells["equipHis_history"].Value.ToString().Trim();
+                string equipcode = selectedRow.Cells["equipHis_code"].Value.ToString().Trim();
 
                 if (id == null) return;
 
-                DialogResult result = MessageBox.Show($"선택된 설비({selectedRow.Cells["equipHis_code"].Value})의 이력ID{id}번을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
+                if (history == "Delete")
                 {
+                    DialogResult result1 = MessageBox.Show($"선택하신 설비 ({equipcode})의 마지막이력은 Delete입니다.\n" +
+                                                            $"전체이력을 삭제 하시겠습니까?? ", "확인", MessageBoxButtons.YesNo);
+                    if (result1 == DialogResult.Yes)
+                    {
+                        var equiphis = await equipmentRepository.HisAsync(equipcode);
+                        foreach (var item in equiphis) { var hisDel = await equipmentRepository.DeleteHisAsync(item.Id); };
 
-                    await equipmentRepository.DeleteHisAsync(id);
-
-                    LoadEquipHis();
+                        LoadEquipHis();
+                    }
+                    else return;
                 }
-                else return;
+                else 
+                {
+                    DialogResult result = MessageBox.Show($"선택된 설비({equipcode})의 이력ID{id}번을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+
+                        await equipmentRepository.DeleteHisAsync(id);
+
+                        LoadEquipHis();
+                    }
+                    else return;
+                }
+                
             }
         }
         #endregion
@@ -1918,12 +1939,12 @@ namespace _3rd_TEAM_PROJECT
             }
 
         }
-        private async void btnLotHis_ListDel_Click(object sender, EventArgs e)
+        private async void btnLotHis_ListDel_Click(object sender, EventArgs e)//전체이력 삭제
         {
             string lotcode = txtLothis_Code.Text.Trim();
             var lothis = await lotRepository.HisAsync(lotcode);
 
-            DialogResult result = MessageBox.Show($"선택된 설비({lotcode})을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show($"선택된 Lot({lotcode})의 전체 이력을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -1943,19 +1964,37 @@ namespace _3rd_TEAM_PROJECT
                 DataGridViewRow selectedRow = dgvLotHis.Rows[rowIndex];
                 string lotcode = selectedRow.Cells["lothis_code"].Value.ToString();
                 string hisnum = selectedRow.Cells["lothis_hisnum"].Value.ToString();
+                string actioncode = selectedRow.Cells["lothis_actioncode"].Value.ToString();
+
                 int id = (int)selectedRow.Cells["lothis_id"].Value;
                 if (lotcode == null) return;
 
-                DialogResult result = MessageBox.Show($"선택된 설비({lotcode})의 이력번호{hisnum}번을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
+                if (actioncode == "Delete")
                 {
+                    DialogResult result1 = MessageBox.Show($"선택하신 Lot번호 ({lotcode})의 작업코드는 Delete입니다.\n" +
+                                                            $"전체이력을 삭제 하시겠습니까?? ", "확인", MessageBoxButtons.YesNo);
+                    if (result1 == DialogResult.Yes)
+                    {
+                        var lothis = await lotRepository.HisAsync(lotcode);
+                        foreach (var item in lothis) { var hisDel = await lotRepository.DeleteHisAsync(item.Id); };
 
-                    var hisDel = await lotRepository.DeleteHisAsync(id);
-
-                    LoadLotHis();
+                        LoadLotHis();
+                    }
+                    else return;
                 }
-                else return;
+                else 
+                {
+                    DialogResult result = MessageBox.Show($"선택된 Lot번호({lotcode})의 이력번호{hisnum}번을 삭제하시겠습니까?", "확인", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+
+                        var hisDel = await lotRepository.DeleteHisAsync(id);
+
+                        LoadLotHis();
+                    }
+                    else return;
+                }              
             }
         }
         #endregion

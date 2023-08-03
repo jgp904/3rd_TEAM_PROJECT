@@ -18,7 +18,7 @@ namespace _3rd_TEAM_PROJECT.Data
 		string strConn = "Server=127.0.0.1; Database=LTDB; uid=user0706; pwd=1234; Encrypt=false";
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)// 데이터베이스를 연결하는 메서드
 		{
 			optionsBuilder
 				.UseSqlServer(strConn)
@@ -26,6 +26,7 @@ namespace _3rd_TEAM_PROJECT.Data
 				.EnableSensitiveDataLogging()
 				;
 		}
+		//각 속성 매핑
 		//------------------공정---------------------------------//
 		public DbSet<CreateLot> CreateLots { get; set; }
 		public DbSet<Equipment> Equipments { get; set; }
