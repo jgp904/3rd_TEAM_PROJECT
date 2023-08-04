@@ -132,6 +132,7 @@ namespace _3rd_TEAM_PROJECT_Desk
                     textclear();
 
                     MessageBox.Show("경영지원부는 WEB PAGE를 이용해주십시오");
+                    Application.Exit();
                 }
 
                 this.Hide();

@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations.AccountDb
 {
     [DbContext(typeof(AccountDbContext))]
-    [Migration("20230803080558_account")]
+    [Migration("20230804010534_account")]
     partial class account
     {
         /// <inheritdoc />

@@ -142,7 +142,6 @@ namespace _3rd_TEAM_PROJECT
         private async void LoadWarehouse()
         {
             txtWarehouseSearch.Clear();
-
             //GetAllAsync();
             var items = await warehouseRepository.GetAllAsync();
 

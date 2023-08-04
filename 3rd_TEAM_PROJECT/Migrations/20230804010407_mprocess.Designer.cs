@@ -12,7 +12,7 @@ using _3rd_TEAM_PROJECT.Data;
 namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(MProcessDbcontext))]
-    [Migration("20230803080535_mprocess")]
+    [Migration("20230804010407_mprocess")]
     partial class mprocess
     {
         /// <inheritdoc />

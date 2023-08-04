@@ -18,8 +18,8 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 
         public WarehouseRepository(AccountDbContext accountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.accountDb = accountDbContext;
-            this.mprocessDb = mProcessDbcontext;
+            accountDb = accountDbContext;
+            mprocessDb = mProcessDbcontext;
         }
 
         //창고 목록 불러오기

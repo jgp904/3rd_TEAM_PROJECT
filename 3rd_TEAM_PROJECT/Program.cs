@@ -29,21 +29,27 @@ namespace _3rd_TEAM_PROJECT_Desk
         {
             using AccountDbContext accountDbContext = new AccountDbContext();
             using MProcessDbcontext mprocessDbContext = new MProcessDbcontext();
-			accountdb = accountDbContext;
-			mprocessdb = mprocessDbContext;
+            accountdb = accountDbContext;
+            mprocessdb = mprocessDbContext;
+
             //-------------------------Mrocess-------------------------------//
-			factoryRepository = new FactoryRepository();//공장
-            equipmentRepository = new EquipmentRepository();//설비
-            processRepository = new ProcessRepository();//공정
+            factoryRepository = new FactoryRepository(); //공장
+            equipmentRepository = new EquipmentRepository(); //설비
+            processRepository = new ProcessRepository(); //공정
             itemRepository = new ItemRepository(); //품번
             lotRepository = new LotRepository(); //Lot번호
+
+            //-------------------------WareHouse-----------------------------//
+            warehouseRepository = new WarehouseRepository(accountDbContext, mprocessDbContext);
+            inboundRepository = new InboundRepository(accountDbContext, mprocessDbContext);  // 해당 생성자가 있을 경우
+            outboundRepository = new OutboundRepository(accountDbContext, mprocessDbContext);  // 해당 생성자가 있을 경우
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            
             Application.Run(new Login());
             //Application.Run(new Main());
             //Application.Run(new ProcessForm());
