@@ -146,10 +146,7 @@ namespace _3rd_TEAM_PROJECT
             //GetAllAsync();
             var items = await warehouseRepository.GetAllAsync();
 
-            if (items == null)
-            {
-                return;  //테이블에 값이 없을 경우 메소드 실행 중지
-            }
+            
             dgvWarehouse.Rows.Clear();
             dgvWarehouse.Refresh();
             int i = 0;
@@ -572,17 +569,6 @@ namespace _3rd_TEAM_PROJECT
                     foreach (var result in results){
                         int rowIndex = dgvOutboundSearch.Rows.Add();
                         DataGridViewRow row = dgvOutboundSearch.Rows[rowIndex];
-
-                        string[] cellValues = new string[]
-                {
-                    result.Id.ToString(),
-                    result.Product,
-                    result.Item,
-                    result.Amount.ToString(),
-                    result.MProcess,
-                    result.Contact,
-                    result.RegDate.ToString("yyyy-MM-dd")
-                };
 
                         // 결과를 행에 넣습니다.
                         row.Cells["outsearch_id"].Value = result.Id.ToString();

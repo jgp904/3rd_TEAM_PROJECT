@@ -37,6 +37,8 @@ namespace _3rd_TEAM_PROJECT_Desk
             processRepository = new ProcessRepository();//공정
             itemRepository = new ItemRepository(); //품번
             lotRepository = new LotRepository(); //Lot번호
+
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

@@ -9,11 +9,11 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.AccountDb
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AccountDbContext))]
-    [Migration("20230803080558_account")]
-    partial class account
+    [Migration("20230804000422_Account")]
+    partial class Account
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
