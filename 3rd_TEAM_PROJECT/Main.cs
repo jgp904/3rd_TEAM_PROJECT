@@ -145,7 +145,7 @@ namespace _3rd_TEAM_PROJECT
             //GetAllAsync();
             var items = await warehouseRepository.GetAllAsync();
 
-            
+
             dgvWarehouse.Rows.Clear();
             dgvWarehouse.Refresh();
             int i = 0;

@@ -313,6 +313,8 @@
             // 
             // dgvWarehouse
             // 
+            dgvWarehouse.AllowUserToResizeColumns = false;
+            dgvWarehouse.AllowUserToResizeRows = false;
             dgvWarehouse.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvWarehouse.Columns.AddRange(new DataGridViewColumn[] { warehouse_id, warehouse_product, warehouse_item, warehouse_amount });
             dgvWarehouse.Location = new Point(0, 34);
@@ -523,6 +525,8 @@
             // 
             // dgvInbound
             // 
+            dgvInbound.AllowUserToResizeColumns = false;
+            dgvInbound.AllowUserToResizeRows = false;
             dgvInbound.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvInbound.Columns.AddRange(new DataGridViewColumn[] { inbound_id, inbound_product, inbound_item, inbound_vendor, inbound_amount, inbound_contact, inbound_regdate });
             dgvInbound.Location = new Point(0, 0);
@@ -603,6 +607,8 @@
             // 
             // dgvInboundSearch
             // 
+            dgvInboundSearch.AllowUserToResizeColumns = false;
+            dgvInboundSearch.AllowUserToResizeRows = false;
             dgvInboundSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvInboundSearch.Columns.AddRange(new DataGridViewColumn[] { insearch_id, insearch_product, insearch_item, insearch_vendor, insearch_amount, insearch_contact, insearch_regdate });
             dgvInboundSearch.Location = new Point(0, 31);
@@ -986,6 +992,8 @@
             // 
             // dgvOutBound
             // 
+            dgvOutBound.AllowUserToResizeColumns = false;
+            dgvOutBound.AllowUserToResizeRows = false;
             dgvOutBound.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvOutBound.Columns.AddRange(new DataGridViewColumn[] { outbound_id, outbound_product, outbound_item, outbound_amount, outbound_process, outbound_contact, outbound_regdate });
             dgvOutBound.Location = new Point(0, 1);
@@ -1057,6 +1065,8 @@
             // 
             // dgvOutboundSearch
             // 
+            dgvOutboundSearch.AllowUserToResizeColumns = false;
+            dgvOutboundSearch.AllowUserToResizeRows = false;
             dgvOutboundSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvOutboundSearch.Columns.AddRange(new DataGridViewColumn[] { outsearch_id, outsearch_product, outsearch_item, outsearch_amount, outsearch_process, outsearch_contact, outsearch_regdate });
             dgvOutboundSearch.Location = new Point(0, 32);
