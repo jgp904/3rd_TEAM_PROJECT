@@ -41,8 +41,8 @@ namespace _3rd_TEAM_PROJECT_Desk
 
             //-------------------------WareHouse-----------------------------//
             warehouseRepository = new WarehouseRepository(accountDbContext, mprocessDbContext);
-            inboundRepository = new InboundRepository(accountDbContext, mprocessDbContext);  // 해당 생성자가 있을 경우
-            outboundRepository = new OutboundRepository(accountDbContext, mprocessDbContext);  // 해당 생성자가 있을 경우
+            inboundRepository = new InboundRepository(accountDbContext, mprocessDbContext); 
+            outboundRepository = new OutboundRepository(accountDbContext, mprocessDbContext); 
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
