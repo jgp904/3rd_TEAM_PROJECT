@@ -28,7 +28,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             var items = await mprocessDb.WareHouses.ToListAsync();
             return items.OrderByDescending(x => x.Id).ToList();
         }
-
+        //창고 검색
         public async Task<IEnumerable<WareHouse>> GetProductAsync(string text)
         {
             text = text.ToLower();
