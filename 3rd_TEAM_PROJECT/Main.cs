@@ -145,10 +145,7 @@ namespace _3rd_TEAM_PROJECT
             //GetAllAsync();
             var items = await warehouseRepository.GetAllAsync();
 
-            if (items == null)
-            {
-                return;  //테이블에 값이 없을 경우 메소드 실행 중지
-            }
+            
             dgvWarehouse.Rows.Clear();
             dgvWarehouse.Refresh();
             int i = 0;

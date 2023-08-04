@@ -8,7 +8,7 @@ using _3rd_TEAM_PROJECT.Data;
 
 #nullable disable
 
-namespace _3rd_TEAM_PROJECT.Migrations.AccountDb
+namespace _3rd_TEAM_PROJECT.Migrations
 {
     [DbContext(typeof(AccountDbContext))]
     partial class AccountDbContextModelSnapshot : ModelSnapshot
