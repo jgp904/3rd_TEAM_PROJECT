@@ -39,7 +39,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 
             if (wareHouseItem == null)
             {
-                MessageBox.Show("해당 상품이 창고에 없습니다.");
+                MessageBox.Show("창고에 출고하려는 상품이 없습니다. 상품 정보를 확인해 주세요.");
                 return null;
             }
 
@@ -63,24 +63,31 @@ namespace _3rd_TEAM_PROJECT.Repositorys
         //수정
         public async Task<OutBound?> UpdateAsync(OutBound original, OutBound updated)
         {
-            // 창고에서 원본 출고 내역의 상품을 찾아 수량을 원상 복구합니다.
-            var wareHouseItem = await mprocessDb.WareHouses.FirstOrDefaultAsync(w => w.Product == original.Product);
-            if (wareHouseItem != null)
-            {
-                wareHouseItem.Amount += original.Amount;
-            }
-
-            // 수정된 출고 내역에 따라 창고에서 상품을 다시 감소시킵니다.
-            wareHouseItem = await mprocessDb.WareHouses.FirstOrDefaultAsync(w => w.Product == updated.Product);
+            // 수정된 출고 내역에 따라 창고에서 상품을 감소시킵니다.
+            var wareHouseItem = await mprocessDb.WareHouses.FirstOrDefaultAsync(w => w.Product == updated.Product);
             if (wareHouseItem != null)
             {
                 // 수정된 수량이 현재 창고에 있는 수량보다 많다면 에러를 반환합니다.
                 if (wareHouseItem.Amount < updated.Amount)
                 {
                     MessageBox.Show("창고의 재고 수량이 출고하려는 수량보다 적습니다.");
+                    return null; // or handle this situation differently, according to your needs
+                }
+
+                if (wareHouseItem == null)
+                {
+                    MessageBox.Show("창고에 출고하려는 상품이 없습니다. 상품 정보를 확인해 주세요.");
+                    return null;
                 }
 
                 wareHouseItem.Amount -= updated.Amount;
+            }
+
+            // 창고에서 원본 출고 내역의 상품을 찾아 수량을 원상 복구합니다.
+            var originalWareHouseItem = await mprocessDb.WareHouses.FirstOrDefaultAsync(w => w.Product == original.Product);
+            if (originalWareHouseItem != null)
+            {
+                originalWareHouseItem.Amount += original.Amount;
             }
 
             // 출고 내역을 수정합니다.

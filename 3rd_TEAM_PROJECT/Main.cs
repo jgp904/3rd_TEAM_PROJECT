@@ -142,7 +142,6 @@ namespace _3rd_TEAM_PROJECT
         private async void LoadWarehouse()
         {
             txtWarehouseSearch.Clear();
-
             //GetAllAsync();
             var items = await warehouseRepository.GetAllAsync();
 
@@ -569,6 +568,7 @@ namespace _3rd_TEAM_PROJECT
                     foreach (var result in results){
                         int rowIndex = dgvOutboundSearch.Rows.Add();
                         DataGridViewRow row = dgvOutboundSearch.Rows[rowIndex];
+
 
                         // 결과를 행에 넣습니다.
                         row.Cells["outsearch_id"].Value = result.Id.ToString();

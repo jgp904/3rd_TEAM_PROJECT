@@ -18,8 +18,8 @@ namespace _3rd_TEAM_PROJECT.Repositorys
 
         public WarehouseRepository(AccountDbContext accountDbContext, MProcessDbcontext mProcessDbcontext)
         {
-            this.accountDb = accountDbContext;
-            this.mprocessDb = mProcessDbcontext;
+            accountDb = accountDbContext;
+            mprocessDb = mProcessDbcontext;
         }
 
         //창고 목록 불러오기
@@ -28,7 +28,7 @@ namespace _3rd_TEAM_PROJECT.Repositorys
             var items = await mprocessDb.WareHouses.ToListAsync();
             return items.OrderByDescending(x => x.Id).ToList();
         }
-
+        //창고 검색
         public async Task<IEnumerable<WareHouse>> GetProductAsync(string text)
         {
             text = text.ToLower();
